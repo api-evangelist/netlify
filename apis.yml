@@ -15,7 +15,7 @@ apis:
     properties:
       - url: https://open-api.netlify.com/
         type: Documentation
-      - url: openapinetlify-openapi-original.yml
+      - url: openapi/netlify-openapi-original.yml
         type: OpenAPI
     description: >-
       Netlify is a hosting service for the programmable web. It understands your
@@ -48,11 +48,6 @@ common:
     type: Sign Up
 created: 2023/11/14
 modified: '2024-12-15'
-overlays:
-  - url: overlays/apis-io-search.yml
-    type: APIs.io Search
-  - url: overlays/apis-io-search.yml
-    type: API Evangelist Ratings
 description: >-
   Netlify is a remote-first cloud computing company that offers a development
   platform that includes build, deploy, and serverless backend services for web
