@@ -15,7 +15,7 @@ apis:
     properties:
       - url: https://open-api.netlify.com/
         type: Documentation
-      - url: properties/netlify-openapi-original.yml
+      - url: openapinetlify-openapi-original.yml
         type: OpenAPI
     description: >-
       Netlify is a hosting service for the programmable web. It understands your
