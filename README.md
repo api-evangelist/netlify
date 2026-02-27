@@ -1,5 +1,5 @@
 # Netlify (netlify)
-Netlify is a cloud computing company that offers a platform for deploying, hosting, and managing websites and web applications. The platform provides a simple and efficient way for developers to build, deploy, and scale their projects without the hassle of managing servers or infrastructure. With features such as continuous deployment, automatic SSL certificate provisioning, and global CDN, Netlify allows developers to focus on writing code and creating great user experiences. Additionally, Netlify offers tools for collaboration, performance monitoring, and analytics, making it a comprehensive solution for modern web development. Overall, Netlify provides a reliable and powerful platform for developers to streamline their workflow and deliver high-quality projects to users around the world.
+Netlify is a cloud platform for building, deploying, and scaling modern web applications with continuous deployment, serverless functions, and edge computing capabilities.
 
 **URL:** [Visit APIs.json URL](
 https://raw.githubusercontent.com/api-search/infrastructure/main/_apis/netlify/apis.md)
@@ -12,12 +12,12 @@ https://raw.githubusercontent.com/api-search/infrastructure/main/_apis/netlify/a
 
 ## Tags:
 
- - Cloud, Serverless, Websites
+ - Cloud, Continuous Deployment, JAMstack, Serverless, Serverless Functions, Static Sites, Web Hosting, Websites
 
 ## Timestamps
 
 - **Created:** 2023/11/14 
-- **Modified:** 2024-12-15 
+- **Modified:** 2025-01-02 
 
 ## APIs
 
@@ -30,13 +30,6 @@ REST-style API that uses JSON for serialization and OAuth 2 for
 authentication.
 
 **Human URL:** [https://docs.netlify.com/](https://docs.netlify.com/)
-
-**Base URL:** [https://api.example.com](https://api.example.com)
-
-
-#### Tags:
-
- - No Tags
 
 #### Properties
 
@@ -53,10 +46,15 @@ authentication.
 - [CLI](https://www.netlify.com/support/)
 - [Privacy Policy](https://www.netlify.com/privacy/)
 - [Sign Up](https://app.netlify.com/signup)
+- [Portal](https://app.netlify.com/)
+- [Status](https://www.netlifystatus.com/)
+- [Pricing](https://www.netlify.com/pricing/)
 
 ## Maintainers
 
 **FN:** API Evangelist
 
 **Email:** info@apievangelist.com
+**FN:** Netlify
 
+**Email:** support@netlify.com
