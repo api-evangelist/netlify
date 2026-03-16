@@ -110,7 +110,7 @@ common:
 - url: https://open-api.netlify.com/swagger.json
   type: OpenAPI
 created: 2023/11/14
-modified: '2026-03-03'
+modified: '2026-03-16'
 position: Consuming
 description: Netlify is a cloud platform for building, deploying, and scaling modern web applications with continuous deployment, serverless functions, and edge computing capabilities.
 maintainers:
