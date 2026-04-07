@@ -3,121 +3,121 @@ url: '
 
   https://raw.githubusercontent.com/api-search/infrastructure/main/_apis/netlify/apis.md'
 apis:
-- aid: netlify:netlify-api
-  name: Netlify API
-  tags:
-  - Hosting
-  - Deploys
-  - Sites
-  - DNS
-  - Forms
-  - Webhooks
-  - Serverless
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-  baseURL: https://api.netlify.com/api/v1/
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  overlays:
-  - url: '
+  - aid: netlify:netlify-api
+    name: Netlify API
+    tags:
+      - Hosting
+      - Deploys
+      - Sites
+      - DNS
+      - Forms
+      - Webhooks
+      - Serverless
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://api.netlify.com/api/v1/
+    humanURL: 
+      https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+    overlays:
+      - url: '
 
-      overlays/https://open-api.netlify.com/6dac5474-6daf-41e6-8a14-6d9bcb8aca52-openapi-search.yml'
-    type: APIs.io Search
-  properties:
-  - url: https://open-api.netlify.com/
-    type: Documentation
-  - url: openapi/netlify-openapi-original.yml
-    type: OpenAPI
-  - url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-    type: Getting Started
-  - url: https://docs.netlify.com/api-and-cli-guides/overview/
-    type: API Guides
-  - url: https://github.com/netlify/open-api
-    type: OpenAPI Source
-  description: '
-
-    Netlify is a hosting service for the programmable web. It understands your
-
-    documents and provides an API to handle atomic deploys of websites, manage
-
-    form submissions, inject JavaScript snippets, and much more. This is a
-
-    REST-style API that uses JSON for serialization and OAuth 2 for
-
-    authentication.'
+          overlays/https://open-api.netlify.com/6dac5474-6daf-41e6-8a14-6d9bcb8aca52-openapi-search.yml'
+        type: APIs.io Search
+    properties:
+      - url: https://open-api.netlify.com/
+        type: Documentation
+      - url: openapi/netlify-openapi-original.yml
+        type: OpenAPI
+      - url: 
+          https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+        type: Getting Started
+      - url: https://docs.netlify.com/api-and-cli-guides/overview/
+        type: API Guides
+      - url: https://github.com/netlify/open-api
+        type: OpenAPI Source
+    description: >-
+      Netlify is a hosting service for the programmable web. It understands your documents
+      and provides an API to handle atomic deploys of websites, manage form submissions,
+      inject JavaScript snippets, and much more. This is a REST-style API that uses
+      JSON for serialization and OAuth 2 for authentication.
 name: Netlify
 tags:
-- Cloud
-- Continuous Deployment
-- JAMstack
-- Serverless
-- Serverless Functions
-- Static Sites
-- Web Hosting
-- Websites
-- Edge Computing
-- CDN
+  - Cloud
+  - Continuous Deployment
+  - JAMstack
+  - Serverless
+  - Serverless Functions
+  - Static Sites
+  - Web Hosting
+  - Websites
+  - Edge Computing
+  - CDN
 type: Contract
 image: https://www.netlify.com/v3/img/components/logomark.png
 access: 3rd-Party
 common:
-- url: https://www.netlify.com/legal/terms-of-use/
-  type: Terms of Service
-- url: https://netlify.com/blog/
-  type: Blog
-- url: https://netlify.com/changelog/
-  type: Change Log
-- url: https://answers.netlify.com/
-  type: Forum
-- url: https://www.netlify.com/support/
-  type: Support
-- url: https://www.netlify.com/support/
-  type: CLI
-- url: https://www.netlify.com/privacy/
-  type: Privacy Policy
-- url: https://app.netlify.com/signup
-  type: Sign Up
-- url: https://app.netlify.com/
-  type: Portal
-- url: https://www.netlifystatus.com/
-  type: Status
-- url: https://www.netlify.com/pricing/
-  type: Pricing
-- url: https://docs.netlify.com/
-  type: Documentation
-- url: https://docs.netlify.com/start/get-started-guide/
-  type: Getting Started
-- url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  type: Authentication
-- url: https://github.com/netlify
-  type: GitHub Organization
-- url: https://github.com/netlify/open-api
-  type: GitHub Repository
-- url: https://github.com/netlify/cli
-  type: GitHub Repository
-- url: https://cli.netlify.com/
-  type: CLI Documentation
-- url: https://developers.netlify.com/sdk/
-  type: SDK
-- url: https://www.netlify.com/about/
-  type: About
-- url: https://www.netlify.com/contact/
-  type: Contact
-- url: https://www.netlify.com/security/
-  type: Security
-- url: https://www.netlify.com/gdpr-ccpa/
-  type: GDPR Policy
-- url: https://x.com/netlify
-  type: X (Twitter)
-- url: https://open-api.netlify.com/swagger.json
-  type: OpenAPI
+  - url: https://www.netlify.com/legal/terms-of-use/
+    type: Terms of Service
+  - url: https://netlify.com/blog/
+    type: Blog
+  - url: https://netlify.com/changelog/
+    type: Change Log
+  - url: https://answers.netlify.com/
+    type: Forum
+  - url: https://www.netlify.com/support/
+    type: Support
+  - url: https://www.netlify.com/support/
+    type: CLI
+  - url: https://www.netlify.com/privacy/
+    type: Privacy Policy
+  - url: https://app.netlify.com/signup
+    type: Sign Up
+  - url: https://app.netlify.com/
+    type: Portal
+  - url: https://www.netlifystatus.com/
+    type: Status
+  - url: https://www.netlify.com/pricing/
+    type: Pricing
+  - url: https://docs.netlify.com/
+    type: Documentation
+  - url: https://docs.netlify.com/start/get-started-guide/
+    type: Getting Started
+  - url: 
+      https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+    type: Authentication
+  - url: https://github.com/netlify
+    type: GitHub Organization
+  - url: https://github.com/netlify/open-api
+    type: GitHub Repository
+  - url: https://github.com/netlify/cli
+    type: GitHub Repository
+  - url: https://cli.netlify.com/
+    type: CLI Documentation
+  - url: https://developers.netlify.com/sdk/
+    type: SDK
+  - url: https://www.netlify.com/about/
+    type: About
+  - url: https://www.netlify.com/contact/
+    type: Contact
+  - url: https://www.netlify.com/security/
+    type: Security
+  - url: https://www.netlify.com/gdpr-ccpa/
+    type: GDPR Policy
+  - url: https://x.com/netlify
+    type: X (Twitter)
+  - url: https://open-api.netlify.com/swagger.json
+    type: OpenAPI
 created: 2023/11/14
 modified: '2026-03-16'
 position: Consuming
-description: Netlify is a cloud platform for building, deploying, and scaling modern web applications with continuous deployment, serverless functions, and edge computing capabilities.
+description: Netlify is a cloud platform for building, deploying, and scaling 
+  modern web applications with continuous deployment, serverless functions, and 
+  edge computing capabilities.
 maintainers:
-- FN: Kin Lane
-  url: http://apievangelist.com
-  email: kin@apievangelist.com
-- name: Netlify
-  email: support@netlify.com
-  url: https://www.netlify.com
+  - FN: Kin Lane
+    url: http://apievangelist.com
+    email: kin@apievangelist.com
+  - name: Netlify
+    email: support@netlify.com
+    url: https://www.netlify.com
 specificationVersion: '0.18'

@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Netlify's API documentation
+  title: Netlify Netlify's API documentation
   description: |-
     Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
 
@@ -19,110 +19,108 @@ externalDocs:
   description: Online documentation
   url: https://www.netlify.com/docs/api/
 servers:
-- url: https://api.netlify.com/api/v1
+  - url: https://api.netlify.com/api/v1
 security:
-- netlifyAuth: []
+  - netlifyAuth: []
 tags:
-- name: ticket
-  x-displayName: Ticket
-- name: accessToken
-  x-displayName: Access token
-- name: user
-  x-displayName: User
-- name: accountMembership
-  x-displayName: Accounts
-- name: member
-  x-displayName: Member
-- name: accountType
-  x-displayName: Access type
-- name: paymentMethod
-  x-displayName: Payment method
-- name: auditLog
-  x-displayName: Audit log
-- name: site
-  x-displayName: Site
-- name: environmentVariables
-  x-displayName: Environment variables
-- name: file
-  x-displayName: File
-- name: metadata
-  x-displayName: Metadata
-- name: snippet
-  x-displayName: Snippet
-- name: purge
-  x-displayName: Cache purge
-- name: dnsZone
-  x-displayName: DNS zone
-- name: sniCertificate
-  x-displayName: SNI certificate
-- name: deploy
-  x-displayName: Deploy
-- name: deployedBranch
-  x-displayName: Deployed branch
-- name: deployKey
-  x-displayName: Deploy key
-- name: build
-  x-displayName: Build
-- name: buildLogMsg
-  x-displayName: Build log message
-- name: hook
-  x-displayName: Hook
-- name: hookType
-  x-displayName: Hook type
-- name: buildHook
-  x-displayName: Build hook
-- name: service
-  x-displayName: Service
-- name: serviceInstance
-  x-displayName: Service instance
-- name: function
-  x-displayName: Function
-- name: form
-  x-displayName: Form
-- name: submission
-  x-displayName: Form submission
-- name: splitTest
-  x-displayName: Split test
-- name: asset
-  x-displayName: Asset
-- name: assetPublicSignature
-  x-displayName: Asset public signature
-- name: devServer
-  x-displayName: Dev server
-- name: devServerHook
-  x-displayName: Dev server hook
+  - name: ticket
+    x-displayName: Ticket
+  - name: accessToken
+    x-displayName: Access token
+  - name: user
+    x-displayName: User
+  - name: accountMembership
+    x-displayName: Accounts
+  - name: member
+    x-displayName: Member
+  - name: accountType
+    x-displayName: Access type
+  - name: paymentMethod
+    x-displayName: Payment method
+  - name: auditLog
+    x-displayName: Audit log
+  - name: site
+    x-displayName: Site
+  - name: environmentVariables
+    x-displayName: Environment variables
+  - name: file
+    x-displayName: File
+  - name: metadata
+    x-displayName: Metadata
+  - name: snippet
+    x-displayName: Snippet
+  - name: purge
+    x-displayName: Cache purge
+  - name: dnsZone
+    x-displayName: DNS zone
+  - name: sniCertificate
+    x-displayName: SNI certificate
+  - name: deploy
+    x-displayName: Deploy
+  - name: deployedBranch
+    x-displayName: Deployed branch
+  - name: deployKey
+    x-displayName: Deploy key
+  - name: build
+    x-displayName: Build
+  - name: buildLogMsg
+    x-displayName: Build log message
+  - name: hook
+    x-displayName: Hook
+  - name: hookType
+    x-displayName: Hook type
+  - name: buildHook
+    x-displayName: Build hook
+  - name: service
+    x-displayName: Service
+  - name: serviceInstance
+    x-displayName: Service instance
+  - name: function
+    x-displayName: Function
+  - name: form
+    x-displayName: Form
+  - name: submission
+    x-displayName: Form submission
+  - name: splitTest
+    x-displayName: Split test
+  - name: asset
+    x-displayName: Asset
+  - name: assetPublicSignature
+    x-displayName: Asset public signature
+  - name: devServer
+    x-displayName: Dev server
+  - name: devServerHook
+    x-displayName: Dev server hook
 paths:
   /sites:
     get:
       tags:
-      - site
-      description: "**Note:** Environment variable keys and values have moved from\
-        \ `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars)\
-        \ to retrieve site environment variables."
+        - site
+      description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables."
       operationId: listSites
       parameters:
-      - name: name
-        in: query
-        schema:
-          type: string
-      - name: filter
-        in: query
-        schema:
-          type: string
-          enum:
-          - all
-          - owner
-          - guest
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+            enum:
+              - all
+              - owner
+              - guest
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -140,16 +138,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - site
-      description: "**Note:** Environment variable keys and values have moved from\
-        \ `build_settings.env` and `repo.env` to a new endpoint. Please use [createEnvVars](#tag/environmentVariables/operation/createEnvVars)\
-        \ to create environment variables for a site."
+        - site
+      description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [createEnvVars](#tag/environmentVariables/operation/createEnvVars) to create environment variables for a site."
       operationId: createSite
       parameters:
-      - name: configure_dns
-        in: query
-        schema:
-          type: boolean
+        - name: configure_dns
+          in: query
+          schema:
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -173,23 +169,21 @@ paths:
   /sites/{site_id}:
     get:
       tags:
-      - site
-      description: "**Note:** Environment variable keys and values have moved from\
-        \ `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars)\
-        \ to retrieve site environment variables."
+        - site
+      description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables."
       operationId: getSite
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: feature_flags
-        in: query
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: feature_flags
+          in: query
+          schema:
+            type: string
+            x-internal: true
           x-internal: true
-        x-internal: true
       responses:
         "200":
           description: OK
@@ -205,14 +199,14 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-      - site
+        - site
       operationId: deleteSite
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Deleted
@@ -225,17 +219,15 @@ paths:
                 $ref: '#/components/schemas/error'
     patch:
       tags:
-      - site
-      description: "**Note:** Environment variable keys and values have moved from\
-        \ `build_settings.env` and `repo.env` to a new endpoint. Please use [updateEnvVar](#tag/environmentVariables/operation/updateEnvVar)\
-        \ to update a site's environment variables."
+        - site
+      description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [updateEnvVar](#tag/environmentVariables/operation/updateEnvVar) to update a site's environment variables."
       operationId: updateSite
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -259,14 +251,14 @@ paths:
   /sites/{site_id}/ssl:
     get:
       tags:
-      - sniCertificate
+        - sniCertificate
       operationId: showSiteTLSCertificate
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -282,26 +274,26 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - sniCertificate
+        - sniCertificate
       operationId: provisionSiteTLSCertificate
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: certificate
-        in: query
-        schema:
-          type: string
-      - name: key
-        in: query
-        schema:
-          type: string
-      - name: ca_certificates
-        in: query
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: certificate
+          in: query
+          schema:
+            type: string
+        - name: key
+          in: query
+          schema:
+            type: string
+        - name: ca_certificates
+          in: query
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -318,47 +310,42 @@ paths:
   /accounts/{account_id}/env:
     get:
       tags:
-      - environmentVariables
-      description: "Returns all environment variables for an account or site. An account\
-        \ corresponds to a team in the Netlify UI. To use this endpoint, your site\
-        \ must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\"\
-        >classic environment variables experience</a>.  Migrate now with the Netlify\
-        \ UI."
+        - environmentVariables
+      description: "Returns all environment variables for an account or site. An account corresponds to a team in the Netlify UI. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
       operationId: getEnvVars
       parameters:
-      - name: account_id
-        in: path
-        description: Scope response to account_id
-        required: true
-        schema:
-          type: string
-      - name: context_name
-        in: query
-        description: Filter by deploy context
-        schema:
-          type: string
-          enum:
-          - all
-          - dev
-          - branch-deploy
-          - deploy-preview
-          - production
-      - name: scope
-        in: query
-        description: Filter by scope
-        schema:
-          type: string
-          enum:
-          - builds
-          - functions
-          - runtime
-          - post-processing
-      - name: site_id
-        in: query
-        description: "If specified, only return environment variables set on this\
-          \ site"
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          description: Scope response to account_id
+          required: true
+          schema:
+            type: string
+        - name: context_name
+          in: query
+          description: Filter by deploy context
+          schema:
+            type: string
+            enum:
+              - all
+              - dev
+              - branch-deploy
+              - deploy-preview
+              - production
+        - name: scope
+          in: query
+          description: Filter by scope
+          schema:
+            type: string
+            enum:
+              - builds
+              - functions
+              - runtime
+              - post-processing
+        - name: site_id
+          in: query
+          description: "If specified, only return environment variables set on this site"
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -376,26 +363,21 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - environmentVariables
-      description: "Creates new environment variables. Granular scopes are available\
-        \ on Pro plans and above.  To use this endpoint, your site must no longer\
-        \ be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\"\
-        >classic environment variables experience</a>.  Migrate now with the Netlify\
-        \ UI."
+        - environmentVariables
+      description: "Creates new environment variables. Granular scopes are available on Pro plans and above.  To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
       operationId: createEnvVars
       parameters:
-      - name: account_id
-        in: path
-        description: Scope response to account_id
-        required: true
-        schema:
-          type: string
-      - name: site_id
-        in: query
-        description: "If provided, create an environment variable on the site level,\
-          \ not the account level"
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          description: Scope response to account_id
+          required: true
+          schema:
+            type: string
+        - name: site_id
+          in: query
+          description: "If provided, create an environment variable on the site level, not the account level"
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -406,30 +388,24 @@ paths:
                 properties:
                   key:
                     type: string
-                    description: "The existing or new name of the key, if you wish\
-                      \ to rename it (case-sensitive)"
+                    description: "The existing or new name of the key, if you wish to rename it (case-sensitive)"
                   scopes:
                     type: array
-                    description: The scopes that this environment variable is set
-                      to (Pro plans and above)
+                    description: The scopes that this environment variable is set to (Pro plans and above)
                     items:
                       type: string
                       enum:
-                      - builds
-                      - functions
-                      - runtime
-                      - post-processing
+                        - builds
+                        - functions
+                        - runtime
+                        - post-processing
                   values:
                     type: array
                     items:
                       $ref: '#/components/schemas/envVarValue'
                   is_secret:
                     type: boolean
-                    description: "Secret values are only readable by code running\
-                      \ on Netlify’s systems. With secrets, only the local development\
-                      \ context values are readable from the UI, API, and CLI. By\
-                      \ default, environment variable values are not secret. (Enterprise\
-                      \ plans only)"
+                    description: "Secret values are only readable by code running on Netlify’s systems. With secrets, only the local development context values are readable from the UI, API, and CLI. By default, environment variable values are not secret. (Enterprise plans only)"
         required: false
       responses:
         "201":
@@ -450,39 +426,37 @@ paths:
   /api/v1/sites/{site_id}/env:
     get:
       tags:
-      - environmentVariables
-      description: Returns all environment variables for a site. This convenience
-        method behaves the same as `getEnvVars` but doesn't require an `account_id`
-        as input.
+        - environmentVariables
+      description: Returns all environment variables for a site. This convenience method behaves the same as `getEnvVars` but doesn't require an `account_id` as input.
       operationId: getSiteEnvVars
       parameters:
-      - name: context_name
-        in: query
-        description: Filter by deploy context
-        schema:
-          type: string
-          enum:
-          - all
-          - dev
-          - branch-deploy
-          - deploy-preview
-          - production
-      - name: scope
-        in: query
-        description: Filter by scope
-        schema:
-          type: string
-          enum:
-          - builds
-          - functions
-          - runtime
-          - post_processing
-      - name: site_id
-        in: path
-        description: Scope response to site_id
-        required: true
-        schema:
-          type: string
+        - name: context_name
+          in: query
+          description: Filter by deploy context
+          schema:
+            type: string
+            enum:
+              - all
+              - dev
+              - branch-deploy
+              - deploy-preview
+              - production
+        - name: scope
+          in: query
+          description: Filter by scope
+          schema:
+            type: string
+            enum:
+              - builds
+              - functions
+              - runtime
+              - post_processing
+        - name: site_id
+          in: path
+          description: Scope response to site_id
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -501,31 +475,27 @@ paths:
   /accounts/{account_id}/env/{key}:
     get:
       tags:
-      - environmentVariables
-      description: "Returns an individual environment variable. To use this endpoint,\
-        \ your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\"\
-        >classic environment variables experience</a>.  Migrate now with the Netlify\
-        \ UI."
+        - environmentVariables
+      description: "Returns an individual environment variable. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
       operationId: getEnvVar
       parameters:
-      - name: account_id
-        in: path
-        description: Scope response to account_id
-        required: true
-        schema:
-          type: string
-      - name: key
-        in: path
-        description: The environment variable key (case-sensitive)
-        required: true
-        schema:
-          type: string
-      - name: site_id
-        in: query
-        description: "If provided, return the environment variable for a specific\
-          \ site (no merging is performed)"
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          description: Scope response to account_id
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: path
+          description: The environment variable key (case-sensitive)
+          required: true
+          schema:
+            type: string
+        - name: site_id
+          in: query
+          description: "If provided, return the environment variable for a specific site (no merging is performed)"
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -541,31 +511,27 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - environmentVariables
-      description: "Updates an existing environment variable and all of its values.\
-        \ Existing values will be replaced by values provided. To use this endpoint,\
-        \ your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\"\
-        >classic environment variables experience</a>.  Migrate now with the Netlify\
-        \ UI."
+        - environmentVariables
+      description: "Updates an existing environment variable and all of its values. Existing values will be replaced by values provided. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
       operationId: updateEnvVar
       parameters:
-      - name: account_id
-        in: path
-        description: Scope response to account_id
-        required: true
-        schema:
-          type: string
-      - name: key
-        in: path
-        description: The existing environment variable key name (case-sensitive)
-        required: true
-        schema:
-          type: string
-      - name: site_id
-        in: query
-        description: "If provided, update an environment variable set on this site"
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          description: Scope response to account_id
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: path
+          description: The existing environment variable key name (case-sensitive)
+          required: true
+          schema:
+            type: string
+        - name: site_id
+          in: query
+          description: "If provided, update an environment variable set on this site"
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -574,30 +540,24 @@ paths:
               properties:
                 key:
                   type: string
-                  description: "The existing or new name of the key, if you wish to\
-                    \ rename it (case-sensitive)"
+                  description: "The existing or new name of the key, if you wish to rename it (case-sensitive)"
                 scopes:
                   type: array
-                  description: The scopes that this environment variable is set to
-                    (Pro plans and above)
+                  description: The scopes that this environment variable is set to (Pro plans and above)
                   items:
                     type: string
                     enum:
-                    - builds
-                    - functions
-                    - runtime
-                    - post-processing
+                      - builds
+                      - functions
+                      - runtime
+                      - post-processing
                 values:
                   type: array
                   items:
                     $ref: '#/components/schemas/envVarValue'
                 is_secret:
                   type: boolean
-                  description: "Secret values are only readable by code running on\
-                    \ Netlify’s systems. With secrets, only the local development\
-                    \ context values are readable from the UI, API, and CLI. By default,\
-                    \ environment variable values are not secret. (Enterprise plans\
-                    \ only)"
+                  description: "Secret values are only readable by code running on Netlify’s systems. With secrets, only the local development context values are readable from the UI, API, and CLI. By default, environment variable values are not secret. (Enterprise plans only)"
         required: false
       responses:
         "200":
@@ -615,30 +575,27 @@ paths:
       x-codegen-request-body-name: env_var
     delete:
       tags:
-      - environmentVariables
-      description: "Deletes an environment variable. To use this endpoint, your site\
-        \ must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\"\
-        >classic environment variables experience</a>.  Migrate now with the Netlify\
-        \ UI."
+        - environmentVariables
+      description: "Deletes an environment variable. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
       operationId: deleteEnvVar
       parameters:
-      - name: account_id
-        in: path
-        description: Scope response to account_id
-        required: true
-        schema:
-          type: string
-      - name: key
-        in: path
-        description: The environment variable key (case-sensitive)
-        required: true
-        schema:
-          type: string
-      - name: site_id
-        in: query
-        description: "If provided, delete the environment variable from this site"
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          description: Scope response to account_id
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: path
+          description: The environment variable key (case-sensitive)
+          required: true
+          schema:
+            type: string
+        - name: site_id
+          in: query
+          description: "If provided, delete the environment variable from this site"
+          schema:
+            type: string
       responses:
         "204":
           description: No Content (success)
@@ -651,30 +608,27 @@ paths:
                 $ref: '#/components/schemas/error'
     patch:
       tags:
-      - environmentVariables
-      description: "Updates or creates a new value for an existing environment variable.\
-        \ To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\"\
-        >classic environment variables experience</a>.  Migrate now with the Netlify\
-        \ UI."
+        - environmentVariables
+      description: "Updates or creates a new value for an existing environment variable. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
       operationId: setEnvVarValue
       parameters:
-      - name: account_id
-        in: path
-        description: Scope response to account_id
-        required: true
-        schema:
-          type: string
-      - name: key
-        in: path
-        description: The existing environment variable key name (case-sensitive)
-        required: true
-        schema:
-          type: string
-      - name: site_id
-        in: query
-        description: "If provided, update an environment variable set on this site"
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          description: Scope response to account_id
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: path
+          description: The existing environment variable key name (case-sensitive)
+          required: true
+          schema:
+            type: string
+        - name: site_id
+          in: query
+          description: "If provided, update an environment variable set on this site"
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -683,20 +637,17 @@ paths:
               properties:
                 context:
                   type: string
-                  description: The deploy context in which this value will be used.
-                    `dev` refers to local development when running `netlify dev`.
-                    `branch` must be provided with a value in `context_parameter`.
+                  description: The deploy context in which this value will be used. `dev` refers to local development when running `netlify dev`. `branch` must be provided with a value in `context_parameter`.
                   enum:
-                  - all
-                  - dev
-                  - branch-deploy
-                  - deploy-preview
-                  - production
-                  - branch
+                    - all
+                    - dev
+                    - branch-deploy
+                    - deploy-preview
+                    - production
+                    - branch
                 context_parameter:
                   type: string
-                  description: "An additional parameter for custom branches. Currently,\
-                    \ this is used for providing a branch name when `context=branch`."
+                  description: "An additional parameter for custom branches. Currently, this is used for providing a branch name when `context=branch`."
                 value:
                   type: string
                   description: The environment variable's unencrypted value
@@ -718,37 +669,33 @@ paths:
   /accounts/{account_id}/env/{key}/value/{id}:
     delete:
       tags:
-      - environmentVariables
-      description: "Deletes a specific environment variable value. To use this endpoint,\
-        \ your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\"\
-        >classic environment variables experience</a>.  Migrate now with the Netlify\
-        \ UI."
+        - environmentVariables
+      description: "Deletes a specific environment variable value. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
       operationId: deleteEnvVarValue
       parameters:
-      - name: account_id
-        in: path
-        description: Scope response to account_id
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        description: The environment variable value's ID
-        required: true
-        schema:
-          type: string
-      - name: key
-        in: path
-        description: The environment variable key name (case-sensitive)
-        required: true
-        schema:
-          type: string
-      - name: site_id
-        in: query
-        description: "If provided, delete the value from an environment variable on\
-          \ this site"
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          description: Scope response to account_id
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: The environment variable value's ID
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: path
+          description: The environment variable key name (case-sensitive)
+          required: true
+          schema:
+            type: string
+        - name: site_id
+          in: query
+          description: "If provided, delete the value from an environment variable on this site"
+          schema:
+            type: string
       responses:
         "204":
           description: No Content (success)
@@ -762,18 +709,18 @@ paths:
   /sites/{site_id}/functions:
     get:
       tags:
-      - function
+        - function
       operationId: searchSiteFunctions
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: filter
-        in: query
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -792,14 +739,14 @@ paths:
   /sites/{site_id}/forms:
     get:
       tags:
-      - form
+        - form
       operationId: listSiteForms
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -818,19 +765,19 @@ paths:
   /sites/{site_id}/forms/{form_id}:
     delete:
       tags:
-      - form
+        - form
       operationId: deleteSiteForm
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: form_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: form_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Deleted
@@ -844,24 +791,24 @@ paths:
   /sites/{site_id}/submissions:
     get:
       tags:
-      - submission
+        - submission
       operationId: listSiteSubmissions
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -880,14 +827,14 @@ paths:
   /sites/{site_id}/files:
     get:
       tags:
-      - file
+        - file
       operationId: listSiteFiles
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -906,14 +853,14 @@ paths:
   /sites/{site_id}/assets:
     get:
       tags:
-      - asset
+        - asset
       operationId: listSiteAssets
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -931,34 +878,34 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - asset
+        - asset
       operationId: createSiteAsset
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: name
-        in: query
-        required: true
-        schema:
-          type: string
-      - name: size
-        in: query
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: content_type
-        in: query
-        required: true
-        schema:
-          type: string
-      - name: visibility
-        in: query
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: size
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: content_type
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: visibility
+          in: query
+          schema:
+            type: string
       responses:
         "201":
           description: Created
@@ -975,19 +922,19 @@ paths:
   /sites/{site_id}/assets/{asset_id}:
     get:
       tags:
-      - asset
+        - asset
       operationId: getSiteAssetInfo
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: asset_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: asset_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1003,24 +950,24 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - asset
+        - asset
       operationId: updateSiteAsset
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: asset_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: state
-        in: query
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: asset_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: state
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: Updated
@@ -1036,19 +983,19 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-      - asset
+        - asset
       operationId: deleteSiteAsset
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: asset_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: asset_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Deleted
@@ -1062,19 +1009,19 @@ paths:
   /sites/{site_id}/assets/{asset_id}/public_signature:
     get:
       tags:
-      - assetPublicSignature
+        - assetPublicSignature
       operationId: getSiteAssetPublicSignature
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: asset_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: asset_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1091,19 +1038,19 @@ paths:
   /sites/{site_id}/files/{file_path}:
     get:
       tags:
-      - file
+        - file
       operationId: getSiteFileByPathName
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: file_path
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: file_path
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1120,7 +1067,7 @@ paths:
   /purge:
     post:
       tags:
-      - purge
+        - purge
       description: Purges cached content from Netlify's CDN. Supports purging by Cache-Tag.
       operationId: purgeCache
       requestBody:
@@ -1143,14 +1090,14 @@ paths:
   /sites/{site_id}/snippets:
     get:
       tags:
-      - snippet
+        - snippet
       operationId: listSiteSnippets
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1168,14 +1115,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - snippet
+        - snippet
       operationId: createSiteSnippet
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1199,19 +1146,19 @@ paths:
   /sites/{site_id}/snippets/{snippet_id}:
     get:
       tags:
-      - snippet
+        - snippet
       operationId: getSiteSnippet
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: snippet_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snippet_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1227,19 +1174,19 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - snippet
+        - snippet
       operationId: updateSiteSnippet
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: snippet_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snippet_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1259,19 +1206,19 @@ paths:
       x-codegen-request-body-name: snippet
     delete:
       tags:
-      - snippet
+        - snippet
       operationId: deleteSiteSnippet
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: snippet_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snippet_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: No content
@@ -1285,14 +1232,14 @@ paths:
   /sites/{site_id}/metadata:
     get:
       tags:
-      - metadata
+        - metadata
       operationId: getSiteMetadata
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1308,14 +1255,14 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - metadata
+        - metadata
       operationId: updateSiteMetadata
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1336,14 +1283,14 @@ paths:
   /sites/{site_id}/build_hooks:
     get:
       tags:
-      - buildHook
+        - buildHook
       operationId: listSiteBuildHooks
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1361,14 +1308,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - buildHook
+        - buildHook
       operationId: createSiteBuildHook
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1392,19 +1339,19 @@ paths:
   /sites/{site_id}/build_hooks/{id}:
     get:
       tags:
-      - buildHook
+        - buildHook
       operationId: getSiteBuildHook
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1420,19 +1367,19 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - buildHook
+        - buildHook
       operationId: updateSiteBuildHook
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1452,19 +1399,19 @@ paths:
       x-codegen-request-body-name: buildHook
     delete:
       tags:
-      - buildHook
+        - buildHook
       operationId: deleteSiteBuildHook
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: No content
@@ -1478,60 +1425,60 @@ paths:
   /sites/{site_id}/deploys:
     get:
       tags:
-      - deploy
+        - deploy
       operationId: listSiteDeploys
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: deploy-previews
-        in: query
-        schema:
-          type: boolean
-      - name: production
-        in: query
-        schema:
-          type: boolean
-      - name: state
-        in: query
-        schema:
-          type: string
-          enum:
-          - new
-          - pending_review
-          - accepted
-          - rejected
-          - enqueued
-          - building
-          - uploading
-          - uploaded
-          - preparing
-          - prepared
-          - processing
-          - processed
-          - ready
-          - error
-          - retrying
-      - name: branch
-        in: query
-        schema:
-          type: string
-      - name: latest-published
-        in: query
-        schema:
-          type: boolean
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: deploy-previews
+          in: query
+          schema:
+            type: boolean
+        - name: production
+          in: query
+          schema:
+            type: boolean
+        - name: state
+          in: query
+          schema:
+            type: string
+            enum:
+              - new
+              - pending_review
+              - accepted
+              - rejected
+              - enqueued
+              - building
+              - uploading
+              - uploaded
+              - preparing
+              - prepared
+              - processing
+              - processed
+              - ready
+              - error
+              - retrying
+        - name: branch
+          in: query
+          schema:
+            type: string
+        - name: latest-published
+          in: query
+          schema:
+            type: boolean
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -1549,54 +1496,54 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - deploy
+        - deploy
       operationId: createSiteDeploy
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: deploy-previews
-        in: query
-        schema:
-          type: boolean
-      - name: production
-        in: query
-        schema:
-          type: boolean
-      - name: state
-        in: query
-        schema:
-          type: string
-          enum:
-          - new
-          - pending_review
-          - accepted
-          - rejected
-          - enqueued
-          - building
-          - uploading
-          - uploaded
-          - preparing
-          - prepared
-          - processing
-          - processed
-          - ready
-          - error
-          - retrying
-      - name: branch
-        in: query
-        schema:
-          type: string
-      - name: latest-published
-        in: query
-        schema:
-          type: boolean
-      - name: title
-        in: query
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: deploy-previews
+          in: query
+          schema:
+            type: boolean
+        - name: production
+          in: query
+          schema:
+            type: boolean
+        - name: state
+          in: query
+          schema:
+            type: string
+            enum:
+              - new
+              - pending_review
+              - accepted
+              - rejected
+              - enqueued
+              - building
+              - uploading
+              - uploaded
+              - preparing
+              - prepared
+              - processing
+              - processed
+              - ready
+              - error
+              - retrying
+        - name: branch
+          in: query
+          schema:
+            type: string
+        - name: latest-published
+          in: query
+          schema:
+            type: boolean
+        - name: title
+          in: query
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1620,19 +1567,19 @@ paths:
   /sites/{site_id}/deploys/{deploy_id}:
     get:
       tags:
-      - deploy
+        - deploy
       operationId: getSiteDeploy
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1648,19 +1595,19 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - deploy
+        - deploy
       operationId: updateSiteDeploy
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1683,19 +1630,19 @@ paths:
       x-codegen-request-body-name: deploy
     delete:
       tags:
-      - deploy
+        - deploy
       operationId: deleteSiteDeploy
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: No content
@@ -1709,14 +1656,14 @@ paths:
   /deploys/{deploy_id}/cancel:
     post:
       tags:
-      - deploy
+        - deploy
       operationId: cancelSiteDeploy
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "201":
           description: Cancelled
@@ -1733,19 +1680,19 @@ paths:
   /sites/{site_id}/deploys/{deploy_id}/restore:
     post:
       tags:
-      - deploy
+        - deploy
       operationId: restoreSiteDeploy
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "201":
           description: Created
@@ -1762,24 +1709,24 @@ paths:
   /sites/{site_id}/builds:
     get:
       tags:
-      - build
+        - build
       operationId: listSiteBuilds
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -1797,14 +1744,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - build
+        - build
       operationId: createSiteBuild
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1828,14 +1775,14 @@ paths:
   /sites/{site_id}/deployed-branches:
     get:
       tags:
-      - deployedBranch
+        - deployedBranch
       operationId: listSiteDeployedBranches
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1854,7 +1801,7 @@ paths:
   /sites/{site_id}/unlink_repo:
     put:
       tags:
-      - site
+        - site
       description: |-
         [Beta] Unlinks the repo from the site.
 
@@ -1864,11 +1811,11 @@ paths:
         - Delete the site's build hooks
       operationId: unlinkSiteRepo
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1882,14 +1829,14 @@ paths:
   /builds/{build_id}:
     get:
       tags:
-      - build
+        - build
       operationId: getSiteBuild
       parameters:
-      - name: build_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: build_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1906,14 +1853,14 @@ paths:
   /builds/{build_id}/log:
     post:
       tags:
-      - buildLogMsg
+        - buildLogMsg
       operationId: updateSiteBuildLog
       parameters:
-      - name: build_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: build_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1934,22 +1881,22 @@ paths:
   /builds/{build_id}/start:
     post:
       tags:
-      - build
+        - build
       operationId: notifyBuildStart
       parameters:
-      - name: build_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: buildbot_version
-        in: query
-        schema:
-          type: string
-      - name: build_version
-        in: query
-        schema:
-          type: string
+        - name: build_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: buildbot_version
+          in: query
+          schema:
+            type: string
+        - name: build_version
+          in: query
+          schema:
+            type: string
       responses:
         "204":
           description: No content
@@ -1963,14 +1910,14 @@ paths:
   /{account_id}/builds/status:
     get:
       tags:
-      - build
+        - build
       operationId: getAccountBuildStatus
       parameters:
-      - name: account_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -1989,14 +1936,14 @@ paths:
   /sites/{site_id}/dns:
     get:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: getDNSForSite
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2014,14 +1961,14 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: configureDNSForSite
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2040,14 +1987,14 @@ paths:
   /sites/{site_id}/rollback:
     put:
       tags:
-      - deploy
+        - deploy
       operationId: rollbackSiteDeploy
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: No content
@@ -2061,14 +2008,14 @@ paths:
   /deploys/{deploy_id}:
     get:
       tags:
-      - deploy
+        - deploy
       operationId: getDeploy
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2084,14 +2031,14 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-      - deploy
+        - deploy
       operationId: deleteDeploy
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: No content
@@ -2105,14 +2052,14 @@ paths:
   /deploys/{deploy_id}/lock:
     post:
       tags:
-      - deploy
+        - deploy
       operationId: lockDeploy
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2129,14 +2076,14 @@ paths:
   /deploys/{deploy_id}/unlock:
     post:
       tags:
-      - deploy
+        - deploy
       operationId: unlockDeploy
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2153,23 +2100,23 @@ paths:
   /deploys/{deploy_id}/files/{path}:
     put:
       tags:
-      - file
+        - file
       operationId: uploadDeployFile
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: path
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: size
-        in: query
-        schema:
-          type: integer
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: size
+          in: query
+          schema:
+            type: integer
       requestBody:
         content:
           application/octet-stream:
@@ -2194,39 +2141,39 @@ paths:
   /deploys/{deploy_id}/functions/{name}:
     put:
       tags:
-      - function
+        - function
       operationId: uploadDeployFunction
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: name
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: runtime
-        in: query
-        schema:
-          type: string
-      - name: invocation_mode
-        in: query
-        schema:
-          type: string
-      - name: timeout
-        in: query
-        schema:
-          type: integer
-      - name: size
-        in: query
-        schema:
-          type: integer
-      - name: X-Nf-Retry-Count
-        in: header
-        schema:
-          type: integer
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: runtime
+          in: query
+          schema:
+            type: string
+        - name: invocation_mode
+          in: query
+          schema:
+            type: string
+        - name: timeout
+          in: query
+          schema:
+            type: integer
+        - name: size
+          in: query
+          schema:
+            type: integer
+        - name: X-Nf-Retry-Count
+          in: header
+          schema:
+            type: integer
       requestBody:
         content:
           application/octet-stream:
@@ -2251,20 +2198,20 @@ paths:
   /sites/{site_id}/plugins/{package}:
     put:
       tags:
-      - x-internal
+        - x-internal
       description: This is an internal-only endpoint.
       operationId: updatePlugin
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: package
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: package
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2289,28 +2236,28 @@ paths:
   /sites/{site_id}/plugin_runs/latest:
     get:
       tags:
-      - x-internal
+        - x-internal
       description: This is an internal-only endpoint.
       operationId: getLatestPluginRuns
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: packages
-        in: query
-        required: true
-        style: form
-        explode: false
-        schema:
-          type: array
-          items:
+        - name: site_id
+          in: path
+          required: true
+          schema:
             type: string
-      - name: state
-        in: query
-        schema:
-          type: string
+        - name: packages
+          in: query
+          required: true
+          style: form
+          explode: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: state
+          in: query
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2330,15 +2277,15 @@ paths:
   /deploys/{deploy_id}/plugin_runs:
     post:
       tags:
-      - x-internal
+        - x-internal
       description: This is an internal-only endpoint.
       operationId: createPluginRun
       parameters:
-      - name: deploy_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: deploy_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2363,24 +2310,24 @@ paths:
   /forms/{form_id}/submissions:
     get:
       tags:
-      - submission
+        - submission
       operationId: listFormSubmissions
       parameters:
-      - name: form_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: form_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -2399,14 +2346,14 @@ paths:
   /hooks:
     get:
       tags:
-      - hook
+        - hook
       operationId: listHooksBySiteId
       parameters:
-      - name: site_id
-        in: query
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2424,14 +2371,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - hook
+        - hook
       operationId: createHookBySiteId
       parameters:
-      - name: site_id
-        in: query
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: query
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2455,14 +2402,14 @@ paths:
   /hooks/{hook_id}:
     get:
       tags:
-      - hook
+        - hook
       operationId: getHook
       parameters:
-      - name: hook_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: hook_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2478,14 +2425,14 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - hook
+        - hook
       operationId: updateHook
       parameters:
-      - name: hook_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: hook_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2508,14 +2455,14 @@ paths:
       x-codegen-request-body-name: hook
     delete:
       tags:
-      - hook
+        - hook
       operationId: deleteHook
       parameters:
-      - name: hook_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: hook_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: No content
@@ -2523,14 +2470,14 @@ paths:
   /hooks/{hook_id}/enable:
     post:
       tags:
-      - hook
+        - hook
       operationId: enableHook
       parameters:
-      - name: hook_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: hook_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2547,7 +2494,7 @@ paths:
   /hooks/types:
     get:
       tags:
-      - hookType
+        - hookType
       operationId: listHookTypes
       responses:
         "200":
@@ -2567,14 +2514,14 @@ paths:
   /oauth/tickets:
     post:
       tags:
-      - ticket
+        - ticket
       operationId: createTicket
       parameters:
-      - name: client_id
-        in: query
-        required: true
-        schema:
-          type: string
+        - name: client_id
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         "201":
           description: ok
@@ -2591,14 +2538,14 @@ paths:
   /oauth/tickets/{ticket_id}:
     get:
       tags:
-      - ticket
+        - ticket
       operationId: showTicket
       parameters:
-      - name: ticket_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: ticket_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: ok
@@ -2615,14 +2562,14 @@ paths:
   /oauth/tickets/{ticket_id}/exchange:
     post:
       tags:
-      - accessToken
+        - accessToken
       operationId: exchangeTicket
       parameters:
-      - name: ticket_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: ticket_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "201":
           description: ok
@@ -2639,7 +2586,7 @@ paths:
   /deploy_keys:
     get:
       tags:
-      - deployKey
+        - deployKey
       operationId: listDeployKeys
       responses:
         "200":
@@ -2658,7 +2605,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - deployKey
+        - deployKey
       operationId: createDeployKey
       responses:
         "201":
@@ -2676,14 +2623,14 @@ paths:
   /deploy_keys/{key_id}:
     get:
       tags:
-      - deployKey
+        - deployKey
       operationId: getDeployKey
       parameters:
-      - name: key_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: key_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2699,14 +2646,14 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-      - deployKey
+        - deployKey
       operationId: deleteDeployKey
       parameters:
-      - name: key_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: key_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Not Content
@@ -2720,31 +2667,29 @@ paths:
   /{account_slug}/sites:
     get:
       tags:
-      - site
-      description: "**Note:** Environment variable keys and values have moved from\
-        \ `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars)\
-        \ to retrieve site environment variables."
+        - site
+      description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables."
       operationId: listSitesForAccount
       parameters:
-      - name: name
-        in: query
-        schema:
-          type: string
-      - name: account_slug
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: account_slug
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -2762,21 +2707,19 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - site
-      description: "**Note:** Environment variable keys and values have moved from\
-        \ `build_settings.env` and `repo.env` to a new endpoint. Please use [createEnvVars](#tag/environmentVariables/operation/createEnvVars)\
-        \ to create environment variables for a site."
+        - site
+      description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [createEnvVars](#tag/environmentVariables/operation/createEnvVars) to create environment variables for a site."
       operationId: createSiteInTeam
       parameters:
-      - name: configure_dns
-        in: query
-        schema:
-          type: boolean
-      - name: account_slug
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: configure_dns
+          in: query
+          schema:
+            type: boolean
+        - name: account_slug
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2800,14 +2743,14 @@ paths:
   /{account_slug}/members:
     get:
       tags:
-      - member
+        - member
       operationId: listMembersForAccount
       parameters:
-      - name: account_slug
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_slug
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2825,14 +2768,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - member
+        - member
       operationId: addMemberToAccount
       parameters:
-      - name: account_slug
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_slug
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2858,19 +2801,19 @@ paths:
   /{account_slug}/members/{member_id}:
     get:
       tags:
-      - member
+        - member
       operationId: getAccountMember
       parameters:
-      - name: account_slug
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: member_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_slug
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: member_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -2886,19 +2829,19 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - member
+        - member
       operationId: updateAccountMember
       parameters:
-      - name: account_slug
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: member_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_slug
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: member_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -2921,19 +2864,19 @@ paths:
       x-codegen-request-body-name: accountUpdateMemberSetup
     delete:
       tags:
-      - member
+        - member
       operationId: removeAccountMember
       parameters:
-      - name: account_slug
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: member_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_slug
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: member_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Not Content
@@ -2947,7 +2890,7 @@ paths:
   /billing/payment_methods:
     get:
       tags:
-      - paymentMethod
+        - paymentMethod
       operationId: listPaymentMethodsForUser
       responses:
         "200":
@@ -2967,7 +2910,7 @@ paths:
   /accounts/types:
     get:
       tags:
-      - accountType
+        - accountType
       operationId: listAccountTypesForUser
       responses:
         "200":
@@ -2987,7 +2930,7 @@ paths:
   /accounts:
     get:
       tags:
-      - accountMembership
+        - accountMembership
       operationId: listAccountsForUser
       responses:
         "200":
@@ -3006,7 +2949,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - accountMembership
+        - accountMembership
       operationId: createAccount
       requestBody:
         content:
@@ -3031,14 +2974,14 @@ paths:
   /accounts/{account_id}:
     get:
       tags:
-      - accountMembership
+        - accountMembership
       operationId: getAccount
       parameters:
-      - name: account_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -3056,14 +2999,14 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - accountMembership
+        - accountMembership
       operationId: updateAccount
       parameters:
-      - name: account_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -3086,14 +3029,14 @@ paths:
       x-codegen-request-body-name: accountUpdateSetup
     delete:
       tags:
-      - accountMembership
+        - accountMembership
       operationId: cancelAccount
       parameters:
-      - name: account_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: account_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Not Content
@@ -3107,32 +3050,32 @@ paths:
   /accounts/{account_id}/audit:
     get:
       tags:
-      - auditLog
+        - auditLog
       operationId: listAccountAuditEvents
       parameters:
-      - name: account_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: query
-        in: query
-        schema:
-          type: string
-      - name: log_type
-        in: query
-        schema:
-          type: string
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: account_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          schema:
+            type: string
+        - name: log_type
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -3151,28 +3094,28 @@ paths:
   /submissions/{submission_id}:
     get:
       tags:
-      - submission
+        - submission
       operationId: listFormSubmission
       parameters:
-      - name: submission_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: query
-        in: query
-        schema:
-          type: string
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: submission_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: query
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -3190,14 +3133,14 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-      - submission
+        - submission
       operationId: deleteSubmission
       parameters:
-      - name: submission_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: submission_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Deleted
@@ -3211,14 +3154,14 @@ paths:
   /sites/{site_id}/service-instances:
     get:
       tags:
-      - serviceInstance
+        - serviceInstance
       operationId: listServiceInstancesForSite
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -3237,19 +3180,19 @@ paths:
   /sites/{site_id}/services/{addon}/instances:
     post:
       tags:
-      - serviceInstance
+        - serviceInstance
       operationId: createServiceInstance
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: addon
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: addon
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -3273,24 +3216,24 @@ paths:
   /sites/{site_id}/services/{addon}/instances/{instance_id}:
     get:
       tags:
-      - serviceInstance
+        - serviceInstance
       operationId: showServiceInstance
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: addon
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instance_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: addon
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -3306,24 +3249,24 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - serviceInstance
+        - serviceInstance
       operationId: updateServiceInstance
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: addon
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instance_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: addon
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -3343,24 +3286,24 @@ paths:
       x-codegen-request-body-name: config
     delete:
       tags:
-      - serviceInstance
+        - serviceInstance
       operationId: deleteServiceInstance
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: addon
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: instance_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: addon
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instance_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: Deleted
@@ -3374,13 +3317,13 @@ paths:
   /services/:
     get:
       tags:
-      - service
+        - service
       operationId: getServices
       parameters:
-      - name: search
-        in: query
-        schema:
-          type: string
+        - name: search
+          in: query
+          schema:
+            type: string
       responses:
         "200":
           description: services
@@ -3399,14 +3342,14 @@ paths:
   /services/{addonName}:
     get:
       tags:
-      - service
+        - service
       operationId: showService
       parameters:
-      - name: addonName
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: addonName
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: services
@@ -3423,14 +3366,14 @@ paths:
   /services/{addonName}/manifest:
     get:
       tags:
-      - service
+        - service
       operationId: showServiceManifest
       parameters:
-      - name: addonName
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: addonName
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "201":
           description: retrieving from provider
@@ -3447,7 +3390,7 @@ paths:
   /user:
     get:
       tags:
-      - user
+        - user
       operationId: getCurrentUser
       responses:
         "200":
@@ -3467,14 +3410,14 @@ paths:
   /sites/{site_id}/traffic_splits:
     get:
       tags:
-      - splitTest
+        - splitTest
       operationId: getSplitTests
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: split_tests
@@ -3490,14 +3433,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - splitTest
+        - splitTest
       operationId: createSplitTest
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -3521,19 +3464,19 @@ paths:
   /sites/{site_id}/traffic_splits/{split_test_id}:
     get:
       tags:
-      - splitTest
+        - splitTest
       operationId: getSplitTest
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: split_test_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: split_test_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: split_test
@@ -3549,19 +3492,19 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - splitTest
+        - splitTest
       operationId: updateSplitTest
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: split_test_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: split_test_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -3585,19 +3528,19 @@ paths:
   /sites/{site_id}/traffic_splits/{split_test_id}/publish:
     post:
       tags:
-      - splitTest
+        - splitTest
       operationId: enableSplitTest
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: split_test_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: split_test_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: enable
@@ -3611,19 +3554,19 @@ paths:
   /sites/{site_id}/traffic_splits/{split_test_id}/unpublish:
     post:
       tags:
-      - splitTest
+        - splitTest
       operationId: disableSplitTest
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: split_test_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: split_test_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: disabled
@@ -3637,13 +3580,13 @@ paths:
   /dns_zones:
     get:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: getDnsZones
       parameters:
-      - name: account_slug
-        in: query
-        schema:
-          type: string
+        - name: account_slug
+          in: query
+          schema:
+            type: string
       responses:
         "200":
           description: get all DNS zones the user has access to
@@ -3659,7 +3602,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: createDnsZone
       requestBody:
         content:
@@ -3684,14 +3627,14 @@ paths:
   /dns_zones/{zone_id}:
     get:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: getDnsZone
       parameters:
-      - name: zone_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: zone_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: get a single DNS zone
@@ -3707,14 +3650,14 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: deleteDnsZone
       parameters:
-      - name: zone_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: zone_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: delete a single DNS zone
@@ -3728,32 +3671,32 @@ paths:
   /dns_zones/{zone_id}/transfer:
     put:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: transferDnsZone
       parameters:
-      - name: zone_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: account_id
-        in: query
-        description: the account of the dns zone
-        required: true
-        schema:
-          type: string
-      - name: transfer_account_id
-        in: query
-        description: the account you want to transfer the dns zone to
-        required: true
-        schema:
-          type: string
-      - name: transfer_user_id
-        in: query
-        description: the user you want to transfer the dns zone to
-        required: true
-        schema:
-          type: string
+        - name: zone_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: account_id
+          in: query
+          description: the account of the dns zone
+          required: true
+          schema:
+            type: string
+        - name: transfer_account_id
+          in: query
+          description: the account you want to transfer the dns zone to
+          required: true
+          schema:
+            type: string
+        - name: transfer_user_id
+          in: query
+          description: the user you want to transfer the dns zone to
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: transfer a DNS zone to another account
@@ -3770,14 +3713,14 @@ paths:
   /dns_zones/{zone_id}/dns_records:
     get:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: getDnsRecords
       parameters:
-      - name: zone_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: zone_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: get all DNS records for a single DNS zone
@@ -3793,14 +3736,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: createDnsRecord
       parameters:
-      - name: zone_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: zone_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -3824,19 +3767,19 @@ paths:
   /dns_zones/{zone_id}/dns_records/{dns_record_id}:
     get:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: getIndividualDnsRecord
       parameters:
-      - name: zone_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: dns_record_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: zone_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: dns_record_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: get a single DNS record
@@ -3852,19 +3795,19 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-      - dnsZone
+        - dnsZone
       operationId: deleteDnsRecord
       parameters:
-      - name: zone_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: dns_record_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: zone_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: dns_record_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: record deleted
@@ -3878,24 +3821,24 @@ paths:
   /sites/{site_id}/dev_servers:
     get:
       tags:
-      - devServer
+        - devServer
       operationId: listSiteDevServers
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: page
-        in: query
-        schema:
-          type: integer
-          format: int32
-      - name: per_page
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            format: int32
       responses:
         "200":
           description: OK
@@ -3913,18 +3856,18 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - devServer
+        - devServer
       operationId: createSiteDevServer
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: branch
-        in: query
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: branch
+          in: query
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -3942,18 +3885,18 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-      - devServer
+        - devServer
       operationId: deleteSiteDevServers
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: branch
-        in: query
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: branch
+          in: query
+          schema:
+            type: string
       responses:
         "202":
           description: OK
@@ -3967,19 +3910,19 @@ paths:
   /sites/{site_id}/dev_servers/{dev_server_id}:
     get:
       tags:
-      - devServer
+        - devServer
       operationId: getSiteDevServer
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: dev_server_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: dev_server_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -3990,19 +3933,19 @@ paths:
   /sites/{site_id}/dev_servers/{dev_server_id}/activity:
     post:
       tags:
-      - devServer
+        - devServer
       operationId: markDevServerActivity
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: dev_server_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: dev_server_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -4011,14 +3954,14 @@ paths:
   /sites/{site_id}/dev_server_hooks:
     get:
       tags:
-      - devServerHook
+        - devServerHook
       operationId: listSiteDevServerHooks
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -4036,14 +3979,14 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-      - devServerHook
+        - devServerHook
       operationId: createSiteDevServerHook
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -4067,19 +4010,19 @@ paths:
   /sites/{site_id}/dev_server_hooks/{id}:
     get:
       tags:
-      - devServerHook
+        - devServerHook
       operationId: getSiteDevServerHook
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -4095,19 +4038,19 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-      - devServerHook
+        - devServerHook
       operationId: updateSiteDevServerHook
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -4127,19 +4070,19 @@ paths:
       x-codegen-request-body-name: devServerHook
     delete:
       tags:
-      - devServerHook
+        - devServerHook
       operationId: deleteSiteDevServerHook
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: site_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         "204":
           description: No content
@@ -4353,11 +4296,11 @@ components:
           type: string
     siteSetup:
       allOf:
-      - $ref: '#/components/schemas/site'
-      - type: object
-        properties:
-          repo:
-            $ref: '#/components/schemas/repoInfo'
+        - $ref: '#/components/schemas/site'
+        - type: object
+          properties:
+            repo:
+              $ref: '#/components/schemas/repoInfo'
     repoInfo:
       type: object
       properties:
@@ -4438,10 +4381,10 @@ components:
           items:
             type: string
             enum:
-            - builds
-            - functions
-            - runtime
-            - post-processing
+              - builds
+              - functions
+              - runtime
+              - post-processing
         values:
           type: array
           description: An array of Value objects containing values and metadata
@@ -4450,10 +4393,7 @@ components:
           x-faker: internet.password
         is_secret:
           type: boolean
-          description: "Secret values are only readable by code running on Netlify’\
-            s systems. With secrets, only the local development context values are\
-            \ readable from the UI, API, and CLI. By default, environment variable\
-            \ values are not secret. (Enterprise plans only)"
+          description: "Secret values are only readable by code running on Netlify’s systems. With secrets, only the local development context values are readable from the UI, API, and CLI. By default, environment variable values are not secret. (Enterprise plans only)"
         updated_at:
           type: string
           description: The timestamp of when the value was last updated
@@ -4475,19 +4415,17 @@ components:
           x-faker: internet.password
         context:
           type: string
-          description: The deploy context in which this value will be used. `dev`
-            refers to local development when running `netlify dev`.
+          description: The deploy context in which this value will be used. `dev` refers to local development when running `netlify dev`.
           enum:
-          - all
-          - dev
-          - branch-deploy
-          - deploy-preview
-          - production
-          - branch
+            - all
+            - dev
+            - branch-deploy
+            - deploy-preview
+            - production
+            - branch
         context_parameter:
           type: string
-          description: "An additional parameter for custom branches. Currently, this\
-            \ is used for specifying a branch name when `context=branch`."
+          description: "An additional parameter for custom branches. Currently, this is used for specifying a branch name when `context=branch`."
       description: Environment variable value model definition
     envVarUser:
       type: object
@@ -4790,11 +4728,11 @@ components:
         section:
           type: string
           enum:
-          - initializing
-          - building
-          - deploying
-          - cleanup
-          - postprocessing
+            - initializing
+            - building
+            - deploying
+            - cleanup
+            - postprocessing
     pluginRunData:
       type: object
       properties:
@@ -4814,11 +4752,11 @@ components:
           type: string
     pluginRun:
       allOf:
-      - $ref: '#/components/schemas/pluginRunData'
-      - type: object
-        properties:
-          deploy_id:
-            type: string
+        - $ref: '#/components/schemas/pluginRunData'
+        - type: object
+          properties:
+            deploy_id:
+              type: string
     metadata:
       type: object
     dnsZoneSetup:
@@ -5102,8 +5040,8 @@ components:
           type: integer
     accountSetup:
       required:
-      - name
-      - type_id
+        - name
+        - type_id
       type: object
       properties:
         name:
@@ -5115,8 +5053,8 @@ components:
         period:
           type: string
           enum:
-          - monthly
-          - yearly
+            - monthly
+            - yearly
         extra_seats_block:
           type: integer
     accountUpdateSetup:
@@ -5142,10 +5080,10 @@ components:
         role:
           type: string
           enum:
-          - Owner
-          - Developer
-          - Billing Admin
-          - Reviewer
+            - Owner
+            - Developer
+            - Billing Admin
+            - Reviewer
         email:
           type: string
     accountUpdateMemberSetup:
@@ -5154,16 +5092,16 @@ components:
         role:
           type: string
           enum:
-          - Owner
-          - Developer
-          - Billing Admin
-          - Reviewer
+            - Owner
+            - Developer
+            - Billing Admin
+            - Reviewer
         site_access:
           type: string
           enum:
-          - all
-          - none
-          - selected
+            - all
+            - none
+            - selected
         site_ids:
           type: array
           items:
@@ -5313,7 +5251,7 @@ components:
               type: string
     error:
       required:
-      - message
+        - message
       type: object
       properties:
         code:
@@ -5365,12 +5303,12 @@ components:
           items:
             type: string
             enum:
-            - GET
-            - POST
-            - PUT
-            - PATCH
-            - DELETE
-            - OPTIONS
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
         prefer_static:
           type: boolean
     excludedFunctionRoute:
@@ -5405,7 +5343,7 @@ components:
         algorithm:
           type: string
           enum:
-          - sliding_window
+            - sliding_window
         window_size:
           type: integer
         window_limit:
@@ -5421,8 +5359,8 @@ components:
               type:
                 type: string
                 enum:
-                - ip
-                - domain
+                  - ip
+                  - domain
     siteFunction:
       type: object
       properties:
@@ -5494,8 +5432,8 @@ components:
         type:
           type: string
           enum:
-          - new_dev_server
-          - content_refresh
+            - new_dev_server
+            - content_refresh
     devServerHookSetup:
       type: object
       properties:
@@ -5506,8 +5444,8 @@ components:
         type:
           type: string
           enum:
-          - new_dev_server
-          - content_refresh
+            - new_dev_server
+            - content_refresh
   responses:
     error:
       description: error
@@ -5541,64 +5479,64 @@ components:
           authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
 x-tagGroups:
-- name: OAuth
-  tags:
-  - ticket
-  - accessToken
-- name: User accounts
-  tags:
-  - user
-  - accountMembership
-  - member
-  - accountType
-  - paymentMethod
-  - auditLog
-- name: Site
-  tags:
-  - site
-  - environmentVariables
-  - file
-  - metadata
-  - purge
-  - snippet
-- name: Domain names
-  tags:
-  - dnsZone
-  - sniCertificate
-- name: Deploys
-  tags:
-  - deploy
-  - deployedBranch
-  - deployKey
-- name: Builds
-  tags:
-  - build
-  - buildLogMsg
-- name: Dev servers
-  tags:
-  - devServer
-- name: Webhooks and notifications
-  tags:
-  - hook
-  - hookType
-  - buildHook
-  - devServerHook
-- name: Services
-  tags:
-  - service
-  - serviceInstance
-- name: Functions
-  tags:
-  - function
-- name: Forms
-  tags:
-  - form
-  - submission
-- name: Split tests
-  tags:
-  - splitTest
-- name: Large media
-  tags:
-  - asset
-  - assetPublicSignature
+  - name: OAuth
+    tags:
+      - ticket
+      - accessToken
+  - name: User accounts
+    tags:
+      - user
+      - accountMembership
+      - member
+      - accountType
+      - paymentMethod
+      - auditLog
+  - name: Site
+    tags:
+      - site
+      - environmentVariables
+      - file
+      - metadata
+      - purge
+      - snippet
+  - name: Domain names
+    tags:
+      - dnsZone
+      - sniCertificate
+  - name: Deploys
+    tags:
+      - deploy
+      - deployedBranch
+      - deployKey
+  - name: Builds
+    tags:
+      - build
+      - buildLogMsg
+  - name: Dev servers
+    tags:
+      - devServer
+  - name: Webhooks and notifications
+    tags:
+      - hook
+      - hookType
+      - buildHook
+      - devServerHook
+  - name: Services
+    tags:
+      - service
+      - serviceInstance
+  - name: Functions
+    tags:
+      - function
+  - name: Forms
+    tags:
+      - form
+      - submission
+  - name: Split tests
+    tags:
+      - splitTest
+  - name: Large media
+    tags:
+      - asset
+      - assetPublicSignature
 x-original-swagger-version: "2.0"
