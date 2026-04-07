@@ -6,18 +6,16 @@ apis:
   - aid: netlify:netlify-api
     name: Netlify API
     tags:
-      - Hosting
       - Deploys
-      - Sites
       - DNS
       - Forms
-      - Webhooks
+      - Hosting
       - Serverless
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Sites
+      - Webhooks
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.netlify.com/api/v1/
-    humanURL: 
-      https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+    humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
     overlays:
       - url: '
 
@@ -28,8 +26,7 @@ apis:
         type: Documentation
       - url: openapi/netlify-openapi-original.yml
         type: OpenAPI
-      - url: 
-          https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+      - url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
         type: Getting Started
       - url: https://docs.netlify.com/api-and-cli-guides/overview/
         type: API Guides
@@ -42,16 +39,16 @@ apis:
       JSON for serialization and OAuth 2 for authentication.
 name: Netlify
 tags:
+  - CDN
   - Cloud
   - Continuous Deployment
+  - Edge Computing
   - JAMstack
   - Serverless
   - Serverless Functions
   - Static Sites
   - Web Hosting
   - Websites
-  - Edge Computing
-  - CDN
 type: Contract
 image: https://www.netlify.com/v3/img/components/logomark.png
 access: 3rd-Party
@@ -82,8 +79,7 @@ common:
     type: Documentation
   - url: https://docs.netlify.com/start/get-started-guide/
     type: Getting Started
-  - url: 
-      https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
     type: Authentication
   - url: https://github.com/netlify
     type: GitHub Organization
@@ -110,9 +106,7 @@ common:
 created: 2023/11/14
 modified: '2026-03-16'
 position: Consuming
-description: Netlify is a cloud platform for building, deploying, and scaling 
-  modern web applications with continuous deployment, serverless functions, and 
-  edge computing capabilities.
+description: Netlify is a cloud platform for building, deploying, and scaling modern web applications with continuous deployment, serverless functions, and edge computing capabilities.
 maintainers:
   - FN: Kin Lane
     url: http://apievangelist.com

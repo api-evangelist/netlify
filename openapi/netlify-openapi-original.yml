@@ -23,79 +23,78 @@ servers:
 security:
   - netlifyAuth: []
 tags:
-  - name: ticket
-    x-displayName: Ticket
   - name: accessToken
     x-displayName: Access token
-  - name: user
-    x-displayName: User
   - name: accountMembership
     x-displayName: Accounts
-  - name: member
-    x-displayName: Member
   - name: accountType
     x-displayName: Access type
-  - name: paymentMethod
-    x-displayName: Payment method
+  - name: Asset
+    x-displayName: Asset
+  - name: assetPublicSignature
+    x-displayName: Asset public signature
   - name: auditLog
     x-displayName: Audit log
-  - name: site
-    x-displayName: Site
-  - name: environmentVariables
-    x-displayName: Environment variables
-  - name: file
-    x-displayName: File
-  - name: metadata
-    x-displayName: Metadata
-  - name: snippet
-    x-displayName: Snippet
-  - name: purge
-    x-displayName: Cache purge
-  - name: dnsZone
-    x-displayName: DNS zone
-  - name: sniCertificate
-    x-displayName: SNI certificate
-  - name: deploy
+  - name: Build
+    x-displayName: Build
+  - name: buildHook
+    x-displayName: Build hook
+  - name: buildLogMsg
+    x-displayName: Build log message
+  - name: Deploy
     x-displayName: Deploy
   - name: deployedBranch
     x-displayName: Deployed branch
   - name: deployKey
     x-displayName: Deploy key
-  - name: build
-    x-displayName: Build
-  - name: buildLogMsg
-    x-displayName: Build log message
-  - name: hook
-    x-displayName: Hook
-  - name: hookType
-    x-displayName: Hook type
-  - name: buildHook
-    x-displayName: Build hook
-  - name: service
-    x-displayName: Service
-  - name: serviceInstance
-    x-displayName: Service instance
-  - name: function
-    x-displayName: Function
-  - name: form
-    x-displayName: Form
-  - name: submission
-    x-displayName: Form submission
-  - name: splitTest
-    x-displayName: Split test
-  - name: asset
-    x-displayName: Asset
-  - name: assetPublicSignature
-    x-displayName: Asset public signature
   - name: devServer
     x-displayName: Dev server
   - name: devServerHook
     x-displayName: Dev server hook
+  - name: dnsZone
+    x-displayName: DNS zone
+  - name: environmentVariables
+    x-displayName: Environment variables
+  - name: File
+    x-displayName: File
+  - name: Form
+    x-displayName: Form
+  - name: Function
+    x-displayName: Function
+  - name: Hook
+    x-displayName: Hook
+  - name: hookType
+    x-displayName: Hook type
+  - name: Member
+    x-displayName: Member
+  - name: Metadata
+    x-displayName: Metadata
+  - name: paymentMethod
+    x-displayName: Payment method
+  - name: Purge
+    x-displayName: Cache purge
+  - name: serviceInstance
+    x-displayName: Service instance
+  - name: Site
+    x-displayName: Site
+  - name: sniCertificate
+    x-displayName: SNI certificate
+  - name: Snippet
+    x-displayName: Snippet
+  - name: splitTest
+    x-displayName: Split test
+  - name: Submission
+    x-displayName: Form submission
+  - name: Ticket
+    x-displayName: Ticket
+  - name: User
+    x-displayName: User
+  - name: X-Internal
 paths:
   /sites:
     get:
       tags:
-        - site
+        - Site
       description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables."
       operationId: listSites
       parameters:
@@ -138,7 +137,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-        - site
+        - Site
       description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [createEnvVars](#tag/environmentVariables/operation/createEnvVars) to create environment variables for a site."
       operationId: createSite
       parameters:
@@ -169,7 +168,7 @@ paths:
   /sites/{site_id}:
     get:
       tags:
-        - site
+        - Site
       description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables."
       operationId: getSite
       parameters:
@@ -199,7 +198,7 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-        - site
+        - Site
       operationId: deleteSite
       parameters:
         - name: site_id
@@ -219,7 +218,7 @@ paths:
                 $ref: '#/components/schemas/error'
     patch:
       tags:
-        - site
+        - Site
       description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [updateEnvVar](#tag/environmentVariables/operation/updateEnvVar) to update a site's environment variables."
       operationId: updateSite
       parameters:
@@ -709,7 +708,7 @@ paths:
   /sites/{site_id}/functions:
     get:
       tags:
-        - function
+        - Function
       operationId: searchSiteFunctions
       parameters:
         - name: site_id
@@ -739,7 +738,7 @@ paths:
   /sites/{site_id}/forms:
     get:
       tags:
-        - form
+        - Form
       operationId: listSiteForms
       parameters:
         - name: site_id
@@ -765,7 +764,7 @@ paths:
   /sites/{site_id}/forms/{form_id}:
     delete:
       tags:
-        - form
+        - Form
       operationId: deleteSiteForm
       parameters:
         - name: site_id
@@ -791,7 +790,7 @@ paths:
   /sites/{site_id}/submissions:
     get:
       tags:
-        - submission
+        - Submission
       operationId: listSiteSubmissions
       parameters:
         - name: site_id
@@ -827,7 +826,7 @@ paths:
   /sites/{site_id}/files:
     get:
       tags:
-        - file
+        - File
       operationId: listSiteFiles
       parameters:
         - name: site_id
@@ -853,7 +852,7 @@ paths:
   /sites/{site_id}/assets:
     get:
       tags:
-        - asset
+        - Asset
       operationId: listSiteAssets
       parameters:
         - name: site_id
@@ -878,7 +877,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-        - asset
+        - Asset
       operationId: createSiteAsset
       parameters:
         - name: site_id
@@ -922,7 +921,7 @@ paths:
   /sites/{site_id}/assets/{asset_id}:
     get:
       tags:
-        - asset
+        - Asset
       operationId: getSiteAssetInfo
       parameters:
         - name: site_id
@@ -950,7 +949,7 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-        - asset
+        - Asset
       operationId: updateSiteAsset
       parameters:
         - name: site_id
@@ -983,7 +982,7 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-        - asset
+        - Asset
       operationId: deleteSiteAsset
       parameters:
         - name: site_id
@@ -1038,7 +1037,7 @@ paths:
   /sites/{site_id}/files/{file_path}:
     get:
       tags:
-        - file
+        - File
       operationId: getSiteFileByPathName
       parameters:
         - name: site_id
@@ -1067,7 +1066,7 @@ paths:
   /purge:
     post:
       tags:
-        - purge
+        - Purge
       description: Purges cached content from Netlify's CDN. Supports purging by Cache-Tag.
       operationId: purgeCache
       requestBody:
@@ -1090,7 +1089,7 @@ paths:
   /sites/{site_id}/snippets:
     get:
       tags:
-        - snippet
+        - Snippet
       operationId: listSiteSnippets
       parameters:
         - name: site_id
@@ -1115,7 +1114,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-        - snippet
+        - Snippet
       operationId: createSiteSnippet
       parameters:
         - name: site_id
@@ -1146,7 +1145,7 @@ paths:
   /sites/{site_id}/snippets/{snippet_id}:
     get:
       tags:
-        - snippet
+        - Snippet
       operationId: getSiteSnippet
       parameters:
         - name: site_id
@@ -1174,7 +1173,7 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-        - snippet
+        - Snippet
       operationId: updateSiteSnippet
       parameters:
         - name: site_id
@@ -1206,7 +1205,7 @@ paths:
       x-codegen-request-body-name: snippet
     delete:
       tags:
-        - snippet
+        - Snippet
       operationId: deleteSiteSnippet
       parameters:
         - name: site_id
@@ -1232,7 +1231,7 @@ paths:
   /sites/{site_id}/metadata:
     get:
       tags:
-        - metadata
+        - Metadata
       operationId: getSiteMetadata
       parameters:
         - name: site_id
@@ -1255,7 +1254,7 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-        - metadata
+        - Metadata
       operationId: updateSiteMetadata
       parameters:
         - name: site_id
@@ -1425,7 +1424,7 @@ paths:
   /sites/{site_id}/deploys:
     get:
       tags:
-        - deploy
+        - Deploy
       operationId: listSiteDeploys
       parameters:
         - name: site_id
@@ -1496,7 +1495,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-        - deploy
+        - Deploy
       operationId: createSiteDeploy
       parameters:
         - name: site_id
@@ -1567,7 +1566,7 @@ paths:
   /sites/{site_id}/deploys/{deploy_id}:
     get:
       tags:
-        - deploy
+        - Deploy
       operationId: getSiteDeploy
       parameters:
         - name: site_id
@@ -1595,7 +1594,7 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-        - deploy
+        - Deploy
       operationId: updateSiteDeploy
       parameters:
         - name: site_id
@@ -1630,7 +1629,7 @@ paths:
       x-codegen-request-body-name: deploy
     delete:
       tags:
-        - deploy
+        - Deploy
       operationId: deleteSiteDeploy
       parameters:
         - name: deploy_id
@@ -1656,7 +1655,7 @@ paths:
   /deploys/{deploy_id}/cancel:
     post:
       tags:
-        - deploy
+        - Deploy
       operationId: cancelSiteDeploy
       parameters:
         - name: deploy_id
@@ -1680,7 +1679,7 @@ paths:
   /sites/{site_id}/deploys/{deploy_id}/restore:
     post:
       tags:
-        - deploy
+        - Deploy
       operationId: restoreSiteDeploy
       parameters:
         - name: site_id
@@ -1709,7 +1708,7 @@ paths:
   /sites/{site_id}/builds:
     get:
       tags:
-        - build
+        - Build
       operationId: listSiteBuilds
       parameters:
         - name: site_id
@@ -1744,7 +1743,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-        - build
+        - Build
       operationId: createSiteBuild
       parameters:
         - name: site_id
@@ -1801,7 +1800,7 @@ paths:
   /sites/{site_id}/unlink_repo:
     put:
       tags:
-        - site
+        - Site
       description: |-
         [Beta] Unlinks the repo from the site.
 
@@ -1829,7 +1828,7 @@ paths:
   /builds/{build_id}:
     get:
       tags:
-        - build
+        - Build
       operationId: getSiteBuild
       parameters:
         - name: build_id
@@ -1881,7 +1880,7 @@ paths:
   /builds/{build_id}/start:
     post:
       tags:
-        - build
+        - Build
       operationId: notifyBuildStart
       parameters:
         - name: build_id
@@ -1910,7 +1909,7 @@ paths:
   /{account_id}/builds/status:
     get:
       tags:
-        - build
+        - Build
       operationId: getAccountBuildStatus
       parameters:
         - name: account_id
@@ -1987,7 +1986,7 @@ paths:
   /sites/{site_id}/rollback:
     put:
       tags:
-        - deploy
+        - Deploy
       operationId: rollbackSiteDeploy
       parameters:
         - name: site_id
@@ -2008,7 +2007,7 @@ paths:
   /deploys/{deploy_id}:
     get:
       tags:
-        - deploy
+        - Deploy
       operationId: getDeploy
       parameters:
         - name: deploy_id
@@ -2031,7 +2030,7 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-        - deploy
+        - Deploy
       operationId: deleteDeploy
       parameters:
         - name: deploy_id
@@ -2052,7 +2051,7 @@ paths:
   /deploys/{deploy_id}/lock:
     post:
       tags:
-        - deploy
+        - Deploy
       operationId: lockDeploy
       parameters:
         - name: deploy_id
@@ -2076,7 +2075,7 @@ paths:
   /deploys/{deploy_id}/unlock:
     post:
       tags:
-        - deploy
+        - Deploy
       operationId: unlockDeploy
       parameters:
         - name: deploy_id
@@ -2100,7 +2099,7 @@ paths:
   /deploys/{deploy_id}/files/{path}:
     put:
       tags:
-        - file
+        - File
       operationId: uploadDeployFile
       parameters:
         - name: deploy_id
@@ -2141,7 +2140,7 @@ paths:
   /deploys/{deploy_id}/functions/{name}:
     put:
       tags:
-        - function
+        - Function
       operationId: uploadDeployFunction
       parameters:
         - name: deploy_id
@@ -2198,7 +2197,7 @@ paths:
   /sites/{site_id}/plugins/{package}:
     put:
       tags:
-        - x-internal
+        - X-Internal
       description: This is an internal-only endpoint.
       operationId: updatePlugin
       parameters:
@@ -2236,7 +2235,7 @@ paths:
   /sites/{site_id}/plugin_runs/latest:
     get:
       tags:
-        - x-internal
+        - X-Internal
       description: This is an internal-only endpoint.
       operationId: getLatestPluginRuns
       parameters:
@@ -2277,7 +2276,7 @@ paths:
   /deploys/{deploy_id}/plugin_runs:
     post:
       tags:
-        - x-internal
+        - X-Internal
       description: This is an internal-only endpoint.
       operationId: createPluginRun
       parameters:
@@ -2310,7 +2309,7 @@ paths:
   /forms/{form_id}/submissions:
     get:
       tags:
-        - submission
+        - Submission
       operationId: listFormSubmissions
       parameters:
         - name: form_id
@@ -2346,7 +2345,7 @@ paths:
   /hooks:
     get:
       tags:
-        - hook
+        - Hook
       operationId: listHooksBySiteId
       parameters:
         - name: site_id
@@ -2371,7 +2370,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-        - hook
+        - Hook
       operationId: createHookBySiteId
       parameters:
         - name: site_id
@@ -2402,7 +2401,7 @@ paths:
   /hooks/{hook_id}:
     get:
       tags:
-        - hook
+        - Hook
       operationId: getHook
       parameters:
         - name: hook_id
@@ -2425,7 +2424,7 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-        - hook
+        - Hook
       operationId: updateHook
       parameters:
         - name: hook_id
@@ -2455,7 +2454,7 @@ paths:
       x-codegen-request-body-name: hook
     delete:
       tags:
-        - hook
+        - Hook
       operationId: deleteHook
       parameters:
         - name: hook_id
@@ -2470,7 +2469,7 @@ paths:
   /hooks/{hook_id}/enable:
     post:
       tags:
-        - hook
+        - Hook
       operationId: enableHook
       parameters:
         - name: hook_id
@@ -2514,7 +2513,7 @@ paths:
   /oauth/tickets:
     post:
       tags:
-        - ticket
+        - Ticket
       operationId: createTicket
       parameters:
         - name: client_id
@@ -2538,7 +2537,7 @@ paths:
   /oauth/tickets/{ticket_id}:
     get:
       tags:
-        - ticket
+        - Ticket
       operationId: showTicket
       parameters:
         - name: ticket_id
@@ -2667,7 +2666,7 @@ paths:
   /{account_slug}/sites:
     get:
       tags:
-        - site
+        - Site
       description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables."
       operationId: listSitesForAccount
       parameters:
@@ -2707,7 +2706,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-        - site
+        - Site
       description: "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [createEnvVars](#tag/environmentVariables/operation/createEnvVars) to create environment variables for a site."
       operationId: createSiteInTeam
       parameters:
@@ -2743,7 +2742,7 @@ paths:
   /{account_slug}/members:
     get:
       tags:
-        - member
+        - Member
       operationId: listMembersForAccount
       parameters:
         - name: account_slug
@@ -2768,7 +2767,7 @@ paths:
                 $ref: '#/components/schemas/error'
     post:
       tags:
-        - member
+        - Member
       operationId: addMemberToAccount
       parameters:
         - name: account_slug
@@ -2801,7 +2800,7 @@ paths:
   /{account_slug}/members/{member_id}:
     get:
       tags:
-        - member
+        - Member
       operationId: getAccountMember
       parameters:
         - name: account_slug
@@ -2829,7 +2828,7 @@ paths:
                 $ref: '#/components/schemas/error'
     put:
       tags:
-        - member
+        - Member
       operationId: updateAccountMember
       parameters:
         - name: account_slug
@@ -2864,7 +2863,7 @@ paths:
       x-codegen-request-body-name: accountUpdateMemberSetup
     delete:
       tags:
-        - member
+        - Member
       operationId: removeAccountMember
       parameters:
         - name: account_slug
@@ -3094,7 +3093,7 @@ paths:
   /submissions/{submission_id}:
     get:
       tags:
-        - submission
+        - Submission
       operationId: listFormSubmission
       parameters:
         - name: submission_id
@@ -3133,7 +3132,7 @@ paths:
                 $ref: '#/components/schemas/error'
     delete:
       tags:
-        - submission
+        - Submission
       operationId: deleteSubmission
       parameters:
         - name: submission_id
@@ -3316,8 +3315,7 @@ paths:
                 $ref: '#/components/schemas/error'
   /services/:
     get:
-      tags:
-        - service
+      tags: []
       operationId: getServices
       parameters:
         - name: search
@@ -3341,8 +3339,7 @@ paths:
                 $ref: '#/components/schemas/error'
   /services/{addonName}:
     get:
-      tags:
-        - service
+      tags: []
       operationId: showService
       parameters:
         - name: addonName
@@ -3365,8 +3362,7 @@ paths:
                 $ref: '#/components/schemas/error'
   /services/{addonName}/manifest:
     get:
-      tags:
-        - service
+      tags: []
       operationId: showServiceManifest
       parameters:
         - name: addonName
@@ -3390,7 +3386,7 @@ paths:
   /user:
     get:
       tags:
-        - user
+        - User
       operationId: getCurrentUser
       responses:
         "200":
