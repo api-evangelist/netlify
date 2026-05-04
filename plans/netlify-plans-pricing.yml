@@ -1,0 +1,119 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Netlify
+providerId: netlify
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Hosting
+  - Edge Compute
+  - Frontend
+description: 'Netlify credit-based plans: Free / Personal / Pro / Enterprise.'
+sources:
+  - https://www.netlify.com/pricing/
+plans:
+  - id: netlify-free
+    name: Free
+    type: freemium
+    description: Free forever; 300 credits.
+    entries:
+      - label: Credits
+        name: credits
+        type: quota
+        metric: credit
+        limit: 300
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Unlimited deploy previews
+      - name: Custom domains with SSL
+      - name: Functions + AI models
+      - name: Netlify Database
+      - name: Blob storage
+      - name: Global CDN
+  - id: netlify-personal
+    name: Personal
+    type: paid
+    description: $9/month; 1,000 credits.
+    entries:
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '9.00'
+        userMultiplied: false
+      - label: Credits
+        name: credits
+        type: quota
+        metric: credit
+        limit: 1000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Smart secret detection
+      - name: 1-day observability
+      - name: Priority email support
+  - id: netlify-pro
+    name: Pro
+    type: paid
+    description: $20/month; 3,000 credits.
+    entries:
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '20.00'
+        userMultiplied: false
+      - label: Credits
+        name: credits
+        type: quota
+        metric: credit
+        limit: 3000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Private organization repos
+      - name: Shared environment variables
+      - name: 3+ concurrent builds
+      - name: 30-day analytics
+  - id: netlify-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom pricing.
+    entries:
+      - label: Annual (custom)
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Unlimited credits
+      - name: 99.99% SLA
+      - name: Enterprise network tier
+      - name: High-performance builds
+      - name: SSO + SCIM
+      - name: 24/7 dedicated support

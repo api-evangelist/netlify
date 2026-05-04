@@ -1,0 +1,40 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Netlify
+providerId: netlify
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Hosting
+description: Netlify Open API rate limits per token.
+sources:
+  - https://www.netlify.com/pricing/
+  - https://docs.netlify.com/api-and-cli-guides/api/get-started/#rate-limiting
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+responseCodes:
+  throttled: 429
+limits:
+  - name: Open API (per token)
+    scope: token
+    metric: requests_per_minute
+    limit: 500
+    timeFrame: minute
+  - name: Deploy creates
+    scope: site
+    metric: deploys_per_minute
+    limit: 3
+    timeFrame: minute
+  - name: Concurrent builds (Free/Personal)
+    scope: team
+    metric: concurrent
+    limit: 1
+  - name: Concurrent builds (Pro)
+    scope: team
+    metric: concurrent
+    limit: 3

@@ -1,9 +1,7 @@
 aid: netlify
 name: Netlify
-description: >-
-  Netlify is a cloud platform for building, deploying, and scaling modern web
-  applications with continuous deployment, serverless functions, and edge
-  computing capabilities.
+description: Netlify is a cloud platform for building, deploying, and scaling modern web applications
+  with continuous deployment, serverless functions, and edge computing capabilities.
 type: Contract
 image: https://www.netlify.com/v3/img/components/logomark.png
 access: 3rd-Party
@@ -20,16 +18,14 @@ tags:
   - Websites
 url: https://raw.githubusercontent.com/api-evangelist/netlify/refs/heads/main/apis.yml
 created: '2023-11-14'
-modified: '2026-04-28'
+modified: '2026-05-04'
 specificationVersion: '0.19'
 apis:
   - aid: netlify:netlify-api
     name: Netlify API
-    description: >-
-      Netlify is a hosting service for the programmable web. It understands
-      your documents and provides an API to handle atomic deploys of websites,
-      manage form submissions, inject JavaScript snippets, and much more. This
-      is a REST-style API that uses JSON for serialization and OAuth 2 for
+    description: Netlify is a hosting service for the programmable web. It understands your documents
+      and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript
+      snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for
       authentication.
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
@@ -100,6 +96,27 @@ common:
     url: https://www.netlify.com/gdpr-ccpa/
   - type: X (Twitter)
     url: https://x.com/netlify
+  - type: Features
+    data:
+      - 'Free: 300 credits/mo, unlimited deploy previews, global CDN'
+      - 'Personal at $9/mo: 1,000 credits, smart secret detection'
+      - 'Pro at $20/mo: 3,000 credits, 3+ concurrent builds, private repos'
+      - 'Enterprise custom: unlimited credits, 99.99% SLA, SSO/SCIM'
+      - REST API at api.netlify.com
+      - 'Open API: 500 req/min/token rate limit'
+      - 'Deploy creates: 3/min/site'
+      - 'Build concurrency: 1 Free/Personal, 3 Pro'
+      - Edge Functions (Deno runtime)
+      - Functions (Node serverless)
+      - Netlify Forms
+      - Netlify Identity / Auth
+      - Netlify Database (Postgres)
+      - Netlify Blobs (object store)
+      - Image CDN with transformations
+      - Webhooks for build events
+    sources:
+      - https://www.netlify.com/pricing/
+    updated: '2026-05-04'
 maintainers:
   - FN: Kin Lane
     url: http://apievangelist.com
