@@ -1,0 +1,13 @@
+{
+  "repo": "netlify",
+  "feeds": [
+    {
+      "source": "https://netlify.com/blog/",
+      "feed_url": "https://www.netlify.com/changelog/feed.xml",
+      "saved": 10,
+      "title": "Netlify Changelog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:32:37Z"
+}
