@@ -3,11 +3,12 @@
   "feeds": [
     {
       "source": "https://netlify.com/blog/",
-      "feed_url": "https://www.netlify.com/changelog/feed.xml",
-      "saved": 10,
-      "title": "Netlify Changelog"
+      "feed_url": "",
+      "title": "",
+      "saved": 0,
+      "error": "no_feed"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-05-03T23:32:37Z"
+  "fetched": "2026-05-09T20:17:51Z"
 }
