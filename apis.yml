@@ -119,6 +119,28 @@ common:
     sources:
       - https://www.netlify.com/pricing/
     updated: '2026-05-04'
+  - type: Integrations
+    url: https://www.netlify.com/integrations/
+integrations:
+  - name: Templates
+  - name: +More
+  - name: AI agents
+  - name: Content Management
+  - name: Database & Backend
+  - name: Digital Asset Management
+  - name: E-commerce
+  - name: Identity & Authentication
+  - name: Search & Personalization
+  - name: Testing & QA
+  - name: Contentstack The enterprise content experience platform.
+  - name: Kontent.ai Next-generation websites and content management.
+  - name: Axiom Serverless observability at scale.
+  - name: SpeedCurve Faster Site. Happier Users.
+  - name: QA Wolf Kiss bugs goodbye.
+  - name: Bejamas Jamstack developers for hire.
+  - name: GitLab The One DevOps Platform
+  - name: Snyk Developer loved, security trusted.
+  - name: Sentry Working code, happy customers.
 maintainers:
   - FN: Kin Lane
     url: http://apievangelist.com
