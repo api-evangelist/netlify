@@ -2,7 +2,7 @@ aid: netlify
 name: Netlify
 description: Netlify is a cloud platform for building, deploying, and scaling modern web applications
   with continuous deployment, serverless functions, and edge computing capabilities.
-type: Contract
+kind: contract
 image: https://www.netlify.com/v3/img/components/logomark.png
 access: 3rd-Party
 tags:
@@ -43,18 +43,18 @@ apis:
         url: https://open-api.netlify.com/
       - type: OpenAPI
         url: openapi/netlify-openapi-original.yml
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
       - type: API Guides
         url: https://docs.netlify.com/api-and-cli-guides/overview/
       - type: OpenAPI Source
         url: https://github.com/netlify/open-api
 common:
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.netlify.com/legal/terms-of-use/
   - type: Blog
     url: https://netlify.com/blog/
-  - type: Change Log
+  - type: ChangeLog
     url: https://netlify.com/changelog/
   - type: Change Log RSS
     url: https://www.netlify.com/changelog/feed.xml
@@ -62,25 +62,25 @@ common:
     url: https://answers.netlify.com/
   - type: Support
     url: https://www.netlify.com/support/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.netlify.com/privacy/
-  - type: Sign Up
+  - type: SignUp
     url: https://app.netlify.com/signup
   - type: Portal
     url: https://app.netlify.com/
-  - type: Status
+  - type: StatusPage
     url: https://www.netlifystatus.com/
   - type: Pricing
     url: https://www.netlify.com/pricing/
   - type: Documentation
     url: https://docs.netlify.com/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://docs.netlify.com/start/get-started-guide/
   - type: Authentication
     url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/netlify
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/netlify/open-api
   - type: CLI Repository
     url: https://github.com/netlify/cli
