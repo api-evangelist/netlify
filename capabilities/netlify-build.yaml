@@ -1,0 +1,263 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — Build
+  description: 'Netlify Netlify''s API documentation — Build. 5 operations. Lead operation: Build. Self-contained Naftiko
+    capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - Build
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-build
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — Build business capability. Self-contained, no shared references.
+    resources:
+    - name: builds-build_id
+      path: /builds/{build_id}
+      operations:
+      - name: getsitebuild
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: build_id
+          in: path
+          type: string
+          required: true
+    - name: builds-build_id-start
+      path: /builds/{build_id}/start
+      operations:
+      - name: notifybuildstart
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: build_id
+          in: path
+          type: string
+          required: true
+        - name: buildbot_version
+          in: query
+          type: string
+        - name: build_version
+          in: query
+          type: string
+    - name: sites-site_id-builds
+      path: /sites/{site_id}/builds
+      operations:
+      - name: listsitebuilds
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+      - name: createsitebuild
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: account_id-builds-status
+      path: /{account_id}/builds/status
+      operations:
+      - name: getaccountbuildstatus
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: account_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-build-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — Build. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/builds/{build-id}
+      name: builds-build-id
+      description: REST surface for builds-build_id.
+      operations:
+      - method: GET
+        name: getsitebuild
+        description: getsitebuild
+        call: netlify-build.getsitebuild
+        with:
+          build_id: rest.build_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/builds/{build-id}/start
+      name: builds-build-id-start
+      description: REST surface for builds-build_id-start.
+      operations:
+      - method: POST
+        name: notifybuildstart
+        description: notifybuildstart
+        call: netlify-build.notifybuildstart
+        with:
+          build_id: rest.build_id
+          buildbot_version: rest.buildbot_version
+          build_version: rest.build_version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/builds
+      name: sites-site-id-builds
+      description: REST surface for sites-site_id-builds.
+      operations:
+      - method: GET
+        name: listsitebuilds
+        description: listsitebuilds
+        call: netlify-build.listsitebuilds
+        with:
+          site_id: rest.site_id
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsitebuild
+        description: createsitebuild
+        call: netlify-build.createsitebuild
+        with:
+          site_id: rest.site_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{account-id}/builds/status
+      name: account-id-builds-status
+      description: REST surface for account_id-builds-status.
+      operations:
+      - method: GET
+        name: getaccountbuildstatus
+        description: getaccountbuildstatus
+        call: netlify-build.getaccountbuildstatus
+        with:
+          account_id: rest.account_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-build-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — Build. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: getsitebuild
+      description: getsitebuild
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-build.getsitebuild
+      with:
+        build_id: tools.build_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: notifybuildstart
+      description: notifybuildstart
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-build.notifybuildstart
+      with:
+        build_id: tools.build_id
+        buildbot_version: tools.buildbot_version
+        build_version: tools.build_version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsitebuilds
+      description: listsitebuilds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-build.listsitebuilds
+      with:
+        site_id: tools.site_id
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createsitebuild
+      description: createsitebuild
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-build.createsitebuild
+      with:
+        site_id: tools.site_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getaccountbuildstatus
+      description: getaccountbuildstatus
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-build.getaccountbuildstatus
+      with:
+        account_id: tools.account_id
+      outputParameters:
+      - type: object
+        mapping: $.

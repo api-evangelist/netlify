@@ -1,0 +1,230 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — Submission
+  description: 'Netlify Netlify''s API documentation — Submission. 4 operations. Lead operation: Submission. Self-contained
+    Naftiko capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - Submission
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-submission
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — Submission business capability. Self-contained, no shared references.
+    resources:
+    - name: forms-form_id-submissions
+      path: /forms/{form_id}/submissions
+      operations:
+      - name: listformsubmissions
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: form_id
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+    - name: sites-site_id-submissions
+      path: /sites/{site_id}/submissions
+      operations:
+      - name: listsitesubmissions
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+    - name: submissions-submission_id
+      path: /submissions/{submission_id}
+      operations:
+      - name: listformsubmission
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: submission_id
+          in: path
+          type: string
+          required: true
+        - name: query
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+      - name: deletesubmission
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: submission_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-submission-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — Submission. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/forms/{form-id}/submissions
+      name: forms-form-id-submissions
+      description: REST surface for forms-form_id-submissions.
+      operations:
+      - method: GET
+        name: listformsubmissions
+        description: listformsubmissions
+        call: netlify-submission.listformsubmissions
+        with:
+          form_id: rest.form_id
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/submissions
+      name: sites-site-id-submissions
+      description: REST surface for sites-site_id-submissions.
+      operations:
+      - method: GET
+        name: listsitesubmissions
+        description: listsitesubmissions
+        call: netlify-submission.listsitesubmissions
+        with:
+          site_id: rest.site_id
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/submissions/{submission-id}
+      name: submissions-submission-id
+      description: REST surface for submissions-submission_id.
+      operations:
+      - method: GET
+        name: listformsubmission
+        description: listformsubmission
+        call: netlify-submission.listformsubmission
+        with:
+          submission_id: rest.submission_id
+          query: rest.query
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesubmission
+        description: deletesubmission
+        call: netlify-submission.deletesubmission
+        with:
+          submission_id: rest.submission_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-submission-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — Submission. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: listformsubmissions
+      description: listformsubmissions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-submission.listformsubmissions
+      with:
+        form_id: tools.form_id
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsitesubmissions
+      description: listsitesubmissions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-submission.listsitesubmissions
+      with:
+        site_id: tools.site_id
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listformsubmission
+      description: listformsubmission
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-submission.listformsubmission
+      with:
+        submission_id: tools.submission_id
+        query: tools.query
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletesubmission
+      description: deletesubmission
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: netlify-submission.deletesubmission
+      with:
+        submission_id: tools.submission_id
+      outputParameters:
+      - type: object
+        mapping: $.

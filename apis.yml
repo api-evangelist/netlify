@@ -1,149 +1,224 @@
 aid: netlify
 name: Netlify
-description: Netlify is a cloud platform for building, deploying, and scaling modern web applications with continuous deployment, serverless functions, and edge computing capabilities.
+description: Netlify is a cloud platform for building, deploying, and scaling modern web applications with continuous deployment,
+  serverless functions, and edge computing capabilities.
 kind: contract
 image: https://www.netlify.com/v3/img/components/logomark.png
 access: 3rd-Party
 tags:
-  - CDN
-  - Cloud
-  - Continuous Deployment
-  - Edge Computing
-  - JAMstack
-  - Serverless
-  - Serverless Functions
-  - Static Sites
-  - Web Hosting
-  - Websites
+- CDN
+- Cloud
+- Continuous Deployment
+- Edge Computing
+- JAMstack
+- Serverless
+- Serverless Functions
+- Static Sites
+- Web Hosting
+- Websites
 url: https://raw.githubusercontent.com/api-evangelist/netlify/refs/heads/main/apis.yml
 created: '2023-11-14'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: netlify:netlify-api
-    name: Netlify API
-    description: Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-    baseURL: https://api.netlify.com/api/v1/
-    tags:
-      - Deploys
-      - DNS
-      - Forms
-      - Hosting
-      - Serverless
-      - Sites
-      - Webhooks
-    properties:
-      - type: Documentation
-        url: https://open-api.netlify.com/
-      - type: OpenAPI
-        url: openapi/netlify-openapi-original.yml
-      - type: GettingStarted
-        url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-      - type: API Guides
-        url: https://docs.netlify.com/api-and-cli-guides/overview/
-      - type: OpenAPI Source
-        url: https://github.com/netlify/open-api
-common:
-  - type: TermsOfService
-    url: https://www.netlify.com/legal/terms-of-use/
-  - type: Blog
-    url: https://netlify.com/blog/
-  - type: ChangeLog
-    url: https://netlify.com/changelog/
-  - type: Change Log RSS
-    url: https://www.netlify.com/changelog/feed.xml
-  - type: Forum
-    url: https://answers.netlify.com/
-  - type: Support
-    url: https://www.netlify.com/support/
-  - type: PrivacyPolicy
-    url: https://www.netlify.com/privacy/
-  - type: SignUp
-    url: https://app.netlify.com/signup
-  - type: Portal
-    url: https://app.netlify.com/
-  - type: StatusPage
-    url: https://www.netlifystatus.com/
-  - type: Pricing
-    url: https://www.netlify.com/pricing/
+- aid: netlify:netlify-api
+  name: Netlify API
+  description: Netlify is a hosting service for the programmable web. It understands your documents and provides an API to
+    handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style
+    API that uses JSON for serialization and OAuth 2 for authentication.
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Deploys
+  - DNS
+  - Forms
+  - Hosting
+  - Serverless
+  - Sites
+  - Webhooks
+  properties:
   - type: Documentation
-    url: https://docs.netlify.com/
+    url: https://open-api.netlify.com/
+  - type: OpenAPI
+    url: openapi/netlify-openapi-original.yml
   - type: GettingStarted
-    url: https://docs.netlify.com/start/get-started-guide/
-  - type: Authentication
     url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: GitHubOrganization
-    url: https://github.com/netlify
-  - type: GitHubRepository
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
     url: https://github.com/netlify/open-api
-  - type: CLI Repository
-    url: https://github.com/netlify/cli
-  - type: CLI Documentation
-    url: https://cli.netlify.com/
-  - type: SDK
-    url: https://developers.netlify.com/sdk/
-  - type: About
-    url: https://www.netlify.com/about/
-  - type: Contact
-    url: https://www.netlify.com/contact/
-  - type: Security
-    url: https://www.netlify.com/security/
-  - type: GDPR Policy
-    url: https://www.netlify.com/gdpr-ccpa/
-  - type: X (Twitter)
-    url: https://x.com/netlify
-  - type: Features
-    data:
-      - 'Free: 300 credits/mo, unlimited deploy previews, global CDN'
-      - 'Personal at $9/mo: 1,000 credits, smart secret detection'
-      - 'Pro at $20/mo: 3,000 credits, 3+ concurrent builds, private repos'
-      - 'Enterprise custom: unlimited credits, 99.99% SLA, SSO/SCIM'
-      - REST API at api.netlify.com
-      - 'Open API: 500 req/min/token rate limit'
-      - 'Deploy creates: 3/min/site'
-      - 'Build concurrency: 1 Free/Personal, 3 Pro'
-      - Edge Functions (Deno runtime)
-      - Functions (Node serverless)
-      - Netlify Forms
-      - Netlify Identity / Auth
-      - Netlify Database (Postgres)
-      - Netlify Blobs (object store)
-      - Image CDN with transformations
-      - Webhooks for build events
-    sources:
-      - https://www.netlify.com/pricing/
-    updated: '2026-05-04'
-  - type: Integrations
-    url: https://www.netlify.com/integrations/
-  - name: MCP Server
-    url: https://github.com/netlify/netlify-mcp
-    type: MCPServer
+  - type: NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/netlify
+- type: TermsOfService
+  url: https://www.netlify.com/legal/terms-of-use/
+- type: Blog
+  url: https://netlify.com/blog/
+- type: ChangeLog
+  url: https://netlify.com/changelog/
+- type: Change Log RSS
+  url: https://www.netlify.com/changelog/feed.xml
+- type: Forum
+  url: https://answers.netlify.com/
+- type: Support
+  url: https://www.netlify.com/support/
+- type: PrivacyPolicy
+  url: https://www.netlify.com/privacy/
+- type: SignUp
+  url: https://app.netlify.com/signup
+- type: Portal
+  url: https://app.netlify.com/
+- type: StatusPage
+  url: https://www.netlifystatus.com/
+- type: Pricing
+  url: https://www.netlify.com/pricing/
+- type: Documentation
+  url: https://docs.netlify.com/
+- type: GettingStarted
+  url: https://docs.netlify.com/start/get-started-guide/
+- type: Authentication
+  url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+- type: GitHubOrganization
+  url: https://github.com/netlify
+- type: GitHubRepository
+  url: https://github.com/netlify/open-api
+- type: CLI Repository
+  url: https://github.com/netlify/cli
+- type: CLI Documentation
+  url: https://cli.netlify.com/
+- type: SDK
+  url: https://developers.netlify.com/sdk/
+- type: About
+  url: https://www.netlify.com/about/
+- type: Contact
+  url: https://www.netlify.com/contact/
+- type: Security
+  url: https://www.netlify.com/security/
+- type: GDPR Policy
+  url: https://www.netlify.com/gdpr-ccpa/
+- type: X (Twitter)
+  url: https://x.com/netlify
+- type: Features
+  data:
+  - 'Free: 300 credits/mo, unlimited deploy previews, global CDN'
+  - 'Personal at $9/mo: 1,000 credits, smart secret detection'
+  - 'Pro at $20/mo: 3,000 credits, 3+ concurrent builds, private repos'
+  - 'Enterprise custom: unlimited credits, 99.99% SLA, SSO/SCIM'
+  - REST API at api.netlify.com
+  - 'Open API: 500 req/min/token rate limit'
+  - 'Deploy creates: 3/min/site'
+  - 'Build concurrency: 1 Free/Personal, 3 Pro'
+  - Edge Functions (Deno runtime)
+  - Functions (Node serverless)
+  - Netlify Forms
+  - Netlify Identity / Auth
+  - Netlify Database (Postgres)
+  - Netlify Blobs (object store)
+  - Image CDN with transformations
+  - Webhooks for build events
+  sources:
+  - https://www.netlify.com/pricing/
+  updated: '2026-05-04'
+- type: Integrations
+  url: https://www.netlify.com/integrations/
+- name: MCP Server
+  url: https://github.com/netlify/netlify-mcp
+  type: MCPServer
 integrations:
-  - name: Templates
-  - name: +More
-  - name: AI agents
-  - name: Content Management
-  - name: Database & Backend
-  - name: Digital Asset Management
-  - name: E-commerce
-  - name: Identity & Authentication
-  - name: Search & Personalization
-  - name: Testing & QA
-  - name: Contentstack The enterprise content experience platform.
-  - name: Kontent.ai Next-generation websites and content management.
-  - name: Axiom Serverless observability at scale.
-  - name: SpeedCurve Faster Site. Happier Users.
-  - name: QA Wolf Kiss bugs goodbye.
-  - name: Bejamas Jamstack developers for hire.
-  - name: GitLab The One DevOps Platform
-  - name: Snyk Developer loved, security trusted.
-  - name: Sentry Working code, happy customers.
+- name: Templates
+- name: +More
+- name: AI agents
+- name: Content Management
+- name: Database & Backend
+- name: Digital Asset Management
+- name: E-commerce
+- name: Identity & Authentication
+- name: Search & Personalization
+- name: Testing & QA
+- name: Contentstack The enterprise content experience platform.
+- name: Kontent.ai Next-generation websites and content management.
+- name: Axiom Serverless observability at scale.
+- name: SpeedCurve Faster Site. Happier Users.
+- name: QA Wolf Kiss bugs goodbye.
+- name: Bejamas Jamstack developers for hire.
+- name: GitLab The One DevOps Platform
+- name: Snyk Developer loved, security trusted.
+- name: Sentry Working code, happy customers.
 maintainers:
-  - FN: Kin Lane
-    url: http://apievangelist.com
-    email: kin@apievangelist.com
-  - FN: Netlify
-    email: support@netlify.com
-    url: https://www.netlify.com
+- FN: Kin Lane
+  url: http://apievangelist.com
+  email: kin@apievangelist.com
+- FN: Netlify
+  email: support@netlify.com
+  url: https://www.netlify.com

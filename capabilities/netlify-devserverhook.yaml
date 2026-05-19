@@ -1,0 +1,254 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — devServerHook
+  description: 'Netlify Netlify''s API documentation — devServerHook. 5 operations. Lead operation: devServerHook. Self-contained
+    Naftiko capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - devServerHook
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-devserverhook
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — devServerHook business capability. Self-contained, no shared references.
+    resources:
+    - name: sites-site_id-dev_server_hooks
+      path: /sites/{site_id}/dev_server_hooks
+      operations:
+      - name: listsitedevserverhooks
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+      - name: createsitedevserverhook
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sites-site_id-dev_server_hooks-id
+      path: /sites/{site_id}/dev_server_hooks/{id}
+      operations:
+      - name: getsitedevserverhook
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: updatesitedevserverhook
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletesitedevserverhook
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-devserverhook-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — devServerHook. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/sites/{site-id}/dev-server-hooks
+      name: sites-site-id-dev-server-hooks
+      description: REST surface for sites-site_id-dev_server_hooks.
+      operations:
+      - method: GET
+        name: listsitedevserverhooks
+        description: listsitedevserverhooks
+        call: netlify-devserverhook.listsitedevserverhooks
+        with:
+          site_id: rest.site_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsitedevserverhook
+        description: createsitedevserverhook
+        call: netlify-devserverhook.createsitedevserverhook
+        with:
+          site_id: rest.site_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/dev-server-hooks/{id}
+      name: sites-site-id-dev-server-hooks-id
+      description: REST surface for sites-site_id-dev_server_hooks-id.
+      operations:
+      - method: GET
+        name: getsitedevserverhook
+        description: getsitedevserverhook
+        call: netlify-devserverhook.getsitedevserverhook
+        with:
+          site_id: rest.site_id
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatesitedevserverhook
+        description: updatesitedevserverhook
+        call: netlify-devserverhook.updatesitedevserverhook
+        with:
+          site_id: rest.site_id
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesitedevserverhook
+        description: deletesitedevserverhook
+        call: netlify-devserverhook.deletesitedevserverhook
+        with:
+          site_id: rest.site_id
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-devserverhook-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — devServerHook. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: listsitedevserverhooks
+      description: listsitedevserverhooks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-devserverhook.listsitedevserverhooks
+      with:
+        site_id: tools.site_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createsitedevserverhook
+      description: createsitedevserverhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-devserverhook.createsitedevserverhook
+      with:
+        site_id: tools.site_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsitedevserverhook
+      description: getsitedevserverhook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-devserverhook.getsitedevserverhook
+      with:
+        site_id: tools.site_id
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatesitedevserverhook
+      description: updatesitedevserverhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: netlify-devserverhook.updatesitedevserverhook
+      with:
+        site_id: tools.site_id
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletesitedevserverhook
+      description: deletesitedevserverhook
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: netlify-devserverhook.deletesitedevserverhook
+      with:
+        site_id: tools.site_id
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

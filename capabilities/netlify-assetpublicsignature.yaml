@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — assetPublicSignature
+  description: 'Netlify Netlify''s API documentation — assetPublicSignature. 1 operations. Lead operation: assetPublicSignature.
+    Self-contained Naftiko capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - assetPublicSignature
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-assetpublicsignature
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — assetPublicSignature business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: sites-site_id-assets-asset_id-public_signature
+      path: /sites/{site_id}/assets/{asset_id}/public_signature
+      operations:
+      - name: getsiteassetpublicsignature
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: asset_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-assetpublicsignature-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — assetPublicSignature. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/sites/{site-id}/assets/{asset-id}/public-signature
+      name: sites-site-id-assets-asset-id-public-signature
+      description: REST surface for sites-site_id-assets-asset_id-public_signature.
+      operations:
+      - method: GET
+        name: getsiteassetpublicsignature
+        description: getsiteassetpublicsignature
+        call: netlify-assetpublicsignature.getsiteassetpublicsignature
+        with:
+          site_id: rest.site_id
+          asset_id: rest.asset_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-assetpublicsignature-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — assetPublicSignature. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: getsiteassetpublicsignature
+      description: getsiteassetpublicsignature
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-assetpublicsignature.getsiteassetpublicsignature
+      with:
+        site_id: tools.site_id
+        asset_id: tools.asset_id
+      outputParameters:
+      - type: object
+        mapping: $.

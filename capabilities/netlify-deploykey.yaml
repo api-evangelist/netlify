@@ -1,0 +1,170 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — deployKey
+  description: 'Netlify Netlify''s API documentation — deployKey. 4 operations. Lead operation: deployKey. Self-contained
+    Naftiko capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - deployKey
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-deploykey
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — deployKey business capability. Self-contained, no shared references.
+    resources:
+    - name: deploy_keys
+      path: /deploy_keys
+      operations:
+      - name: listdeploykeys
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdeploykey
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deploy_keys-key_id
+      path: /deploy_keys/{key_id}
+      operations:
+      - name: getdeploykey
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key_id
+          in: path
+          type: string
+          required: true
+      - name: deletedeploykey
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: key_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-deploykey-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — deployKey. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/deploy-keys
+      name: deploy-keys
+      description: REST surface for deploy_keys.
+      operations:
+      - method: GET
+        name: listdeploykeys
+        description: listdeploykeys
+        call: netlify-deploykey.listdeploykeys
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdeploykey
+        description: createdeploykey
+        call: netlify-deploykey.createdeploykey
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deploy-keys/{key-id}
+      name: deploy-keys-key-id
+      description: REST surface for deploy_keys-key_id.
+      operations:
+      - method: GET
+        name: getdeploykey
+        description: getdeploykey
+        call: netlify-deploykey.getdeploykey
+        with:
+          key_id: rest.key_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedeploykey
+        description: deletedeploykey
+        call: netlify-deploykey.deletedeploykey
+        with:
+          key_id: rest.key_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-deploykey-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — deployKey. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: listdeploykeys
+      description: listdeploykeys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-deploykey.listdeploykeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createdeploykey
+      description: createdeploykey
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-deploykey.createdeploykey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdeploykey
+      description: getdeploykey
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-deploykey.getdeploykey
+      with:
+        key_id: tools.key_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletedeploykey
+      description: deletedeploykey
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: netlify-deploykey.deletedeploykey
+      with:
+        key_id: tools.key_id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — buildLogMsg
+  description: 'Netlify Netlify''s API documentation — buildLogMsg. 1 operations. Lead operation: buildLogMsg. Self-contained
+    Naftiko capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - buildLogMsg
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-buildlogmsg
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — buildLogMsg business capability. Self-contained, no shared references.
+    resources:
+    - name: builds-build_id-log
+      path: /builds/{build_id}/log
+      operations:
+      - name: updatesitebuildlog
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: build_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-buildlogmsg-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — buildLogMsg. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/builds/{build-id}/log
+      name: builds-build-id-log
+      description: REST surface for builds-build_id-log.
+      operations:
+      - method: POST
+        name: updatesitebuildlog
+        description: updatesitebuildlog
+        call: netlify-buildlogmsg.updatesitebuildlog
+        with:
+          build_id: rest.build_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-buildlogmsg-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — buildLogMsg. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: updatesitebuildlog
+      description: updatesitebuildlog
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-buildlogmsg.updatesitebuildlog
+      with:
+        build_id: tools.build_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

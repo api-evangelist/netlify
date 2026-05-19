@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — paymentMethod
+  description: 'Netlify Netlify''s API documentation — paymentMethod. 1 operations. Lead operation: paymentMethod. Self-contained
+    Naftiko capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - paymentMethod
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-paymentmethod
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — paymentMethod business capability. Self-contained, no shared references.
+    resources:
+    - name: billing-payment_methods
+      path: /billing/payment_methods
+      operations:
+      - name: listpaymentmethodsforuser
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-paymentmethod-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — paymentMethod. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/billing/payment-methods
+      name: billing-payment-methods
+      description: REST surface for billing-payment_methods.
+      operations:
+      - method: GET
+        name: listpaymentmethodsforuser
+        description: listpaymentmethodsforuser
+        call: netlify-paymentmethod.listpaymentmethodsforuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-paymentmethod-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — paymentMethod. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: listpaymentmethodsforuser
+      description: listpaymentmethodsforuser
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-paymentmethod.listpaymentmethodsforuser
+      outputParameters:
+      - type: object
+        mapping: $.

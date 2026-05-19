@@ -1,0 +1,163 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — Function
+  description: 'Netlify Netlify''s API documentation — Function. 2 operations. Lead operation: Function. Self-contained Naftiko
+    capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - Function
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-function
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — Function business capability. Self-contained, no shared references.
+    resources:
+    - name: deploys-deploy_id-functions-name
+      path: /deploys/{deploy_id}/functions/{name}
+      operations:
+      - name: uploaddeployfunction
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: deploy_id
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: runtime
+          in: query
+          type: string
+        - name: invocation_mode
+          in: query
+          type: string
+        - name: timeout
+          in: query
+          type: integer
+        - name: size
+          in: query
+          type: integer
+        - name: X-Nf-Retry-Count
+          in: header
+          type: integer
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sites-site_id-functions
+      path: /sites/{site_id}/functions
+      operations:
+      - name: searchsitefunctions
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: filter
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-function-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — Function. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/deploys/{deploy-id}/functions/{name}
+      name: deploys-deploy-id-functions-name
+      description: REST surface for deploys-deploy_id-functions-name.
+      operations:
+      - method: PUT
+        name: uploaddeployfunction
+        description: uploaddeployfunction
+        call: netlify-function.uploaddeployfunction
+        with:
+          deploy_id: rest.deploy_id
+          name: rest.name
+          runtime: rest.runtime
+          invocation_mode: rest.invocation_mode
+          timeout: rest.timeout
+          size: rest.size
+          X-Nf-Retry-Count: rest.X-Nf-Retry-Count
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/functions
+      name: sites-site-id-functions
+      description: REST surface for sites-site_id-functions.
+      operations:
+      - method: GET
+        name: searchsitefunctions
+        description: searchsitefunctions
+        call: netlify-function.searchsitefunctions
+        with:
+          site_id: rest.site_id
+          filter: rest.filter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-function-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — Function. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: uploaddeployfunction
+      description: uploaddeployfunction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: netlify-function.uploaddeployfunction
+      with:
+        deploy_id: tools.deploy_id
+        name: tools.name
+        runtime: tools.runtime
+        invocation_mode: tools.invocation_mode
+        timeout: tools.timeout
+        size: tools.size
+        X-Nf-Retry-Count: tools.X-Nf-Retry-Count
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchsitefunctions
+      description: searchsitefunctions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-function.searchsitefunctions
+      with:
+        site_id: tools.site_id
+        filter: tools.filter
+      outputParameters:
+      - type: object
+        mapping: $.

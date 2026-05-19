@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — accountType
+  description: 'Netlify Netlify''s API documentation — accountType. 1 operations. Lead operation: accountType. Self-contained
+    Naftiko capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - accountType
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-accounttype
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — accountType business capability. Self-contained, no shared references.
+    resources:
+    - name: accounts-types
+      path: /accounts/types
+      operations:
+      - name: listaccounttypesforuser
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-accounttype-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — accountType. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/accounts/types
+      name: accounts-types
+      description: REST surface for accounts-types.
+      operations:
+      - method: GET
+        name: listaccounttypesforuser
+        description: listaccounttypesforuser
+        call: netlify-accounttype.listaccounttypesforuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-accounttype-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — accountType. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: listaccounttypesforuser
+      description: listaccounttypesforuser
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-accounttype.listaccounttypesforuser
+      outputParameters:
+      - type: object
+        mapping: $.

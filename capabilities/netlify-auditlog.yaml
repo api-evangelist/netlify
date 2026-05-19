@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — auditLog
+  description: 'Netlify Netlify''s API documentation — auditLog. 1 operations. Lead operation: auditLog. Self-contained Naftiko
+    capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - auditLog
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-auditlog
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — auditLog business capability. Self-contained, no shared references.
+    resources:
+    - name: accounts-account_id-audit
+      path: /accounts/{account_id}/audit
+      operations:
+      - name: listaccountauditevents
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: account_id
+          in: path
+          type: string
+          required: true
+        - name: query
+          in: query
+          type: string
+        - name: log_type
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-auditlog-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — auditLog. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/accounts/{account-id}/audit
+      name: accounts-account-id-audit
+      description: REST surface for accounts-account_id-audit.
+      operations:
+      - method: GET
+        name: listaccountauditevents
+        description: listaccountauditevents
+        call: netlify-auditlog.listaccountauditevents
+        with:
+          account_id: rest.account_id
+          query: rest.query
+          log_type: rest.log_type
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-auditlog-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — auditLog. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: listaccountauditevents
+      description: listaccountauditevents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-auditlog.listaccountauditevents
+      with:
+        account_id: tools.account_id
+        query: tools.query
+        log_type: tools.log_type
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.

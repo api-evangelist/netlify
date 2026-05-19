@@ -1,0 +1,126 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — Form
+  description: 'Netlify Netlify''s API documentation — Form. 2 operations. Lead operation: Form. Self-contained Naftiko capability
+    covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - Form
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-form
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — Form business capability. Self-contained, no shared references.
+    resources:
+    - name: sites-site_id-forms
+      path: /sites/{site_id}/forms
+      operations:
+      - name: listsiteforms
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+    - name: sites-site_id-forms-form_id
+      path: /sites/{site_id}/forms/{form_id}
+      operations:
+      - name: deletesiteform
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: form_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-form-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — Form. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sites/{site-id}/forms
+      name: sites-site-id-forms
+      description: REST surface for sites-site_id-forms.
+      operations:
+      - method: GET
+        name: listsiteforms
+        description: listsiteforms
+        call: netlify-form.listsiteforms
+        with:
+          site_id: rest.site_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/forms/{form-id}
+      name: sites-site-id-forms-form-id
+      description: REST surface for sites-site_id-forms-form_id.
+      operations:
+      - method: DELETE
+        name: deletesiteform
+        description: deletesiteform
+        call: netlify-form.deletesiteform
+        with:
+          site_id: rest.site_id
+          form_id: rest.form_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-form-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — Form. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: listsiteforms
+      description: listsiteforms
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-form.listsiteforms
+      with:
+        site_id: tools.site_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletesiteform
+      description: deletesiteform
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: netlify-form.deletesiteform
+      with:
+        site_id: tools.site_id
+        form_id: tools.form_id
+      outputParameters:
+      - type: object
+        mapping: $.

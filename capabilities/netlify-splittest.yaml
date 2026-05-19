@@ -1,0 +1,308 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — splitTest
+  description: 'Netlify Netlify''s API documentation — splitTest. 6 operations. Lead operation: splitTest. Self-contained
+    Naftiko capability covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - splitTest
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-splittest
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — splitTest business capability. Self-contained, no shared references.
+    resources:
+    - name: sites-site_id-traffic_splits
+      path: /sites/{site_id}/traffic_splits
+      operations:
+      - name: getsplittests
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+      - name: createsplittest
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sites-site_id-traffic_splits-split_test_id
+      path: /sites/{site_id}/traffic_splits/{split_test_id}
+      operations:
+      - name: getsplittest
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: split_test_id
+          in: path
+          type: string
+          required: true
+      - name: updatesplittest
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: split_test_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sites-site_id-traffic_splits-split_test_id-publish
+      path: /sites/{site_id}/traffic_splits/{split_test_id}/publish
+      operations:
+      - name: enablesplittest
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: split_test_id
+          in: path
+          type: string
+          required: true
+    - name: sites-site_id-traffic_splits-split_test_id-unpublish
+      path: /sites/{site_id}/traffic_splits/{split_test_id}/unpublish
+      operations:
+      - name: disablesplittest
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: split_test_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-splittest-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — splitTest. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sites/{site-id}/traffic-splits
+      name: sites-site-id-traffic-splits
+      description: REST surface for sites-site_id-traffic_splits.
+      operations:
+      - method: GET
+        name: getsplittests
+        description: getsplittests
+        call: netlify-splittest.getsplittests
+        with:
+          site_id: rest.site_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsplittest
+        description: createsplittest
+        call: netlify-splittest.createsplittest
+        with:
+          site_id: rest.site_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/traffic-splits/{split-test-id}
+      name: sites-site-id-traffic-splits-split-test-id
+      description: REST surface for sites-site_id-traffic_splits-split_test_id.
+      operations:
+      - method: GET
+        name: getsplittest
+        description: getsplittest
+        call: netlify-splittest.getsplittest
+        with:
+          site_id: rest.site_id
+          split_test_id: rest.split_test_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatesplittest
+        description: updatesplittest
+        call: netlify-splittest.updatesplittest
+        with:
+          site_id: rest.site_id
+          split_test_id: rest.split_test_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/traffic-splits/{split-test-id}/publish
+      name: sites-site-id-traffic-splits-split-test-id-publish
+      description: REST surface for sites-site_id-traffic_splits-split_test_id-publish.
+      operations:
+      - method: POST
+        name: enablesplittest
+        description: enablesplittest
+        call: netlify-splittest.enablesplittest
+        with:
+          site_id: rest.site_id
+          split_test_id: rest.split_test_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/traffic-splits/{split-test-id}/unpublish
+      name: sites-site-id-traffic-splits-split-test-id-unpublish
+      description: REST surface for sites-site_id-traffic_splits-split_test_id-unpublish.
+      operations:
+      - method: POST
+        name: disablesplittest
+        description: disablesplittest
+        call: netlify-splittest.disablesplittest
+        with:
+          site_id: rest.site_id
+          split_test_id: rest.split_test_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-splittest-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — splitTest. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: getsplittests
+      description: getsplittests
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-splittest.getsplittests
+      with:
+        site_id: tools.site_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createsplittest
+      description: createsplittest
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-splittest.createsplittest
+      with:
+        site_id: tools.site_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsplittest
+      description: getsplittest
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-splittest.getsplittest
+      with:
+        site_id: tools.site_id
+        split_test_id: tools.split_test_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatesplittest
+      description: updatesplittest
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: netlify-splittest.updatesplittest
+      with:
+        site_id: tools.site_id
+        split_test_id: tools.split_test_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enablesplittest
+      description: enablesplittest
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-splittest.enablesplittest
+      with:
+        site_id: tools.site_id
+        split_test_id: tools.split_test_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: disablesplittest
+      description: disablesplittest
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-splittest.disablesplittest
+      with:
+        site_id: tools.site_id
+        split_test_id: tools.split_test_id
+      outputParameters:
+      - type: object
+        mapping: $.

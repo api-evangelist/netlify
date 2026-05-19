@@ -1,0 +1,277 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — Hook
+  description: 'Netlify Netlify''s API documentation — Hook. 6 operations. Lead operation: Hook. Self-contained Naftiko capability
+    covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - Hook
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-hook
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — Hook business capability. Self-contained, no shared references.
+    resources:
+    - name: hooks
+      path: /hooks
+      operations:
+      - name: listhooksbysiteid
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: query
+          type: string
+          required: true
+      - name: createhookbysiteid
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: hooks-hook_id
+      path: /hooks/{hook_id}
+      operations:
+      - name: gethook
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hook_id
+          in: path
+          type: string
+          required: true
+      - name: updatehook
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hook_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletehook
+        method: DELETE
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hook_id
+          in: path
+          type: string
+          required: true
+    - name: hooks-hook_id-enable
+      path: /hooks/{hook_id}/enable
+      operations:
+      - name: enablehook
+        method: POST
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: hook_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-hook-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — Hook. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/hooks
+      name: hooks
+      description: REST surface for hooks.
+      operations:
+      - method: GET
+        name: listhooksbysiteid
+        description: listhooksbysiteid
+        call: netlify-hook.listhooksbysiteid
+        with:
+          site_id: rest.site_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createhookbysiteid
+        description: createhookbysiteid
+        call: netlify-hook.createhookbysiteid
+        with:
+          site_id: rest.site_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hooks/{hook-id}
+      name: hooks-hook-id
+      description: REST surface for hooks-hook_id.
+      operations:
+      - method: GET
+        name: gethook
+        description: gethook
+        call: netlify-hook.gethook
+        with:
+          hook_id: rest.hook_id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatehook
+        description: updatehook
+        call: netlify-hook.updatehook
+        with:
+          hook_id: rest.hook_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletehook
+        description: deletehook
+        call: netlify-hook.deletehook
+        with:
+          hook_id: rest.hook_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hooks/{hook-id}/enable
+      name: hooks-hook-id-enable
+      description: REST surface for hooks-hook_id-enable.
+      operations:
+      - method: POST
+        name: enablehook
+        description: enablehook
+        call: netlify-hook.enablehook
+        with:
+          hook_id: rest.hook_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-hook-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — Hook. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: listhooksbysiteid
+      description: listhooksbysiteid
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-hook.listhooksbysiteid
+      with:
+        site_id: tools.site_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createhookbysiteid
+      description: createhookbysiteid
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-hook.createhookbysiteid
+      with:
+        site_id: tools.site_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gethook
+      description: gethook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-hook.gethook
+      with:
+        hook_id: tools.hook_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatehook
+      description: updatehook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: netlify-hook.updatehook
+      with:
+        hook_id: tools.hook_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletehook
+      description: deletehook
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: netlify-hook.deletehook
+      with:
+        hook_id: tools.hook_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enablehook
+      description: enablehook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: netlify-hook.enablehook
+      with:
+        hook_id: tools.hook_id
+      outputParameters:
+      - type: object
+        mapping: $.

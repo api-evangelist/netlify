@@ -1,0 +1,185 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Netlify Netlify's API documentation — File
+  description: 'Netlify Netlify''s API documentation — File. 3 operations. Lead operation: File. Self-contained Naftiko capability
+    covering one Netlify business surface.'
+  tags:
+  - Netlify
+  - File
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NETLIFY_API_KEY: NETLIFY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: netlify-file
+    baseUri: https://api.netlify.com/api/v1
+    description: Netlify Netlify's API documentation — File business capability. Self-contained, no shared references.
+    resources:
+    - name: deploys-deploy_id-files-path
+      path: /deploys/{deploy_id}/files/{path}
+      operations:
+      - name: uploaddeployfile
+        method: PUT
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: deploy_id
+          in: path
+          type: string
+          required: true
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: size
+          in: query
+          type: integer
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sites-site_id-files
+      path: /sites/{site_id}/files
+      operations:
+      - name: listsitefiles
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+    - name: sites-site_id-files-file_path
+      path: /sites/{site_id}/files/{file_path}
+      operations:
+      - name: getsitefilebypathname
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: site_id
+          in: path
+          type: string
+          required: true
+        - name: file_path
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.NETLIFY_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: netlify-file-rest
+    port: 8080
+    description: REST adapter for Netlify Netlify's API documentation — File. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/deploys/{deploy-id}/files/{path}
+      name: deploys-deploy-id-files-path
+      description: REST surface for deploys-deploy_id-files-path.
+      operations:
+      - method: PUT
+        name: uploaddeployfile
+        description: uploaddeployfile
+        call: netlify-file.uploaddeployfile
+        with:
+          deploy_id: rest.deploy_id
+          path: rest.path
+          size: rest.size
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/files
+      name: sites-site-id-files
+      description: REST surface for sites-site_id-files.
+      operations:
+      - method: GET
+        name: listsitefiles
+        description: listsitefiles
+        call: netlify-file.listsitefiles
+        with:
+          site_id: rest.site_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sites/{site-id}/files/{file-path}
+      name: sites-site-id-files-file-path
+      description: REST surface for sites-site_id-files-file_path.
+      operations:
+      - method: GET
+        name: getsitefilebypathname
+        description: getsitefilebypathname
+        call: netlify-file.getsitefilebypathname
+        with:
+          site_id: rest.site_id
+          file_path: rest.file_path
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: netlify-file-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Netlify Netlify's API documentation — File. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: uploaddeployfile
+      description: uploaddeployfile
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: netlify-file.uploaddeployfile
+      with:
+        deploy_id: tools.deploy_id
+        path: tools.path
+        size: tools.size
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsitefiles
+      description: listsitefiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-file.listsitefiles
+      with:
+        site_id: tools.site_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsitefilebypathname
+      description: getsitefilebypathname
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: netlify-file.getsitefilebypathname
+      with:
+        site_id: tools.site_id
+        file_path: tools.file_path
+      outputParameters:
+      - type: object
+        mapping: $.
