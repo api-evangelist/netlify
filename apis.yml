@@ -1,7 +1,6 @@
 aid: netlify
 name: Netlify
-description: Netlify is a cloud platform for building, deploying, and scaling modern web applications
-  with continuous deployment, serverless functions, and edge computing capabilities.
+description: Netlify is a cloud platform for building, deploying, and scaling modern web applications with continuous deployment, serverless functions, and edge computing capabilities.
 kind: contract
 image: https://www.netlify.com/v3/img/components/logomark.png
 access: 3rd-Party
@@ -18,15 +17,12 @@ tags:
   - Websites
 url: https://raw.githubusercontent.com/api-evangelist/netlify/refs/heads/main/apis.yml
 created: '2023-11-14'
-modified: '2026-05-05'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
   - aid: netlify:netlify-api
     name: Netlify API
-    description: Netlify is a hosting service for the programmable web. It understands your documents
-      and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript
-      snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for
-      authentication.
+    description: Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
     image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
     baseURL: https://api.netlify.com/api/v1/
@@ -121,6 +117,9 @@ common:
     updated: '2026-05-04'
   - type: Integrations
     url: https://www.netlify.com/integrations/
+  - name: MCP Server
+    url: https://github.com/netlify/netlify-mcp
+    type: MCPServer
 integrations:
   - name: Templates
   - name: +More
