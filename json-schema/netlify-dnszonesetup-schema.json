@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/dnsZoneSetup",
+  "title": "dnsZoneSetup",
+  "type": "object",
+  "properties": {
+    "account_slug": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

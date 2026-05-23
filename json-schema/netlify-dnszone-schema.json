@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/dnsZone",
+  "title": "dnsZone",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supported_record_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/dnsRecord"
+      }
+    },
+    "dns_servers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "account_id": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "account_slug": {
+      "type": "string"
+    },
+    "account_name": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "ipv6_enabled": {
+      "type": "boolean"
+    },
+    "dedicated": {
+      "type": "boolean"
+    }
+  }
+}

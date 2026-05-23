@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/functionRoute",
+  "title": "functionRoute",
+  "type": "object",
+  "properties": {
+    "pattern": {
+      "type": "string"
+    },
+    "literal": {
+      "type": "string"
+    },
+    "expression": {
+      "type": "string"
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "GET",
+          "POST",
+          "PUT",
+          "PATCH",
+          "DELETE",
+          "OPTIONS"
+        ]
+      }
+    },
+    "prefer_static": {
+      "type": "boolean"
+    }
+  }
+}

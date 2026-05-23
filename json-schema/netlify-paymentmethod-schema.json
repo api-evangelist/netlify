@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/paymentMethod",
+  "title": "paymentMethod",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "method_name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "card_type": {
+          "type": "string"
+        },
+        "last4": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  }
+}

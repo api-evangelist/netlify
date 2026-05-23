@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/pluginRun",
+  "title": "pluginRun",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/pluginRunData"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "deploy_id": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

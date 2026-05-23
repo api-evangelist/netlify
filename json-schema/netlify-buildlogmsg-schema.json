@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/buildLogMsg",
+  "title": "buildLogMsg",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "error": {
+      "type": "boolean"
+    },
+    "section": {
+      "type": "string",
+      "enum": [
+        "initializing",
+        "building",
+        "deploying",
+        "cleanup",
+        "postprocessing"
+      ]
+    }
+  }
+}

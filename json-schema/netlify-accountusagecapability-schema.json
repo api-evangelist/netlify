@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/accountUsageCapability",
+  "title": "accountUsageCapability",
+  "type": "object",
+  "properties": {
+    "included": {
+      "type": "integer"
+    },
+    "used": {
+      "type": "integer"
+    }
+  }
+}

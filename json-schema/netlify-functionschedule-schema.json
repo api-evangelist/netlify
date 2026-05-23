@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/functionSchedule",
+  "title": "functionSchedule",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "cron": {
+      "type": "string"
+    }
+  }
+}

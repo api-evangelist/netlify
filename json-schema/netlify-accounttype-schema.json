@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/accountType",
+  "title": "accountType",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {}
+    },
+    "monthly_dollar_price": {
+      "type": "integer"
+    },
+    "yearly_dollar_price": {
+      "type": "integer"
+    },
+    "monthly_seats_addon_dollar_price": {
+      "type": "integer"
+    },
+    "yearly_seats_addon_dollar_price": {
+      "type": "integer"
+    }
+  }
+}

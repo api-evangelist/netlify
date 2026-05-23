@@ -1,0 +1,1628 @@
+{
+  "provider": "Netlify",
+  "providerId": "netlify",
+  "kind": "json-structure",
+  "description": "Structural overview of the Netlify API surface; extracted from openapi/.",
+  "schemaCount": 70,
+  "operationCount": 133,
+  "schemas": [
+    {
+      "name": "splitTestSetup",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "splitTests",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "splitTest",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "serviceInstance",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "service",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "site",
+      "type": "object",
+      "propertyCount": 35,
+      "required": []
+    },
+    {
+      "name": "siteSetup",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "repoInfo",
+      "type": "object",
+      "propertyCount": 15,
+      "required": []
+    },
+    {
+      "name": "submission",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "envVar",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "envVarValue",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "envVarUser",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "form",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "hookType",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "hook",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "file",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "function",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "snippet",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "purge",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "deploy",
+      "type": "object",
+      "propertyCount": 30,
+      "required": []
+    },
+    {
+      "name": "deployFiles",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "pluginParams",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "plugin",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "buildStatus",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "build",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "buildLogMsg",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "pluginRunData",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "pluginRun",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "metadata",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "dnsZoneSetup",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "dnsZones",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "dnsZone",
+      "type": "object",
+      "propertyCount": 16,
+      "required": []
+    },
+    {
+      "name": "dnsRecordCreate",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "dnsRecords",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "dnsRecord",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "sniCertificate",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "ticket",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "accessToken",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "asset",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "assetForm",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "assetSignature",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "assetPublicSignature",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "deployKey",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "member",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "paymentMethod",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "accountType",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "accountSetup",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "name",
+        "type_id"
+      ]
+    },
+    {
+      "name": "accountUpdateSetup",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "accountAddMemberSetup",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "accountUpdateMemberSetup",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "accountMembership",
+      "type": "object",
+      "propertyCount": 16,
+      "required": []
+    },
+    {
+      "name": "auditLog",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "accountUsageCapability",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "buildSetup",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "buildHookSetup",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "buildHook",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "deployedBranch",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "user",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "error",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "message"
+      ]
+    },
+    {
+      "name": "functionSchedule",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "functionConfig",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "functionRoute",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "excludedFunctionRoute",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "trafficRulesConfig",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "trafficRulesRateLimitConfig",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "trafficRulesAggregateConfig",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "siteFunction",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "devServer",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "devServerHook",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "devServerHookSetup",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/sites",
+      "operationId": "listSites",
+      "summary": null,
+      "tags": [
+        "Site"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites",
+      "operationId": "createSite",
+      "summary": null,
+      "tags": [
+        "Site"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}",
+      "operationId": "getSite",
+      "summary": null,
+      "tags": [
+        "Site"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}",
+      "operationId": "deleteSite",
+      "summary": null,
+      "tags": [
+        "Site"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/sites/{site_id}",
+      "operationId": "updateSite",
+      "summary": null,
+      "tags": [
+        "Site"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/ssl",
+      "operationId": "showSiteTLSCertificate",
+      "summary": null,
+      "tags": [
+        "sniCertificate"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/ssl",
+      "operationId": "provisionSiteTLSCertificate",
+      "summary": null,
+      "tags": [
+        "sniCertificate"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{account_id}/env",
+      "operationId": "getEnvVars",
+      "summary": null,
+      "tags": [
+        "environmentVariables"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{account_id}/env",
+      "operationId": "createEnvVars",
+      "summary": null,
+      "tags": [
+        "environmentVariables"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/sites/{site_id}/env",
+      "operationId": "getSiteEnvVars",
+      "summary": null,
+      "tags": [
+        "environmentVariables"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{account_id}/env/{key}",
+      "operationId": "getEnvVar",
+      "summary": null,
+      "tags": [
+        "environmentVariables"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/accounts/{account_id}/env/{key}",
+      "operationId": "updateEnvVar",
+      "summary": null,
+      "tags": [
+        "environmentVariables"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/accounts/{account_id}/env/{key}",
+      "operationId": "deleteEnvVar",
+      "summary": null,
+      "tags": [
+        "environmentVariables"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/accounts/{account_id}/env/{key}",
+      "operationId": "setEnvVarValue",
+      "summary": null,
+      "tags": [
+        "environmentVariables"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/accounts/{account_id}/env/{key}/value/{id}",
+      "operationId": "deleteEnvVarValue",
+      "summary": null,
+      "tags": [
+        "environmentVariables"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/functions",
+      "operationId": "searchSiteFunctions",
+      "summary": null,
+      "tags": [
+        "Function"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/forms",
+      "operationId": "listSiteForms",
+      "summary": null,
+      "tags": [
+        "Form"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}/forms/{form_id}",
+      "operationId": "deleteSiteForm",
+      "summary": null,
+      "tags": [
+        "Form"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/submissions",
+      "operationId": "listSiteSubmissions",
+      "summary": null,
+      "tags": [
+        "Submission"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/files",
+      "operationId": "listSiteFiles",
+      "summary": null,
+      "tags": [
+        "File"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/assets",
+      "operationId": "listSiteAssets",
+      "summary": null,
+      "tags": [
+        "Asset"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/assets",
+      "operationId": "createSiteAsset",
+      "summary": null,
+      "tags": [
+        "Asset"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/assets/{asset_id}",
+      "operationId": "getSiteAssetInfo",
+      "summary": null,
+      "tags": [
+        "Asset"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/assets/{asset_id}",
+      "operationId": "updateSiteAsset",
+      "summary": null,
+      "tags": [
+        "Asset"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}/assets/{asset_id}",
+      "operationId": "deleteSiteAsset",
+      "summary": null,
+      "tags": [
+        "Asset"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/assets/{asset_id}/public_signature",
+      "operationId": "getSiteAssetPublicSignature",
+      "summary": null,
+      "tags": [
+        "assetPublicSignature"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/files/{file_path}",
+      "operationId": "getSiteFileByPathName",
+      "summary": null,
+      "tags": [
+        "File"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/purge",
+      "operationId": "purgeCache",
+      "summary": null,
+      "tags": [
+        "Purge"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/snippets",
+      "operationId": "listSiteSnippets",
+      "summary": null,
+      "tags": [
+        "Snippet"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/snippets",
+      "operationId": "createSiteSnippet",
+      "summary": null,
+      "tags": [
+        "Snippet"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/snippets/{snippet_id}",
+      "operationId": "getSiteSnippet",
+      "summary": null,
+      "tags": [
+        "Snippet"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/snippets/{snippet_id}",
+      "operationId": "updateSiteSnippet",
+      "summary": null,
+      "tags": [
+        "Snippet"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}/snippets/{snippet_id}",
+      "operationId": "deleteSiteSnippet",
+      "summary": null,
+      "tags": [
+        "Snippet"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/metadata",
+      "operationId": "getSiteMetadata",
+      "summary": null,
+      "tags": [
+        "Metadata"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/metadata",
+      "operationId": "updateSiteMetadata",
+      "summary": null,
+      "tags": [
+        "Metadata"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/build_hooks",
+      "operationId": "listSiteBuildHooks",
+      "summary": null,
+      "tags": [
+        "buildHook"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/build_hooks",
+      "operationId": "createSiteBuildHook",
+      "summary": null,
+      "tags": [
+        "buildHook"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/build_hooks/{id}",
+      "operationId": "getSiteBuildHook",
+      "summary": null,
+      "tags": [
+        "buildHook"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/build_hooks/{id}",
+      "operationId": "updateSiteBuildHook",
+      "summary": null,
+      "tags": [
+        "buildHook"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}/build_hooks/{id}",
+      "operationId": "deleteSiteBuildHook",
+      "summary": null,
+      "tags": [
+        "buildHook"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/deploys",
+      "operationId": "listSiteDeploys",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/deploys",
+      "operationId": "createSiteDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/deploys/{deploy_id}",
+      "operationId": "getSiteDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/deploys/{deploy_id}",
+      "operationId": "updateSiteDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}/deploys/{deploy_id}",
+      "operationId": "deleteSiteDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deploys/{deploy_id}/cancel",
+      "operationId": "cancelSiteDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/deploys/{deploy_id}/restore",
+      "operationId": "restoreSiteDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/builds",
+      "operationId": "listSiteBuilds",
+      "summary": null,
+      "tags": [
+        "Build"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/builds",
+      "operationId": "createSiteBuild",
+      "summary": null,
+      "tags": [
+        "Build"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/deployed-branches",
+      "operationId": "listSiteDeployedBranches",
+      "summary": null,
+      "tags": [
+        "deployedBranch"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/unlink_repo",
+      "operationId": "unlinkSiteRepo",
+      "summary": null,
+      "tags": [
+        "Site"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/builds/{build_id}",
+      "operationId": "getSiteBuild",
+      "summary": null,
+      "tags": [
+        "Build"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/builds/{build_id}/log",
+      "operationId": "updateSiteBuildLog",
+      "summary": null,
+      "tags": [
+        "buildLogMsg"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/builds/{build_id}/start",
+      "operationId": "notifyBuildStart",
+      "summary": null,
+      "tags": [
+        "Build"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{account_id}/builds/status",
+      "operationId": "getAccountBuildStatus",
+      "summary": null,
+      "tags": [
+        "Build"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/dns",
+      "operationId": "getDNSForSite",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/dns",
+      "operationId": "configureDNSForSite",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/rollback",
+      "operationId": "rollbackSiteDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deploys/{deploy_id}",
+      "operationId": "getDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/deploys/{deploy_id}",
+      "operationId": "deleteDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deploys/{deploy_id}/lock",
+      "operationId": "lockDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deploys/{deploy_id}/unlock",
+      "operationId": "unlockDeploy",
+      "summary": null,
+      "tags": [
+        "Deploy"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/deploys/{deploy_id}/files/{path}",
+      "operationId": "uploadDeployFile",
+      "summary": null,
+      "tags": [
+        "File"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/deploys/{deploy_id}/functions/{name}",
+      "operationId": "uploadDeployFunction",
+      "summary": null,
+      "tags": [
+        "Function"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/plugins/{package}",
+      "operationId": "updatePlugin",
+      "summary": null,
+      "tags": [
+        "X-Internal"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/plugin_runs/latest",
+      "operationId": "getLatestPluginRuns",
+      "summary": null,
+      "tags": [
+        "X-Internal"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deploys/{deploy_id}/plugin_runs",
+      "operationId": "createPluginRun",
+      "summary": null,
+      "tags": [
+        "X-Internal"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/forms/{form_id}/submissions",
+      "operationId": "listFormSubmissions",
+      "summary": null,
+      "tags": [
+        "Submission"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hooks",
+      "operationId": "listHooksBySiteId",
+      "summary": null,
+      "tags": [
+        "Hook"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hooks",
+      "operationId": "createHookBySiteId",
+      "summary": null,
+      "tags": [
+        "Hook"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hooks/{hook_id}",
+      "operationId": "getHook",
+      "summary": null,
+      "tags": [
+        "Hook"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/hooks/{hook_id}",
+      "operationId": "updateHook",
+      "summary": null,
+      "tags": [
+        "Hook"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/hooks/{hook_id}",
+      "operationId": "deleteHook",
+      "summary": null,
+      "tags": [
+        "Hook"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hooks/{hook_id}/enable",
+      "operationId": "enableHook",
+      "summary": null,
+      "tags": [
+        "Hook"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/hooks/types",
+      "operationId": "listHookTypes",
+      "summary": null,
+      "tags": [
+        "hookType"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/oauth/tickets",
+      "operationId": "createTicket",
+      "summary": null,
+      "tags": [
+        "Ticket"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/oauth/tickets/{ticket_id}",
+      "operationId": "showTicket",
+      "summary": null,
+      "tags": [
+        "Ticket"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/oauth/tickets/{ticket_id}/exchange",
+      "operationId": "exchangeTicket",
+      "summary": null,
+      "tags": [
+        "accessToken"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deploy_keys",
+      "operationId": "listDeployKeys",
+      "summary": null,
+      "tags": [
+        "deployKey"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/deploy_keys",
+      "operationId": "createDeployKey",
+      "summary": null,
+      "tags": [
+        "deployKey"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deploy_keys/{key_id}",
+      "operationId": "getDeployKey",
+      "summary": null,
+      "tags": [
+        "deployKey"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/deploy_keys/{key_id}",
+      "operationId": "deleteDeployKey",
+      "summary": null,
+      "tags": [
+        "deployKey"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{account_slug}/sites",
+      "operationId": "listSitesForAccount",
+      "summary": null,
+      "tags": [
+        "Site"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/{account_slug}/sites",
+      "operationId": "createSiteInTeam",
+      "summary": null,
+      "tags": [
+        "Site"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{account_slug}/members",
+      "operationId": "listMembersForAccount",
+      "summary": null,
+      "tags": [
+        "Member"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/{account_slug}/members",
+      "operationId": "addMemberToAccount",
+      "summary": null,
+      "tags": [
+        "Member"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/{account_slug}/members/{member_id}",
+      "operationId": "getAccountMember",
+      "summary": null,
+      "tags": [
+        "Member"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/{account_slug}/members/{member_id}",
+      "operationId": "updateAccountMember",
+      "summary": null,
+      "tags": [
+        "Member"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/{account_slug}/members/{member_id}",
+      "operationId": "removeAccountMember",
+      "summary": null,
+      "tags": [
+        "Member"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/billing/payment_methods",
+      "operationId": "listPaymentMethodsForUser",
+      "summary": null,
+      "tags": [
+        "paymentMethod"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/types",
+      "operationId": "listAccountTypesForUser",
+      "summary": null,
+      "tags": [
+        "accountType"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/accounts",
+      "operationId": "listAccountsForUser",
+      "summary": null,
+      "tags": [
+        "accountMembership"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/accounts",
+      "operationId": "createAccount",
+      "summary": null,
+      "tags": [
+        "accountMembership"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{account_id}",
+      "operationId": "getAccount",
+      "summary": null,
+      "tags": [
+        "accountMembership"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/accounts/{account_id}",
+      "operationId": "updateAccount",
+      "summary": null,
+      "tags": [
+        "accountMembership"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/accounts/{account_id}",
+      "operationId": "cancelAccount",
+      "summary": null,
+      "tags": [
+        "accountMembership"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{account_id}/audit",
+      "operationId": "listAccountAuditEvents",
+      "summary": null,
+      "tags": [
+        "auditLog"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/submissions/{submission_id}",
+      "operationId": "listFormSubmission",
+      "summary": null,
+      "tags": [
+        "Submission"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/submissions/{submission_id}",
+      "operationId": "deleteSubmission",
+      "summary": null,
+      "tags": [
+        "Submission"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/service-instances",
+      "operationId": "listServiceInstancesForSite",
+      "summary": null,
+      "tags": [
+        "serviceInstance"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/services/{addon}/instances",
+      "operationId": "createServiceInstance",
+      "summary": null,
+      "tags": [
+        "serviceInstance"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/services/{addon}/instances/{instance_id}",
+      "operationId": "showServiceInstance",
+      "summary": null,
+      "tags": [
+        "serviceInstance"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/services/{addon}/instances/{instance_id}",
+      "operationId": "updateServiceInstance",
+      "summary": null,
+      "tags": [
+        "serviceInstance"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}/services/{addon}/instances/{instance_id}",
+      "operationId": "deleteServiceInstance",
+      "summary": null,
+      "tags": [
+        "serviceInstance"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/services/",
+      "operationId": "getServices",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/services/{addonName}",
+      "operationId": "showService",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/services/{addonName}/manifest",
+      "operationId": "showServiceManifest",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/user",
+      "operationId": "getCurrentUser",
+      "summary": null,
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/traffic_splits",
+      "operationId": "getSplitTests",
+      "summary": null,
+      "tags": [
+        "splitTest"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/traffic_splits",
+      "operationId": "createSplitTest",
+      "summary": null,
+      "tags": [
+        "splitTest"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/traffic_splits/{split_test_id}",
+      "operationId": "getSplitTest",
+      "summary": null,
+      "tags": [
+        "splitTest"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/traffic_splits/{split_test_id}",
+      "operationId": "updateSplitTest",
+      "summary": null,
+      "tags": [
+        "splitTest"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/traffic_splits/{split_test_id}/publish",
+      "operationId": "enableSplitTest",
+      "summary": null,
+      "tags": [
+        "splitTest"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/traffic_splits/{split_test_id}/unpublish",
+      "operationId": "disableSplitTest",
+      "summary": null,
+      "tags": [
+        "splitTest"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dns_zones",
+      "operationId": "getDnsZones",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/dns_zones",
+      "operationId": "createDnsZone",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dns_zones/{zone_id}",
+      "operationId": "getDnsZone",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/dns_zones/{zone_id}",
+      "operationId": "deleteDnsZone",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/dns_zones/{zone_id}/transfer",
+      "operationId": "transferDnsZone",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dns_zones/{zone_id}/dns_records",
+      "operationId": "getDnsRecords",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/dns_zones/{zone_id}/dns_records",
+      "operationId": "createDnsRecord",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dns_zones/{zone_id}/dns_records/{dns_record_id}",
+      "operationId": "getIndividualDnsRecord",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/dns_zones/{zone_id}/dns_records/{dns_record_id}",
+      "operationId": "deleteDnsRecord",
+      "summary": null,
+      "tags": [
+        "dnsZone"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/dev_servers",
+      "operationId": "listSiteDevServers",
+      "summary": null,
+      "tags": [
+        "devServer"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/dev_servers",
+      "operationId": "createSiteDevServer",
+      "summary": null,
+      "tags": [
+        "devServer"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}/dev_servers",
+      "operationId": "deleteSiteDevServers",
+      "summary": null,
+      "tags": [
+        "devServer"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/dev_servers/{dev_server_id}",
+      "operationId": "getSiteDevServer",
+      "summary": null,
+      "tags": [
+        "devServer"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/dev_servers/{dev_server_id}/activity",
+      "operationId": "markDevServerActivity",
+      "summary": null,
+      "tags": [
+        "devServer"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/dev_server_hooks",
+      "operationId": "listSiteDevServerHooks",
+      "summary": null,
+      "tags": [
+        "devServerHook"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sites/{site_id}/dev_server_hooks",
+      "operationId": "createSiteDevServerHook",
+      "summary": null,
+      "tags": [
+        "devServerHook"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sites/{site_id}/dev_server_hooks/{id}",
+      "operationId": "getSiteDevServerHook",
+      "summary": null,
+      "tags": [
+        "devServerHook"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sites/{site_id}/dev_server_hooks/{id}",
+      "operationId": "updateSiteDevServerHook",
+      "summary": null,
+      "tags": [
+        "devServerHook"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sites/{site_id}/dev_server_hooks/{id}",
+      "operationId": "deleteSiteDevServerHook",
+      "summary": null,
+      "tags": [
+        "devServerHook"
+      ]
+    }
+  ]
+}

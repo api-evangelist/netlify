@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/buildSetup",
+  "title": "buildSetup",
+  "type": "object",
+  "properties": {
+    "image": {
+      "type": "string"
+    },
+    "clear_cache": {
+      "type": "boolean"
+    }
+  }
+}

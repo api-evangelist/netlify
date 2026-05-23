@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/envVarUser",
+  "title": "envVarUser",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The user's unique identifier",
+      "x-faker": "datatype.number"
+    },
+    "full_name": {
+      "type": "string",
+      "description": "The user's full name (first and last)",
+      "x-faker": "name.findName"
+    },
+    "email": {
+      "type": "string",
+      "description": "The user's email address",
+      "x-faker": "internet.email"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "A URL pointing to the user's avatar",
+      "x-faker": "internet.avatar"
+    }
+  }
+}

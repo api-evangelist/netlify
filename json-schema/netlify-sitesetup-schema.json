@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/siteSetup",
+  "title": "siteSetup",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/site"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "repo": {
+          "$ref": "#/components/schemas/repoInfo"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/form",
+  "title": "form",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "submission_count": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  }
+}

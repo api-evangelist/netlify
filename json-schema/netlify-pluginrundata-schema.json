@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/pluginRunData",
+  "title": "pluginRunData",
+  "type": "object",
+  "properties": {
+    "package": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "reporting_event": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

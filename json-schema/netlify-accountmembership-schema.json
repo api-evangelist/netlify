@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/accountMembership",
+  "title": "accountMembership",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "sites": {
+          "$ref": "#/components/schemas/accountUsageCapability"
+        },
+        "collaborators": {
+          "$ref": "#/components/schemas/accountUsageCapability"
+        }
+      }
+    },
+    "billing_name": {
+      "type": "string"
+    },
+    "billing_email": {
+      "type": "string"
+    },
+    "billing_details": {
+      "type": "string"
+    },
+    "billing_period": {
+      "type": "string"
+    },
+    "payment_method_id": {
+      "type": "string"
+    },
+    "type_name": {
+      "type": "string"
+    },
+    "type_id": {
+      "type": "string"
+    },
+    "owner_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "roles_allowed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  }
+}

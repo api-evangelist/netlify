@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/devServerHookSetup",
+  "title": "devServerHookSetup",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "new_dev_server",
+        "content_refresh"
+      ]
+    }
+  }
+}

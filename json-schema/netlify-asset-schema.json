@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/asset",
+  "title": "asset",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "creator_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "content_type": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  }
+}

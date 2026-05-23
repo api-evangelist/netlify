@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/buildStatus",
+  "title": "buildStatus",
+  "type": "object",
+  "properties": {
+    "active": {
+      "type": "integer"
+    },
+    "pending_concurrency": {
+      "type": "integer"
+    },
+    "enqueued": {
+      "type": "integer"
+    },
+    "build_count": {
+      "type": "integer"
+    },
+    "minutes": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "integer"
+        },
+        "current_average_sec": {
+          "type": "integer"
+        },
+        "previous": {
+          "type": "integer"
+        },
+        "period_start_date": {
+          "type": "string",
+          "format": "dateTime"
+        },
+        "period_end_date": {
+          "type": "string",
+          "format": "dateTime"
+        },
+        "last_updated_at": {
+          "type": "string",
+          "format": "dateTime"
+        },
+        "included_minutes": {
+          "type": "string"
+        },
+        "included_minutes_with_packs": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

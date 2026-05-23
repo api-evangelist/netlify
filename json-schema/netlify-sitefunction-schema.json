@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/siteFunction",
+  "title": "siteFunction",
+  "type": "object",
+  "properties": {
+    "branch": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "functions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "log_type": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    }
+  }
+}

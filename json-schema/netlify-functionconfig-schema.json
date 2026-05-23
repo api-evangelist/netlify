@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/functionConfig",
+  "title": "functionConfig",
+  "type": "object",
+  "properties": {
+    "display_name": {
+      "type": "string"
+    },
+    "generator": {
+      "type": "string"
+    },
+    "build_data": {
+      "type": "object",
+      "properties": {}
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/functionRoute"
+      }
+    },
+    "excluded_routes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/excludedFunctionRoute"
+      }
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "traffic_rules": {
+      "$ref": "#/components/schemas/trafficRulesConfig"
+    }
+  }
+}

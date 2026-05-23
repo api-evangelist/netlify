@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/trafficRulesConfig",
+  "title": "trafficRulesConfig",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "to": {
+              "type": "string"
+            },
+            "rate_limit_config": {
+              "$ref": "#/components/schemas/trafficRulesRateLimitConfig"
+            },
+            "aggregate": {
+              "$ref": "#/components/schemas/trafficRulesAggregateConfig"
+            }
+          }
+        }
+      }
+    }
+  }
+}

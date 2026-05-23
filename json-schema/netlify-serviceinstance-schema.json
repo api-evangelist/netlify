@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/serviceInstance",
+  "title": "serviceInstance",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object",
+      "properties": {}
+    },
+    "external_attributes": {
+      "type": "object",
+      "properties": {}
+    },
+    "service_slug": {
+      "type": "string"
+    },
+    "service_path": {
+      "type": "string"
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "env": {
+      "type": "object",
+      "properties": {}
+    },
+    "snippets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "auth_url": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  }
+}

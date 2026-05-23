@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/trafficRulesRateLimitConfig",
+  "title": "trafficRulesRateLimitConfig",
+  "type": "object",
+  "properties": {
+    "algorithm": {
+      "type": "string",
+      "enum": [
+        "sliding_window"
+      ]
+    },
+    "window_size": {
+      "type": "integer"
+    },
+    "window_limit": {
+      "type": "integer"
+    }
+  }
+}

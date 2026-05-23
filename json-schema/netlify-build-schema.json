@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/build",
+  "title": "build",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "deploy_id": {
+      "type": "string"
+    },
+    "sha": {
+      "type": "string"
+    },
+    "done": {
+      "type": "boolean"
+    },
+    "error": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  }
+}

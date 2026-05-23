@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/repoInfo",
+  "title": "repoInfo",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "deploy_key_id": {
+      "type": "string"
+    },
+    "repo_path": {
+      "type": "string"
+    },
+    "repo_branch": {
+      "type": "string"
+    },
+    "dir": {
+      "type": "string"
+    },
+    "functions_dir": {
+      "type": "string"
+    },
+    "cmd": {
+      "type": "string"
+    },
+    "allowed_branches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "public_repo": {
+      "type": "boolean"
+    },
+    "private_logs": {
+      "type": "boolean"
+    },
+    "repo_url": {
+      "type": "string"
+    },
+    "env": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "installation_id": {
+      "type": "integer"
+    },
+    "stop_builds": {
+      "type": "boolean"
+    }
+  }
+}

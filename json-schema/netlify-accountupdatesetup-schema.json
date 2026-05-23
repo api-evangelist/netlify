@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/accountUpdateSetup",
+  "title": "accountUpdateSetup",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "type_id": {
+      "type": "string"
+    },
+    "extra_seats_block": {
+      "type": "integer"
+    },
+    "billing_name": {
+      "type": "string"
+    },
+    "billing_email": {
+      "type": "string"
+    },
+    "billing_details": {
+      "type": "string"
+    }
+  }
+}

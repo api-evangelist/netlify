@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/splitTestSetup",
+  "title": "splitTestSetup",
+  "type": "object",
+  "properties": {
+    "branch_tests": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}

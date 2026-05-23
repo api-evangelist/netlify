@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/dnsRecord",
+  "title": "dnsRecord",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "ttl": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "priority": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "dns_zone_id": {
+      "type": "string"
+    },
+    "site_id": {
+      "type": "string"
+    },
+    "flag": {
+      "type": "integer"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "managed": {
+      "type": "boolean"
+    }
+  }
+}

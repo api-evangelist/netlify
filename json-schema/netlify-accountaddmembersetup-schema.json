@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/accountAddMemberSetup",
+  "title": "accountAddMemberSetup",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "Owner",
+        "Developer",
+        "Billing Admin",
+        "Reviewer"
+      ]
+    },
+    "email": {
+      "type": "string"
+    }
+  }
+}

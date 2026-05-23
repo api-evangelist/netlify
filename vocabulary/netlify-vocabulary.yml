@@ -1,0 +1,39 @@
+name: Netlify Domain Vocabulary
+provider: Netlify
+providerId: netlify
+description: Tag-derived vocabulary for the Netlify API surface; sourced from openapi/ tags.
+terms:
+- term: accessToken
+- term: accountMembership
+- term: accountType
+- term: Asset
+- term: assetPublicSignature
+- term: auditLog
+- term: Build
+- term: buildHook
+- term: buildLogMsg
+- term: Deploy
+- term: deployedBranch
+- term: deployKey
+- term: devServer
+- term: devServerHook
+- term: dnsZone
+- term: environmentVariables
+- term: File
+- term: Form
+- term: Function
+- term: Hook
+- term: hookType
+- term: Member
+- term: Metadata
+- term: paymentMethod
+- term: Purge
+- term: serviceInstance
+- term: Site
+- term: sniCertificate
+- term: Snippet
+- term: splitTest
+- term: Submission
+- term: Ticket
+- term: User
+- term: X-Internal

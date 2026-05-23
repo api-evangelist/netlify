@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/sniCertificate",
+  "title": "sniCertificate",
+  "type": "object",
+  "properties": {
+    "state": {
+      "type": "string"
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "dateTime"
+    }
+  }
+}

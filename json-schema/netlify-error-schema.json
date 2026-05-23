@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/error",
+  "title": "error",
+  "required": [
+    "message"
+  ],
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "message": {
+      "type": "string",
+      "nullable": false
+    }
+  }
+}

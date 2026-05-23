@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/envVar",
+  "title": "envVar",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "The environment variable key, like ALGOLIA_ID (case-sensitive)",
+      "x-faker": "commerce.productName"
+    },
+    "scopes": {
+      "type": "array",
+      "description": "The scopes that this environment variable is set to",
+      "items": {
+        "type": "string",
+        "enum": [
+          "builds",
+          "functions",
+          "runtime",
+          "post-processing"
+        ]
+      }
+    },
+    "values": {
+      "type": "array",
+      "description": "An array of Value objects containing values and metadata",
+      "items": {
+        "$ref": "#/components/schemas/envVarValue"
+      },
+      "x-faker": "internet.password"
+    },
+    "is_secret": {
+      "type": "boolean",
+      "description": "Secret values are only readable by code running on Netlify\u2019s systems. With secrets, only the local development context values are readable from the UI, API, and CLI. By default, environment variable values are not secret. (Enterprise plans only)"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "The timestamp of when the value was last updated",
+      "format": "date-time",
+      "x-faker": "date.past"
+    },
+    "updated_by": {
+      "$ref": "#/components/schemas/envVarUser"
+    }
+  },
+  "description": "Environment variable model definition"
+}

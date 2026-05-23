@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deployFiles",
+  "title": "deployFiles",
+  "type": "object",
+  "properties": {
+    "files": {
+      "type": "object",
+      "properties": {}
+    },
+    "draft": {
+      "type": "boolean"
+    },
+    "async": {
+      "type": "boolean"
+    },
+    "functions": {
+      "type": "object",
+      "properties": {}
+    },
+    "function_schedules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/functionSchedule"
+      }
+    },
+    "functions_config": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/functionConfig"
+      }
+    },
+    "branch": {
+      "type": "string"
+    },
+    "framework": {
+      "type": "string"
+    },
+    "framework_version": {
+      "type": "string"
+    }
+  }
+}

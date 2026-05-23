@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/deployedBranch",
+  "title": "deployedBranch",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "deploy_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "ssl_url": {
+      "type": "string"
+    }
+  }
+}

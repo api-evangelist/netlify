@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/assetSignature",
+  "title": "assetSignature",
+  "type": "object",
+  "properties": {
+    "form": {
+      "$ref": "#/components/schemas/assetForm"
+    },
+    "asset": {
+      "$ref": "#/components/schemas/asset"
+    }
+  }
+}

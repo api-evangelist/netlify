@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/site",
+  "title": "site",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "plan": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "custom_domain": {
+      "type": "string"
+    },
+    "domain_aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "branch_deploy_custom_domain": {
+      "type": "string"
+    },
+    "deploy_preview_custom_domain": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "notification_email": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "ssl_url": {
+      "type": "string"
+    },
+    "admin_url": {
+      "type": "string"
+    },
+    "screenshot_url": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "dateTime"
+    },
+    "user_id": {
+      "type": "string"
+    },
+    "session_id": {
+      "type": "string"
+    },
+    "ssl": {
+      "type": "boolean"
+    },
+    "force_ssl": {
+      "type": "boolean"
+    },
+    "managed_dns": {
+      "type": "boolean"
+    },
+    "deploy_url": {
+      "type": "string"
+    },
+    "published_deploy": {
+      "$ref": "#/components/schemas/deploy"
+    },
+    "account_name": {
+      "type": "string"
+    },
+    "account_slug": {
+      "type": "string"
+    },
+    "git_provider": {
+      "type": "string"
+    },
+    "deploy_hook": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "processing_settings": {
+      "type": "object",
+      "properties": {
+        "html": {
+          "type": "object",
+          "properties": {
+            "pretty_urls": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "build_settings": {
+      "$ref": "#/components/schemas/repoInfo"
+    },
+    "id_domain": {
+      "type": "string"
+    },
+    "default_hooks_data": {
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "type": "string"
+        }
+      }
+    },
+    "build_image": {
+      "type": "string"
+    },
+    "prerender": {
+      "type": "string"
+    },
+    "functions_region": {
+      "type": "string"
+    }
+  }
+}
