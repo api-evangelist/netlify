@@ -195,6 +195,8 @@ common:
 - name: MCP Server
   url: https://github.com/netlify/netlify-mcp
   type: MCPServer
+- type: LLMsTxt
+  url: https://docs.netlify.com/llms.txt
 integrations:
 - name: Templates
 - name: +More
