@@ -1,0 +1,576 @@
+asyncapi: '2.6.0'
+info:
+  title: Netlify Webhooks and Build Hooks
+  version: '1.0.0'
+  description: |
+    AsyncAPI description of Netlify's asynchronous event surface. Two
+    documented surfaces are modelled here:
+
+      1. Outgoing webhooks (deploy / form / split test notifications).
+         Netlify issues an HTTP POST to a subscriber-configured URL whenever a
+         documented `event` fires on a site. The HTTP body is a JSON
+         representation of the entity tied to the event (a `deploy` for
+         deploy_* events, a `submission` for submission_created /
+         form_submission, a `splitTest` for split_test_* events). When the
+         hook is configured with a JWS secret token, Netlify includes an
+         `X-Webhook-Signature` header carrying a JWT (HS256) whose payload
+         contains `iss: "netlify"` and `sha256` (hex SHA-256 of the body).
+         Subscribers verify with the shared secret.
+
+      2. Build Hooks (inbound). Netlify exposes a per-site unique HTTPS URL
+         under `https://api.netlify.com/build_hooks/{id}` that, when POSTed
+         to, triggers a new build for the site. Optional query parameters
+         (`trigger_branch`, `trigger_title`, `clear_cache`) override default
+         build behaviour. Any request body is URL-encoded and exposed inside
+         the build as the `INCOMING_HOOK_BODY` environment variable.
+
+    Event names included here mirror the values returned by Netlify's
+    `GET /api/v1/hooks/types` registry as enumerated by the user and the
+    `events` array on the `hookType` schema in Netlify's open-api
+    specification. Field shapes for `deploy`, `submission`, `splitTest`, and
+    `buildHook` are taken directly from Netlify's published JSON Schemas in
+    this repository (`json-schema/netlify-deploy-schema.json`,
+    `netlify-submission-schema.json`, `netlify-splittest-schema.json`,
+    `netlify-buildhook-schema.json`). No undocumented fields are invented.
+
+    Sources:
+      - https://docs.netlify.com/site-deploys/notifications/
+      - https://docs.netlify.com/manage/forms/notifications/
+      - https://docs.netlify.com/build/configure-builds/build-hooks/
+      - https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+      - https://open-api.netlify.com/ (hookType, deploy, submission, splitTest, buildHook)
+  contact:
+    name: Netlify Support
+    url: https://www.netlify.com/support/
+  license:
+    name: Netlify Terms of Use
+    url: https://www.netlify.com/legal/terms-of-use/
+  tags:
+    - name: Netlify
+    - name: Webhooks
+    - name: Build Hooks
+    - name: Deploys
+    - name: Forms
+    - name: Split Testing
+
+defaultContentType: application/json
+
+servers:
+  subscriber:
+    url: '{subscriberUrl}'
+    protocol: https
+    description: |
+      Subscriber-controlled HTTPS endpoint configured on a Netlify outgoing
+      hook (`POST /api/v1/hooks?site_id={site_id}` with `type: url` and a
+      `data.url` value). Netlify POSTs each fired event to this URL.
+    variables:
+      subscriberUrl:
+        description: Subscriber-controlled HTTPS URL registered on the Netlify hook.
+        default: https://example.com/webhooks/netlify
+  buildHooks:
+    url: api.netlify.com
+    protocol: https
+    description: |
+      Netlify-hosted endpoint that accepts inbound POSTs to trigger a new
+      build for a site. The per-hook unique identifier in the path is
+      created via `POST /api/v1/sites/{site_id}/build_hooks` and returned on
+      the `buildHook.url` field.
+
+channels:
+  deploy_created:
+    description: |
+      Fired when a new deploy is created for the site (deploy started /
+      "Deploy started" notification in the Netlify UI). Body is a `deploy`
+      object.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Deploy created
+      operationId: onDeployCreated
+      message:
+        $ref: '#/components/messages/DeployEvent'
+
+  deploy_building:
+    description: |
+      Fired while a deploy is in the building state. Body is a `deploy`
+      object.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Deploy building
+      operationId: onDeployBuilding
+      message:
+        $ref: '#/components/messages/DeployEvent'
+
+  deploy_failed:
+    description: |
+      Fired when a deploy does not complete ("Deploy failed" notification).
+      Body is a `deploy` object; `error_message` describes the failure.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Deploy failed
+      operationId: onDeployFailed
+      message:
+        $ref: '#/components/messages/DeployEvent'
+
+  deploy_locked:
+    description: |
+      Fired when the site is locked to a published deploy, stopping
+      automatic publishing. Body is a `deploy` object with `locked: true`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Deploy locked
+      operationId: onDeployLocked
+      message:
+        $ref: '#/components/messages/DeployEvent'
+
+  deploy_unlocked:
+    description: |
+      Fired when deploys are unlocked, resuming auto publishing. Body is a
+      `deploy` object with `locked: false`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Deploy unlocked
+      operationId: onDeployUnlocked
+      message:
+        $ref: '#/components/messages/DeployEvent'
+
+  deploy_request_pending:
+    description: |
+      Fired when an untrusted deploy requires approval before it can begin
+      building. Body is a `deploy` object.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Deploy request pending
+      operationId: onDeployRequestPending
+      message:
+        $ref: '#/components/messages/DeployEvent'
+
+  deploy_request_accepted:
+    description: |
+      Fired when an untrusted deploy request is accepted and the deploy can
+      begin building. Body is a `deploy` object.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Deploy request accepted
+      operationId: onDeployRequestAccepted
+      message:
+        $ref: '#/components/messages/DeployEvent'
+
+  deploy_request_rejected:
+    description: |
+      Fired when an untrusted deploy request is rejected. Body is a `deploy`
+      object.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Deploy request rejected
+      operationId: onDeployRequestRejected
+      message:
+        $ref: '#/components/messages/DeployEvent'
+
+  submission_created:
+    description: |
+      Fired when a new form submission is received for the site. Body is a
+      `submission` object.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Form submission created
+      operationId: onSubmissionCreated
+      message:
+        $ref: '#/components/messages/SubmissionEvent'
+
+  form_submission:
+    description: |
+      Alias event name used by Netlify Forms notification destinations for a
+      new form submission. Body is a `submission` object.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Form submission
+      operationId: onFormSubmission
+      message:
+        $ref: '#/components/messages/SubmissionEvent'
+
+  split_test_activated:
+    description: |
+      Fired when a split test (branch-based A/B test) is activated for the
+      site. Body is a `splitTest` object with `active: true`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Split test activated
+      operationId: onSplitTestActivated
+      message:
+        $ref: '#/components/messages/SplitTestEvent'
+
+  split_test_deactivated:
+    description: |
+      Fired when a split test is deactivated for the site. Body is a
+      `splitTest` object with `active: false`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Split test deactivated
+      operationId: onSplitTestDeactivated
+      message:
+        $ref: '#/components/messages/SplitTestEvent'
+
+  split_test_modified:
+    description: |
+      Fired when a split test's branches or split percentages are modified.
+      Body is a `splitTest` object.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+    subscribe:
+      summary: Split test modified
+      operationId: onSplitTestModified
+      message:
+        $ref: '#/components/messages/SplitTestEvent'
+
+  'build_hooks/{build_hook_id}':
+    description: |
+      Inbound Build Hook. The subscriber (CMS, CI system, cron, etc.) issues
+      an HTTP POST against the per-hook URL returned by
+      `POST /api/v1/sites/{site_id}/build_hooks` to trigger a new build for
+      the site. Optional query parameters override default behaviour;
+      optional request body (URL-encoded) is exposed inside the build as
+      the `INCOMING_HOOK_BODY` environment variable.
+    parameters:
+      build_hook_id:
+        description: Unique identifier of the build hook (the `id` returned on the `buildHook` object).
+        schema:
+          type: string
+    servers:
+      - buildHooks
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: 0.3.0
+        query:
+          type: object
+          properties:
+            trigger_branch:
+              type: string
+              description: |
+                Branch to build. The branch must exist or the build will
+                fail.
+            trigger_title:
+              type: string
+              description: Custom deploy message to replace the default in the deploy list.
+            clear_cache:
+              type: string
+              enum: [ 'true' ]
+              description: When set to `true`, the triggered build runs with a cleared cache.
+    publish:
+      summary: Trigger a build for the site
+      operationId: triggerBuildHook
+      message:
+        $ref: '#/components/messages/BuildHookTrigger'
+
+components:
+  messages:
+    DeployEvent:
+      name: deployEvent
+      title: Deploy event
+      summary: |
+        Outgoing webhook delivery for a deploy_* event. Body is a `deploy`
+        object.
+      contentType: application/json
+      headers:
+        $ref: '#/components/schemas/WebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/Deploy'
+      bindings:
+        http:
+          headers:
+            type: object
+            properties:
+              X-Webhook-Signature:
+                type: string
+                description: |
+                  JWT (HS256) carrying `{ "iss": "netlify", "sha256":
+                  "<hex sha256 of request body>" }` when the hook was
+                  configured with a JWS secret token. Verified with the
+                  shared secret.
+          bindingVersion: 0.3.0
+
+    SubmissionEvent:
+      name: submissionEvent
+      title: Form submission event
+      summary: |
+        Outgoing webhook delivery for `submission_created` and
+        `form_submission`. Body is a `submission` object.
+      contentType: application/json
+      headers:
+        $ref: '#/components/schemas/WebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/Submission'
+
+    SplitTestEvent:
+      name: splitTestEvent
+      title: Split test event
+      summary: |
+        Outgoing webhook delivery for split_test_* events. Body is a
+        `splitTest` object.
+      contentType: application/json
+      headers:
+        $ref: '#/components/schemas/WebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/SplitTest'
+
+    BuildHookTrigger:
+      name: buildHookTrigger
+      title: Build hook trigger
+      summary: |
+        Inbound POST to a Netlify Build Hook URL. The body is optional and
+        is URL-encoded; Netlify exposes it inside the build as the
+        `INCOMING_HOOK_BODY` environment variable.
+      contentType: application/x-www-form-urlencoded
+      payload:
+        type: string
+        description: |
+          Optional URL-encoded request body. Surfaced in-build as
+          `INCOMING_HOOK_BODY`.
+
+  schemas:
+    WebhookHeaders:
+      type: object
+      description: |
+        Headers Netlify sets on outgoing webhook deliveries. Only headers
+        documented by Netlify are listed.
+      properties:
+        X-Webhook-Signature:
+          type: string
+          description: |
+            Present when the hook is configured with a JWS secret token. A
+            JWT signed with HS256 whose payload is `{ "iss": "netlify",
+            "sha256": "<hex sha256 of request body>" }`.
+
+    Deploy:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      $id: '#/components/schemas/deploy'
+      title: deploy
+      type: object
+      description: |
+        Sourced verbatim from `json-schema/netlify-deploy-schema.json` in
+        this repository, which mirrors the `deploy` schema in Netlify's
+        open-api specification.
+      properties:
+        id:
+          type: string
+        site_id:
+          type: string
+        user_id:
+          type: string
+        build_id:
+          type: string
+        state:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        ssl_url:
+          type: string
+        admin_url:
+          type: string
+        deploy_url:
+          type: string
+        deploy_ssl_url:
+          type: string
+        screenshot_url:
+          type: string
+        review_id:
+          type: number
+        draft:
+          type: boolean
+        required:
+          type: array
+          items:
+            type: string
+        required_functions:
+          type: array
+          items:
+            type: string
+        error_message:
+          type: string
+        branch:
+          type: string
+        commit_ref:
+          type: string
+        commit_url:
+          type: string
+        skipped:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        published_at:
+          type: string
+          format: date-time
+        title:
+          type: string
+        context:
+          type: string
+        locked:
+          type: boolean
+        review_url:
+          type: string
+        framework:
+          type: string
+        function_schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionSchedule'
+
+    FunctionSchedule:
+      type: object
+      description: |
+        Sourced from `json-schema/netlify-functionschedule-schema.json`.
+      properties:
+        name:
+          type: string
+        cron:
+          type: string
+
+    Submission:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      $id: '#/components/schemas/submission'
+      title: submission
+      type: object
+      description: |
+        Sourced verbatim from `json-schema/netlify-submission-schema.json`.
+      properties:
+        id:
+          type: string
+        number:
+          type: integer
+          format: int32
+        email:
+          type: string
+        name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        company:
+          type: string
+        summary:
+          type: string
+        body:
+          type: string
+        data:
+          type: object
+        created_at:
+          type: string
+          format: date-time
+        site_url:
+          type: string
+
+    SplitTest:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      $id: '#/components/schemas/splitTest'
+      title: splitTest
+      type: object
+      description: |
+        Sourced verbatim from `json-schema/netlify-splittest-schema.json`.
+      properties:
+        id:
+          type: string
+        site_id:
+          type: string
+        name:
+          type: string
+        path:
+          type: string
+        branches:
+          type: array
+          items:
+            type: object
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        unpublished_at:
+          type: string
+          format: date-time
+
+    BuildHook:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      $id: '#/components/schemas/buildHook'
+      title: buildHook
+      type: object
+      description: |
+        Sourced verbatim from `json-schema/netlify-buildhook-schema.json`.
+        Represents the per-site Build Hook resource; the `url` field is the
+        endpoint targeted by inbound POSTs modelled on the
+        `build_hooks/{build_hook_id}` channel above.
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        branch:
+          type: string
+        url:
+          type: string
+        site_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
