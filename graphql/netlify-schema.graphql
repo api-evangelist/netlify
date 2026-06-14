@@ -1,0 +1,504 @@
+# Netlify GraphQL API Schema (Netlify Graph / OneGraph)
+# Endpoint: https://graph.netlify.com/graphql?app_id={NETLIFY_SITE_ID}
+# Source: netlify-onegraph-internal npm package v0.10.1
+# Status: DEPRECATED — Netlify Graph developer preview has been shut down.
+# Types and fields confirmed from generatedOneGraphClient.js and embedded operation strings.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+# ─── Directives ───────────────────────────────────────────────────────────────
+
+"""
+Tags a GraphQL operation with a stable id and documentation string, and
+controls execution strategy and caching behaviour.
+"""
+directive @netlify(
+  id: String
+  doc: String
+  cacheStrategy: NetlifyCacheStrategy
+  fallbackOnError: Boolean
+) on QUERY | MUTATION | SUBSCRIPTION | FRAGMENT_DEFINITION
+
+"""Controls caching behaviour for Netlify Graph queries."""
+directive @netlifyCacheControl(
+  cacheStrategy: NetlifyCacheStrategy
+) on QUERY | FIELD
+
+# ─── Scalars ──────────────────────────────────────────────────────────────────
+
+scalar JSON
+scalar DateTime
+
+# ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum NetlifyCacheStrategy {
+  NONE
+  SHORT
+  MEDIUM
+  LONG
+}
+
+"""Moderation status of a shared GraphQL document."""
+enum OneGraphSharedDocumentModerationStatusEnum {
+  APPROVED
+  PENDING
+  REJECTED
+}
+
+"""Logo display style for service logos."""
+enum OneGraphAppLogoStyleEnum {
+  DEFAULT
+  ROUNDED_RECTANGLE
+}
+
+"""Service identifier for filtering and queries."""
+enum OneGraphServiceEnumArg {
+  GITHUB
+  GOOGLE
+  SALESFORCE
+  SLACK
+  STRIPE
+  SPOTIFY
+  TWILIO
+  TWITTER
+  ZENDESK
+  BOX
+  DROPBOX
+  EGGHEAD_IO
+  DEV_TO
+  ONEGRAPH
+  NETLIFY
+}
+
+"""Status of a Netlify CLI session."""
+enum OneGraphNetlifyCliSessionStatus {
+  ACTIVE
+  INACTIVE
+}
+
+# ─── Root Types ───────────────────────────────────────────────────────────────
+
+type Query {
+  """Entry point for all Netlify Graph / OneGraph queries."""
+  oneGraph: OneGraph!
+}
+
+type Mutation {
+  """Entry point for all Netlify Graph / OneGraph mutations."""
+  oneGraph: OneGraphMutation!
+}
+
+# ─── OneGraph Query Root ──────────────────────────────────────────────────────
+
+type OneGraph {
+  """Fetch an app (site) by its OneGraph app id."""
+  app(id: String!): OneGraphApp
+
+  """Fetch a CLI session by its id."""
+  netlifyCliSession(id: String!): OneGraphNetlifyCliSession
+
+  """Fetch a persisted query by its id for a given app."""
+  persistedQuery(appId: String!, id: String!): OneGraphPersistedQuery
+
+  """List services available through Netlify Graph."""
+  services(filter: OneGraphServiceFilter): [OneGraphService!]!
+
+  """List shared GraphQL operation documents."""
+  sharedDocuments(
+    first: Int
+    filter: OneGraphSharedDocumentFilter
+  ): OneGraphSharedDocumentConnection!
+
+  """Fetch a single shared document by its id."""
+  sharedDocument(id: String!): OneGraphSharedDocument
+}
+
+# ─── OneGraph Mutation Root ───────────────────────────────────────────────────
+
+type OneGraphMutation {
+  """Create or return the OneGraph app associated with a Netlify site."""
+  upsertAppForNetlifySite(
+    input: OneGraphUpsertAppForNetlifySiteInput!
+  ): OneGraphUpsertAppForNetlifySitePayload
+
+  """Create a new GraphQL schema for a given app."""
+  createGraphQLSchema(
+    input: OneGraphCreateGraphQLSchemaInput!
+  ): OneGraphCreateGraphQLSchemaPayload
+
+  """Create a persisted query (operation) for a given app."""
+  createPersistedQuery(
+    input: OneGraphCreatePersistedQueryInput!
+  ): OneGraphCreatePersistedQueryPayload
+
+  """Create an API access token for a given app/site."""
+  createApiToken(
+    input: OneGraphCreateApiTokenTokenInput!
+  ): OneGraphCreateApiTokenPayload
+
+  """Register a new Netlify CLI session with OneGraph."""
+  createNetlifyCliSession(
+    input: OneGraphCreateNetlifyCliSessionInput!
+  ): OneGraphCreateNetlifyCliSessionPayload
+
+  """Update metadata or status of an existing CLI session."""
+  updateNetlifyCliSession(
+    input: OneGraphUpdateNetlifyCliSessionInput!
+  ): OneGraphUpdateNetlifyCliSessionPayload
+
+  """Create a test/log event on a CLI session."""
+  createNetlifyCliTestEvent(
+    input: OneGraphCreateNetlifyCliTestEventInput!
+  ): OneGraphCreateNetlifyCliTestEventPayload
+
+  """Acknowledge (and delete) processed CLI session events."""
+  ackNetlifyCliEvents(
+    input: OneGraphAckNetlifyCliEventsInput!
+  ): OneGraphAckNetlifyCliEventsPayload
+
+  """Create a shared GraphQL operation document."""
+  createSharedDocument(
+    input: OneGraphCreateSharedDocumentInput!
+  ): OneGraphCreateSharedDocumentPayload
+}
+
+# ─── App & Schema Types ───────────────────────────────────────────────────────
+
+"""A OneGraph app, one per Netlify site."""
+type OneGraphApp {
+  id: String!
+  name: String
+  corsOrigins: [String!]
+  customCorsOrigins: [OneGraphCustomCorsOrigin!]
+  """The active GraphQL schema for this app."""
+  graphQLSchema: OneGraphGraphQLSchema
+  """Persisted queries belonging to this app."""
+  persistedQueries(
+    first: Int
+    after: String
+    tags: [String!]
+  ): OneGraphPersistedQueryConnection!
+}
+
+"""A OneGraph organization that owns apps."""
+type OneGraphOrg {
+  id: String!
+  name: String
+}
+
+"""Custom CORS origin entry."""
+type OneGraphCustomCorsOrigin {
+  friendlyServiceName: String
+  displayName: String
+  encodedValue: String
+}
+
+"""Metadata about a GraphQL schema registered with OneGraph for a site."""
+type OneGraphGraphQLSchema {
+  id: String!
+  appId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  parentGraphQLSchemaId: String
+  """Third-party external GraphQL schemas composed into this schema."""
+  externalGraphQLSchemas: OneGraphExternalGraphQLSchemaConnection
+  """Salesforce schema if enabled."""
+  salesforceSchema: OneGraphSalesforceSchema
+  """OAuth services enabled in this schema."""
+  services: [OneGraphService!]!
+}
+
+"""External (third-party) GraphQL schema stitched into the Netlify Graph."""
+type OneGraphExternalGraphQLSchema {
+  id: String!
+  endpoint: String!
+  service: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  serviceInfo: OneGraphService
+}
+
+type OneGraphExternalGraphQLSchemaConnection {
+  nodes: [OneGraphExternalGraphQLSchema!]!
+}
+
+"""Salesforce schema metadata."""
+type OneGraphSalesforceSchema {
+  id: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Service Types ────────────────────────────────────────────────────────────
+
+"""A third-party API service available through Netlify Graph."""
+type OneGraphService {
+  friendlyServiceName: String!
+  graphQLField: String!
+  slug: String
+  logoUrl(style: OneGraphAppLogoStyleEnum): String
+  supportsCustomRedirectUri: Boolean
+  supportsCustomServiceAuth: Boolean
+  supportsOauthLogin: Boolean
+  netlifyGraphEnabled: Boolean
+  netlifyApiAuthenticationEnabled: Boolean
+}
+
+input OneGraphServiceFilter {
+  or: [OneGraphServiceFilterClause!]
+  service: OneGraphServiceEnumFilter
+  supportsNetlifyGraph: Boolean
+  supportsNetlifyApiAuthentication: Boolean
+}
+
+input OneGraphServiceFilterClause {
+  service: OneGraphServiceEnumFilter
+  supportsNetlifyGraph: Boolean
+  supportsNetlifyApiAuthentication: Boolean
+}
+
+input OneGraphServiceEnumFilter {
+  in: [OneGraphServiceEnumArg!]
+}
+
+# ─── Persisted Query Types ────────────────────────────────────────────────────
+
+"""A persisted GraphQL operation stored in OneGraph."""
+type OneGraphPersistedQuery {
+  id: String!
+  query: String!
+  allowedOperationNames: [String!]!
+  description: String
+  fixedVariables: JSON
+  freeVariables: [String!]!
+  tags: [String!]!
+}
+
+type OneGraphPersistedQueryConnection {
+  pageInfo: OneGraphPageInfo!
+  nodes: [OneGraphPersistedQuery!]!
+}
+
+# ─── CLI Session Types ────────────────────────────────────────────────────────
+
+"""A Netlify CLI session registered with OneGraph for schema synchronisation."""
+type OneGraphNetlifyCliSession {
+  id: String!
+  appId: String!
+  netlifyUserId: String
+  name: String!
+  metadata: JSON
+  status: OneGraphNetlifyCliSessionStatus
+  cliHeartbeatIntervalMs: Int
+  createdAt: DateTime!
+  updatedAt: DateTime
+  lastEventAt: DateTime
+  """CLI session events pending acknowledgement."""
+  events(first: Int): OneGraphNetlifyCliSessionEventConnection!
+  """The GraphQL schema associated with this CLI session."""
+  graphQLSchema: OneGraphGraphQLSchema
+}
+
+"""Union of event types that can appear on a CLI session."""
+interface OneGraphNetlifyCliSessionEvent {
+  id: String!
+  sessionId: String!
+  createdAt: DateTime!
+}
+
+"""Log event emitted on a CLI session."""
+type OneGraphNetlifyCliSessionLogEvent implements OneGraphNetlifyCliSessionEvent {
+  id: String!
+  sessionId: String!
+  createdAt: DateTime!
+  message: String!
+}
+
+"""Test/payload event emitted on a CLI session."""
+type OneGraphNetlifyCliSessionTestEvent implements OneGraphNetlifyCliSessionEvent {
+  id: String!
+  sessionId: String!
+  createdAt: DateTime!
+  payload: JSON!
+}
+
+type OneGraphNetlifyCliSessionEventConnection {
+  nodes: [OneGraphNetlifyCliSessionEvent!]!
+}
+
+# ─── Access Token Types ───────────────────────────────────────────────────────
+
+"""An access token issued by OneGraph for a Netlify site."""
+type OneGraphAccessToken {
+  token: String!
+  appId: String!
+  name: String
+  netlifyId: String
+  anchor: String
+  expireDate: DateTime
+  userAuths: [OneGraphUserAuth!]!
+}
+
+"""Authorisation record for a user on a connected service."""
+type OneGraphUserAuth {
+  serviceInfo: OneGraphService
+  foreignUserId: String
+  scopes: [String!]
+}
+
+# ─── Shared Document Types ────────────────────────────────────────────────────
+
+"""A shared GraphQL operation document (community gallery)."""
+type OneGraphSharedDocument {
+  id: String!
+  body: String!
+  operationName: String
+  description: String
+  moderationStatus: OneGraphSharedDocumentModerationStatusEnum!
+  siteId: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  services: [OneGraphService!]!
+}
+
+type OneGraphSharedDocumentConnection {
+  nodes: [OneGraphSharedDocument!]!
+}
+
+input OneGraphSharedDocumentFilter {
+  moderationStatus: OneGraphSharedDocumentModerationStatusFilter
+  services: OneGraphSharedDocumentServicesFilter
+}
+
+input OneGraphSharedDocumentModerationStatusFilter {
+  equalTo: OneGraphSharedDocumentModerationStatusEnum
+}
+
+input OneGraphSharedDocumentServicesFilter {
+  in: [OneGraphServiceEnumArg!]
+}
+
+# ─── Pagination ───────────────────────────────────────────────────────────────
+
+type OneGraphPageInfo {
+  hasNextPage: Boolean!
+  endCursor: String
+}
+
+# ─── Input Types ─────────────────────────────────────────────────────────────
+
+input OneGraphUpsertAppForNetlifySiteInput {
+  netlifySiteId: String!
+}
+
+input OneGraphCreateGraphQLSchemaInput {
+  appId: String!
+  enabledServices: [OneGraphServiceEnumArg!]
+  externalGraphQLSchemas: [OneGraphExternalGraphQLSchemaInput!]
+  parentGraphQLSchemaId: String
+}
+
+input OneGraphExternalGraphQLSchemaInput {
+  endpoint: String!
+  service: String
+}
+
+input OneGraphCreatePersistedQueryInput {
+  appId: String!
+  query: String!
+  allowedOperationNames: [String!]!
+  freeVariables: [String!]!
+  fallbackOnError: Boolean!
+  tags: [String!]!
+  description: String
+  cacheStrategy: OneGraphPersistedQueryCacheStrategyArg
+}
+
+input OneGraphPersistedQueryCacheStrategyArg {
+  timeToLiveSeconds: Int
+}
+
+input OneGraphCreateApiTokenTokenInput {
+  appId: String!
+  netlifyId: String
+  name: String
+  anchor: String
+}
+
+input OneGraphCreateNetlifyCliSessionInput {
+  appId: String!
+  name: String!
+  metadata: JSON
+}
+
+input OneGraphUpdateNetlifyCliSessionInput {
+  id: String!
+  metadata: JSON
+  status: OneGraphNetlifyCliSessionStatus
+}
+
+input OneGraphCreateNetlifyCliTestEventInput {
+  sessionId: String!
+  data: OneGraphNetlifyCliTestEventData!
+}
+
+input OneGraphNetlifyCliTestEventData {
+  payload: JSON!
+}
+
+input OneGraphAckNetlifyCliEventsInput {
+  sessionId: String!
+  eventIds: [String!]!
+}
+
+input OneGraphCreateSharedDocumentInput {
+  appId: String!
+  body: String!
+  operationName: String
+  description: String
+  services: [OneGraphServiceEnumArg!]!
+}
+
+# ─── Payload Types ────────────────────────────────────────────────────────────
+
+type OneGraphUpsertAppForNetlifySitePayload {
+  org: OneGraphOrg
+  app: OneGraphApp
+}
+
+type OneGraphCreateGraphQLSchemaPayload {
+  graphQLSchema: OneGraphGraphQLSchema
+  graphqlSchema: OneGraphGraphQLSchema
+  app: OneGraphApp
+}
+
+type OneGraphCreatePersistedQueryPayload {
+  persistedQuery: OneGraphPersistedQuery
+}
+
+type OneGraphCreateApiTokenPayload {
+  accessToken: OneGraphAccessToken
+}
+
+type OneGraphCreateNetlifyCliSessionPayload {
+  session: OneGraphNetlifyCliSession
+}
+
+type OneGraphUpdateNetlifyCliSessionPayload {
+  session: OneGraphNetlifyCliSession
+}
+
+type OneGraphCreateNetlifyCliTestEventPayload {
+  event: OneGraphNetlifyCliSessionTestEvent
+}
+
+type OneGraphAckNetlifyCliEventsPayload {
+  events: [OneGraphNetlifyCliSessionEvent!]!
+}
+
+type OneGraphCreateSharedDocumentPayload {
+  sharedDocument: OneGraphSharedDocument
+}
