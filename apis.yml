@@ -28,7 +28,7 @@ apis:
     your documents and provides an API to handle atomic deploys of websites, manage
     form submissions, inject JavaScript snippets, and much more. This is a REST-style
     API that uses JSON for serialization and OAuth 2 for authentication.
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
   tags:
