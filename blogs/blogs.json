@@ -5,17 +5,17 @@
       "source": "https://www.netlify.com/changelog/feed.xml",
       "feed_url": "https://www.netlify.com/changelog/feed.xml",
       "title": "",
-      "saved": 3,
+      "saved": 4,
       "method": "feed"
     },
     {
       "source": "https://www.netlify.com/legal/terms-of-use/",
-      "feed_url": "https://www.netlify.com/changelog/feed.xml",
+      "feed_url": "https://www.netlify.com/feed.xml",
       "title": "",
-      "saved": 0,
+      "saved": 2,
       "method": "discovered"
     }
   ],
-  "post_count": 62,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 69,
+  "fetched": "2026-06-27T12:03:07Z"
 }

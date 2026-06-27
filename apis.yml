@@ -52,75 +52,75 @@ apis:
     url: https://docs.netlify.com/api-and-cli-guides/overview/
   - type: OpenAPI Source
     url: https://github.com/netlify/open-api
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-general.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-asset.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-build.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-deploy.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-file.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-form.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-function.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-hook.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-member.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-metadata.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-purge.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-site.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-snippet.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-submission.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-ticket.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-user.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-x-internal.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-accesstoken.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-accountmembership.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-accounttype.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-assetpublicsignature.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-auditlog.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-buildhook.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-buildlogmsg.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-deploykey.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-deployedbranch.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-devserver.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-devserverhook.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-dnszone.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-environmentvariables.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-hooktype.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-paymentmethod.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-serviceinstance.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-snicertificate.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/netlify-splittest.yaml
   - url: graphql/netlify-graphql.md
     type: GraphQL
@@ -135,13 +135,13 @@ common:
   url: https://netlify.com/changelog/
 - type: Change Log RSS
   url: https://www.netlify.com/changelog/feed.xml
-- type: Forum
+- type: Forums
   url: https://answers.netlify.com/
 - type: Support
   url: https://www.netlify.com/support/
 - type: PrivacyPolicy
   url: https://www.netlify.com/privacy/
-- type: SignUp
+- type: Signup
   url: https://app.netlify.com/signup
 - type: Portal
   url: https://app.netlify.com/
@@ -163,7 +163,7 @@ common:
   url: https://github.com/netlify/cli
 - type: CLI Documentation
   url: https://cli.netlify.com/
-- type: SDK
+- type: SDKs
   url: https://developers.netlify.com/sdk/
 - type: About
   url: https://www.netlify.com/about/
@@ -201,7 +201,7 @@ common:
 - name: MCP Server
   url: https://github.com/netlify/netlify-mcp
   type: MCPServer
-- type: LLMsTxt
+- type: LlmsText
   url: https://docs.netlify.com/llms.txt
 integrations:
 - name: Templates
