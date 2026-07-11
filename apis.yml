@@ -125,6 +125,8 @@ apis:
   - url: graphql/netlify-graphql.md
     type: GraphQL
 common:
+- type: OAuthScopes
+  url: scopes/netlify-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/netlify
 - type: TermsOfService

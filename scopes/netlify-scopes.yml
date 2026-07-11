@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/netlify-openapi-original.yml
+docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+note: Netlify OAuth2 does not use granular scopes - tokens (OAuth or personal access
+  tokens) carry full account access, and Netlify staff confirm only a single public
+  scope exists (https://answers.netlify.com/t/netlify-oauth-scopes/112113).
+schemes:
+- name: netlifyAuth
+  source: openapi/netlify-openapi-original.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+scopes: []
