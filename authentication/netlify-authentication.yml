@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/netlify-openapi-original.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - implicit
+schemes:
+- name: netlifyAuth
+  type: oauth2
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+    scopes: 0
+  sources:
+  - openapi/netlify-openapi-original.yml
