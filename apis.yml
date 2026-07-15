@@ -125,6 +125,8 @@ apis:
   - url: graphql/netlify-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/netlify-agentic-access.yml
 - type: TrustCenter
   url: security/netlify-trust-center.yml
 - type: DomainSecurity
