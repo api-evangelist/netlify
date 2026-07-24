@@ -1,0 +1,710 @@
+openapi: 3.0.1
+info:
+  title: Netlify Netlify's API documentation accessToken Deploy API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  version: 2.33.1
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: Deploy
+  x-displayName: Deploy
+paths:
+  /sites/{site_id}/deploys:
+    get:
+      tags:
+      - Deploy
+      operationId: listSiteDeploys
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploy-previews
+        in: query
+        schema:
+          type: boolean
+      - name: production
+        in: query
+        schema:
+          type: boolean
+      - name: state
+        in: query
+        schema:
+          type: string
+          enum:
+          - new
+          - pending_review
+          - accepted
+          - rejected
+          - enqueued
+          - building
+          - uploading
+          - uploaded
+          - preparing
+          - prepared
+          - processing
+          - processed
+          - ready
+          - error
+          - retrying
+      - name: branch
+        in: query
+        schema:
+          type: string
+      - name: latest-published
+        in: query
+        schema:
+          type: boolean
+      - name: page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    post:
+      tags:
+      - Deploy
+      operationId: createSiteDeploy
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploy-previews
+        in: query
+        schema:
+          type: boolean
+      - name: production
+        in: query
+        schema:
+          type: boolean
+      - name: state
+        in: query
+        schema:
+          type: string
+          enum:
+          - new
+          - pending_review
+          - accepted
+          - rejected
+          - enqueued
+          - building
+          - uploading
+          - uploaded
+          - preparing
+          - prepared
+          - processing
+          - processed
+          - ready
+          - error
+          - retrying
+      - name: branch
+        in: query
+        schema:
+          type: string
+      - name: latest-published
+        in: query
+        schema:
+          type: boolean
+      - name: title
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deployFiles'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codegen-request-body-name: deploy
+  /sites/{site_id}/deploys/{deploy_id}:
+    get:
+      tags:
+      - Deploy
+      operationId: getSiteDeploy
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    put:
+      tags:
+      - Deploy
+      operationId: updateSiteDeploy
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deployFiles'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codegen-request-body-name: deploy
+    delete:
+      tags:
+      - Deploy
+      operationId: deleteSiteDeploy
+      parameters:
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No content
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /deploys/{deploy_id}/cancel:
+    post:
+      tags:
+      - Deploy
+      operationId: cancelSiteDeploy
+      parameters:
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Cancelled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /sites/{site_id}/deploys/{deploy_id}/restore:
+    post:
+      tags:
+      - Deploy
+      operationId: restoreSiteDeploy
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /sites/{site_id}/rollback:
+    put:
+      tags:
+      - Deploy
+      operationId: rollbackSiteDeploy
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No content
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /deploys/{deploy_id}:
+    get:
+      tags:
+      - Deploy
+      operationId: getDeploy
+      parameters:
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    delete:
+      tags:
+      - Deploy
+      operationId: deleteDeploy
+      parameters:
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No content
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /deploys/{deploy_id}/lock:
+    post:
+      tags:
+      - Deploy
+      operationId: lockDeploy
+      parameters:
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /deploys/{deploy_id}/unlock:
+    post:
+      tags:
+      - Deploy
+      operationId: unlockDeploy
+      parameters:
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deploy'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+components:
+  schemas:
+    excludedFunctionRoute:
+      type: object
+      properties:
+        pattern:
+          type: string
+        literal:
+          type: string
+        expression:
+          type: string
+    functionRoute:
+      type: object
+      properties:
+        pattern:
+          type: string
+        literal:
+          type: string
+        expression:
+          type: string
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - POST
+            - PUT
+            - PATCH
+            - DELETE
+            - OPTIONS
+        prefer_static:
+          type: boolean
+    deploy:
+      type: object
+      properties:
+        id:
+          type: string
+        site_id:
+          type: string
+        user_id:
+          type: string
+        build_id:
+          type: string
+        state:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        ssl_url:
+          type: string
+        admin_url:
+          type: string
+        deploy_url:
+          type: string
+        deploy_ssl_url:
+          type: string
+        screenshot_url:
+          type: string
+        review_id:
+          type: number
+        draft:
+          type: boolean
+        required:
+          type: array
+          items:
+            type: string
+        required_functions:
+          type: array
+          items:
+            type: string
+        error_message:
+          type: string
+        branch:
+          type: string
+        commit_ref:
+          type: string
+        commit_url:
+          type: string
+        skipped:
+          type: boolean
+        created_at:
+          type: string
+          format: dateTime
+        updated_at:
+          type: string
+          format: dateTime
+        published_at:
+          type: string
+          format: dateTime
+        title:
+          type: string
+        context:
+          type: string
+        locked:
+          type: boolean
+        review_url:
+          type: string
+        framework:
+          type: string
+        function_schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/functionSchedule'
+    trafficRulesRateLimitConfig:
+      type: object
+      properties:
+        algorithm:
+          type: string
+          enum:
+          - sliding_window
+        window_size:
+          type: integer
+        window_limit:
+          type: integer
+    functionSchedule:
+      type: object
+      properties:
+        name:
+          type: string
+        cron:
+          type: string
+    trafficRulesAggregateConfig:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum:
+                - ip
+                - domain
+    deployFiles:
+      type: object
+      properties:
+        files:
+          type: object
+          properties: {}
+        draft:
+          type: boolean
+        async:
+          type: boolean
+        functions:
+          type: object
+          properties: {}
+        function_schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/functionSchedule'
+        functions_config:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/functionConfig'
+        branch:
+          type: string
+        framework:
+          type: string
+        framework_version:
+          type: string
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
+          nullable: false
+    trafficRulesConfig:
+      type: object
+      properties:
+        action:
+          type: object
+          properties:
+            type:
+              type: string
+            config:
+              type: object
+              properties:
+                to:
+                  type: string
+                rate_limit_config:
+                  $ref: '#/components/schemas/trafficRulesRateLimitConfig'
+                aggregate:
+                  $ref: '#/components/schemas/trafficRulesAggregateConfig'
+    functionConfig:
+      type: object
+      properties:
+        display_name:
+          type: string
+        generator:
+          type: string
+        build_data:
+          type: object
+          properties: {}
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/functionRoute'
+        excluded_routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/excludedFunctionRoute'
+        priority:
+          type: integer
+        traffic_rules:
+          $ref: '#/components/schemas/trafficRulesConfig'
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://app.netlify.com/authorize
+          scopes: {}
+externalDocs:
+  description: Online documentation
+  url: https://www.netlify.com/docs/api/
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature
+x-original-swagger-version: '2.0'

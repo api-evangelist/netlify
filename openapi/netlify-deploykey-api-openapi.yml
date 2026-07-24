@@ -1,0 +1,204 @@
+openapi: 3.0.1
+info:
+  title: Netlify Netlify's API documentation accessToken deployKey API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  version: 2.33.1
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: deployKey
+  x-displayName: Deploy key
+paths:
+  /deploy_keys:
+    get:
+      tags:
+      - deployKey
+      operationId: listDeployKeys
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/deployKey'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    post:
+      tags:
+      - deployKey
+      operationId: createDeployKey
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deployKey'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /deploy_keys/{key_id}:
+    get:
+      tags:
+      - deployKey
+      operationId: getDeployKey
+      parameters:
+      - name: key_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deployKey'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    delete:
+      tags:
+      - deployKey
+      operationId: deleteDeployKey
+      parameters:
+      - name: key_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Not Content
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+components:
+  schemas:
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
+          nullable: false
+    deployKey:
+      type: object
+      properties:
+        id:
+          type: string
+        public_key:
+          type: string
+        created_at:
+          type: string
+          format: dateTime
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://app.netlify.com/authorize
+          scopes: {}
+externalDocs:
+  description: Online documentation
+  url: https://www.netlify.com/docs/api/
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature
+x-original-swagger-version: '2.0'

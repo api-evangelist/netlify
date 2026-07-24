@@ -1,0 +1,260 @@
+openapi: 3.0.1
+info:
+  title: Netlify Netlify's API documentation accessToken X-Internal API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  version: 2.33.1
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: X-Internal
+paths:
+  /sites/{site_id}/plugins/{package}:
+    put:
+      tags:
+      - X-Internal
+      description: This is an internal-only endpoint.
+      operationId: updatePlugin
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: package
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/pluginParams'
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/plugin'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-internal: true
+      x-codegen-request-body-name: plugin_params
+  /sites/{site_id}/plugin_runs/latest:
+    get:
+      tags:
+      - X-Internal
+      description: This is an internal-only endpoint.
+      operationId: getLatestPluginRuns
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: packages
+        in: query
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/pluginRun'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-internal: true
+  /deploys/{deploy_id}/plugin_runs:
+    post:
+      tags:
+      - X-Internal
+      description: This is an internal-only endpoint.
+      operationId: createPluginRun
+      parameters:
+      - name: deploy_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/pluginRunData'
+        required: false
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pluginRun'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-internal: true
+      x-codegen-request-body-name: plugin_run
+components:
+  schemas:
+    pluginRun:
+      allOf:
+      - $ref: '#/components/schemas/pluginRunData'
+      - type: object
+        properties:
+          deploy_id:
+            type: string
+    pluginParams:
+      type: object
+      properties:
+        pinned_version:
+          type: string
+    pluginRunData:
+      type: object
+      properties:
+        package:
+          type: string
+        version:
+          type: string
+        state:
+          type: string
+        reporting_event:
+          type: string
+        title:
+          type: string
+        summary:
+          type: string
+        text:
+          type: string
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
+          nullable: false
+    plugin:
+      type: object
+      properties:
+        package:
+          type: string
+        pinned_version:
+          type: string
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://app.netlify.com/authorize
+          scopes: {}
+externalDocs:
+  description: Online documentation
+  url: https://www.netlify.com/docs/api/
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature
+x-original-swagger-version: '2.0'

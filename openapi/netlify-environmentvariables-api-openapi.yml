@@ -1,0 +1,590 @@
+openapi: 3.0.1
+info:
+  title: Netlify Netlify's API documentation accessToken environmentVariables API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  version: 2.33.1
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: environmentVariables
+  x-displayName: Environment variables
+paths:
+  /accounts/{account_id}/env:
+    get:
+      tags:
+      - environmentVariables
+      description: Returns all environment variables for an account or site. An account corresponds to a team in the Netlify UI. To use this endpoint, your site must no longer be using the <a href="https://docs.netlify.com/environment-variables/classic-experience/">classic environment variables experience</a>.  Migrate now with the Netlify UI.
+      operationId: getEnvVars
+      parameters:
+      - name: account_id
+        in: path
+        description: Scope response to account_id
+        required: true
+        schema:
+          type: string
+      - name: context_name
+        in: query
+        description: Filter by deploy context
+        schema:
+          type: string
+          enum:
+          - all
+          - dev
+          - branch-deploy
+          - deploy-preview
+          - production
+      - name: scope
+        in: query
+        description: Filter by scope
+        schema:
+          type: string
+          enum:
+          - builds
+          - functions
+          - runtime
+          - post-processing
+      - name: site_id
+        in: query
+        description: If specified, only return environment variables set on this site
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/envVar'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    post:
+      tags:
+      - environmentVariables
+      description: Creates new environment variables. Granular scopes are available on Pro plans and above.  To use this endpoint, your site must no longer be using the <a href="https://docs.netlify.com/environment-variables/classic-experience/">classic environment variables experience</a>.  Migrate now with the Netlify UI.
+      operationId: createEnvVars
+      parameters:
+      - name: account_id
+        in: path
+        description: Scope response to account_id
+        required: true
+        schema:
+          type: string
+      - name: site_id
+        in: query
+        description: If provided, create an environment variable on the site level, not the account level
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                    description: The existing or new name of the key, if you wish to rename it (case-sensitive)
+                  scopes:
+                    type: array
+                    description: The scopes that this environment variable is set to (Pro plans and above)
+                    items:
+                      type: string
+                      enum:
+                      - builds
+                      - functions
+                      - runtime
+                      - post-processing
+                  values:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/envVarValue'
+                  is_secret:
+                    type: boolean
+                    description: Secret values are only readable by code running on Netlify’s systems. With secrets, only the local development context values are readable from the UI, API, and CLI. By default, environment variable values are not secret. (Enterprise plans only)
+        required: false
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/envVar'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codegen-request-body-name: env_vars
+  /api/v1/sites/{site_id}/env:
+    get:
+      tags:
+      - environmentVariables
+      description: Returns all environment variables for a site. This convenience method behaves the same as `getEnvVars` but doesn't require an `account_id` as input.
+      operationId: getSiteEnvVars
+      parameters:
+      - name: context_name
+        in: query
+        description: Filter by deploy context
+        schema:
+          type: string
+          enum:
+          - all
+          - dev
+          - branch-deploy
+          - deploy-preview
+          - production
+      - name: scope
+        in: query
+        description: Filter by scope
+        schema:
+          type: string
+          enum:
+          - builds
+          - functions
+          - runtime
+          - post_processing
+      - name: site_id
+        in: path
+        description: Scope response to site_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/envVar'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /accounts/{account_id}/env/{key}:
+    get:
+      tags:
+      - environmentVariables
+      description: Returns an individual environment variable. To use this endpoint, your site must no longer be using the <a href="https://docs.netlify.com/environment-variables/classic-experience/">classic environment variables experience</a>.  Migrate now with the Netlify UI.
+      operationId: getEnvVar
+      parameters:
+      - name: account_id
+        in: path
+        description: Scope response to account_id
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: path
+        description: The environment variable key (case-sensitive)
+        required: true
+        schema:
+          type: string
+      - name: site_id
+        in: query
+        description: If provided, return the environment variable for a specific site (no merging is performed)
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/envVar'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    put:
+      tags:
+      - environmentVariables
+      description: Updates an existing environment variable and all of its values. Existing values will be replaced by values provided. To use this endpoint, your site must no longer be using the <a href="https://docs.netlify.com/environment-variables/classic-experience/">classic environment variables experience</a>.  Migrate now with the Netlify UI.
+      operationId: updateEnvVar
+      parameters:
+      - name: account_id
+        in: path
+        description: Scope response to account_id
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: path
+        description: The existing environment variable key name (case-sensitive)
+        required: true
+        schema:
+          type: string
+      - name: site_id
+        in: query
+        description: If provided, update an environment variable set on this site
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  description: The existing or new name of the key, if you wish to rename it (case-sensitive)
+                scopes:
+                  type: array
+                  description: The scopes that this environment variable is set to (Pro plans and above)
+                  items:
+                    type: string
+                    enum:
+                    - builds
+                    - functions
+                    - runtime
+                    - post-processing
+                values:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/envVarValue'
+                is_secret:
+                  type: boolean
+                  description: Secret values are only readable by code running on Netlify’s systems. With secrets, only the local development context values are readable from the UI, API, and CLI. By default, environment variable values are not secret. (Enterprise plans only)
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/envVar'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codegen-request-body-name: env_var
+    delete:
+      tags:
+      - environmentVariables
+      description: Deletes an environment variable. To use this endpoint, your site must no longer be using the <a href="https://docs.netlify.com/environment-variables/classic-experience/">classic environment variables experience</a>.  Migrate now with the Netlify UI.
+      operationId: deleteEnvVar
+      parameters:
+      - name: account_id
+        in: path
+        description: Scope response to account_id
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: path
+        description: The environment variable key (case-sensitive)
+        required: true
+        schema:
+          type: string
+      - name: site_id
+        in: query
+        description: If provided, delete the environment variable from this site
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content (success)
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    patch:
+      tags:
+      - environmentVariables
+      description: Updates or creates a new value for an existing environment variable. To use this endpoint, your site must no longer be using the <a href="https://docs.netlify.com/environment-variables/classic-experience/">classic environment variables experience</a>.  Migrate now with the Netlify UI.
+      operationId: setEnvVarValue
+      parameters:
+      - name: account_id
+        in: path
+        description: Scope response to account_id
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: path
+        description: The existing environment variable key name (case-sensitive)
+        required: true
+        schema:
+          type: string
+      - name: site_id
+        in: query
+        description: If provided, update an environment variable set on this site
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  type: string
+                  description: The deploy context in which this value will be used. `dev` refers to local development when running `netlify dev`. `branch` must be provided with a value in `context_parameter`.
+                  enum:
+                  - all
+                  - dev
+                  - branch-deploy
+                  - deploy-preview
+                  - production
+                  - branch
+                context_parameter:
+                  type: string
+                  description: An additional parameter for custom branches. Currently, this is used for providing a branch name when `context=branch`.
+                value:
+                  type: string
+                  description: The environment variable's unencrypted value
+        required: false
+      responses:
+        '201':
+          description: Created (success)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/envVar'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codegen-request-body-name: env_var
+  /accounts/{account_id}/env/{key}/value/{id}:
+    delete:
+      tags:
+      - environmentVariables
+      description: Deletes a specific environment variable value. To use this endpoint, your site must no longer be using the <a href="https://docs.netlify.com/environment-variables/classic-experience/">classic environment variables experience</a>.  Migrate now with the Netlify UI.
+      operationId: deleteEnvVarValue
+      parameters:
+      - name: account_id
+        in: path
+        description: Scope response to account_id
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: The environment variable value's ID
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: path
+        description: The environment variable key name (case-sensitive)
+        required: true
+        schema:
+          type: string
+      - name: site_id
+        in: query
+        description: If provided, delete the value from an environment variable on this site
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content (success)
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+components:
+  schemas:
+    envVarUser:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The user's unique identifier
+          x-faker: datatype.number
+        full_name:
+          type: string
+          description: The user's full name (first and last)
+          x-faker: name.findName
+        email:
+          type: string
+          description: The user's email address
+          x-faker: internet.email
+        avatar_url:
+          type: string
+          description: A URL pointing to the user's avatar
+          x-faker: internet.avatar
+    envVarValue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The environment variable value's universally unique ID
+          x-faker: datatype.uuid
+        value:
+          type: string
+          description: The environment variable's unencrypted value
+          x-faker: internet.password
+        context:
+          type: string
+          description: The deploy context in which this value will be used. `dev` refers to local development when running `netlify dev`.
+          enum:
+          - all
+          - dev
+          - branch-deploy
+          - deploy-preview
+          - production
+          - branch
+        context_parameter:
+          type: string
+          description: An additional parameter for custom branches. Currently, this is used for specifying a branch name when `context=branch`.
+      description: Environment variable value model definition
+    envVar:
+      type: object
+      properties:
+        key:
+          type: string
+          description: The environment variable key, like ALGOLIA_ID (case-sensitive)
+          x-faker: commerce.productName
+        scopes:
+          type: array
+          description: The scopes that this environment variable is set to
+          items:
+            type: string
+            enum:
+            - builds
+            - functions
+            - runtime
+            - post-processing
+        values:
+          type: array
+          description: An array of Value objects containing values and metadata
+          items:
+            $ref: '#/components/schemas/envVarValue'
+          x-faker: internet.password
+        is_secret:
+          type: boolean
+          description: Secret values are only readable by code running on Netlify’s systems. With secrets, only the local development context values are readable from the UI, API, and CLI. By default, environment variable values are not secret. (Enterprise plans only)
+        updated_at:
+          type: string
+          description: The timestamp of when the value was last updated
+          format: date-time
+          x-faker: date.past
+        updated_by:
+          $ref: '#/components/schemas/envVarUser'
+      description: Environment variable model definition
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
+          nullable: false
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://app.netlify.com/authorize
+          scopes: {}
+externalDocs:
+  description: Online documentation
+  url: https://www.netlify.com/docs/api/
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature
+x-original-swagger-version: '2.0'

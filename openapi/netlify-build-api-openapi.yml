@@ -1,0 +1,314 @@
+openapi: 3.0.1
+info:
+  title: Netlify Netlify's API documentation accessToken Build API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  version: 2.33.1
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: Build
+  x-displayName: Build
+paths:
+  /sites/{site_id}/builds:
+    get:
+      tags:
+      - Build
+      operationId: listSiteBuilds
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/build'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    post:
+      tags:
+      - Build
+      operationId: createSiteBuild
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/buildSetup'
+        required: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/build'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codegen-request-body-name: build
+  /builds/{build_id}:
+    get:
+      tags:
+      - Build
+      operationId: getSiteBuild
+      parameters:
+      - name: build_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/build'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /builds/{build_id}/start:
+    post:
+      tags:
+      - Build
+      operationId: notifyBuildStart
+      parameters:
+      - name: build_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: buildbot_version
+        in: query
+        schema:
+          type: string
+      - name: build_version
+        in: query
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No content
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /{account_id}/builds/status:
+    get:
+      tags:
+      - Build
+      operationId: getAccountBuildStatus
+      parameters:
+      - name: account_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/buildStatus'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+components:
+  schemas:
+    buildStatus:
+      type: object
+      properties:
+        active:
+          type: integer
+        pending_concurrency:
+          type: integer
+        enqueued:
+          type: integer
+        build_count:
+          type: integer
+        minutes:
+          type: object
+          properties:
+            current:
+              type: integer
+            current_average_sec:
+              type: integer
+            previous:
+              type: integer
+            period_start_date:
+              type: string
+              format: dateTime
+            period_end_date:
+              type: string
+              format: dateTime
+            last_updated_at:
+              type: string
+              format: dateTime
+            included_minutes:
+              type: string
+            included_minutes_with_packs:
+              type: string
+    buildSetup:
+      type: object
+      properties:
+        image:
+          type: string
+        clear_cache:
+          type: boolean
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
+          nullable: false
+    build:
+      type: object
+      properties:
+        id:
+          type: string
+        deploy_id:
+          type: string
+        sha:
+          type: string
+        done:
+          type: boolean
+        error:
+          type: string
+        created_at:
+          type: string
+          format: dateTime
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://app.netlify.com/authorize
+          scopes: {}
+externalDocs:
+  description: Online documentation
+  url: https://www.netlify.com/docs/api/
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature
+x-original-swagger-version: '2.0'

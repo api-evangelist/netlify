@@ -1,0 +1,279 @@
+openapi: 3.0.1
+info:
+  title: Netlify Netlify's API documentation accessToken devServer API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  version: 2.33.1
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: devServer
+  x-displayName: Dev server
+paths:
+  /sites/{site_id}/dev_servers:
+    get:
+      tags:
+      - devServer
+      operationId: listSiteDevServers
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/devServer'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    post:
+      tags:
+      - devServer
+      operationId: createSiteDevServer
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: branch
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/devServer'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    delete:
+      tags:
+      - devServer
+      operationId: deleteSiteDevServers
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: branch
+        in: query
+        schema:
+          type: string
+      responses:
+        '202':
+          description: OK
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /sites/{site_id}/dev_servers/{dev_server_id}:
+    get:
+      tags:
+      - devServer
+      operationId: getSiteDevServer
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dev_server_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/devServer'
+  /sites/{site_id}/dev_servers/{dev_server_id}/activity:
+    post:
+      tags:
+      - devServer
+      operationId: markDevServerActivity
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dev_server_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+      x-internal: true
+components:
+  schemas:
+    devServer:
+      type: object
+      properties:
+        id:
+          type: string
+        site_id:
+          type: string
+        branch:
+          type: string
+        url:
+          type: string
+        state:
+          type: string
+        created_at:
+          type: string
+          format: dateTime
+        updated_at:
+          type: string
+          format: dateTime
+        starting_at:
+          type: string
+          format: dateTime
+        error_at:
+          type: string
+          format: dateTime
+        live_at:
+          type: string
+          format: dateTime
+        done_at:
+          type: string
+          format: dateTime
+        title:
+          type: string
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
+          nullable: false
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://app.netlify.com/authorize
+          scopes: {}
+externalDocs:
+  description: Online documentation
+  url: https://www.netlify.com/docs/api/
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature
+x-original-swagger-version: '2.0'

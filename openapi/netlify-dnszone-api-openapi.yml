@@ -1,0 +1,520 @@
+openapi: 3.0.1
+info:
+  title: Netlify Netlify's API documentation accessToken dnsZone API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  version: 2.33.1
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: dnsZone
+  x-displayName: DNS zone
+paths:
+  /sites/{site_id}/dns:
+    get:
+      tags:
+      - dnsZone
+      operationId: getDNSForSite
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/dnsZone'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    put:
+      tags:
+      - dnsZone
+      operationId: configureDNSForSite
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/dnsZone'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /dns_zones:
+    get:
+      tags:
+      - dnsZone
+      operationId: getDnsZones
+      parameters:
+      - name: account_slug
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: get all DNS zones the user has access to
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dnsZones'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    post:
+      tags:
+      - dnsZone
+      operationId: createDnsZone
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dnsZoneSetup'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dnsZone'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codegen-request-body-name: DnsZoneParams
+  /dns_zones/{zone_id}:
+    get:
+      tags:
+      - dnsZone
+      operationId: getDnsZone
+      parameters:
+      - name: zone_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: get a single DNS zone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dnsZone'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    delete:
+      tags:
+      - dnsZone
+      operationId: deleteDnsZone
+      parameters:
+      - name: zone_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: delete a single DNS zone
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /dns_zones/{zone_id}/transfer:
+    put:
+      tags:
+      - dnsZone
+      operationId: transferDnsZone
+      parameters:
+      - name: zone_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: account_id
+        in: query
+        description: the account of the dns zone
+        required: true
+        schema:
+          type: string
+      - name: transfer_account_id
+        in: query
+        description: the account you want to transfer the dns zone to
+        required: true
+        schema:
+          type: string
+      - name: transfer_user_id
+        in: query
+        description: the user you want to transfer the dns zone to
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: transfer a DNS zone to another account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dnsZone'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+  /dns_zones/{zone_id}/dns_records:
+    get:
+      tags:
+      - dnsZone
+      operationId: getDnsRecords
+      parameters:
+      - name: zone_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: get all DNS records for a single DNS zone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dnsRecords'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    post:
+      tags:
+      - dnsZone
+      operationId: createDnsRecord
+      parameters:
+      - name: zone_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dnsRecordCreate'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dnsRecord'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+      x-codegen-request-body-name: dns_record
+  /dns_zones/{zone_id}/dns_records/{dns_record_id}:
+    get:
+      tags:
+      - dnsZone
+      operationId: getIndividualDnsRecord
+      parameters:
+      - name: zone_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dns_record_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: get a single DNS record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dnsRecord'
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+    delete:
+      tags:
+      - dnsZone
+      operationId: deleteDnsRecord
+      parameters:
+      - name: zone_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dns_record_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: record deleted
+          content: {}
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+components:
+  schemas:
+    dnsZone:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            type: string
+        supported_record_types:
+          type: array
+          items:
+            type: string
+        user_id:
+          type: string
+        created_at:
+          type: string
+          format: dateTime
+        updated_at:
+          type: string
+          format: dateTime
+        records:
+          type: array
+          items:
+            $ref: '#/components/schemas/dnsRecord'
+        dns_servers:
+          type: array
+          items:
+            type: string
+        account_id:
+          type: string
+        site_id:
+          type: string
+        account_slug:
+          type: string
+        account_name:
+          type: string
+        domain:
+          type: string
+        ipv6_enabled:
+          type: boolean
+        dedicated:
+          type: boolean
+    dnsZones:
+      type: array
+      items:
+        $ref: '#/components/schemas/dnsZone'
+    dnsZoneSetup:
+      type: object
+      properties:
+        account_slug:
+          type: string
+        site_id:
+          type: string
+        name:
+          type: string
+    dnsRecord:
+      type: object
+      properties:
+        id:
+          type: string
+        hostname:
+          type: string
+        type:
+          type: string
+        value:
+          type: string
+        ttl:
+          type: integer
+          format: int64
+        priority:
+          type: integer
+          format: int64
+        dns_zone_id:
+          type: string
+        site_id:
+          type: string
+        flag:
+          type: integer
+        tag:
+          type: string
+        managed:
+          type: boolean
+    dnsRecords:
+      type: array
+      items:
+        $ref: '#/components/schemas/dnsRecord'
+    dnsRecordCreate:
+      type: object
+      properties:
+        type:
+          type: string
+        hostname:
+          type: string
+        value:
+          type: string
+        ttl:
+          type: integer
+          format: int64
+        priority:
+          type: integer
+          format: int64
+        weight:
+          type: integer
+          format: int64
+        port:
+          type: integer
+          format: int64
+        flag:
+          type: integer
+          format: int64
+        tag:
+          type: string
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
+          nullable: false
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://app.netlify.com/authorize
+          scopes: {}
+externalDocs:
+  description: Online documentation
+  url: https://www.netlify.com/docs/api/
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature
+x-original-swagger-version: '2.0'
