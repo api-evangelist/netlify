@@ -4,6 +4,19 @@ description: Netlify is a cloud platform for building, deploying, and scaling mo
   web applications with continuous deployment, serverless functions, and edge computing
   capabilities.
 kind: contract
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.netlify.com/v3/img/components/logomark.png
 access: 3rd-Party
 tags:
@@ -22,28 +35,18 @@ created: '2023-11-14'
 modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
-- aid: netlify:netlify-api
-  name: Netlify API
-  description: Netlify is a hosting service for the programmable web. It understands
-    your documents and provides an API to handle atomic deploys of websites, manage
-    form submissions, inject JavaScript snippets, and much more. This is a REST-style
-    API that uses JSON for serialization and OAuth 2 for authentication.
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: netlify:netlify-accesstoken-api
+  name: Netlify accessToken API
+  description: The accessToken API from Netlify — 1 operation(s) for accesstoken.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
   tags:
-  - Deploys
-  - DNS
-  - Forms
-  - Hosting
-  - Serverless
-  - Sites
-  - Webhooks
+  - accessToken
   properties:
+  - type: OpenAPI
+    url: openapi/netlify-accesstoken-api-openapi.yml
   - type: Documentation
     url: https://open-api.netlify.com/
-  - type: OpenAPI
-    url: openapi/netlify-openapi-original.yml
   - type: AsyncAPI
     url: asyncapi/netlify-webhooks-asyncapi.yml
   - type: GettingStarted
@@ -122,9 +125,3139 @@ apis:
     url: capabilities/netlify-snicertificate.yaml
   - type: X-NaftikoCapability
     url: capabilities/netlify-splittest.yaml
-  - url: graphql/netlify-graphql.md
-    type: GraphQL
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-accountmembership-api
+  name: Netlify accountMembership API
+  description: The accountMembership API from Netlify — 2 operation(s) for accountmembership.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - accountMembership
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-accountmembership-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-accounttype-api
+  name: Netlify accountType API
+  description: The accountType API from Netlify — 1 operation(s) for accounttype.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - accountType
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-accounttype-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-asset-api
+  name: Netlify Asset API
+  description: The Asset API from Netlify — 2 operation(s) for asset.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Asset
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-asset-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-assetpublicsignature-api
+  name: Netlify assetPublicSignature API
+  description: The assetPublicSignature API from Netlify — 1 operation(s) for assetpublicsignature.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - assetPublicSignature
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-assetpublicsignature-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-auditlog-api
+  name: Netlify auditLog API
+  description: The auditLog API from Netlify — 1 operation(s) for auditlog.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - auditLog
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-auditlog-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-build-api
+  name: Netlify Build API
+  description: The Build API from Netlify — 4 operation(s) for build.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Build
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-build-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-buildhook-api
+  name: Netlify buildHook API
+  description: The buildHook API from Netlify — 2 operation(s) for buildhook.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - buildHook
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-buildhook-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-buildlogmsg-api
+  name: Netlify buildLogMsg API
+  description: The buildLogMsg API from Netlify — 1 operation(s) for buildlogmsg.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - buildLogMsg
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-buildlogmsg-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-deploy-api
+  name: Netlify Deploy API
+  description: The Deploy API from Netlify — 8 operation(s) for deploy.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Deploy
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-deploy-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-deployedbranch-api
+  name: Netlify deployedBranch API
+  description: The deployedBranch API from Netlify — 1 operation(s) for deployedbranch.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - deployedBranch
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-deployedbranch-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-deploykey-api
+  name: Netlify deployKey API
+  description: The deployKey API from Netlify — 2 operation(s) for deploykey.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - deployKey
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-deploykey-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-devserver-api
+  name: Netlify devServer API
+  description: The devServer API from Netlify — 3 operation(s) for devserver.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - devServer
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-devserver-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-devserverhook-api
+  name: Netlify devServerHook API
+  description: The devServerHook API from Netlify — 2 operation(s) for devserverhook.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - devServerHook
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-devserverhook-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-dnszone-api
+  name: Netlify dnsZone API
+  description: The dnsZone API from Netlify — 6 operation(s) for dnszone.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - dnsZone
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-dnszone-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-environmentvariables-api
+  name: Netlify environmentVariables API
+  description: The environmentVariables API from Netlify — 4 operation(s) for environmentvariables.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - environmentVariables
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-environmentvariables-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-file-api
+  name: Netlify File API
+  description: The File API from Netlify — 3 operation(s) for file.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - File
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-file-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-form-api
+  name: Netlify Form API
+  description: The Form API from Netlify — 2 operation(s) for form.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Form
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-form-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-function-api
+  name: Netlify Function API
+  description: The Function API from Netlify — 2 operation(s) for function.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Function
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-function-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-hook-api
+  name: Netlify Hook API
+  description: The Hook API from Netlify — 3 operation(s) for hook.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Hook
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-hook-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-hooktype-api
+  name: Netlify hookType API
+  description: The hookType API from Netlify — 1 operation(s) for hooktype.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - hookType
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-hooktype-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-member-api
+  name: Netlify Member API
+  description: The Member API from Netlify — 2 operation(s) for member.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Member
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-member-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-metadata-api
+  name: Netlify Metadata API
+  description: The Metadata API from Netlify — 1 operation(s) for metadata.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-paymentmethod-api
+  name: Netlify paymentMethod API
+  description: The paymentMethod API from Netlify — 1 operation(s) for paymentmethod.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - paymentMethod
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-paymentmethod-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-purge-api
+  name: Netlify Purge API
+  description: The Purge API from Netlify — 1 operation(s) for purge.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Purge
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-purge-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-serviceinstance-api
+  name: Netlify serviceInstance API
+  description: The serviceInstance API from Netlify — 3 operation(s) for serviceinstance.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - serviceInstance
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-serviceinstance-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-services-api
+  name: Netlify Services API
+  description: The Services API from Netlify — 3 operation(s) for services.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Services
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-services-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-site-api
+  name: Netlify Site API
+  description: The Site API from Netlify — 4 operation(s) for site.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Site
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-site-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-snicertificate-api
+  name: Netlify sniCertificate API
+  description: The sniCertificate API from Netlify — 1 operation(s) for snicertificate.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - sniCertificate
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-snicertificate-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-snippet-api
+  name: Netlify Snippet API
+  description: The Snippet API from Netlify — 2 operation(s) for snippet.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Snippet
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-snippet-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-splittest-api
+  name: Netlify splitTest API
+  description: The splitTest API from Netlify — 4 operation(s) for splittest.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - splitTest
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-splittest-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-submission-api
+  name: Netlify Submission API
+  description: The Submission API from Netlify — 3 operation(s) for submission.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Submission
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-submission-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-ticket-api
+  name: Netlify Ticket API
+  description: The Ticket API from Netlify — 2 operation(s) for ticket.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Ticket
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-ticket-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-user-api
+  name: Netlify User API
+  description: The User API from Netlify — 1 operation(s) for user.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-user-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-x-internal-api
+  name: Netlify X-Internal API
+  description: The X-Internal API from Netlify — 3 operation(s) for x-internal.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - X-Internal
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-x-internal-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-general.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-asset.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-build.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploy.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-file.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-form.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-function.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-metadata.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-purge.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-site.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snippet.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-submission.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-ticket.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-user.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-x-internal.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accesstoken.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accountmembership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-accounttype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-assetpublicsignature.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-auditlog.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-buildlogmsg.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deploykey.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-deployedbranch.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserver.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-devserverhook.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-dnszone.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-environmentvariables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-hooktype.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-paymentmethod.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-serviceinstance.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-snicertificate.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/netlify-splittest.yaml
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/netlify/overview
 - type: AgenticAccess
   url: agentic-access/netlify-agentic-access.yml
 - type: TrustCenter
