@@ -1,0 +1,226 @@
+{
+  "info": {
+    "_postman_id": "06a8fcf7-cc4e-43db-b46b-48ef77bd6c69",
+    "name": "Netlify Netlify's API documentation accessToken Purge API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:22.000Z",
+    "updatedAt": "2026-07-28T02:19:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-06a8fcf7-cc4e-43db-b46b-48ef77bd6c69"
+  },
+  "item": [
+    {
+      "name": "purge",
+      "item": [
+        {
+          "name": "purge Cache",
+          "id": "94c8ad7f-6440-4e2b-929d-f197a0ede841",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"site_id\": \"<string>\",\n  \"site_slug\": \"<string>\",\n  \"cache_tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/purge",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "purge"
+              ]
+            },
+            "description": "Purges cached content from Netlify's CDN. Supports purging by Cache-Tag."
+          },
+          "response": [
+            {
+              "id": "5efe8834-1732-481c-ab3d-a6f281fc98a2",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"site_id\": \"<string>\",\n  \"site_slug\": \"<string>\",\n  \"cache_tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purge",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purge"
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:19:22.000Z",
+              "updatedAt": "2026-07-28T02:19:22.000Z",
+              "uid": "35240-5efe8834-1732-481c-ab3d-a6f281fc98a2"
+            },
+            {
+              "id": "497f58ef-b663-4de9-a089-4c556250675e",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"site_id\": \"<string>\",\n  \"site_slug\": \"<string>\",\n  \"cache_tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purge",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purge"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:19:22.000Z",
+              "updatedAt": "2026-07-28T02:19:22.000Z",
+              "uid": "35240-497f58ef-b663-4de9-a089-4c556250675e"
+            },
+            {
+              "id": "2833ae33-96e6-4f5e-ade7-81de4ca5c35b",
+              "name": "Site not found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"site_id\": \"<string>\",\n  \"site_slug\": \"<string>\",\n  \"cache_tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/purge",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "purge"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:19:22.000Z",
+              "updatedAt": "2026-07-28T02:19:22.000Z",
+              "uid": "35240-2833ae33-96e6-4f5e-ade7-81de4ca5c35b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:19:22.000Z",
+          "updatedAt": "2026-07-28T02:19:22.000Z",
+          "uid": "35240-94c8ad7f-6440-4e2b-929d-f197a0ede841"
+        }
+      ],
+      "id": "41149827-77c5-4627-897c-8d4f55071a79",
+      "createdAt": "2026-07-28T02:19:22.000Z",
+      "updatedAt": "2026-07-28T02:19:22.000Z",
+      "uid": "35240-41149827-77c5-4627-897c-8d4f55071a79"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

@@ -1,0 +1,872 @@
+{
+  "info": {
+    "_postman_id": "dfe83795-310e-4077-a478-6b842ea14d5a",
+    "name": "Netlify Netlify's API documentation accessToken Snippet API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:31.000Z",
+    "updatedAt": "2026-07-28T02:19:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dfe83795-310e-4077-a478-6b842ea14d5a"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "snippets",
+              "item": [
+                {
+                  "name": "{snippet_id}",
+                  "item": [
+                    {
+                      "name": "get Site Snippet",
+                      "id": "67058036-e346-44e3-a1a5-f18f1011223a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "snippets",
+                            ":snippet_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4ac65d00-a3ff-42e6-b7a1-baffc9aa924d",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "b12c8d35-eafd-44f5-8b4c-471213481ba7",
+                              "key": "snippet_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "39ee4ee9-94c3-462b-948e-d073b6ad5e38",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "snippets",
+                                ":snippet_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "snippet_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"site_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"general\": \"<string>\",\n  \"general_position\": \"<string>\",\n  \"goal\": \"<string>\",\n  \"goal_position\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:19:32.000Z",
+                          "updatedAt": "2026-07-28T02:19:32.000Z",
+                          "uid": "35240-39ee4ee9-94c3-462b-948e-d073b6ad5e38"
+                        },
+                        {
+                          "id": "33e48134-1c0b-49a5-b99e-b702c3d37d41",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "snippets",
+                                ":snippet_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "snippet_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:19:32.000Z",
+                          "updatedAt": "2026-07-28T02:19:32.000Z",
+                          "uid": "35240-33e48134-1c0b-49a5-b99e-b702c3d37d41"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:19:32.000Z",
+                      "updatedAt": "2026-07-28T02:19:32.000Z",
+                      "uid": "35240-67058036-e346-44e3-a1a5-f18f1011223a"
+                    },
+                    {
+                      "name": "update Site Snippet",
+                      "id": "30f11db4-5846-4220-a05d-1bfef1852ccf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<integer>\",\n  \"site_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"general\": \"<string>\",\n  \"general_position\": \"<string>\",\n  \"goal\": \"<string>\",\n  \"goal_position\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "snippets",
+                            ":snippet_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f2536f31-d0ec-4186-9109-176bbe6ef191",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "64038919-8b91-4134-a021-e5223d9e7bdb",
+                              "key": "snippet_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "83c9fcb1-e776-4016-a1e1-e5af9fbd38fd",
+                          "name": "No content",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<integer>\",\n  \"site_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"general\": \"<string>\",\n  \"general_position\": \"<string>\",\n  \"goal\": \"<string>\",\n  \"goal_position\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "snippets",
+                                ":snippet_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "snippet_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:19:32.000Z",
+                          "updatedAt": "2026-07-28T02:19:32.000Z",
+                          "uid": "35240-83c9fcb1-e776-4016-a1e1-e5af9fbd38fd"
+                        },
+                        {
+                          "id": "40045e08-0fc4-40ca-b9eb-7f5c0f3067ea",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<integer>\",\n  \"site_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"general\": \"<string>\",\n  \"general_position\": \"<string>\",\n  \"goal\": \"<string>\",\n  \"goal_position\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "snippets",
+                                ":snippet_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "snippet_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:19:32.000Z",
+                          "updatedAt": "2026-07-28T02:19:32.000Z",
+                          "uid": "35240-40045e08-0fc4-40ca-b9eb-7f5c0f3067ea"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:19:32.000Z",
+                      "updatedAt": "2026-07-28T02:19:32.000Z",
+                      "uid": "35240-30f11db4-5846-4220-a05d-1bfef1852ccf"
+                    },
+                    {
+                      "name": "delete Site Snippet",
+                      "id": "8a54908e-3a95-41d8-ad2c-ec7af44c755b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "snippets",
+                            ":snippet_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6dcf95d4-a888-4850-9204-513b4b2c0873",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "35c9016d-3be2-45f2-8732-7896ad80a88a",
+                              "key": "snippet_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "baed0286-7f43-4e84-bbcf-8f1e01a87bc4",
+                          "name": "No content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "snippets",
+                                ":snippet_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "snippet_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:19:32.000Z",
+                          "updatedAt": "2026-07-28T02:19:32.000Z",
+                          "uid": "35240-baed0286-7f43-4e84-bbcf-8f1e01a87bc4"
+                        },
+                        {
+                          "id": "e92b1719-5472-41c7-b6cd-69ca33121aa0",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/snippets/:snippet_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "snippets",
+                                ":snippet_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "snippet_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:19:32.000Z",
+                          "updatedAt": "2026-07-28T02:19:32.000Z",
+                          "uid": "35240-e92b1719-5472-41c7-b6cd-69ca33121aa0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:19:32.000Z",
+                      "updatedAt": "2026-07-28T02:19:32.000Z",
+                      "uid": "35240-8a54908e-3a95-41d8-ad2c-ec7af44c755b"
+                    }
+                  ],
+                  "id": "312c9a57-d0a1-40f5-911d-f9cd7d55b3ab",
+                  "createdAt": "2026-07-28T02:19:32.000Z",
+                  "updatedAt": "2026-07-28T02:19:32.000Z",
+                  "uid": "35240-312c9a57-d0a1-40f5-911d-f9cd7d55b3ab"
+                },
+                {
+                  "name": "list Site Snippets",
+                  "id": "acfe9346-a6a9-4b1f-a752-7878f9a1e9d5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/snippets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "snippets"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b8d5d627-ead0-4df3-98eb-3106636cf03a",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "baa2f6b3-4475-432c-b1b8-83fb50aed9b0",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/snippets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "snippets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"site_id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"general\": \"<string>\",\n    \"general_position\": \"<string>\",\n    \"goal\": \"<string>\",\n    \"goal_position\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"site_id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"general\": \"<string>\",\n    \"general_position\": \"<string>\",\n    \"goal\": \"<string>\",\n    \"goal_position\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:19:32.000Z",
+                      "updatedAt": "2026-07-28T02:19:32.000Z",
+                      "uid": "35240-baa2f6b3-4475-432c-b1b8-83fb50aed9b0"
+                    },
+                    {
+                      "id": "b91578ca-24fd-4bd8-b2e5-f5c9909f09da",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/snippets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "snippets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:32.000Z",
+                      "updatedAt": "2026-07-28T02:19:32.000Z",
+                      "uid": "35240-b91578ca-24fd-4bd8-b2e5-f5c9909f09da"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:32.000Z",
+                  "updatedAt": "2026-07-28T02:19:32.000Z",
+                  "uid": "35240-acfe9346-a6a9-4b1f-a752-7878f9a1e9d5"
+                },
+                {
+                  "name": "create Site Snippet",
+                  "id": "062922c4-a34b-4642-b680-76203c5a3fc3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<integer>\",\n  \"site_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"general\": \"<string>\",\n  \"general_position\": \"<string>\",\n  \"goal\": \"<string>\",\n  \"goal_position\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/snippets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "snippets"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ddac0f09-d809-42ee-b070-ce198eba678c",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b0be50fb-1011-4c35-8e30-60a8d4ef9d99",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<integer>\",\n  \"site_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"general\": \"<string>\",\n  \"general_position\": \"<string>\",\n  \"goal\": \"<string>\",\n  \"goal_position\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/snippets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "snippets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"site_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"general\": \"<string>\",\n  \"general_position\": \"<string>\",\n  \"goal\": \"<string>\",\n  \"goal_position\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:19:32.000Z",
+                      "updatedAt": "2026-07-28T02:19:32.000Z",
+                      "uid": "35240-b0be50fb-1011-4c35-8e30-60a8d4ef9d99"
+                    },
+                    {
+                      "id": "51c74286-323b-4370-94f7-0728209ed5e7",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<integer>\",\n  \"site_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"general\": \"<string>\",\n  \"general_position\": \"<string>\",\n  \"goal\": \"<string>\",\n  \"goal_position\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/snippets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "snippets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:32.000Z",
+                      "updatedAt": "2026-07-28T02:19:32.000Z",
+                      "uid": "35240-51c74286-323b-4370-94f7-0728209ed5e7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:32.000Z",
+                  "updatedAt": "2026-07-28T02:19:32.000Z",
+                  "uid": "35240-062922c4-a34b-4642-b680-76203c5a3fc3"
+                }
+              ],
+              "id": "e0bb0d41-56ae-4257-99c2-33735a9c8492",
+              "createdAt": "2026-07-28T02:19:32.000Z",
+              "updatedAt": "2026-07-28T02:19:32.000Z",
+              "uid": "35240-e0bb0d41-56ae-4257-99c2-33735a9c8492"
+            }
+          ],
+          "id": "56ba04df-ff11-462b-8389-7aec5cbfcbeb",
+          "createdAt": "2026-07-28T02:19:32.000Z",
+          "updatedAt": "2026-07-28T02:19:32.000Z",
+          "uid": "35240-56ba04df-ff11-462b-8389-7aec5cbfcbeb"
+        }
+      ],
+      "id": "edf5dce9-d324-483d-ba02-062dec593a01",
+      "createdAt": "2026-07-28T02:19:32.000Z",
+      "updatedAt": "2026-07-28T02:19:32.000Z",
+      "uid": "35240-edf5dce9-d324-483d-ba02-062dec593a01"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

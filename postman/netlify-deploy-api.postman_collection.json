@@ -1,0 +1,2072 @@
+{
+  "info": {
+    "_postman_id": "15c5351d-542e-44e7-9869-307d5a42a817",
+    "name": "Netlify Netlify's API documentation accessToken Deploy API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:35.000Z",
+    "updatedAt": "2026-07-28T02:17:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-15c5351d-542e-44e7-9869-307d5a42a817"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "deploys",
+              "item": [
+                {
+                  "name": "{deploy_id}",
+                  "item": [
+                    {
+                      "name": "restore",
+                      "item": [
+                        {
+                          "name": "restore Site Deploy",
+                          "id": "457ce479-9485-46ef-b551-02ed2f15ae5f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id/restore",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "deploys",
+                                ":deploy_id",
+                                "restore"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c2ae2646-7978-452f-b3e7-8ad9af40444d",
+                                  "key": "site_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b4a88159-d383-41a3-aa43-8d76dfb2693e",
+                                  "key": "deploy_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "2c08e9a4-8c00-45f7-b066-7fbee258d555",
+                              "name": "Created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id/restore",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "deploys",
+                                    ":deploy_id",
+                                    "restore"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "deploy_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"build_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"deploy_url\": \"<string>\",\n  \"deploy_ssl_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"review_id\": \"<number>\",\n  \"draft\": \"<boolean>\",\n  \"required\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_functions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_message\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"commit_ref\": \"<string>\",\n  \"commit_url\": \"<string>\",\n  \"skipped\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"title\": \"<string>\",\n  \"context\": \"<string>\",\n  \"locked\": \"<boolean>\",\n  \"review_url\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T02:17:36.000Z",
+                              "updatedAt": "2026-07-28T02:17:36.000Z",
+                              "uid": "35240-2c08e9a4-8c00-45f7-b066-7fbee258d555"
+                            },
+                            {
+                              "id": "15f21ffb-6175-40aa-8c23-bc0294c2a1ca",
+                              "name": "error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id/restore",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "deploys",
+                                    ":deploy_id",
+                                    "restore"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "deploy_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T02:17:36.000Z",
+                              "updatedAt": "2026-07-28T02:17:36.000Z",
+                              "uid": "35240-15f21ffb-6175-40aa-8c23-bc0294c2a1ca"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:17:36.000Z",
+                          "updatedAt": "2026-07-28T02:17:36.000Z",
+                          "uid": "35240-457ce479-9485-46ef-b551-02ed2f15ae5f"
+                        }
+                      ],
+                      "id": "cc8456a1-f97b-4a0f-95da-89729532d590",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-cc8456a1-f97b-4a0f-95da-89729532d590"
+                    },
+                    {
+                      "name": "get Site Deploy",
+                      "id": "bb6b3f13-ef0b-4643-a8e3-e7b93e4ff271",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "deploys",
+                            ":deploy_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a876574b-a5e4-45b5-a1c1-e0ffed069bcf",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "c32b595b-0d91-42f0-9edc-ad7ecb011bbe",
+                              "key": "deploy_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "38c62ec9-55b9-4564-86e5-887a7a315bca",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "deploys",
+                                ":deploy_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "deploy_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"build_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"deploy_url\": \"<string>\",\n  \"deploy_ssl_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"review_id\": \"<number>\",\n  \"draft\": \"<boolean>\",\n  \"required\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_functions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_message\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"commit_ref\": \"<string>\",\n  \"commit_url\": \"<string>\",\n  \"skipped\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"title\": \"<string>\",\n  \"context\": \"<string>\",\n  \"locked\": \"<boolean>\",\n  \"review_url\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:17:36.000Z",
+                          "updatedAt": "2026-07-28T02:17:36.000Z",
+                          "uid": "35240-38c62ec9-55b9-4564-86e5-887a7a315bca"
+                        },
+                        {
+                          "id": "5cdd4cf3-b1e1-4830-84d0-50b9bb741af0",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "deploys",
+                                ":deploy_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "deploy_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:17:36.000Z",
+                          "updatedAt": "2026-07-28T02:17:36.000Z",
+                          "uid": "35240-5cdd4cf3-b1e1-4830-84d0-50b9bb741af0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-bb6b3f13-ef0b-4643-a8e3-e7b93e4ff271"
+                    },
+                    {
+                      "name": "update Site Deploy",
+                      "id": "3deb9173-54a4-480b-887a-efd2b3abe99f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"files\": {},\n  \"draft\": \"<boolean>\",\n  \"async\": \"<boolean>\",\n  \"functions\": {},\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ],\n  \"functions_config\": {\n    \"commodo_4f\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"ip\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    },\n    \"occaecat_7da\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"DELETE\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"OPTIONS\",\n            \"GET\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"domain\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    }\n  },\n  \"branch\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"framework_version\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "deploys",
+                            ":deploy_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "dbe601c5-b7e4-42cc-b87f-d1002af5937a",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "d24bf6f1-905c-4f16-b781-a3c782c1806f",
+                              "key": "deploy_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "b1077eb9-5b19-4475-b33b-87093d0b2111",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"files\": {},\n  \"draft\": \"<boolean>\",\n  \"async\": \"<boolean>\",\n  \"functions\": {},\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ],\n  \"functions_config\": {\n    \"commodo_4f\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"ip\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    },\n    \"occaecat_7da\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"DELETE\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"OPTIONS\",\n            \"GET\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"domain\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    }\n  },\n  \"branch\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"framework_version\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "deploys",
+                                ":deploy_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "deploy_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"build_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"deploy_url\": \"<string>\",\n  \"deploy_ssl_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"review_id\": \"<number>\",\n  \"draft\": \"<boolean>\",\n  \"required\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_functions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_message\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"commit_ref\": \"<string>\",\n  \"commit_url\": \"<string>\",\n  \"skipped\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"title\": \"<string>\",\n  \"context\": \"<string>\",\n  \"locked\": \"<boolean>\",\n  \"review_url\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:17:36.000Z",
+                          "updatedAt": "2026-07-28T02:17:36.000Z",
+                          "uid": "35240-b1077eb9-5b19-4475-b33b-87093d0b2111"
+                        },
+                        {
+                          "id": "ed4ea496-8e84-4a69-aadd-883237f92c1c",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"files\": {},\n  \"draft\": \"<boolean>\",\n  \"async\": \"<boolean>\",\n  \"functions\": {},\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ],\n  \"functions_config\": {\n    \"commodo_4f\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"ip\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    },\n    \"occaecat_7da\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"DELETE\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"OPTIONS\",\n            \"GET\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"domain\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    }\n  },\n  \"branch\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"framework_version\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "deploys",
+                                ":deploy_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "deploy_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:17:36.000Z",
+                          "updatedAt": "2026-07-28T02:17:36.000Z",
+                          "uid": "35240-ed4ea496-8e84-4a69-aadd-883237f92c1c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-3deb9173-54a4-480b-887a-efd2b3abe99f"
+                    },
+                    {
+                      "name": "delete Site Deploy",
+                      "id": "c07c89a7-100c-433a-bc1e-ce255c2b13ee",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "deploys",
+                            ":deploy_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ac14f6d7-ac13-49a9-a7c7-a1971569d0bc",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "9e7d501e-8065-4ca4-83e2-7e60f568a6a7",
+                              "key": "deploy_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6d8fb023-7147-408f-ac9f-256a5382ef61",
+                          "name": "No content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "deploys",
+                                ":deploy_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "deploy_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:17:36.000Z",
+                          "updatedAt": "2026-07-28T02:17:36.000Z",
+                          "uid": "35240-6d8fb023-7147-408f-ac9f-256a5382ef61"
+                        },
+                        {
+                          "id": "d35b7d78-42e4-4fa2-b784-b454ce040cdb",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/deploys/:deploy_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "deploys",
+                                ":deploy_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "deploy_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:17:36.000Z",
+                          "updatedAt": "2026-07-28T02:17:36.000Z",
+                          "uid": "35240-d35b7d78-42e4-4fa2-b784-b454ce040cdb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-c07c89a7-100c-433a-bc1e-ce255c2b13ee"
+                    }
+                  ],
+                  "id": "e5ba58ef-8191-4ab3-aed8-ef23fe998ed2",
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-e5ba58ef-8191-4ab3-aed8-ef23fe998ed2"
+                },
+                {
+                  "name": "list Site Deploys",
+                  "id": "27de948d-33e5-46da-b34f-e58678b2dac4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/deploys?deploy-previews=<boolean>&production=<boolean>&state=preparing&branch=<string>&latest-published=<boolean>&page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "deploys"
+                      ],
+                      "query": [
+                        {
+                          "key": "deploy-previews",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "production",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "state",
+                          "value": "preparing"
+                        },
+                        {
+                          "key": "branch",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "latest-published",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "60023ee6-29c4-4c56-9742-e6bb79ae2b92",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e2444b2e-4bf3-4486-a0fe-8b67ece6c7e3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/deploys?deploy-previews=<boolean>&production=<boolean>&state=preparing&branch=<string>&latest-published=<boolean>&page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "deploys"
+                          ],
+                          "query": [
+                            {
+                              "key": "deploy-previews",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "production",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "state",
+                              "value": "preparing"
+                            },
+                            {
+                              "key": "branch",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest-published",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"published_at\": \"<string>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"published_at\": \"<string>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  }\n]",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-e2444b2e-4bf3-4486-a0fe-8b67ece6c7e3"
+                    },
+                    {
+                      "id": "e0a7643a-3758-41ee-884b-0bcd2a9253eb",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/deploys?deploy-previews=<boolean>&production=<boolean>&state=preparing&branch=<string>&latest-published=<boolean>&page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "deploys"
+                          ],
+                          "query": [
+                            {
+                              "key": "deploy-previews",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "production",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "state",
+                              "value": "preparing"
+                            },
+                            {
+                              "key": "branch",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest-published",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-e0a7643a-3758-41ee-884b-0bcd2a9253eb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-27de948d-33e5-46da-b34f-e58678b2dac4"
+                },
+                {
+                  "name": "create Site Deploy",
+                  "id": "cc722491-3ea1-485d-ba26-5c916c5ad1d7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"files\": {},\n  \"draft\": \"<boolean>\",\n  \"async\": \"<boolean>\",\n  \"functions\": {},\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ],\n  \"functions_config\": {\n    \"commodo_4f\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"ip\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    },\n    \"occaecat_7da\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"DELETE\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"OPTIONS\",\n            \"GET\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"domain\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    }\n  },\n  \"branch\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"framework_version\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/deploys?deploy-previews=<boolean>&production=<boolean>&state=preparing&branch=<string>&latest-published=<boolean>&title=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "deploys"
+                      ],
+                      "query": [
+                        {
+                          "key": "deploy-previews",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "production",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "state",
+                          "value": "preparing"
+                        },
+                        {
+                          "key": "branch",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "latest-published",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "title",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "8bd39f19-84b9-4d50-94c8-752eb936c555",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "aed45010-e1fd-4fc0-9f06-c942f16ad24e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"files\": {},\n  \"draft\": \"<boolean>\",\n  \"async\": \"<boolean>\",\n  \"functions\": {},\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ],\n  \"functions_config\": {\n    \"commodo_4f\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"ip\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    },\n    \"occaecat_7da\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"DELETE\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"OPTIONS\",\n            \"GET\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"domain\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    }\n  },\n  \"branch\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"framework_version\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/deploys?deploy-previews=<boolean>&production=<boolean>&state=preparing&branch=<string>&latest-published=<boolean>&title=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "deploys"
+                          ],
+                          "query": [
+                            {
+                              "key": "deploy-previews",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "production",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "state",
+                              "value": "preparing"
+                            },
+                            {
+                              "key": "branch",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest-published",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "title",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"build_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"deploy_url\": \"<string>\",\n  \"deploy_ssl_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"review_id\": \"<number>\",\n  \"draft\": \"<boolean>\",\n  \"required\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_functions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_message\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"commit_ref\": \"<string>\",\n  \"commit_url\": \"<string>\",\n  \"skipped\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"title\": \"<string>\",\n  \"context\": \"<string>\",\n  \"locked\": \"<boolean>\",\n  \"review_url\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-aed45010-e1fd-4fc0-9f06-c942f16ad24e"
+                    },
+                    {
+                      "id": "aa418e33-6348-4947-93ec-93a4343686bb",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"files\": {},\n  \"draft\": \"<boolean>\",\n  \"async\": \"<boolean>\",\n  \"functions\": {},\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ],\n  \"functions_config\": {\n    \"commodo_4f\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"POST\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"ip\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    },\n    \"occaecat_7da\": {\n      \"display_name\": \"<string>\",\n      \"generator\": \"<string>\",\n      \"build_data\": {},\n      \"routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"POST\",\n            \"DELETE\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\",\n          \"methods\": [\n            \"OPTIONS\",\n            \"GET\"\n          ],\n          \"prefer_static\": \"<boolean>\"\n        }\n      ],\n      \"excluded_routes\": [\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        },\n        {\n          \"pattern\": \"<string>\",\n          \"literal\": \"<string>\",\n          \"expression\": \"<string>\"\n        }\n      ],\n      \"priority\": \"<integer>\",\n      \"traffic_rules\": {\n        \"action\": {\n          \"type\": \"<string>\",\n          \"config\": {\n            \"to\": \"<string>\",\n            \"rate_limit_config\": {\n              \"algorithm\": \"sliding_window\",\n              \"window_size\": \"<integer>\",\n              \"window_limit\": \"<integer>\"\n            },\n            \"aggregate\": {\n              \"keys\": [\n                {\n                  \"type\": \"domain\"\n                },\n                {\n                  \"type\": \"domain\"\n                }\n              ]\n            }\n          }\n        }\n      }\n    }\n  },\n  \"branch\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"framework_version\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/deploys?deploy-previews=<boolean>&production=<boolean>&state=preparing&branch=<string>&latest-published=<boolean>&title=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "deploys"
+                          ],
+                          "query": [
+                            {
+                              "key": "deploy-previews",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "production",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "state",
+                              "value": "preparing"
+                            },
+                            {
+                              "key": "branch",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest-published",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "title",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-aa418e33-6348-4947-93ec-93a4343686bb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-cc722491-3ea1-485d-ba26-5c916c5ad1d7"
+                }
+              ],
+              "id": "4249c10b-9445-49fd-bece-f88179022a17",
+              "createdAt": "2026-07-28T02:17:36.000Z",
+              "updatedAt": "2026-07-28T02:17:36.000Z",
+              "uid": "35240-4249c10b-9445-49fd-bece-f88179022a17"
+            },
+            {
+              "name": "rollback",
+              "item": [
+                {
+                  "name": "rollback Site Deploy",
+                  "id": "92ece5f7-bfb7-4e00-ad68-bd367a9e4a05",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/rollback",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "rollback"
+                      ],
+                      "variable": [
+                        {
+                          "id": "738a4d56-d05c-4b53-9d53-6ca81d342d72",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0b660b07-51b6-4f82-8313-1bf56904a950",
+                      "name": "No content",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/rollback",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "rollback"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-0b660b07-51b6-4f82-8313-1bf56904a950"
+                    },
+                    {
+                      "id": "568fc2d6-3c35-4ffe-8d89-630e533dec03",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/rollback",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "rollback"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-568fc2d6-3c35-4ffe-8d89-630e533dec03"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-92ece5f7-bfb7-4e00-ad68-bd367a9e4a05"
+                }
+              ],
+              "id": "67307bea-2c2c-46db-92a1-27a5ee038bf3",
+              "createdAt": "2026-07-28T02:17:36.000Z",
+              "updatedAt": "2026-07-28T02:17:36.000Z",
+              "uid": "35240-67307bea-2c2c-46db-92a1-27a5ee038bf3"
+            }
+          ],
+          "id": "a5a46737-05fd-4a81-9c02-36371cc0aa36",
+          "createdAt": "2026-07-28T02:17:36.000Z",
+          "updatedAt": "2026-07-28T02:17:36.000Z",
+          "uid": "35240-a5a46737-05fd-4a81-9c02-36371cc0aa36"
+        }
+      ],
+      "id": "30b9c595-ed60-4626-b3a4-94fd44a40b16",
+      "createdAt": "2026-07-28T02:17:36.000Z",
+      "updatedAt": "2026-07-28T02:17:36.000Z",
+      "uid": "35240-30b9c595-ed60-4626-b3a4-94fd44a40b16"
+    },
+    {
+      "name": "deploys",
+      "item": [
+        {
+          "name": "{deploy_id}",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "cancel Site Deploy",
+                  "id": "0da3fb3a-82f6-4b06-a383-2c024a1cf948",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploys/:deploy_id/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploys",
+                        ":deploy_id",
+                        "cancel"
+                      ],
+                      "variable": [
+                        {
+                          "id": "075816bd-1d3c-4349-83ed-49a8ea1ff53e",
+                          "key": "deploy_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "dad082a7-57c7-4949-865e-9d0a02d85059",
+                      "name": "Cancelled",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deploy_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"build_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"deploy_url\": \"<string>\",\n  \"deploy_ssl_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"review_id\": \"<number>\",\n  \"draft\": \"<boolean>\",\n  \"required\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_functions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_message\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"commit_ref\": \"<string>\",\n  \"commit_url\": \"<string>\",\n  \"skipped\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"title\": \"<string>\",\n  \"context\": \"<string>\",\n  \"locked\": \"<boolean>\",\n  \"review_url\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-dad082a7-57c7-4949-865e-9d0a02d85059"
+                    },
+                    {
+                      "id": "de6a9301-73d5-46a4-9216-a04482a9256e",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deploy_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-de6a9301-73d5-46a4-9216-a04482a9256e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-0da3fb3a-82f6-4b06-a383-2c024a1cf948"
+                }
+              ],
+              "id": "2f9e4ec8-ef86-406c-a702-6ec19d122896",
+              "createdAt": "2026-07-28T02:17:36.000Z",
+              "updatedAt": "2026-07-28T02:17:36.000Z",
+              "uid": "35240-2f9e4ec8-ef86-406c-a702-6ec19d122896"
+            },
+            {
+              "name": "lock",
+              "item": [
+                {
+                  "name": "lock Deploy",
+                  "id": "ba7ba461-7718-4b4e-9cce-2dd1e4932779",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploys/:deploy_id/lock",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploys",
+                        ":deploy_id",
+                        "lock"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e4023688-3264-4da5-9c22-af4550a6ea4e",
+                          "key": "deploy_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ec43d533-f738-4a61-a52f-590ee9df9143",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/lock",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "lock"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deploy_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"build_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"deploy_url\": \"<string>\",\n  \"deploy_ssl_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"review_id\": \"<number>\",\n  \"draft\": \"<boolean>\",\n  \"required\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_functions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_message\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"commit_ref\": \"<string>\",\n  \"commit_url\": \"<string>\",\n  \"skipped\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"title\": \"<string>\",\n  \"context\": \"<string>\",\n  \"locked\": \"<boolean>\",\n  \"review_url\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-ec43d533-f738-4a61-a52f-590ee9df9143"
+                    },
+                    {
+                      "id": "518040aa-8fbe-4d53-acd4-80bccdacd911",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/lock",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "lock"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deploy_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-518040aa-8fbe-4d53-acd4-80bccdacd911"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-ba7ba461-7718-4b4e-9cce-2dd1e4932779"
+                }
+              ],
+              "id": "dc8e03fc-945b-47e6-b14c-ed8657c20f56",
+              "createdAt": "2026-07-28T02:17:36.000Z",
+              "updatedAt": "2026-07-28T02:17:36.000Z",
+              "uid": "35240-dc8e03fc-945b-47e6-b14c-ed8657c20f56"
+            },
+            {
+              "name": "unlock",
+              "item": [
+                {
+                  "name": "unlock Deploy",
+                  "id": "fd2cd818-1924-45cb-8c7a-6c513e1def55",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploys/:deploy_id/unlock",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploys",
+                        ":deploy_id",
+                        "unlock"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3e028fb7-28f8-4979-8e95-e0b8fdbf16cc",
+                          "key": "deploy_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7098f05d-1e0a-439e-8e4e-c2f4e5a4e2cc",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/unlock",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "unlock"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deploy_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"build_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"deploy_url\": \"<string>\",\n  \"deploy_ssl_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"review_id\": \"<number>\",\n  \"draft\": \"<boolean>\",\n  \"required\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_functions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_message\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"commit_ref\": \"<string>\",\n  \"commit_url\": \"<string>\",\n  \"skipped\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"title\": \"<string>\",\n  \"context\": \"<string>\",\n  \"locked\": \"<boolean>\",\n  \"review_url\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-7098f05d-1e0a-439e-8e4e-c2f4e5a4e2cc"
+                    },
+                    {
+                      "id": "4c3e6004-41e2-41f7-b2e7-599dec09cb7e",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/unlock",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "unlock"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deploy_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:36.000Z",
+                      "updatedAt": "2026-07-28T02:17:36.000Z",
+                      "uid": "35240-4c3e6004-41e2-41f7-b2e7-599dec09cb7e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-fd2cd818-1924-45cb-8c7a-6c513e1def55"
+                }
+              ],
+              "id": "d340cef3-49e8-425c-a7fb-9f63f065d77f",
+              "createdAt": "2026-07-28T02:17:36.000Z",
+              "updatedAt": "2026-07-28T02:17:36.000Z",
+              "uid": "35240-d340cef3-49e8-425c-a7fb-9f63f065d77f"
+            },
+            {
+              "name": "get Deploy",
+              "id": "c9a22cb2-b61b-4099-b459-e816d6b94ad8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deploys/:deploy_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deploys",
+                    ":deploy_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2089e71e-b00f-414f-9fa5-7ac65785e488",
+                      "key": "deploy_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2ceaa4eb-de06-4082-9c99-a8edd8dd73bf",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploys/:deploy_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploys",
+                        ":deploy_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "deploy_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"build_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"deploy_url\": \"<string>\",\n  \"deploy_ssl_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"review_id\": \"<number>\",\n  \"draft\": \"<boolean>\",\n  \"required\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_functions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_message\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"commit_ref\": \"<string>\",\n  \"commit_url\": \"<string>\",\n  \"skipped\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"published_at\": \"<string>\",\n  \"title\": \"<string>\",\n  \"context\": \"<string>\",\n  \"locked\": \"<boolean>\",\n  \"review_url\": \"<string>\",\n  \"framework\": \"<string>\",\n  \"function_schedules\": [\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"cron\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-2ceaa4eb-de06-4082-9c99-a8edd8dd73bf"
+                },
+                {
+                  "id": "3ee74088-fbaf-44d2-b3a4-e3fe45191413",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploys/:deploy_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploys",
+                        ":deploy_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "deploy_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-3ee74088-fbaf-44d2-b3a4-e3fe45191413"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:36.000Z",
+              "updatedAt": "2026-07-28T02:17:36.000Z",
+              "uid": "35240-c9a22cb2-b61b-4099-b459-e816d6b94ad8"
+            },
+            {
+              "name": "delete Deploy",
+              "id": "d62746e2-b633-4e8c-bfbf-7f131875a079",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deploys/:deploy_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deploys",
+                    ":deploy_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "8d6d90c3-38ee-4e88-ae91-b75f8ed9fa33",
+                      "key": "deploy_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "289544b7-1785-4b90-ab21-4e3136710b82",
+                  "name": "No content",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploys/:deploy_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploys",
+                        ":deploy_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "deploy_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-289544b7-1785-4b90-ab21-4e3136710b82"
+                },
+                {
+                  "id": "cc56c829-5fbd-4982-8028-00fa2bfe9577",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploys/:deploy_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploys",
+                        ":deploy_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "deploy_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:36.000Z",
+                  "updatedAt": "2026-07-28T02:17:36.000Z",
+                  "uid": "35240-cc56c829-5fbd-4982-8028-00fa2bfe9577"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:36.000Z",
+              "updatedAt": "2026-07-28T02:17:36.000Z",
+              "uid": "35240-d62746e2-b633-4e8c-bfbf-7f131875a079"
+            }
+          ],
+          "id": "05a73d2a-8128-43dc-8103-04377b62863a",
+          "createdAt": "2026-07-28T02:17:36.000Z",
+          "updatedAt": "2026-07-28T02:17:36.000Z",
+          "uid": "35240-05a73d2a-8128-43dc-8103-04377b62863a"
+        }
+      ],
+      "id": "303dd7ef-4262-4224-a3f6-6f6e4636d9c2",
+      "createdAt": "2026-07-28T02:17:36.000Z",
+      "updatedAt": "2026-07-28T02:17:36.000Z",
+      "uid": "35240-303dd7ef-4262-4224-a3f6-6f6e4636d9c2"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

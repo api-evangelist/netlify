@@ -1,0 +1,593 @@
+{
+  "info": {
+    "_postman_id": "d4207659-f406-43e0-bd51-bf2bec181d71",
+    "name": "Netlify Netlify's API documentation accessToken File API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:18:48.000Z",
+    "updatedAt": "2026-07-28T02:18:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d4207659-f406-43e0-bd51-bf2bec181d71"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "files",
+              "item": [
+                {
+                  "name": "{file_path}",
+                  "item": [
+                    {
+                      "name": "get Site File By Path Name",
+                      "id": "f7e391d1-ae97-4705-b96f-60d37515f7dc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/files/:file_path",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "files",
+                            ":file_path"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ef90f4a6-5c48-4fcb-8b77-3ade81d4ab89",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "15033a2b-d860-4f17-ac82-989875b28287",
+                              "key": "file_path",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d61bf6f6-375a-49fb-85be-6310845f2f89",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/files/:file_path",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "files",
+                                ":file_path"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "file_path"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"path\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"mime_type\": \"<string>\",\n  \"size\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:49.000Z",
+                          "updatedAt": "2026-07-28T02:18:49.000Z",
+                          "uid": "35240-d61bf6f6-375a-49fb-85be-6310845f2f89"
+                        },
+                        {
+                          "id": "6e62fac6-83e9-47ec-96c1-907d5345ab8b",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/files/:file_path",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "files",
+                                ":file_path"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "file_path"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:49.000Z",
+                          "updatedAt": "2026-07-28T02:18:49.000Z",
+                          "uid": "35240-6e62fac6-83e9-47ec-96c1-907d5345ab8b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:49.000Z",
+                      "updatedAt": "2026-07-28T02:18:49.000Z",
+                      "uid": "35240-f7e391d1-ae97-4705-b96f-60d37515f7dc"
+                    }
+                  ],
+                  "id": "c1786c02-1209-441d-a9a9-82f56cddea49",
+                  "createdAt": "2026-07-28T02:18:49.000Z",
+                  "updatedAt": "2026-07-28T02:18:49.000Z",
+                  "uid": "35240-c1786c02-1209-441d-a9a9-82f56cddea49"
+                },
+                {
+                  "name": "list Site Files",
+                  "id": "5a94d438-69f6-4631-94b9-4d89d8a646f4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/files",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "files"
+                      ],
+                      "variable": [
+                        {
+                          "id": "eb9d5b54-2e1b-4824-bfc6-cf26c6ced2a2",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0a0e8bb0-8ebc-42a6-82af-7ac5f323ed36",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/files",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "files"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"path\": \"<string>\",\n    \"sha\": \"<string>\",\n    \"mime_type\": \"<string>\",\n    \"size\": \"<long>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"path\": \"<string>\",\n    \"sha\": \"<string>\",\n    \"mime_type\": \"<string>\",\n    \"size\": \"<long>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:18:49.000Z",
+                      "updatedAt": "2026-07-28T02:18:49.000Z",
+                      "uid": "35240-0a0e8bb0-8ebc-42a6-82af-7ac5f323ed36"
+                    },
+                    {
+                      "id": "824ec895-4925-49af-b9e5-59b90a09586a",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/files",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "files"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:18:49.000Z",
+                      "updatedAt": "2026-07-28T02:18:49.000Z",
+                      "uid": "35240-824ec895-4925-49af-b9e5-59b90a09586a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:18:49.000Z",
+                  "updatedAt": "2026-07-28T02:18:49.000Z",
+                  "uid": "35240-5a94d438-69f6-4631-94b9-4d89d8a646f4"
+                }
+              ],
+              "id": "fb268dbb-fe04-4e09-9c7c-1633f0bd1696",
+              "createdAt": "2026-07-28T02:18:49.000Z",
+              "updatedAt": "2026-07-28T02:18:49.000Z",
+              "uid": "35240-fb268dbb-fe04-4e09-9c7c-1633f0bd1696"
+            }
+          ],
+          "id": "d021bdad-48c7-4eb7-8a0e-bad04472f954",
+          "createdAt": "2026-07-28T02:18:49.000Z",
+          "updatedAt": "2026-07-28T02:18:49.000Z",
+          "uid": "35240-d021bdad-48c7-4eb7-8a0e-bad04472f954"
+        }
+      ],
+      "id": "ce24cefd-a570-4128-bfa3-92bc9d0f3738",
+      "createdAt": "2026-07-28T02:18:49.000Z",
+      "updatedAt": "2026-07-28T02:18:49.000Z",
+      "uid": "35240-ce24cefd-a570-4128-bfa3-92bc9d0f3738"
+    },
+    {
+      "name": "deploys",
+      "item": [
+        {
+          "name": "{deploy_id}",
+          "item": [
+            {
+              "name": "files",
+              "item": [
+                {
+                  "name": "{path}",
+                  "item": [
+                    {
+                      "name": "upload Deploy File",
+                      "id": "f74e00fa-8fc1-4ced-a2e2-3cd8e17d0600",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/octet-stream"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "file",
+                          "file": {}
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/files/:path?size=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "files",
+                            ":path"
+                          ],
+                          "query": [
+                            {
+                              "key": "size",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "077e60b8-c33d-427d-8b7f-51a208ab5c58",
+                              "key": "deploy_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "2b59b568-2122-41e3-ba98-9ac6dd2a6610",
+                              "key": "path",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0871fb29-3db6-4761-bf45-29a590690484",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/octet-stream"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "file",
+                              "file": {}
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deploys/:deploy_id/files/:path?size=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deploys",
+                                ":deploy_id",
+                                "files",
+                                ":path"
+                              ],
+                              "query": [
+                                {
+                                  "key": "size",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deploy_id"
+                                },
+                                {
+                                  "key": "path"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"path\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"mime_type\": \"<string>\",\n  \"size\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:49.000Z",
+                          "updatedAt": "2026-07-28T02:18:49.000Z",
+                          "uid": "35240-0871fb29-3db6-4761-bf45-29a590690484"
+                        },
+                        {
+                          "id": "6c2a583c-5d95-436a-9612-0154b10b307a",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/octet-stream"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "file",
+                              "file": {}
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deploys/:deploy_id/files/:path?size=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deploys",
+                                ":deploy_id",
+                                "files",
+                                ":path"
+                              ],
+                              "query": [
+                                {
+                                  "key": "size",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deploy_id"
+                                },
+                                {
+                                  "key": "path"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:49.000Z",
+                          "updatedAt": "2026-07-28T02:18:49.000Z",
+                          "uid": "35240-6c2a583c-5d95-436a-9612-0154b10b307a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:49.000Z",
+                      "updatedAt": "2026-07-28T02:18:49.000Z",
+                      "uid": "35240-f74e00fa-8fc1-4ced-a2e2-3cd8e17d0600"
+                    }
+                  ],
+                  "id": "0d7aeadc-8e2c-4607-b5c9-9b9fdc6698e0",
+                  "createdAt": "2026-07-28T02:18:49.000Z",
+                  "updatedAt": "2026-07-28T02:18:49.000Z",
+                  "uid": "35240-0d7aeadc-8e2c-4607-b5c9-9b9fdc6698e0"
+                }
+              ],
+              "id": "5e3b3286-4034-4f5c-93c7-a38bf497864c",
+              "createdAt": "2026-07-28T02:18:49.000Z",
+              "updatedAt": "2026-07-28T02:18:49.000Z",
+              "uid": "35240-5e3b3286-4034-4f5c-93c7-a38bf497864c"
+            }
+          ],
+          "id": "ed0fd9f6-de81-407b-940f-2461718e54a4",
+          "createdAt": "2026-07-28T02:18:49.000Z",
+          "updatedAt": "2026-07-28T02:18:49.000Z",
+          "uid": "35240-ed0fd9f6-de81-407b-940f-2461718e54a4"
+        }
+      ],
+      "id": "443c4a3e-2814-426f-bd59-0338ae18b6cf",
+      "createdAt": "2026-07-28T02:18:49.000Z",
+      "updatedAt": "2026-07-28T02:18:49.000Z",
+      "uid": "35240-443c4a3e-2814-426f-bd59-0338ae18b6cf"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

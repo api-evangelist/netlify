@@ -1,0 +1,170 @@
+{
+  "info": {
+    "_postman_id": "c67c8533-b058-4302-ae58-79f6ceb3e5c0",
+    "name": "Netlify Netlify's API documentation accessToken paymentMethod API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:20.000Z",
+    "updatedAt": "2026-07-28T02:19:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c67c8533-b058-4302-ae58-79f6ceb3e5c0"
+  },
+  "item": [
+    {
+      "name": "billing",
+      "item": [
+        {
+          "name": "payment_methods",
+          "item": [
+            {
+              "name": "list Payment Methods For User",
+              "id": "848ce308-ff19-42a7-a77c-b81c7db5dd01",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/billing/payment_methods",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "billing",
+                    "payment_methods"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2c4f00a5-46fb-41c8-bb0a-37ad83d279f1",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/billing/payment_methods",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "billing",
+                        "payment_methods"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"method_name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"state\": \"<string>\",\n    \"data\": {\n      \"card_type\": \"<string>\",\n      \"last4\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"method_name\": \"<string>\",\n    \"type\": \"<string>\",\n    \"state\": \"<string>\",\n    \"data\": {\n      \"card_type\": \"<string>\",\n      \"last4\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:19:21.000Z",
+                  "updatedAt": "2026-07-28T02:19:21.000Z",
+                  "uid": "35240-2c4f00a5-46fb-41c8-bb0a-37ad83d279f1"
+                },
+                {
+                  "id": "ad6756ae-51c0-4f38-92cc-b840b445ca75",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/billing/payment_methods",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "billing",
+                        "payment_methods"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:19:21.000Z",
+                  "updatedAt": "2026-07-28T02:19:21.000Z",
+                  "uid": "35240-ad6756ae-51c0-4f38-92cc-b840b445ca75"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:21.000Z",
+              "updatedAt": "2026-07-28T02:19:21.000Z",
+              "uid": "35240-848ce308-ff19-42a7-a77c-b81c7db5dd01"
+            }
+          ],
+          "id": "d17603a1-0e94-4a5a-8e86-ab246f183113",
+          "createdAt": "2026-07-28T02:19:21.000Z",
+          "updatedAt": "2026-07-28T02:19:21.000Z",
+          "uid": "35240-d17603a1-0e94-4a5a-8e86-ab246f183113"
+        }
+      ],
+      "id": "6d3dfd35-6719-45b9-b46a-4d7c0d667cdf",
+      "createdAt": "2026-07-28T02:19:21.000Z",
+      "updatedAt": "2026-07-28T02:19:21.000Z",
+      "uid": "35240-6d3dfd35-6719-45b9-b46a-4d7c0d667cdf"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

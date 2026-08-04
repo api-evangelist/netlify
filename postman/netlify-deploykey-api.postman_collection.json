@@ -1,0 +1,542 @@
+{
+  "info": {
+    "_postman_id": "3addc576-45de-4f05-b35f-272acdcae5ee",
+    "name": "Netlify Netlify's API documentation accessToken deployKey API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:38.000Z",
+    "updatedAt": "2026-07-28T02:17:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3addc576-45de-4f05-b35f-272acdcae5ee"
+  },
+  "item": [
+    {
+      "name": "deploy_keys",
+      "item": [
+        {
+          "name": "{key_id}",
+          "item": [
+            {
+              "name": "get Deploy Key",
+              "id": "d6203a53-cade-4a9b-ad40-2a6be8307dd9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deploy_keys/:key_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deploy_keys",
+                    ":key_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d1e9f7a1-a4f0-44be-a97b-9aba07cef3f1",
+                      "key": "key_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "23ebca74-bc00-49c4-bc85-f0fbad94776d",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploy_keys/:key_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploy_keys",
+                        ":key_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "key_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"public_key\": \"<string>\",\n  \"created_at\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:17:38.000Z",
+                  "updatedAt": "2026-07-28T02:17:38.000Z",
+                  "uid": "35240-23ebca74-bc00-49c4-bc85-f0fbad94776d"
+                },
+                {
+                  "id": "ac645855-cd16-40db-9705-6149f2ddb22e",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploy_keys/:key_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploy_keys",
+                        ":key_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "key_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:38.000Z",
+                  "updatedAt": "2026-07-28T02:17:38.000Z",
+                  "uid": "35240-ac645855-cd16-40db-9705-6149f2ddb22e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:38.000Z",
+              "updatedAt": "2026-07-28T02:17:38.000Z",
+              "uid": "35240-d6203a53-cade-4a9b-ad40-2a6be8307dd9"
+            },
+            {
+              "name": "delete Deploy Key",
+              "id": "d4131c2a-362f-4153-82fc-21f5153d5423",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deploy_keys/:key_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deploy_keys",
+                    ":key_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "04c95ba7-70a4-4f90-a7a0-47c09a044fbd",
+                      "key": "key_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a5938666-c23e-4930-ab27-35ab89e53249",
+                  "name": "Not Content",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploy_keys/:key_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploy_keys",
+                        ":key_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "key_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:17:38.000Z",
+                  "updatedAt": "2026-07-28T02:17:38.000Z",
+                  "uid": "35240-a5938666-c23e-4930-ab27-35ab89e53249"
+                },
+                {
+                  "id": "c99fe443-f8cf-43e7-861f-15d1f913df81",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/deploy_keys/:key_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploy_keys",
+                        ":key_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "key_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:38.000Z",
+                  "updatedAt": "2026-07-28T02:17:38.000Z",
+                  "uid": "35240-c99fe443-f8cf-43e7-861f-15d1f913df81"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:38.000Z",
+              "updatedAt": "2026-07-28T02:17:38.000Z",
+              "uid": "35240-d4131c2a-362f-4153-82fc-21f5153d5423"
+            }
+          ],
+          "id": "63eabbf8-5e7c-4349-a29c-7460874dde5a",
+          "createdAt": "2026-07-28T02:17:38.000Z",
+          "updatedAt": "2026-07-28T02:17:38.000Z",
+          "uid": "35240-63eabbf8-5e7c-4349-a29c-7460874dde5a"
+        },
+        {
+          "name": "list Deploy Keys",
+          "id": "923ff28f-80db-4a98-a3db-86a20fb93935",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/deploy_keys",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deploy_keys"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ccaef9eb-87fb-4cc9-acd5-c7e7855bade7",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deploy_keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deploy_keys"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"public_key\": \"<string>\",\n    \"created_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"public_key\": \"<string>\",\n    \"created_at\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:17:38.000Z",
+              "updatedAt": "2026-07-28T02:17:38.000Z",
+              "uid": "35240-ccaef9eb-87fb-4cc9-acd5-c7e7855bade7"
+            },
+            {
+              "id": "e38949bb-9fbd-4b7d-b097-207843afa541",
+              "name": "error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deploy_keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deploy_keys"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+              "createdAt": "2026-07-28T02:17:38.000Z",
+              "updatedAt": "2026-07-28T02:17:38.000Z",
+              "uid": "35240-e38949bb-9fbd-4b7d-b097-207843afa541"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:38.000Z",
+          "updatedAt": "2026-07-28T02:17:38.000Z",
+          "uid": "35240-923ff28f-80db-4a98-a3db-86a20fb93935"
+        },
+        {
+          "name": "create Deploy Key",
+          "id": "b23303cd-ad19-4fac-b654-9c67c32a3a87",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/deploy_keys",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deploy_keys"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "269bc2cd-6c09-4fb3-884c-d4eb7e4d57a6",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deploy_keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deploy_keys"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"public_key\": \"<string>\",\n  \"created_at\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:17:38.000Z",
+              "updatedAt": "2026-07-28T02:17:38.000Z",
+              "uid": "35240-269bc2cd-6c09-4fb3-884c-d4eb7e4d57a6"
+            },
+            {
+              "id": "803aca55-b58b-40b1-9a7d-ac2d2b92ab45",
+              "name": "error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/deploy_keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deploy_keys"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+              "createdAt": "2026-07-28T02:17:38.000Z",
+              "updatedAt": "2026-07-28T02:17:38.000Z",
+              "uid": "35240-803aca55-b58b-40b1-9a7d-ac2d2b92ab45"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:38.000Z",
+          "updatedAt": "2026-07-28T02:17:38.000Z",
+          "uid": "35240-b23303cd-ad19-4fac-b654-9c67c32a3a87"
+        }
+      ],
+      "id": "0fd7eb5c-9ee6-44be-a4bf-56ddb5ac35e2",
+      "createdAt": "2026-07-28T02:17:38.000Z",
+      "updatedAt": "2026-07-28T02:17:38.000Z",
+      "uid": "35240-0fd7eb5c-9ee6-44be-a4bf-56ddb5ac35e2"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

@@ -1,0 +1,739 @@
+{
+  "info": {
+    "_postman_id": "8aa6752e-1209-4350-89d3-47fe19469020",
+    "name": "Netlify Netlify's API documentation accessToken devServer API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:39.000Z",
+    "updatedAt": "2026-07-28T02:17:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8aa6752e-1209-4350-89d3-47fe19469020"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "dev_servers",
+              "item": [
+                {
+                  "name": "{dev_server_id}",
+                  "item": [
+                    {
+                      "name": "activity",
+                      "item": [
+                        {
+                          "name": "mark Dev Server Activity",
+                          "id": "0bb60154-9b0a-43cc-aa76-1815e594bcaa",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/dev_servers/:dev_server_id/activity",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "dev_servers",
+                                ":dev_server_id",
+                                "activity"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9774323d-f8b1-42b3-9e40-59bf9127b6e7",
+                                  "key": "site_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a049763f-a708-447d-b9aa-b66cd3373cb9",
+                                  "key": "dev_server_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "65688e58-788a-4507-98f4-7f1a90064751",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/dev_servers/:dev_server_id/activity",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "dev_servers",
+                                    ":dev_server_id",
+                                    "activity"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "dev_server_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:17:39.000Z",
+                              "updatedAt": "2026-07-28T02:17:39.000Z",
+                              "uid": "35240-65688e58-788a-4507-98f4-7f1a90064751"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:17:39.000Z",
+                          "updatedAt": "2026-07-28T02:17:39.000Z",
+                          "uid": "35240-0bb60154-9b0a-43cc-aa76-1815e594bcaa"
+                        }
+                      ],
+                      "id": "38c3f2d6-cacd-4222-82b4-1bab00968fdc",
+                      "createdAt": "2026-07-28T02:17:39.000Z",
+                      "updatedAt": "2026-07-28T02:17:39.000Z",
+                      "uid": "35240-38c3f2d6-cacd-4222-82b4-1bab00968fdc"
+                    },
+                    {
+                      "name": "get Site Dev Server",
+                      "id": "d5d5fae7-bc63-4236-a9de-daf81e957a78",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_servers/:dev_server_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_servers",
+                            ":dev_server_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7701bd2d-bfa4-4c42-8e08-c43582c0a069",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "5037afb1-5ac1-4483-b3c5-3216c7c78034",
+                              "key": "dev_server_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "cd8abf8f-3017-431c-b7d2-07ad08422e7a",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/dev_servers/:dev_server_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "dev_servers",
+                                ":dev_server_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "dev_server_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"url\": \"<string>\",\n  \"state\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"starting_at\": \"<string>\",\n  \"error_at\": \"<string>\",\n  \"live_at\": \"<string>\",\n  \"done_at\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:17:39.000Z",
+                          "updatedAt": "2026-07-28T02:17:39.000Z",
+                          "uid": "35240-cd8abf8f-3017-431c-b7d2-07ad08422e7a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:17:39.000Z",
+                      "updatedAt": "2026-07-28T02:17:39.000Z",
+                      "uid": "35240-d5d5fae7-bc63-4236-a9de-daf81e957a78"
+                    }
+                  ],
+                  "id": "d87286f9-1c01-4030-ba90-16178f885369",
+                  "createdAt": "2026-07-28T02:17:39.000Z",
+                  "updatedAt": "2026-07-28T02:17:39.000Z",
+                  "uid": "35240-d87286f9-1c01-4030-ba90-16178f885369"
+                },
+                {
+                  "name": "list Site Dev Servers",
+                  "id": "8a5fb920-4639-46bb-a199-f4bc76d403ba",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/dev_servers?page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "dev_servers"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6e301a10-130e-48e4-8722-7c964a4445b1",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e8585281-2ae8-4d2a-baa1-164326eedc24",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_servers?page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_servers"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"url\": \"<string>\",\n    \"state\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"starting_at\": \"<string>\",\n    \"error_at\": \"<string>\",\n    \"live_at\": \"<string>\",\n    \"done_at\": \"<string>\",\n    \"title\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"url\": \"<string>\",\n    \"state\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"starting_at\": \"<string>\",\n    \"error_at\": \"<string>\",\n    \"live_at\": \"<string>\",\n    \"done_at\": \"<string>\",\n    \"title\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:17:39.000Z",
+                      "updatedAt": "2026-07-28T02:17:39.000Z",
+                      "uid": "35240-e8585281-2ae8-4d2a-baa1-164326eedc24"
+                    },
+                    {
+                      "id": "d33547f2-4303-4a03-87f7-2d3b77b43581",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_servers?page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_servers"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:39.000Z",
+                      "updatedAt": "2026-07-28T02:17:39.000Z",
+                      "uid": "35240-d33547f2-4303-4a03-87f7-2d3b77b43581"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:39.000Z",
+                  "updatedAt": "2026-07-28T02:17:39.000Z",
+                  "uid": "35240-8a5fb920-4639-46bb-a199-f4bc76d403ba"
+                },
+                {
+                  "name": "create Site Dev Server",
+                  "id": "eecf18e9-aa5e-47da-9e13-0699955ea4fa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/dev_servers?branch=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "dev_servers"
+                      ],
+                      "query": [
+                        {
+                          "key": "branch",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "bd6592f7-b6d5-43f5-abec-01a35d58943d",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "269df226-b2cf-4a2f-94ab-d18fc68611cb",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_servers?branch=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_servers"
+                          ],
+                          "query": [
+                            {
+                              "key": "branch",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"url\": \"<string>\",\n    \"state\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"starting_at\": \"<string>\",\n    \"error_at\": \"<string>\",\n    \"live_at\": \"<string>\",\n    \"done_at\": \"<string>\",\n    \"title\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"url\": \"<string>\",\n    \"state\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"starting_at\": \"<string>\",\n    \"error_at\": \"<string>\",\n    \"live_at\": \"<string>\",\n    \"done_at\": \"<string>\",\n    \"title\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:17:39.000Z",
+                      "updatedAt": "2026-07-28T02:17:39.000Z",
+                      "uid": "35240-269df226-b2cf-4a2f-94ab-d18fc68611cb"
+                    },
+                    {
+                      "id": "badecfa0-e586-484d-add4-2991c6571de3",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_servers?branch=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_servers"
+                          ],
+                          "query": [
+                            {
+                              "key": "branch",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:39.000Z",
+                      "updatedAt": "2026-07-28T02:17:39.000Z",
+                      "uid": "35240-badecfa0-e586-484d-add4-2991c6571de3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:39.000Z",
+                  "updatedAt": "2026-07-28T02:17:39.000Z",
+                  "uid": "35240-eecf18e9-aa5e-47da-9e13-0699955ea4fa"
+                },
+                {
+                  "name": "delete Site Dev Servers",
+                  "id": "e8ce5c8b-3435-44f7-83b8-d5b4cd6e2465",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/dev_servers?branch=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "dev_servers"
+                      ],
+                      "query": [
+                        {
+                          "key": "branch",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "388a0011-df8b-48e2-8a80-d3806464003a",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d1f27162-3ae7-4f74-9a09-dba03ba2fa02",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_servers?branch=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_servers"
+                          ],
+                          "query": [
+                            {
+                              "key": "branch",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:17:39.000Z",
+                      "updatedAt": "2026-07-28T02:17:39.000Z",
+                      "uid": "35240-d1f27162-3ae7-4f74-9a09-dba03ba2fa02"
+                    },
+                    {
+                      "id": "f62c1861-b8ff-4b99-9f72-df53f212aa3d",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_servers?branch=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_servers"
+                          ],
+                          "query": [
+                            {
+                              "key": "branch",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:39.000Z",
+                      "updatedAt": "2026-07-28T02:17:39.000Z",
+                      "uid": "35240-f62c1861-b8ff-4b99-9f72-df53f212aa3d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:39.000Z",
+                  "updatedAt": "2026-07-28T02:17:39.000Z",
+                  "uid": "35240-e8ce5c8b-3435-44f7-83b8-d5b4cd6e2465"
+                }
+              ],
+              "id": "6afb6155-c17d-4927-a806-33896e952c29",
+              "createdAt": "2026-07-28T02:17:39.000Z",
+              "updatedAt": "2026-07-28T02:17:39.000Z",
+              "uid": "35240-6afb6155-c17d-4927-a806-33896e952c29"
+            }
+          ],
+          "id": "00f26029-4921-486e-8da1-667e0db57318",
+          "createdAt": "2026-07-28T02:17:39.000Z",
+          "updatedAt": "2026-07-28T02:17:39.000Z",
+          "uid": "35240-00f26029-4921-486e-8da1-667e0db57318"
+        }
+      ],
+      "id": "b4a6e8aa-f2e1-4dc3-adc3-7037fc26667f",
+      "createdAt": "2026-07-28T02:17:39.000Z",
+      "updatedAt": "2026-07-28T02:17:39.000Z",
+      "uid": "35240-b4a6e8aa-f2e1-4dc3-adc3-7037fc26667f"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

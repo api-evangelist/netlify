@@ -1,0 +1,881 @@
+{
+  "info": {
+    "_postman_id": "f0127a21-9c58-4c14-8832-e9f821aadc83",
+    "name": "Netlify Netlify's API documentation accessToken Asset API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:19.000Z",
+    "updatedAt": "2026-07-28T02:17:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f0127a21-9c58-4c14-8832-e9f821aadc83"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "assets",
+              "item": [
+                {
+                  "name": "{asset_id}",
+                  "item": [
+                    {
+                      "name": "get Site Asset Info",
+                      "id": "184f47f0-b7f2-4059-9b9b-996e7bb040b0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1fe39edf-231b-4b31-b767-e031ed69d5d9",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "2415c118-67b3-44d9-a02a-956865412642",
+                              "key": "asset_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0e5cfd88-39bf-4782-a8a5-adfbc0003c1f",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "assets",
+                                ":asset_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "asset_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"creator_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"state\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"url\": \"<string>\",\n  \"key\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"size\": \"<long>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:17:20.000Z",
+                          "updatedAt": "2026-07-28T02:17:20.000Z",
+                          "uid": "35240-0e5cfd88-39bf-4782-a8a5-adfbc0003c1f"
+                        },
+                        {
+                          "id": "497552d3-cacf-481e-9ad6-6fdfdc692b47",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "assets",
+                                ":asset_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "asset_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:17:20.000Z",
+                          "updatedAt": "2026-07-28T02:17:20.000Z",
+                          "uid": "35240-497552d3-cacf-481e-9ad6-6fdfdc692b47"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:17:20.000Z",
+                      "updatedAt": "2026-07-28T02:17:20.000Z",
+                      "uid": "35240-184f47f0-b7f2-4059-9b9b-996e7bb040b0"
+                    },
+                    {
+                      "name": "update Site Asset",
+                      "id": "0ba911fa-ec8d-44de-8123-3bb29ea10a9e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id?state=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "state",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "d72db6d0-8c02-410c-b986-d414263d7321",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "dc7ae9f6-9b6c-42d7-8783-2245ccb97f29",
+                              "key": "asset_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "709108d2-b830-4249-b98c-650b50d741de",
+                          "name": "Updated",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id?state=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "assets",
+                                ":asset_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "state",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "asset_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"creator_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"state\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"url\": \"<string>\",\n  \"key\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"size\": \"<long>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:17:20.000Z",
+                          "updatedAt": "2026-07-28T02:17:20.000Z",
+                          "uid": "35240-709108d2-b830-4249-b98c-650b50d741de"
+                        },
+                        {
+                          "id": "514882db-dd34-4f3e-a37b-51a7f6dd82c2",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id?state=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "assets",
+                                ":asset_id"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "state",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "asset_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:17:20.000Z",
+                          "updatedAt": "2026-07-28T02:17:20.000Z",
+                          "uid": "35240-514882db-dd34-4f3e-a37b-51a7f6dd82c2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:17:20.000Z",
+                      "updatedAt": "2026-07-28T02:17:20.000Z",
+                      "uid": "35240-0ba911fa-ec8d-44de-8123-3bb29ea10a9e"
+                    },
+                    {
+                      "name": "delete Site Asset",
+                      "id": "9e0ce084-b7b9-4f71-8e4b-88a0e6a28fd7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "assets",
+                            ":asset_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "90ce2f29-8ea1-4cd9-951a-2d401252cf27",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "19b3e68f-7ed9-40ba-bd35-9ef96dfb7845",
+                              "key": "asset_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f97c2afb-a3cd-456f-99f0-4e2b83fa6648",
+                          "name": "Deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "assets",
+                                ":asset_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "asset_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:17:20.000Z",
+                          "updatedAt": "2026-07-28T02:17:20.000Z",
+                          "uid": "35240-f97c2afb-a3cd-456f-99f0-4e2b83fa6648"
+                        },
+                        {
+                          "id": "0738c614-bd56-48a2-a756-d2d5160869ce",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "assets",
+                                ":asset_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "asset_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:17:20.000Z",
+                          "updatedAt": "2026-07-28T02:17:20.000Z",
+                          "uid": "35240-0738c614-bd56-48a2-a756-d2d5160869ce"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:17:20.000Z",
+                      "updatedAt": "2026-07-28T02:17:20.000Z",
+                      "uid": "35240-9e0ce084-b7b9-4f71-8e4b-88a0e6a28fd7"
+                    }
+                  ],
+                  "id": "f13b8aea-6b16-4224-917e-988aba0070ac",
+                  "createdAt": "2026-07-28T02:17:20.000Z",
+                  "updatedAt": "2026-07-28T02:17:20.000Z",
+                  "uid": "35240-f13b8aea-6b16-4224-917e-988aba0070ac"
+                },
+                {
+                  "name": "list Site Assets",
+                  "id": "01cb34a0-0a01-4e95-a42e-868b27efed47",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/assets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "assets"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a9f8fd97-72e3-4561-899f-40d4887ec3f2",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "5ba17616-c0b5-4496-9d49-f918a422bd2f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/assets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "assets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"creator_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"content_type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"key\": \"<string>\",\n    \"visibility\": \"<string>\",\n    \"size\": \"<long>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"creator_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"content_type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"key\": \"<string>\",\n    \"visibility\": \"<string>\",\n    \"size\": \"<long>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:17:20.000Z",
+                      "updatedAt": "2026-07-28T02:17:20.000Z",
+                      "uid": "35240-5ba17616-c0b5-4496-9d49-f918a422bd2f"
+                    },
+                    {
+                      "id": "2585fd03-cff1-42ec-b807-e27708f00855",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/assets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "assets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:20.000Z",
+                      "updatedAt": "2026-07-28T02:17:20.000Z",
+                      "uid": "35240-2585fd03-cff1-42ec-b807-e27708f00855"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:20.000Z",
+                  "updatedAt": "2026-07-28T02:17:20.000Z",
+                  "uid": "35240-01cb34a0-0a01-4e95-a42e-868b27efed47"
+                },
+                {
+                  "name": "create Site Asset",
+                  "id": "dfff483e-c4db-4e6a-9398-fbae3372c75e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/assets?name=<string>&size=<long>&content_type=<string>&visibility=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "size",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "content_type",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "visibility",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "bb197604-76c6-4eee-b775-6a8010932161",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "353feddb-02f3-49c4-b8b6-d58cf6c9cab6",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/assets?name=<string>&size=<long>&content_type=<string>&visibility=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "assets"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "name",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "size",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "content_type",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "visibility",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"form\": {\n    \"url\": \"<string>\",\n    \"fields\": {\n      \"occaecat_625\": \"<string>\"\n    }\n  },\n  \"asset\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"creator_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"content_type\": \"<string>\",\n    \"url\": \"<string>\",\n    \"key\": \"<string>\",\n    \"visibility\": \"<string>\",\n    \"size\": \"<long>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:17:20.000Z",
+                      "updatedAt": "2026-07-28T02:17:20.000Z",
+                      "uid": "35240-353feddb-02f3-49c4-b8b6-d58cf6c9cab6"
+                    },
+                    {
+                      "id": "ff830ce4-8166-4f74-934c-204979f75d90",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/assets?name=<string>&size=<long>&content_type=<string>&visibility=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "assets"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "name",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "size",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "content_type",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "visibility",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:20.000Z",
+                      "updatedAt": "2026-07-28T02:17:20.000Z",
+                      "uid": "35240-ff830ce4-8166-4f74-934c-204979f75d90"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:20.000Z",
+                  "updatedAt": "2026-07-28T02:17:20.000Z",
+                  "uid": "35240-dfff483e-c4db-4e6a-9398-fbae3372c75e"
+                }
+              ],
+              "id": "cd19b50c-5404-4123-8918-69d141d18c59",
+              "createdAt": "2026-07-28T02:17:20.000Z",
+              "updatedAt": "2026-07-28T02:17:20.000Z",
+              "uid": "35240-cd19b50c-5404-4123-8918-69d141d18c59"
+            }
+          ],
+          "id": "22663ac7-c90f-45b1-9c89-eabe01b3283d",
+          "createdAt": "2026-07-28T02:17:20.000Z",
+          "updatedAt": "2026-07-28T02:17:20.000Z",
+          "uid": "35240-22663ac7-c90f-45b1-9c89-eabe01b3283d"
+        }
+      ],
+      "id": "448b990d-2c8e-42cb-95dd-c84f136f80d6",
+      "createdAt": "2026-07-28T02:17:20.000Z",
+      "updatedAt": "2026-07-28T02:17:20.000Z",
+      "uid": "35240-448b990d-2c8e-42cb-95dd-c84f136f80d6"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

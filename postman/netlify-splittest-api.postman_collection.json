@@ -1,0 +1,1049 @@
+{
+  "info": {
+    "_postman_id": "bc761c7b-198d-4d45-a6bf-b21b1836e992",
+    "name": "Netlify Netlify's API documentation accessToken splitTest API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:33.000Z",
+    "updatedAt": "2026-07-28T02:19:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bc761c7b-198d-4d45-a6bf-b21b1836e992"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "traffic_splits",
+              "item": [
+                {
+                  "name": "{split_test_id}",
+                  "item": [
+                    {
+                      "name": "publish",
+                      "item": [
+                        {
+                          "name": "enable Split Test",
+                          "id": "579a3eab-5174-4b6d-8974-7bc27a54a14a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id/publish",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "traffic_splits",
+                                ":split_test_id",
+                                "publish"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "83344952-274c-4b7f-ac1c-a83745c9dfa1",
+                                  "key": "site_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b2921791-d5c8-4c54-8c7c-7fc3d79dbd40",
+                                  "key": "split_test_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "eb4ba49e-ffdc-46a4-ab1a-fc06c6f315d9",
+                              "name": "enable",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id/publish",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "traffic_splits",
+                                    ":split_test_id",
+                                    "publish"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "split_test_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:19:34.000Z",
+                              "updatedAt": "2026-07-28T02:19:34.000Z",
+                              "uid": "35240-eb4ba49e-ffdc-46a4-ab1a-fc06c6f315d9"
+                            },
+                            {
+                              "id": "72909f17-9d76-4479-9ae3-6f33339f654f",
+                              "name": "error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id/publish",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "traffic_splits",
+                                    ":split_test_id",
+                                    "publish"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "split_test_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T02:19:34.000Z",
+                              "updatedAt": "2026-07-28T02:19:34.000Z",
+                              "uid": "35240-72909f17-9d76-4479-9ae3-6f33339f654f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:19:34.000Z",
+                          "updatedAt": "2026-07-28T02:19:34.000Z",
+                          "uid": "35240-579a3eab-5174-4b6d-8974-7bc27a54a14a"
+                        }
+                      ],
+                      "id": "2a7c54e4-0922-46d1-ba1d-e6da1766a7b3",
+                      "createdAt": "2026-07-28T02:19:34.000Z",
+                      "updatedAt": "2026-07-28T02:19:34.000Z",
+                      "uid": "35240-2a7c54e4-0922-46d1-ba1d-e6da1766a7b3"
+                    },
+                    {
+                      "name": "unpublish",
+                      "item": [
+                        {
+                          "name": "disable Split Test",
+                          "id": "59b1a92a-15fe-4643-b59b-63044ede7636",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id/unpublish",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "traffic_splits",
+                                ":split_test_id",
+                                "unpublish"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "555752ff-43b9-453e-99d2-51af553261be",
+                                  "key": "site_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "da262064-c3ff-4f8f-8485-e4d11c623861",
+                                  "key": "split_test_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "03063e29-0e45-4d44-adeb-24c954bfca03",
+                              "name": "disabled",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id/unpublish",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "traffic_splits",
+                                    ":split_test_id",
+                                    "unpublish"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "split_test_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:19:34.000Z",
+                              "updatedAt": "2026-07-28T02:19:34.000Z",
+                              "uid": "35240-03063e29-0e45-4d44-adeb-24c954bfca03"
+                            },
+                            {
+                              "id": "b52a6e6e-73f1-414f-b849-fbd80be03b85",
+                              "name": "error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id/unpublish",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "traffic_splits",
+                                    ":split_test_id",
+                                    "unpublish"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "split_test_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T02:19:34.000Z",
+                              "updatedAt": "2026-07-28T02:19:34.000Z",
+                              "uid": "35240-b52a6e6e-73f1-414f-b849-fbd80be03b85"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:19:34.000Z",
+                          "updatedAt": "2026-07-28T02:19:34.000Z",
+                          "uid": "35240-59b1a92a-15fe-4643-b59b-63044ede7636"
+                        }
+                      ],
+                      "id": "b95aa6f9-6774-41e7-ab40-26a8b95f8924",
+                      "createdAt": "2026-07-28T02:19:34.000Z",
+                      "updatedAt": "2026-07-28T02:19:34.000Z",
+                      "uid": "35240-b95aa6f9-6774-41e7-ab40-26a8b95f8924"
+                    },
+                    {
+                      "name": "get Split Test",
+                      "id": "ffda5434-bf33-447e-8fe0-57815fef6dfe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "traffic_splits",
+                            ":split_test_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b0c492cd-afea-4796-97d3-dfd1b3f10134",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "91d40f28-9943-4f3f-aca9-e36f0b8c1b18",
+                              "key": "split_test_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5a038795-34fd-48f1-b60d-d0706683f2ee",
+                          "name": "split_test",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "traffic_splits",
+                                ":split_test_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "split_test_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"unpublished_at\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:19:34.000Z",
+                          "updatedAt": "2026-07-28T02:19:34.000Z",
+                          "uid": "35240-5a038795-34fd-48f1-b60d-d0706683f2ee"
+                        },
+                        {
+                          "id": "c9e80ed7-b16f-454c-ac55-96a12870863d",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "traffic_splits",
+                                ":split_test_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "split_test_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:19:34.000Z",
+                          "updatedAt": "2026-07-28T02:19:34.000Z",
+                          "uid": "35240-c9e80ed7-b16f-454c-ac55-96a12870863d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:19:34.000Z",
+                      "updatedAt": "2026-07-28T02:19:34.000Z",
+                      "uid": "35240-ffda5434-bf33-447e-8fe0-57815fef6dfe"
+                    },
+                    {
+                      "name": "update Split Test",
+                      "id": "8730a2d2-c43a-48d3-aeab-dd4ff75de26c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"branch_tests\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "traffic_splits",
+                            ":split_test_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8c4bb92b-435c-40cd-8978-82cb98084da0",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "91491f44-e164-4660-9c71-408e72a89848",
+                              "key": "split_test_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4b6e5777-ce4d-457b-b06e-e5e39bc23c4c",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"branch_tests\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "traffic_splits",
+                                ":split_test_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "split_test_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"unpublished_at\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:19:34.000Z",
+                          "updatedAt": "2026-07-28T02:19:34.000Z",
+                          "uid": "35240-4b6e5777-ce4d-457b-b06e-e5e39bc23c4c"
+                        },
+                        {
+                          "id": "0d13ef8e-c67e-413b-94e6-e285c74c9fc7",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"branch_tests\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/traffic_splits/:split_test_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "traffic_splits",
+                                ":split_test_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "split_test_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:19:34.000Z",
+                          "updatedAt": "2026-07-28T02:19:34.000Z",
+                          "uid": "35240-0d13ef8e-c67e-413b-94e6-e285c74c9fc7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:19:34.000Z",
+                      "updatedAt": "2026-07-28T02:19:34.000Z",
+                      "uid": "35240-8730a2d2-c43a-48d3-aeab-dd4ff75de26c"
+                    }
+                  ],
+                  "id": "95c97b54-bf8d-4fa2-9e4a-6c7daa38b3e7",
+                  "createdAt": "2026-07-28T02:19:34.000Z",
+                  "updatedAt": "2026-07-28T02:19:34.000Z",
+                  "uid": "35240-95c97b54-bf8d-4fa2-9e4a-6c7daa38b3e7"
+                },
+                {
+                  "name": "get Split Tests",
+                  "id": "123170ff-8bb0-48d9-a17b-1332f9d9a937",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/traffic_splits",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "traffic_splits"
+                      ],
+                      "variable": [
+                        {
+                          "id": "efaa1288-fe8d-45ef-af35-54bad80fb854",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a40a7ab0-ae95-4381-95f6-eeaf51f26f17",
+                      "name": "split_tests",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/traffic_splits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "traffic_splits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"unpublished_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"path\": \"<string>\",\n    \"active\": \"<boolean>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"unpublished_at\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:19:34.000Z",
+                      "updatedAt": "2026-07-28T02:19:34.000Z",
+                      "uid": "35240-a40a7ab0-ae95-4381-95f6-eeaf51f26f17"
+                    },
+                    {
+                      "id": "e2b3fa29-5545-4710-87a7-ed0c2e1d9792",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/traffic_splits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "traffic_splits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:34.000Z",
+                      "updatedAt": "2026-07-28T02:19:34.000Z",
+                      "uid": "35240-e2b3fa29-5545-4710-87a7-ed0c2e1d9792"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:34.000Z",
+                  "updatedAt": "2026-07-28T02:19:34.000Z",
+                  "uid": "35240-123170ff-8bb0-48d9-a17b-1332f9d9a937"
+                },
+                {
+                  "name": "create Split Test",
+                  "id": "547e12d0-1a10-4836-b56c-a195375292e1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"branch_tests\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/traffic_splits",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "traffic_splits"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3bbc6bd0-f79b-4e6d-9e64-94d78ade21f5",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1e2b5d0b-df6b-4598-ae5d-3f7336d0cdd0",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"branch_tests\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/traffic_splits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "traffic_splits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"path\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"unpublished_at\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:19:34.000Z",
+                      "updatedAt": "2026-07-28T02:19:34.000Z",
+                      "uid": "35240-1e2b5d0b-df6b-4598-ae5d-3f7336d0cdd0"
+                    },
+                    {
+                      "id": "ec8671e8-1f1a-49ee-9170-ee3222b9b308",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"branch_tests\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/traffic_splits",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "traffic_splits"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:34.000Z",
+                      "updatedAt": "2026-07-28T02:19:34.000Z",
+                      "uid": "35240-ec8671e8-1f1a-49ee-9170-ee3222b9b308"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:34.000Z",
+                  "updatedAt": "2026-07-28T02:19:34.000Z",
+                  "uid": "35240-547e12d0-1a10-4836-b56c-a195375292e1"
+                }
+              ],
+              "id": "ca67241b-55f6-4af7-972a-1dd7229ffccd",
+              "createdAt": "2026-07-28T02:19:34.000Z",
+              "updatedAt": "2026-07-28T02:19:34.000Z",
+              "uid": "35240-ca67241b-55f6-4af7-972a-1dd7229ffccd"
+            }
+          ],
+          "id": "f91d29f4-116b-45f7-a711-7db4f36331bf",
+          "createdAt": "2026-07-28T02:19:34.000Z",
+          "updatedAt": "2026-07-28T02:19:34.000Z",
+          "uid": "35240-f91d29f4-116b-45f7-a711-7db4f36331bf"
+        }
+      ],
+      "id": "660437eb-b8c4-4e83-a7e6-9220cd36f7a4",
+      "createdAt": "2026-07-28T02:19:34.000Z",
+      "updatedAt": "2026-07-28T02:19:34.000Z",
+      "uid": "35240-660437eb-b8c4-4e83-a7e6-9220cd36f7a4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

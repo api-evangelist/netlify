@@ -1,0 +1,233 @@
+{
+  "info": {
+    "_postman_id": "f80c69f1-2302-4c87-9cdc-9a232376efbf",
+    "name": "Netlify Netlify's API documentation accessToken buildLogMsg API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:26.000Z",
+    "updatedAt": "2026-07-28T02:17:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f80c69f1-2302-4c87-9cdc-9a232376efbf"
+  },
+  "item": [
+    {
+      "name": "builds",
+      "item": [
+        {
+          "name": "{build_id}",
+          "item": [
+            {
+              "name": "log",
+              "item": [
+                {
+                  "name": "update Site Build Log",
+                  "id": "b81116c5-4230-4289-b473-13e7d50b9afd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"message\": \"<string>\",\n  \"error\": \"<boolean>\",\n  \"section\": \"deploying\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/builds/:build_id/log",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "builds",
+                        ":build_id",
+                        "log"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7864d9b1-295c-4010-8b62-2a847d300f2e",
+                          "key": "build_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "236c0b37-95a6-4e82-8967-995112c8ef89",
+                      "name": "No content",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": \"<string>\",\n  \"error\": \"<boolean>\",\n  \"section\": \"deploying\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/builds/:build_id/log",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "builds",
+                            ":build_id",
+                            "log"
+                          ],
+                          "variable": [
+                            {
+                              "key": "build_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:17:26.000Z",
+                      "updatedAt": "2026-07-28T02:17:26.000Z",
+                      "uid": "35240-236c0b37-95a6-4e82-8967-995112c8ef89"
+                    },
+                    {
+                      "id": "44841d70-2faa-41e5-b6ca-d3efa56b87d5",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"message\": \"<string>\",\n  \"error\": \"<boolean>\",\n  \"section\": \"deploying\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/builds/:build_id/log",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "builds",
+                            ":build_id",
+                            "log"
+                          ],
+                          "variable": [
+                            {
+                              "key": "build_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:26.000Z",
+                      "updatedAt": "2026-07-28T02:17:26.000Z",
+                      "uid": "35240-44841d70-2faa-41e5-b6ca-d3efa56b87d5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:26.000Z",
+                  "updatedAt": "2026-07-28T02:17:26.000Z",
+                  "uid": "35240-b81116c5-4230-4289-b473-13e7d50b9afd"
+                }
+              ],
+              "id": "ec70d43e-e3d1-427a-ac5f-2cf4691fff2d",
+              "createdAt": "2026-07-28T02:17:26.000Z",
+              "updatedAt": "2026-07-28T02:17:26.000Z",
+              "uid": "35240-ec70d43e-e3d1-427a-ac5f-2cf4691fff2d"
+            }
+          ],
+          "id": "764df265-c006-4437-8b79-fa1e912d98e8",
+          "createdAt": "2026-07-28T02:17:26.000Z",
+          "updatedAt": "2026-07-28T02:17:26.000Z",
+          "uid": "35240-764df265-c006-4437-8b79-fa1e912d98e8"
+        }
+      ],
+      "id": "a372079d-2de7-4210-a08e-125c97d6d297",
+      "createdAt": "2026-07-28T02:17:26.000Z",
+      "updatedAt": "2026-07-28T02:17:26.000Z",
+      "uid": "35240-a372079d-2de7-4210-a08e-125c97d6d297"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

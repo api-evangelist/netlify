@@ -1,0 +1,896 @@
+{
+  "info": {
+    "_postman_id": "92c7cdb3-0711-4707-a884-dce04fcc5601",
+    "name": "Netlify Netlify's API documentation accessToken Build API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:23.000Z",
+    "updatedAt": "2026-07-28T02:17:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-92c7cdb3-0711-4707-a884-dce04fcc5601"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "builds",
+              "item": [
+                {
+                  "name": "list Site Builds",
+                  "id": "c4efe23e-da02-45bd-9163-e82b0f7404d3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/builds?page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "builds"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "b7d1d121-2a95-481d-a794-85ae81c2b497",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "220bf72f-27a0-4862-850e-7e21effc9eda",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/builds?page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "builds"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"deploy_id\": \"<string>\",\n    \"sha\": \"<string>\",\n    \"done\": \"<boolean>\",\n    \"error\": \"<string>\",\n    \"created_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"deploy_id\": \"<string>\",\n    \"sha\": \"<string>\",\n    \"done\": \"<boolean>\",\n    \"error\": \"<string>\",\n    \"created_at\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:17:24.000Z",
+                      "updatedAt": "2026-07-28T02:17:24.000Z",
+                      "uid": "35240-220bf72f-27a0-4862-850e-7e21effc9eda"
+                    },
+                    {
+                      "id": "0e78c4c5-12f4-4313-86e3-af5cb92d4fcc",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/builds?page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "builds"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:24.000Z",
+                      "updatedAt": "2026-07-28T02:17:24.000Z",
+                      "uid": "35240-0e78c4c5-12f4-4313-86e3-af5cb92d4fcc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:24.000Z",
+                  "updatedAt": "2026-07-28T02:17:24.000Z",
+                  "uid": "35240-c4efe23e-da02-45bd-9163-e82b0f7404d3"
+                },
+                {
+                  "name": "create Site Build",
+                  "id": "8cf5fb8e-a736-4c15-8a3c-1558e1fc53c9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"image\": \"<string>\",\n  \"clear_cache\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/builds",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "builds"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0d5f2cbe-9066-4b32-98a8-f53ac3a04541",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8eca1bb1-1c0b-4b06-adec-020d42e30ce3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": \"<string>\",\n  \"clear_cache\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/builds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "builds"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"deploy_id\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"done\": \"<boolean>\",\n  \"error\": \"<string>\",\n  \"created_at\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:17:24.000Z",
+                      "updatedAt": "2026-07-28T02:17:24.000Z",
+                      "uid": "35240-8eca1bb1-1c0b-4b06-adec-020d42e30ce3"
+                    },
+                    {
+                      "id": "165cdf88-b7a3-46e8-8fd2-48aa0f1dfd4b",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": \"<string>\",\n  \"clear_cache\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/builds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "builds"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:24.000Z",
+                      "updatedAt": "2026-07-28T02:17:24.000Z",
+                      "uid": "35240-165cdf88-b7a3-46e8-8fd2-48aa0f1dfd4b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:24.000Z",
+                  "updatedAt": "2026-07-28T02:17:24.000Z",
+                  "uid": "35240-8cf5fb8e-a736-4c15-8a3c-1558e1fc53c9"
+                }
+              ],
+              "id": "ac751011-8971-4f1d-a035-42b43cffd9ed",
+              "createdAt": "2026-07-28T02:17:24.000Z",
+              "updatedAt": "2026-07-28T02:17:24.000Z",
+              "uid": "35240-ac751011-8971-4f1d-a035-42b43cffd9ed"
+            }
+          ],
+          "id": "aea32595-3624-49ae-a311-71a9ff050ea0",
+          "createdAt": "2026-07-28T02:17:24.000Z",
+          "updatedAt": "2026-07-28T02:17:24.000Z",
+          "uid": "35240-aea32595-3624-49ae-a311-71a9ff050ea0"
+        }
+      ],
+      "id": "562b612c-3343-4df1-95c2-c01805317fcb",
+      "createdAt": "2026-07-28T02:17:24.000Z",
+      "updatedAt": "2026-07-28T02:17:24.000Z",
+      "uid": "35240-562b612c-3343-4df1-95c2-c01805317fcb"
+    },
+    {
+      "name": "builds",
+      "item": [
+        {
+          "name": "{build_id}",
+          "item": [
+            {
+              "name": "start",
+              "item": [
+                {
+                  "name": "notify Build Start",
+                  "id": "c1e42266-a9ea-40c0-9153-7ea2e615f66d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/builds/:build_id/start?buildbot_version=<string>&build_version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "builds",
+                        ":build_id",
+                        "start"
+                      ],
+                      "query": [
+                        {
+                          "key": "buildbot_version",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "build_version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "36e67761-a3ac-476e-88d7-7e4e9138c479",
+                          "key": "build_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8b756609-0b40-4ac7-94b2-3d926f5119c7",
+                      "name": "No content",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/builds/:build_id/start?buildbot_version=<string>&build_version=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "builds",
+                            ":build_id",
+                            "start"
+                          ],
+                          "query": [
+                            {
+                              "key": "buildbot_version",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "build_version",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "build_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:17:24.000Z",
+                      "updatedAt": "2026-07-28T02:17:24.000Z",
+                      "uid": "35240-8b756609-0b40-4ac7-94b2-3d926f5119c7"
+                    },
+                    {
+                      "id": "c50124ce-07ec-462c-8ff9-be9a6802eacb",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/builds/:build_id/start?buildbot_version=<string>&build_version=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "builds",
+                            ":build_id",
+                            "start"
+                          ],
+                          "query": [
+                            {
+                              "key": "buildbot_version",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "build_version",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "build_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:24.000Z",
+                      "updatedAt": "2026-07-28T02:17:24.000Z",
+                      "uid": "35240-c50124ce-07ec-462c-8ff9-be9a6802eacb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:24.000Z",
+                  "updatedAt": "2026-07-28T02:17:24.000Z",
+                  "uid": "35240-c1e42266-a9ea-40c0-9153-7ea2e615f66d"
+                }
+              ],
+              "id": "8d2bd177-1384-43c7-9b98-f28bee11a902",
+              "createdAt": "2026-07-28T02:17:24.000Z",
+              "updatedAt": "2026-07-28T02:17:24.000Z",
+              "uid": "35240-8d2bd177-1384-43c7-9b98-f28bee11a902"
+            },
+            {
+              "name": "get Site Build",
+              "id": "3a0d9e50-df71-4848-8ae1-032297d8347d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/builds/:build_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "builds",
+                    ":build_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0674a09e-2f3a-4c3e-b1e8-85d6570a8891",
+                      "key": "build_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9ca637b4-8f7c-41a1-9325-a9f157d9aa55",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/builds/:build_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "builds",
+                        ":build_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "build_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"deploy_id\": \"<string>\",\n  \"sha\": \"<string>\",\n  \"done\": \"<boolean>\",\n  \"error\": \"<string>\",\n  \"created_at\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:17:24.000Z",
+                  "updatedAt": "2026-07-28T02:17:24.000Z",
+                  "uid": "35240-9ca637b4-8f7c-41a1-9325-a9f157d9aa55"
+                },
+                {
+                  "id": "c5285452-ad89-486c-89a6-6b7643aa616e",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/builds/:build_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "builds",
+                        ":build_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "build_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:24.000Z",
+                  "updatedAt": "2026-07-28T02:17:24.000Z",
+                  "uid": "35240-c5285452-ad89-486c-89a6-6b7643aa616e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:24.000Z",
+              "updatedAt": "2026-07-28T02:17:24.000Z",
+              "uid": "35240-3a0d9e50-df71-4848-8ae1-032297d8347d"
+            }
+          ],
+          "id": "0f8d6b1f-e1ec-44ac-a17f-730168e0c9d9",
+          "createdAt": "2026-07-28T02:17:24.000Z",
+          "updatedAt": "2026-07-28T02:17:24.000Z",
+          "uid": "35240-0f8d6b1f-e1ec-44ac-a17f-730168e0c9d9"
+        }
+      ],
+      "id": "3a8c9137-17df-4832-b04a-15000f582afe",
+      "createdAt": "2026-07-28T02:17:24.000Z",
+      "updatedAt": "2026-07-28T02:17:24.000Z",
+      "uid": "35240-3a8c9137-17df-4832-b04a-15000f582afe"
+    },
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "builds",
+          "item": [
+            {
+              "name": "status",
+              "item": [
+                {
+                  "name": "get Account Build Status",
+                  "id": "6ca5ec4b-980c-41bb-88d1-0f337aa68d83",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/builds/status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "builds",
+                        "status"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4de191f6-26b7-4280-a0b5-6c783270f297",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "87c953dd-5740-44e7-a43a-b102ada2202e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/builds/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "builds",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"active\": \"<integer>\",\n    \"pending_concurrency\": \"<integer>\",\n    \"enqueued\": \"<integer>\",\n    \"build_count\": \"<integer>\",\n    \"minutes\": {\n      \"current\": \"<integer>\",\n      \"current_average_sec\": \"<integer>\",\n      \"previous\": \"<integer>\",\n      \"period_start_date\": \"<string>\",\n      \"period_end_date\": \"<string>\",\n      \"last_updated_at\": \"<string>\",\n      \"included_minutes\": \"<string>\",\n      \"included_minutes_with_packs\": \"<string>\"\n    }\n  },\n  {\n    \"active\": \"<integer>\",\n    \"pending_concurrency\": \"<integer>\",\n    \"enqueued\": \"<integer>\",\n    \"build_count\": \"<integer>\",\n    \"minutes\": {\n      \"current\": \"<integer>\",\n      \"current_average_sec\": \"<integer>\",\n      \"previous\": \"<integer>\",\n      \"period_start_date\": \"<string>\",\n      \"period_end_date\": \"<string>\",\n      \"last_updated_at\": \"<string>\",\n      \"included_minutes\": \"<string>\",\n      \"included_minutes_with_packs\": \"<string>\"\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T02:17:24.000Z",
+                      "updatedAt": "2026-07-28T02:17:24.000Z",
+                      "uid": "35240-87c953dd-5740-44e7-a43a-b102ada2202e"
+                    },
+                    {
+                      "id": "475302c2-7386-4727-9939-14694b634c23",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/builds/status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "builds",
+                            "status"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:24.000Z",
+                      "updatedAt": "2026-07-28T02:17:24.000Z",
+                      "uid": "35240-475302c2-7386-4727-9939-14694b634c23"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:24.000Z",
+                  "updatedAt": "2026-07-28T02:17:24.000Z",
+                  "uid": "35240-6ca5ec4b-980c-41bb-88d1-0f337aa68d83"
+                }
+              ],
+              "id": "5ebb4a93-738c-4aef-8ab2-8cbd9d421100",
+              "createdAt": "2026-07-28T02:17:24.000Z",
+              "updatedAt": "2026-07-28T02:17:24.000Z",
+              "uid": "35240-5ebb4a93-738c-4aef-8ab2-8cbd9d421100"
+            }
+          ],
+          "id": "53f26399-bd2f-45cb-9228-2e68f52cbbf0",
+          "createdAt": "2026-07-28T02:17:24.000Z",
+          "updatedAt": "2026-07-28T02:17:24.000Z",
+          "uid": "35240-53f26399-bd2f-45cb-9228-2e68f52cbbf0"
+        }
+      ],
+      "id": "364ec923-b5c7-4d4e-9303-816188c569dd",
+      "createdAt": "2026-07-28T02:17:24.000Z",
+      "updatedAt": "2026-07-28T02:17:24.000Z",
+      "uid": "35240-364ec923-b5c7-4d4e-9303-816188c569dd"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

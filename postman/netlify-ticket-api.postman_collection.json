@@ -1,0 +1,338 @@
+{
+  "info": {
+    "_postman_id": "83efeedc-98d7-4261-a22b-a0f57c11ec13",
+    "name": "Netlify Netlify's API documentation accessToken Ticket API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:42.000Z",
+    "updatedAt": "2026-07-28T02:19:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-83efeedc-98d7-4261-a22b-a0f57c11ec13"
+  },
+  "item": [
+    {
+      "name": "oauth",
+      "item": [
+        {
+          "name": "tickets",
+          "item": [
+            {
+              "name": "{ticket_id}",
+              "item": [
+                {
+                  "name": "show Ticket",
+                  "id": "6b72b0c5-30e6-4de0-baa5-17d518cc06bf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/tickets/:ticket_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "tickets",
+                        ":ticket_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6745c3af-294c-4e2e-89d8-e8f0ebe9f657",
+                          "key": "ticket_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d763dd30-f5a6-46fe-823a-c0f5ac22ea7f",
+                      "name": "ok",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/oauth/tickets/:ticket_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oauth",
+                            "tickets",
+                            ":ticket_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ticket_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"authorized\": \"<boolean>\",\n  \"created_at\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:19:43.000Z",
+                      "updatedAt": "2026-07-28T02:19:43.000Z",
+                      "uid": "35240-d763dd30-f5a6-46fe-823a-c0f5ac22ea7f"
+                    },
+                    {
+                      "id": "ad4794de-7900-4066-8196-4922e948c228",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/oauth/tickets/:ticket_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oauth",
+                            "tickets",
+                            ":ticket_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ticket_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:43.000Z",
+                      "updatedAt": "2026-07-28T02:19:43.000Z",
+                      "uid": "35240-ad4794de-7900-4066-8196-4922e948c228"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:43.000Z",
+                  "updatedAt": "2026-07-28T02:19:43.000Z",
+                  "uid": "35240-6b72b0c5-30e6-4de0-baa5-17d518cc06bf"
+                }
+              ],
+              "id": "ae55a0b0-d234-4f77-9818-be1d97e47797",
+              "createdAt": "2026-07-28T02:19:43.000Z",
+              "updatedAt": "2026-07-28T02:19:43.000Z",
+              "uid": "35240-ae55a0b0-d234-4f77-9818-be1d97e47797"
+            },
+            {
+              "name": "create Ticket",
+              "id": "6a5118a6-c847-469d-8112-63b34cbd9e36",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/tickets?client_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "tickets"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "client_id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "675cbbd8-34fd-49b2-ba2d-e3bb270f01c3",
+                  "name": "ok",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/tickets?client_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "tickets"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"authorized\": \"<boolean>\",\n  \"created_at\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:19:43.000Z",
+                  "updatedAt": "2026-07-28T02:19:43.000Z",
+                  "uid": "35240-675cbbd8-34fd-49b2-ba2d-e3bb270f01c3"
+                },
+                {
+                  "id": "77552a60-9e62-482d-b65d-528ead35eef5",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/tickets?client_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "tickets"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:19:43.000Z",
+                  "updatedAt": "2026-07-28T02:19:43.000Z",
+                  "uid": "35240-77552a60-9e62-482d-b65d-528ead35eef5"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:43.000Z",
+              "updatedAt": "2026-07-28T02:19:43.000Z",
+              "uid": "35240-6a5118a6-c847-469d-8112-63b34cbd9e36"
+            }
+          ],
+          "id": "7b2c8cbb-8bfc-4c79-9484-e8e3534aebec",
+          "createdAt": "2026-07-28T02:19:43.000Z",
+          "updatedAt": "2026-07-28T02:19:43.000Z",
+          "uid": "35240-7b2c8cbb-8bfc-4c79-9484-e8e3534aebec"
+        }
+      ],
+      "id": "61aa1399-13ca-4487-8580-07dfd85ce21b",
+      "createdAt": "2026-07-28T02:19:43.000Z",
+      "updatedAt": "2026-07-28T02:19:43.000Z",
+      "uid": "35240-61aa1399-13ca-4487-8580-07dfd85ce21b"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

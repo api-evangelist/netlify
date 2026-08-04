@@ -1,0 +1,371 @@
+{
+  "info": {
+    "_postman_id": "ebae443d-9e82-43cf-b625-d73e7e979b85",
+    "name": "Netlify Netlify's API documentation accessToken Metadata API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:03.000Z",
+    "updatedAt": "2026-07-28T02:19:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ebae443d-9e82-43cf-b625-d73e7e979b85"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "metadata",
+              "item": [
+                {
+                  "name": "get Site Metadata",
+                  "id": "2b3fcc28-7b73-4451-b868-a86d387a0257",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/metadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "metadata"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a5d10cfc-7adb-486b-9eec-c47041c85b25",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e67728f5-e0df-41bd-be01-6e01ffe95a35",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T02:19:04.000Z",
+                      "updatedAt": "2026-07-28T02:19:04.000Z",
+                      "uid": "35240-e67728f5-e0df-41bd-be01-6e01ffe95a35"
+                    },
+                    {
+                      "id": "d94c7a00-d3b1-4b7e-9f9d-b9d5db94df55",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:04.000Z",
+                      "updatedAt": "2026-07-28T02:19:04.000Z",
+                      "uid": "35240-d94c7a00-d3b1-4b7e-9f9d-b9d5db94df55"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:04.000Z",
+                  "updatedAt": "2026-07-28T02:19:04.000Z",
+                  "uid": "35240-2b3fcc28-7b73-4451-b868-a86d387a0257"
+                },
+                {
+                  "name": "update Site Metadata",
+                  "id": "8d8341fe-9cf2-459f-99b3-3fb151dc6298",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/metadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "metadata"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e1499256-c4ed-4e56-9453-12891f69219e",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "43d6bb1f-fbc7-4fc4-9f40-8286c888d0b4",
+                      "name": "No content",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:19:04.000Z",
+                      "updatedAt": "2026-07-28T02:19:04.000Z",
+                      "uid": "35240-43d6bb1f-fbc7-4fc4-9f40-8286c888d0b4"
+                    },
+                    {
+                      "id": "c7d63a4d-ae6d-423f-bd6e-723d047204a4",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:04.000Z",
+                      "updatedAt": "2026-07-28T02:19:04.000Z",
+                      "uid": "35240-c7d63a4d-ae6d-423f-bd6e-723d047204a4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:04.000Z",
+                  "updatedAt": "2026-07-28T02:19:04.000Z",
+                  "uid": "35240-8d8341fe-9cf2-459f-99b3-3fb151dc6298"
+                }
+              ],
+              "id": "e80a03da-a13f-4e4f-8ba9-7ce67b52a5cc",
+              "createdAt": "2026-07-28T02:19:04.000Z",
+              "updatedAt": "2026-07-28T02:19:04.000Z",
+              "uid": "35240-e80a03da-a13f-4e4f-8ba9-7ce67b52a5cc"
+            }
+          ],
+          "id": "450c13a0-507b-447c-844c-b36da2baec70",
+          "createdAt": "2026-07-28T02:19:04.000Z",
+          "updatedAt": "2026-07-28T02:19:04.000Z",
+          "uid": "35240-450c13a0-507b-447c-844c-b36da2baec70"
+        }
+      ],
+      "id": "7e6487e7-6a18-4f07-af05-fb871f851af0",
+      "createdAt": "2026-07-28T02:19:04.000Z",
+      "updatedAt": "2026-07-28T02:19:04.000Z",
+      "uid": "35240-7e6487e7-6a18-4f07-af05-fb871f851af0"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

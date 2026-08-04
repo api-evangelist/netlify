@@ -1,0 +1,1666 @@
+{
+  "info": {
+    "_postman_id": "551c89cf-c1dc-43b5-b3ad-469fd95b316d",
+    "name": "Netlify Netlify's API documentation accessToken environmentVariables API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:18:47.000Z",
+    "updatedAt": "2026-07-28T02:18:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-551c89cf-c1dc-43b5-b3ad-469fd95b316d"
+  },
+  "item": [
+    {
+      "name": "accounts",
+      "item": [
+        {
+          "name": "{account_id}",
+          "item": [
+            {
+              "name": "env",
+              "item": [
+                {
+                  "name": "{key}",
+                  "item": [
+                    {
+                      "name": "value",
+                      "item": [
+                        {
+                          "name": "{id}",
+                          "item": [
+                            {
+                              "name": "delete Env Var Value",
+                              "id": "8a6a11cb-6e0a-4cfd-b0cb-b75de6a726f1",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/accounts/:account_id/env/:key/value/:id?site_id=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "accounts",
+                                    ":account_id",
+                                    "env",
+                                    ":key",
+                                    "value",
+                                    ":id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "If provided, delete the value from an environment variable on this site",
+                                      "key": "site_id",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3b995bc5-ea30-4aac-8b25-0a3bb522645f",
+                                      "key": "account_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Scope response to account_id"
+                                    },
+                                    {
+                                      "id": "18c00176-06d8-4a48-b0b7-ab8667ca756b",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) The environment variable key name (case-sensitive)"
+                                    },
+                                    {
+                                      "id": "639a370c-f9f7-4eed-9927-87e9b7b379d0",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) The environment variable value's ID"
+                                    }
+                                  ]
+                                },
+                                "description": "Deletes a specific environment variable value. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
+                              },
+                              "response": [
+                                {
+                                  "id": "4d67839f-6e0f-4393-a6af-ae31cdfda1a6",
+                                  "name": "No Content (success)",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/accounts/:account_id/env/:key/value/:id?site_id=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "accounts",
+                                        ":account_id",
+                                        "env",
+                                        ":key",
+                                        "value",
+                                        ":id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "If provided, delete the value from an environment variable on this site",
+                                          "key": "site_id",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "account_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T02:18:47.000Z",
+                                  "updatedAt": "2026-07-28T02:18:47.000Z",
+                                  "uid": "35240-4d67839f-6e0f-4393-a6af-ae31cdfda1a6"
+                                },
+                                {
+                                  "id": "69125dee-d5fa-4fba-95b5-44e8bb8ac6d5",
+                                  "name": "error",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/accounts/:account_id/env/:key/value/:id?site_id=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "accounts",
+                                        ":account_id",
+                                        "env",
+                                        ":key",
+                                        "value",
+                                        ":id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "If provided, delete the value from an environment variable on this site",
+                                          "key": "site_id",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "account_id"
+                                        },
+                                        {
+                                          "key": "key"
+                                        },
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                                  "createdAt": "2026-07-28T02:18:47.000Z",
+                                  "updatedAt": "2026-07-28T02:18:47.000Z",
+                                  "uid": "35240-69125dee-d5fa-4fba-95b5-44e8bb8ac6d5"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T02:18:47.000Z",
+                              "updatedAt": "2026-07-28T02:18:47.000Z",
+                              "uid": "35240-8a6a11cb-6e0a-4cfd-b0cb-b75de6a726f1"
+                            }
+                          ],
+                          "id": "4ee55505-6629-4fde-b658-2df3f2e717f4",
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-4ee55505-6629-4fde-b658-2df3f2e717f4"
+                        }
+                      ],
+                      "id": "87d1af67-8f74-4017-8718-0cc28e798dd1",
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-87d1af67-8f74-4017-8718-0cc28e798dd1"
+                    },
+                    {
+                      "name": "get Env Var",
+                      "id": "b51bdb27-fa50-42f7-b7be-09fadad61827",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "env",
+                            ":key"
+                          ],
+                          "query": [
+                            {
+                              "description": "If provided, return the environment variable for a specific site (no merging is performed)",
+                              "key": "site_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "1d4ffa25-d3c4-411d-ad99-2b2a401f61c9",
+                              "key": "account_id",
+                              "value": "<string>",
+                              "description": "(Required) Scope response to account_id"
+                            },
+                            {
+                              "id": "dfd09d15-8f53-41c8-b172-41384495e0d1",
+                              "key": "key",
+                              "value": "<string>",
+                              "description": "(Required) The environment variable key (case-sensitive)"
+                            }
+                          ]
+                        },
+                        "description": "Returns an individual environment variable. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
+                      },
+                      "response": [
+                        {
+                          "id": "7951f934-38e7-4129-b60c-ae9cdd6eea71",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":account_id",
+                                "env",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If provided, return the environment variable for a specific site (no merging is performed)",
+                                  "key": "site_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"key\": \"<string>\",\n  \"scopes\": [\n    \"post-processing\",\n    \"runtime\"\n  ],\n  \"values\": [\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"dev\",\n      \"context_parameter\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"dev\",\n      \"context_parameter\": \"<string>\"\n    }\n  ],\n  \"is_secret\": \"<boolean>\",\n  \"updated_at\": \"<dateTime>\",\n  \"updated_by\": {\n    \"id\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar_url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-7951f934-38e7-4129-b60c-ae9cdd6eea71"
+                        },
+                        {
+                          "id": "1b940b57-e0b2-41b7-85f9-8965bd1e442e",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":account_id",
+                                "env",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If provided, return the environment variable for a specific site (no merging is performed)",
+                                  "key": "site_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-1b940b57-e0b2-41b7-85f9-8965bd1e442e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-b51bdb27-fa50-42f7-b7be-09fadad61827"
+                    },
+                    {
+                      "name": "update Env Var",
+                      "id": "a747f2d4-9230-4dd0-a93c-002f4e52ed61",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key\": \"<string>\",\n  \"scopes\": [\n    \"runtime\",\n    \"runtime\"\n  ],\n  \"values\": [\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"branch\",\n      \"context_parameter\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"deploy-preview\",\n      \"context_parameter\": \"<string>\"\n    }\n  ],\n  \"is_secret\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "env",
+                            ":key"
+                          ],
+                          "query": [
+                            {
+                              "description": "If provided, update an environment variable set on this site",
+                              "key": "site_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "778e94d5-077c-4818-895d-5103fe89db70",
+                              "key": "account_id",
+                              "value": "<string>",
+                              "description": "(Required) Scope response to account_id"
+                            },
+                            {
+                              "id": "31a9c276-0589-4e27-884a-e7811848632e",
+                              "key": "key",
+                              "value": "<string>",
+                              "description": "(Required) The existing environment variable key name (case-sensitive)"
+                            }
+                          ]
+                        },
+                        "description": "Updates an existing environment variable and all of its values. Existing values will be replaced by values provided. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
+                      },
+                      "response": [
+                        {
+                          "id": "4f567e55-a378-4291-b019-859d40327ae5",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"<string>\",\n  \"scopes\": [\n    \"runtime\",\n    \"runtime\"\n  ],\n  \"values\": [\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"branch\",\n      \"context_parameter\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"deploy-preview\",\n      \"context_parameter\": \"<string>\"\n    }\n  ],\n  \"is_secret\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":account_id",
+                                "env",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If provided, update an environment variable set on this site",
+                                  "key": "site_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"key\": \"<string>\",\n  \"scopes\": [\n    \"post-processing\",\n    \"runtime\"\n  ],\n  \"values\": [\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"dev\",\n      \"context_parameter\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"dev\",\n      \"context_parameter\": \"<string>\"\n    }\n  ],\n  \"is_secret\": \"<boolean>\",\n  \"updated_at\": \"<dateTime>\",\n  \"updated_by\": {\n    \"id\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar_url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-4f567e55-a378-4291-b019-859d40327ae5"
+                        },
+                        {
+                          "id": "1beeacd7-5f5f-4246-a358-004288ba2dbc",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"<string>\",\n  \"scopes\": [\n    \"runtime\",\n    \"runtime\"\n  ],\n  \"values\": [\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"branch\",\n      \"context_parameter\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"deploy-preview\",\n      \"context_parameter\": \"<string>\"\n    }\n  ],\n  \"is_secret\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":account_id",
+                                "env",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If provided, update an environment variable set on this site",
+                                  "key": "site_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-1beeacd7-5f5f-4246-a358-004288ba2dbc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-a747f2d4-9230-4dd0-a93c-002f4e52ed61"
+                    },
+                    {
+                      "name": "delete Env Var",
+                      "id": "30585f11-10c2-4542-921b-32a2b3ebde51",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "env",
+                            ":key"
+                          ],
+                          "query": [
+                            {
+                              "description": "If provided, delete the environment variable from this site",
+                              "key": "site_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "198578a8-b01d-4e52-b523-bd33267faf3e",
+                              "key": "account_id",
+                              "value": "<string>",
+                              "description": "(Required) Scope response to account_id"
+                            },
+                            {
+                              "id": "5a716b26-099a-4873-9a99-aa153de26265",
+                              "key": "key",
+                              "value": "<string>",
+                              "description": "(Required) The environment variable key (case-sensitive)"
+                            }
+                          ]
+                        },
+                        "description": "Deletes an environment variable. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
+                      },
+                      "response": [
+                        {
+                          "id": "1a26cd75-7b81-400b-9ad5-894e3b2c449f",
+                          "name": "No Content (success)",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":account_id",
+                                "env",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If provided, delete the environment variable from this site",
+                                  "key": "site_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-1a26cd75-7b81-400b-9ad5-894e3b2c449f"
+                        },
+                        {
+                          "id": "d2d909ea-d414-4100-ad76-c4225c7570a8",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":account_id",
+                                "env",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If provided, delete the environment variable from this site",
+                                  "key": "site_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-d2d909ea-d414-4100-ad76-c4225c7570a8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-30585f11-10c2-4542-921b-32a2b3ebde51"
+                    },
+                    {
+                      "name": "set Env Var Value",
+                      "id": "e13bdf25-f98c-43f1-8aa8-7a70c018e3c6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"context\": \"deploy-preview\",\n  \"context_parameter\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "env",
+                            ":key"
+                          ],
+                          "query": [
+                            {
+                              "description": "If provided, update an environment variable set on this site",
+                              "key": "site_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c0f099d3-1cdd-4ff6-8c79-a7abe73ab0cb",
+                              "key": "account_id",
+                              "value": "<string>",
+                              "description": "(Required) Scope response to account_id"
+                            },
+                            {
+                              "id": "fe262cda-f1db-481c-95a5-91e2d96d9778",
+                              "key": "key",
+                              "value": "<string>",
+                              "description": "(Required) The existing environment variable key name (case-sensitive)"
+                            }
+                          ]
+                        },
+                        "description": "Updates or creates a new value for an existing environment variable. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
+                      },
+                      "response": [
+                        {
+                          "id": "9f8b84fd-aab5-45da-83df-bee59b1382a2",
+                          "name": "Created (success)",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": \"deploy-preview\",\n  \"context_parameter\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":account_id",
+                                "env",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If provided, update an environment variable set on this site",
+                                  "key": "site_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"key\": \"<string>\",\n  \"scopes\": [\n    \"post-processing\",\n    \"runtime\"\n  ],\n  \"values\": [\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"dev\",\n      \"context_parameter\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<string>\",\n      \"context\": \"dev\",\n      \"context_parameter\": \"<string>\"\n    }\n  ],\n  \"is_secret\": \"<boolean>\",\n  \"updated_at\": \"<dateTime>\",\n  \"updated_by\": {\n    \"id\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar_url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-9f8b84fd-aab5-45da-83df-bee59b1382a2"
+                        },
+                        {
+                          "id": "73432968-5121-4d07-a9db-f76542ce9907",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": \"deploy-preview\",\n  \"context_parameter\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/accounts/:account_id/env/:key?site_id=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "accounts",
+                                ":account_id",
+                                "env",
+                                ":key"
+                              ],
+                              "query": [
+                                {
+                                  "description": "If provided, update an environment variable set on this site",
+                                  "key": "site_id",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "key"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-73432968-5121-4d07-a9db-f76542ce9907"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-e13bdf25-f98c-43f1-8aa8-7a70c018e3c6"
+                    }
+                  ],
+                  "id": "97f95c31-d2b8-4cc0-b73c-fde52730e956",
+                  "createdAt": "2026-07-28T02:18:47.000Z",
+                  "updatedAt": "2026-07-28T02:18:47.000Z",
+                  "uid": "35240-97f95c31-d2b8-4cc0-b73c-fde52730e956"
+                },
+                {
+                  "name": "get Env Vars",
+                  "id": "7633ca4a-1338-4ec7-86bf-6e5a38f92671",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id/env?context_name=dev&scope=runtime&site_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id",
+                        "env"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by deploy context",
+                          "key": "context_name",
+                          "value": "dev"
+                        },
+                        {
+                          "description": "Filter by scope",
+                          "key": "scope",
+                          "value": "runtime"
+                        },
+                        {
+                          "description": "If specified, only return environment variables set on this site",
+                          "key": "site_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e0416d69-5c7c-47c5-a299-a1dcd60bd60d",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) Scope response to account_id"
+                        }
+                      ]
+                    },
+                    "description": "Returns all environment variables for an account or site. An account corresponds to a team in the Netlify UI. To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
+                  },
+                  "response": [
+                    {
+                      "id": "60899ffb-f74e-44aa-a0a4-3b7d28b2a128",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/env?context_name=dev&scope=runtime&site_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "env"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by deploy context",
+                              "key": "context_name",
+                              "value": "dev"
+                            },
+                            {
+                              "description": "Filter by scope",
+                              "key": "scope",
+                              "value": "runtime"
+                            },
+                            {
+                              "description": "If specified, only return environment variables set on this site",
+                              "key": "site_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"functions\",\n      \"post-processing\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\",\n    \"updated_at\": \"<dateTime>\",\n    \"updated_by\": {\n      \"id\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar_url\": \"<string>\"\n    }\n  },\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"functions\",\n      \"builds\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"dev\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\",\n    \"updated_at\": \"<dateTime>\",\n    \"updated_by\": {\n      \"id\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar_url\": \"<string>\"\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-60899ffb-f74e-44aa-a0a4-3b7d28b2a128"
+                    },
+                    {
+                      "id": "a34b8dfd-8a2a-48f1-9b85-fbc028820fc4",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/env?context_name=dev&scope=runtime&site_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "env"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by deploy context",
+                              "key": "context_name",
+                              "value": "dev"
+                            },
+                            {
+                              "description": "Filter by scope",
+                              "key": "scope",
+                              "value": "runtime"
+                            },
+                            {
+                              "description": "If specified, only return environment variables set on this site",
+                              "key": "site_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-a34b8dfd-8a2a-48f1-9b85-fbc028820fc4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:18:47.000Z",
+                  "updatedAt": "2026-07-28T02:18:47.000Z",
+                  "uid": "35240-7633ca4a-1338-4ec7-86bf-6e5a38f92671"
+                },
+                {
+                  "name": "create Env Vars",
+                  "id": "cf7feed5-c055-4736-9a2a-5be097212621",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"post-processing\",\n      \"runtime\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"all\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"production\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\"\n  },\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"post-processing\",\n      \"builds\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"deploy-preview\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\"\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id/env?site_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id",
+                        "env"
+                      ],
+                      "query": [
+                        {
+                          "description": "If provided, create an environment variable on the site level, not the account level",
+                          "key": "site_id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "309716bd-d325-4f62-b1e7-e71798804ca8",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) Scope response to account_id"
+                        }
+                      ]
+                    },
+                    "description": "Creates new environment variables. Granular scopes are available on Pro plans and above.  To use this endpoint, your site must no longer be using the <a href=\"https://docs.netlify.com/environment-variables/classic-experience/\">classic environment variables experience</a>.  Migrate now with the Netlify UI."
+                  },
+                  "response": [
+                    {
+                      "id": "55894b1a-f541-42a1-a43b-17dfdc5039f7",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"post-processing\",\n      \"runtime\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"all\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"production\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\"\n  },\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"post-processing\",\n      \"builds\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"deploy-preview\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\"\n  }\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/env?site_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "env"
+                          ],
+                          "query": [
+                            {
+                              "description": "If provided, create an environment variable on the site level, not the account level",
+                              "key": "site_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"functions\",\n      \"post-processing\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\",\n    \"updated_at\": \"<dateTime>\",\n    \"updated_by\": {\n      \"id\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar_url\": \"<string>\"\n    }\n  },\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"functions\",\n      \"builds\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"dev\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\",\n    \"updated_at\": \"<dateTime>\",\n    \"updated_by\": {\n      \"id\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar_url\": \"<string>\"\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-55894b1a-f541-42a1-a43b-17dfdc5039f7"
+                    },
+                    {
+                      "id": "294c7200-765f-4906-8ef3-f767ba1a2b4c",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"post-processing\",\n      \"runtime\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"all\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"production\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\"\n  },\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"post-processing\",\n      \"builds\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"deploy-preview\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\"\n  }\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/env?site_id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "env"
+                          ],
+                          "query": [
+                            {
+                              "description": "If provided, create an environment variable on the site level, not the account level",
+                              "key": "site_id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-294c7200-765f-4906-8ef3-f767ba1a2b4c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:18:47.000Z",
+                  "updatedAt": "2026-07-28T02:18:47.000Z",
+                  "uid": "35240-cf7feed5-c055-4736-9a2a-5be097212621"
+                }
+              ],
+              "id": "fb46f90a-1756-432f-b369-e6085f80e47d",
+              "createdAt": "2026-07-28T02:18:47.000Z",
+              "updatedAt": "2026-07-28T02:18:47.000Z",
+              "uid": "35240-fb46f90a-1756-432f-b369-e6085f80e47d"
+            }
+          ],
+          "id": "a3af98f7-e047-471b-b4dd-cd1389f77b64",
+          "createdAt": "2026-07-28T02:18:47.000Z",
+          "updatedAt": "2026-07-28T02:18:47.000Z",
+          "uid": "35240-a3af98f7-e047-471b-b4dd-cd1389f77b64"
+        }
+      ],
+      "id": "012e7cce-9ef5-4d02-b41f-1a9a0ff946e3",
+      "createdAt": "2026-07-28T02:18:47.000Z",
+      "updatedAt": "2026-07-28T02:18:47.000Z",
+      "uid": "35240-012e7cce-9ef5-4d02-b41f-1a9a0ff946e3"
+    },
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "sites",
+              "item": [
+                {
+                  "name": "{site_id}",
+                  "item": [
+                    {
+                      "name": "env",
+                      "item": [
+                        {
+                          "name": "get Site Env Vars",
+                          "id": "3b5b0c79-3ab6-4a0d-9c34-75dfb943e1a0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sites/:site_id/env?context_name=dev&scope=builds",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sites",
+                                ":site_id",
+                                "env"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter by deploy context",
+                                  "key": "context_name",
+                                  "value": "dev"
+                                },
+                                {
+                                  "description": "Filter by scope",
+                                  "key": "scope",
+                                  "value": "builds"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "84ff42eb-9c87-43e8-a3d0-2f7bdaebec65",
+                                  "key": "site_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Scope response to site_id"
+                                }
+                              ]
+                            },
+                            "description": "Returns all environment variables for a site. This convenience method behaves the same as `getEnvVars` but doesn't require an `account_id` as input."
+                          },
+                          "response": [
+                            {
+                              "id": "08e98fa4-e9b8-42d6-a7a3-a9ee24285432",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sites/:site_id/env?context_name=dev&scope=builds",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sites",
+                                    ":site_id",
+                                    "env"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter by deploy context",
+                                      "key": "context_name",
+                                      "value": "dev"
+                                    },
+                                    {
+                                      "description": "Filter by scope",
+                                      "key": "scope",
+                                      "value": "builds"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"functions\",\n      \"post-processing\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\",\n    \"updated_at\": \"<dateTime>\",\n    \"updated_by\": {\n      \"id\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar_url\": \"<string>\"\n    }\n  },\n  {\n    \"key\": \"<string>\",\n    \"scopes\": [\n      \"functions\",\n      \"builds\"\n    ],\n    \"values\": [\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"branch\",\n        \"context_parameter\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"value\": \"<string>\",\n        \"context\": \"dev\",\n        \"context_parameter\": \"<string>\"\n      }\n    ],\n    \"is_secret\": \"<boolean>\",\n    \"updated_at\": \"<dateTime>\",\n    \"updated_by\": {\n      \"id\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"avatar_url\": \"<string>\"\n    }\n  }\n]",
+                              "createdAt": "2026-07-28T02:18:47.000Z",
+                              "updatedAt": "2026-07-28T02:18:47.000Z",
+                              "uid": "35240-08e98fa4-e9b8-42d6-a7a3-a9ee24285432"
+                            },
+                            {
+                              "id": "e0715c07-17f3-4ee9-acac-fefc8d193dcc",
+                              "name": "error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sites/:site_id/env?context_name=dev&scope=builds",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sites",
+                                    ":site_id",
+                                    "env"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter by deploy context",
+                                      "key": "context_name",
+                                      "value": "dev"
+                                    },
+                                    {
+                                      "description": "Filter by scope",
+                                      "key": "scope",
+                                      "value": "builds"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T02:18:47.000Z",
+                              "updatedAt": "2026-07-28T02:18:47.000Z",
+                              "uid": "35240-e0715c07-17f3-4ee9-acac-fefc8d193dcc"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:18:47.000Z",
+                          "updatedAt": "2026-07-28T02:18:47.000Z",
+                          "uid": "35240-3b5b0c79-3ab6-4a0d-9c34-75dfb943e1a0"
+                        }
+                      ],
+                      "id": "98b47a61-1b05-4de5-8cbf-c5d05805391b",
+                      "createdAt": "2026-07-28T02:18:47.000Z",
+                      "updatedAt": "2026-07-28T02:18:47.000Z",
+                      "uid": "35240-98b47a61-1b05-4de5-8cbf-c5d05805391b"
+                    }
+                  ],
+                  "id": "bed3ae8e-7621-41e9-bdd5-c065072961d8",
+                  "createdAt": "2026-07-28T02:18:47.000Z",
+                  "updatedAt": "2026-07-28T02:18:47.000Z",
+                  "uid": "35240-bed3ae8e-7621-41e9-bdd5-c065072961d8"
+                }
+              ],
+              "id": "292164d0-a121-48cc-8437-4ac3104ab59b",
+              "createdAt": "2026-07-28T02:18:47.000Z",
+              "updatedAt": "2026-07-28T02:18:47.000Z",
+              "uid": "35240-292164d0-a121-48cc-8437-4ac3104ab59b"
+            }
+          ],
+          "id": "c9551b44-283c-43db-a8d1-e3c31553eb95",
+          "createdAt": "2026-07-28T02:18:47.000Z",
+          "updatedAt": "2026-07-28T02:18:47.000Z",
+          "uid": "35240-c9551b44-283c-43db-a8d1-e3c31553eb95"
+        }
+      ],
+      "id": "1f31e5e5-1719-4383-b16d-7f181ad88fe9",
+      "createdAt": "2026-07-28T02:18:47.000Z",
+      "updatedAt": "2026-07-28T02:18:47.000Z",
+      "uid": "35240-1f31e5e5-1719-4383-b16d-7f181ad88fe9"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

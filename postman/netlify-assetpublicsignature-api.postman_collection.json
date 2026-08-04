@@ -1,0 +1,236 @@
+{
+  "info": {
+    "_postman_id": "3030ab89-bc7b-4de2-a581-5636070f19bc",
+    "name": "Netlify Netlify's API documentation accessToken assetPublicSignature API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:21.000Z",
+    "updatedAt": "2026-07-28T02:17:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3030ab89-bc7b-4de2-a581-5636070f19bc"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "assets",
+              "item": [
+                {
+                  "name": "{asset_id}",
+                  "item": [
+                    {
+                      "name": "public_signature",
+                      "item": [
+                        {
+                          "name": "get Site Asset Public Signature",
+                          "id": "6279758f-ac96-48a9-a7a8-761a7f42a0aa",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id/public_signature",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "assets",
+                                ":asset_id",
+                                "public_signature"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a7d19755-d5f8-4e4d-bf83-f3d4557c121a",
+                                  "key": "site_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "31d72766-2d9e-499d-a2f3-267fe7525d2f",
+                                  "key": "asset_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "8fd4d251-2209-4306-8d39-2ad34e1f3416",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id/public_signature",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "assets",
+                                    ":asset_id",
+                                    "public_signature"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "asset_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:17:22.000Z",
+                              "updatedAt": "2026-07-28T02:17:22.000Z",
+                              "uid": "35240-8fd4d251-2209-4306-8d39-2ad34e1f3416"
+                            },
+                            {
+                              "id": "6aa01d67-a309-4d31-bc51-5eee11c58444",
+                              "name": "error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/assets/:asset_id/public_signature",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "assets",
+                                    ":asset_id",
+                                    "public_signature"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "asset_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T02:17:22.000Z",
+                              "updatedAt": "2026-07-28T02:17:22.000Z",
+                              "uid": "35240-6aa01d67-a309-4d31-bc51-5eee11c58444"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:17:22.000Z",
+                          "updatedAt": "2026-07-28T02:17:22.000Z",
+                          "uid": "35240-6279758f-ac96-48a9-a7a8-761a7f42a0aa"
+                        }
+                      ],
+                      "id": "2101eb84-df92-40d8-a1f8-437bf1fbff2b",
+                      "createdAt": "2026-07-28T02:17:21.000Z",
+                      "updatedAt": "2026-07-28T02:17:21.000Z",
+                      "uid": "35240-2101eb84-df92-40d8-a1f8-437bf1fbff2b"
+                    }
+                  ],
+                  "id": "d13ebabc-b9c9-4c64-80d3-55fbe73ed04b",
+                  "createdAt": "2026-07-28T02:17:21.000Z",
+                  "updatedAt": "2026-07-28T02:17:21.000Z",
+                  "uid": "35240-d13ebabc-b9c9-4c64-80d3-55fbe73ed04b"
+                }
+              ],
+              "id": "3c553840-f2bb-4521-9abc-00126e108ad6",
+              "createdAt": "2026-07-28T02:17:21.000Z",
+              "updatedAt": "2026-07-28T02:17:21.000Z",
+              "uid": "35240-3c553840-f2bb-4521-9abc-00126e108ad6"
+            }
+          ],
+          "id": "c14676df-9175-4f49-b849-082631e1cf86",
+          "createdAt": "2026-07-28T02:17:21.000Z",
+          "updatedAt": "2026-07-28T02:17:21.000Z",
+          "uid": "35240-c14676df-9175-4f49-b849-082631e1cf86"
+        }
+      ],
+      "id": "f60acc98-6586-4a03-a232-9cd5a672385a",
+      "createdAt": "2026-07-28T02:17:21.000Z",
+      "updatedAt": "2026-07-28T02:17:21.000Z",
+      "uid": "35240-f60acc98-6586-4a03-a232-9cd5a672385a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

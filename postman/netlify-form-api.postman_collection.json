@@ -1,0 +1,353 @@
+{
+  "info": {
+    "_postman_id": "a9cebe37-4c45-4f66-bfc1-d9a580a73743",
+    "name": "Netlify Netlify's API documentation accessToken Form API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:18:49.000Z",
+    "updatedAt": "2026-07-28T02:18:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a9cebe37-4c45-4f66-bfc1-d9a580a73743"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "forms",
+              "item": [
+                {
+                  "name": "{form_id}",
+                  "item": [
+                    {
+                      "name": "delete Site Form",
+                      "id": "21d041c1-152f-4952-8daf-87f40ca7b018",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/forms/:form_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "forms",
+                            ":form_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ff7fa1ab-7104-4187-b009-60d44abe0997",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "1500050c-9f13-4c70-9880-b4b849420a3b",
+                              "key": "form_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "95d63dea-e827-4291-a541-1a444fc0190c",
+                          "name": "Deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/forms/:form_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "forms",
+                                ":form_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "form_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:18:50.000Z",
+                          "updatedAt": "2026-07-28T02:18:50.000Z",
+                          "uid": "35240-95d63dea-e827-4291-a541-1a444fc0190c"
+                        },
+                        {
+                          "id": "c5e46dbf-3c19-433f-a99b-e6b5497bfd64",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/forms/:form_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "forms",
+                                ":form_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "form_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:50.000Z",
+                          "updatedAt": "2026-07-28T02:18:50.000Z",
+                          "uid": "35240-c5e46dbf-3c19-433f-a99b-e6b5497bfd64"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:50.000Z",
+                      "updatedAt": "2026-07-28T02:18:50.000Z",
+                      "uid": "35240-21d041c1-152f-4952-8daf-87f40ca7b018"
+                    }
+                  ],
+                  "id": "72fce6d8-2cfe-4a1b-8aa1-2f4e89f6d606",
+                  "createdAt": "2026-07-28T02:18:50.000Z",
+                  "updatedAt": "2026-07-28T02:18:50.000Z",
+                  "uid": "35240-72fce6d8-2cfe-4a1b-8aa1-2f4e89f6d606"
+                },
+                {
+                  "name": "list Site Forms",
+                  "id": "e022e15f-b67c-4626-99f4-caf3d24a9efc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/forms",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "forms"
+                      ],
+                      "variable": [
+                        {
+                          "id": "00d85135-8fa5-4687-9303-fe685530210b",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "3358ac65-4ca3-481a-b3c7-786998712f5c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/forms",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "forms"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"submission_count\": \"<integer>\",\n    \"created_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"paths\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"submission_count\": \"<integer>\",\n    \"created_at\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:18:50.000Z",
+                      "updatedAt": "2026-07-28T02:18:50.000Z",
+                      "uid": "35240-3358ac65-4ca3-481a-b3c7-786998712f5c"
+                    },
+                    {
+                      "id": "30694b37-7bbd-491a-9aeb-5831dd28c277",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/forms",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "forms"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:18:50.000Z",
+                      "updatedAt": "2026-07-28T02:18:50.000Z",
+                      "uid": "35240-30694b37-7bbd-491a-9aeb-5831dd28c277"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:18:50.000Z",
+                  "updatedAt": "2026-07-28T02:18:50.000Z",
+                  "uid": "35240-e022e15f-b67c-4626-99f4-caf3d24a9efc"
+                }
+              ],
+              "id": "f738982d-0c8e-4db7-833c-ba948554d845",
+              "createdAt": "2026-07-28T02:18:50.000Z",
+              "updatedAt": "2026-07-28T02:18:50.000Z",
+              "uid": "35240-f738982d-0c8e-4db7-833c-ba948554d845"
+            }
+          ],
+          "id": "4c8c40d6-92ae-4fd1-be74-0b6e143c3aa1",
+          "createdAt": "2026-07-28T02:18:50.000Z",
+          "updatedAt": "2026-07-28T02:18:50.000Z",
+          "uid": "35240-4c8c40d6-92ae-4fd1-be74-0b6e143c3aa1"
+        }
+      ],
+      "id": "15d7b5b0-1831-4c0c-a740-7d58846296df",
+      "createdAt": "2026-07-28T02:18:50.000Z",
+      "updatedAt": "2026-07-28T02:18:50.000Z",
+      "uid": "35240-15d7b5b0-1831-4c0c-a740-7d58846296df"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

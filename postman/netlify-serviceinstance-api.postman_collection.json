@@ -1,0 +1,971 @@
+{
+  "info": {
+    "_postman_id": "619e7abf-a5c7-4364-b622-9c3bf06faa25",
+    "name": "Netlify Netlify's API documentation accessToken serviceInstance API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:27.000Z",
+    "updatedAt": "2026-07-28T02:19:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-619e7abf-a5c7-4364-b622-9c3bf06faa25"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "service-instances",
+              "item": [
+                {
+                  "name": "list Service Instances For Site",
+                  "id": "61fe301b-0f19-4040-a263-4519307771fb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/service-instances",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "service-instances"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f83f2359-f49b-4099-a27d-448864cc417c",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "63dd5942-3be7-4e9b-b625-ff22938c2848",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/service-instances",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "service-instances"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"url\": \"<string>\",\n    \"config\": {},\n    \"external_attributes\": {},\n    \"service_slug\": \"<string>\",\n    \"service_path\": \"<string>\",\n    \"service_name\": \"<string>\",\n    \"env\": {},\n    \"auth_url\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"url\": \"<string>\",\n    \"config\": {},\n    \"external_attributes\": {},\n    \"service_slug\": \"<string>\",\n    \"service_path\": \"<string>\",\n    \"service_name\": \"<string>\",\n    \"env\": {},\n    \"auth_url\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:19:28.000Z",
+                      "updatedAt": "2026-07-28T02:19:28.000Z",
+                      "uid": "35240-63dd5942-3be7-4e9b-b625-ff22938c2848"
+                    },
+                    {
+                      "id": "dbc27a12-71ce-48dc-9f86-01ee9417fee7",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/service-instances",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "service-instances"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:28.000Z",
+                      "updatedAt": "2026-07-28T02:19:28.000Z",
+                      "uid": "35240-dbc27a12-71ce-48dc-9f86-01ee9417fee7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:28.000Z",
+                  "updatedAt": "2026-07-28T02:19:28.000Z",
+                  "uid": "35240-61fe301b-0f19-4040-a263-4519307771fb"
+                }
+              ],
+              "id": "b25899a0-d07f-4ade-9ba8-37db08ed9531",
+              "createdAt": "2026-07-28T02:19:28.000Z",
+              "updatedAt": "2026-07-28T02:19:28.000Z",
+              "uid": "35240-b25899a0-d07f-4ade-9ba8-37db08ed9531"
+            },
+            {
+              "name": "services",
+              "item": [
+                {
+                  "name": "{addon}",
+                  "item": [
+                    {
+                      "name": "instances",
+                      "item": [
+                        {
+                          "name": "{instance_id}",
+                          "item": [
+                            {
+                              "name": "show Service Instance",
+                              "id": "061ae047-e83a-49a5-b4ed-a0d1364570a3",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "services",
+                                    ":addon",
+                                    "instances",
+                                    ":instance_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "fbd0e764-13e5-4502-a2b6-6e35cc56f813",
+                                      "key": "site_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "ab54311a-799b-4851-bc03-8582ffe68cc1",
+                                      "key": "addon",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "d64a879b-df16-44e5-b61a-9fbdba70fc2b",
+                                      "key": "instance_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "83a8e6d5-0105-402a-9127-38575594abfd",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "sites",
+                                        ":site_id",
+                                        "services",
+                                        ":addon",
+                                        "instances",
+                                        ":instance_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "site_id"
+                                        },
+                                        {
+                                          "key": "addon"
+                                        },
+                                        {
+                                          "key": "instance_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"config\": {},\n  \"external_attributes\": {},\n  \"service_slug\": \"<string>\",\n  \"service_path\": \"<string>\",\n  \"service_name\": \"<string>\",\n  \"env\": {},\n  \"auth_url\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T02:19:28.000Z",
+                                  "updatedAt": "2026-07-28T02:19:28.000Z",
+                                  "uid": "35240-83a8e6d5-0105-402a-9127-38575594abfd"
+                                },
+                                {
+                                  "id": "1360a01c-4865-4b1e-8d2a-dc2c568c6d14",
+                                  "name": "error",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "sites",
+                                        ":site_id",
+                                        "services",
+                                        ":addon",
+                                        "instances",
+                                        ":instance_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "site_id"
+                                        },
+                                        {
+                                          "key": "addon"
+                                        },
+                                        {
+                                          "key": "instance_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                                  "createdAt": "2026-07-28T02:19:28.000Z",
+                                  "updatedAt": "2026-07-28T02:19:28.000Z",
+                                  "uid": "35240-1360a01c-4865-4b1e-8d2a-dc2c568c6d14"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T02:19:28.000Z",
+                              "updatedAt": "2026-07-28T02:19:28.000Z",
+                              "uid": "35240-061ae047-e83a-49a5-b4ed-a0d1364570a3"
+                            },
+                            {
+                              "name": "update Service Instance",
+                              "id": "e32ea217-a7be-4c32-90c3-28d407b64136",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "services",
+                                    ":addon",
+                                    "instances",
+                                    ":instance_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3c7bbecc-c6e5-425b-9f33-00b9dc9a22ec",
+                                      "key": "site_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "c7e63fab-72d0-4f5b-9873-ca9befd9dc9b",
+                                      "key": "addon",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "ad36c478-09c0-45c8-820c-9d9877c045fd",
+                                      "key": "instance_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "d6bca695-3430-4bf1-9585-bcbe1e7702f4",
+                                  "name": "No Content",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "sites",
+                                        ":site_id",
+                                        "services",
+                                        ":addon",
+                                        "instances",
+                                        ":instance_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "site_id"
+                                        },
+                                        {
+                                          "key": "addon"
+                                        },
+                                        {
+                                          "key": "instance_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T02:19:28.000Z",
+                                  "updatedAt": "2026-07-28T02:19:28.000Z",
+                                  "uid": "35240-d6bca695-3430-4bf1-9585-bcbe1e7702f4"
+                                },
+                                {
+                                  "id": "37647f35-ac53-4566-a577-2c330297735e",
+                                  "name": "error",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "sites",
+                                        ":site_id",
+                                        "services",
+                                        ":addon",
+                                        "instances",
+                                        ":instance_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "site_id"
+                                        },
+                                        {
+                                          "key": "addon"
+                                        },
+                                        {
+                                          "key": "instance_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                                  "createdAt": "2026-07-28T02:19:28.000Z",
+                                  "updatedAt": "2026-07-28T02:19:28.000Z",
+                                  "uid": "35240-37647f35-ac53-4566-a577-2c330297735e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T02:19:28.000Z",
+                              "updatedAt": "2026-07-28T02:19:28.000Z",
+                              "uid": "35240-e32ea217-a7be-4c32-90c3-28d407b64136"
+                            },
+                            {
+                              "name": "delete Service Instance",
+                              "id": "49cca6e9-9f27-4161-8bd9-8868ad23dff4",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "services",
+                                    ":addon",
+                                    "instances",
+                                    ":instance_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d3afb5c3-2c16-4704-bfe6-2517498aa012",
+                                      "key": "site_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "5c8cefe8-5949-4929-860d-9398461f656e",
+                                      "key": "addon",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "27d3d57d-8f6f-4f1b-9dfa-8eca854755f8",
+                                      "key": "instance_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "ec8ffcf8-adf3-4f69-ba5f-c0c36857905f",
+                                  "name": "Deleted",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "sites",
+                                        ":site_id",
+                                        "services",
+                                        ":addon",
+                                        "instances",
+                                        ":instance_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "site_id"
+                                        },
+                                        {
+                                          "key": "addon"
+                                        },
+                                        {
+                                          "key": "instance_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T02:19:28.000Z",
+                                  "updatedAt": "2026-07-28T02:19:28.000Z",
+                                  "uid": "35240-ec8ffcf8-adf3-4f69-ba5f-c0c36857905f"
+                                },
+                                {
+                                  "id": "dc10a0e0-688a-4e0a-b231-d022ba6926c7",
+                                  "name": "error",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances/:instance_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "sites",
+                                        ":site_id",
+                                        "services",
+                                        ":addon",
+                                        "instances",
+                                        ":instance_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "site_id"
+                                        },
+                                        {
+                                          "key": "addon"
+                                        },
+                                        {
+                                          "key": "instance_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                                  "createdAt": "2026-07-28T02:19:28.000Z",
+                                  "updatedAt": "2026-07-28T02:19:28.000Z",
+                                  "uid": "35240-dc10a0e0-688a-4e0a-b231-d022ba6926c7"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T02:19:28.000Z",
+                              "updatedAt": "2026-07-28T02:19:28.000Z",
+                              "uid": "35240-49cca6e9-9f27-4161-8bd9-8868ad23dff4"
+                            }
+                          ],
+                          "id": "fa1afd1d-d77c-4ca4-83f4-99b992e962a5",
+                          "createdAt": "2026-07-28T02:19:28.000Z",
+                          "updatedAt": "2026-07-28T02:19:28.000Z",
+                          "uid": "35240-fa1afd1d-d77c-4ca4-83f4-99b992e962a5"
+                        },
+                        {
+                          "name": "create Service Instance",
+                          "id": "05957891-57e7-47ec-a373-45acf38ee88e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "services",
+                                ":addon",
+                                "instances"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ba7cedc6-b43a-4ab9-8e6d-51791eafc794",
+                                  "key": "site_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "3f22545e-a98c-4e47-9d43-df035fc678c4",
+                                  "key": "addon",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "8f3cdefa-ca76-4938-8692-29d4c605920e",
+                              "name": "Created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "services",
+                                    ":addon",
+                                    "instances"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "addon"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"config\": {},\n  \"external_attributes\": {},\n  \"service_slug\": \"<string>\",\n  \"service_path\": \"<string>\",\n  \"service_name\": \"<string>\",\n  \"env\": {},\n  \"auth_url\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:19:28.000Z",
+                              "updatedAt": "2026-07-28T02:19:28.000Z",
+                              "uid": "35240-8f3cdefa-ca76-4938-8692-29d4c605920e"
+                            },
+                            {
+                              "id": "d095ee83-8a0d-4083-8dda-289a7eeafa2a",
+                              "name": "error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/sites/:site_id/services/:addon/instances",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sites",
+                                    ":site_id",
+                                    "services",
+                                    ":addon",
+                                    "instances"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "site_id"
+                                    },
+                                    {
+                                      "key": "addon"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T02:19:28.000Z",
+                              "updatedAt": "2026-07-28T02:19:28.000Z",
+                              "uid": "35240-d095ee83-8a0d-4083-8dda-289a7eeafa2a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:19:28.000Z",
+                          "updatedAt": "2026-07-28T02:19:28.000Z",
+                          "uid": "35240-05957891-57e7-47ec-a373-45acf38ee88e"
+                        }
+                      ],
+                      "id": "6039cfff-f746-4a32-8994-0fe995f4c120",
+                      "createdAt": "2026-07-28T02:19:28.000Z",
+                      "updatedAt": "2026-07-28T02:19:28.000Z",
+                      "uid": "35240-6039cfff-f746-4a32-8994-0fe995f4c120"
+                    }
+                  ],
+                  "id": "692d80ab-bb0c-4e9c-939f-ca150bb8d261",
+                  "createdAt": "2026-07-28T02:19:28.000Z",
+                  "updatedAt": "2026-07-28T02:19:28.000Z",
+                  "uid": "35240-692d80ab-bb0c-4e9c-939f-ca150bb8d261"
+                }
+              ],
+              "id": "adad5679-954e-441d-a5bd-ba3aa7159689",
+              "createdAt": "2026-07-28T02:19:28.000Z",
+              "updatedAt": "2026-07-28T02:19:28.000Z",
+              "uid": "35240-adad5679-954e-441d-a5bd-ba3aa7159689"
+            }
+          ],
+          "id": "0f0510f9-03bb-4c3b-9d35-2fd79b76fa80",
+          "createdAt": "2026-07-28T02:19:28.000Z",
+          "updatedAt": "2026-07-28T02:19:28.000Z",
+          "uid": "35240-0f0510f9-03bb-4c3b-9d35-2fd79b76fa80"
+        }
+      ],
+      "id": "e98279f0-c65b-43f9-98c4-350445b69658",
+      "createdAt": "2026-07-28T02:19:28.000Z",
+      "updatedAt": "2026-07-28T02:19:28.000Z",
+      "uid": "35240-e98279f0-c65b-43f9-98c4-350445b69658"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

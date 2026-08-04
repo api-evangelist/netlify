@@ -1,0 +1,761 @@
+{
+  "info": {
+    "_postman_id": "c3bf2cbd-c53c-41ce-9332-d51b2e9ef2c3",
+    "name": "Netlify Netlify's API documentation accessToken accountMembership API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:16.000Z",
+    "updatedAt": "2026-07-28T02:17:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c3bf2cbd-c53c-41ce-9332-d51b2e9ef2c3"
+  },
+  "item": [
+    {
+      "name": "accounts",
+      "item": [
+        {
+          "name": "{account_id}",
+          "item": [
+            {
+              "name": "get Account",
+              "id": "386bafb5-4348-4233-b382-e702dea56a08",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts/:account_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "969fae4d-4733-406c-967c-e108c5d18469",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "55a40b43-14ff-47b7-9a3e-5992b7f0ddf4",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capabilities\": {\n      \"sites\": {\n        \"included\": \"<integer>\",\n        \"used\": \"<integer>\"\n      },\n      \"collaborators\": {\n        \"included\": \"<integer>\",\n        \"used\": \"<integer>\"\n      }\n    },\n    \"billing_name\": \"<string>\",\n    \"billing_email\": \"<string>\",\n    \"billing_details\": \"<string>\",\n    \"billing_period\": \"<string>\",\n    \"payment_method_id\": \"<string>\",\n    \"type_name\": \"<string>\",\n    \"type_id\": \"<string>\",\n    \"owner_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roles_allowed\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capabilities\": {\n      \"sites\": {\n        \"included\": \"<integer>\",\n        \"used\": \"<integer>\"\n      },\n      \"collaborators\": {\n        \"included\": \"<integer>\",\n        \"used\": \"<integer>\"\n      }\n    },\n    \"billing_name\": \"<string>\",\n    \"billing_email\": \"<string>\",\n    \"billing_details\": \"<string>\",\n    \"billing_period\": \"<string>\",\n    \"payment_method_id\": \"<string>\",\n    \"type_name\": \"<string>\",\n    \"type_id\": \"<string>\",\n    \"owner_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roles_allowed\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:17:17.000Z",
+                  "updatedAt": "2026-07-28T02:17:17.000Z",
+                  "uid": "35240-55a40b43-14ff-47b7-9a3e-5992b7f0ddf4"
+                },
+                {
+                  "id": "9086d83b-ba77-48fc-9a5f-e4d216ed961a",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:17.000Z",
+                  "updatedAt": "2026-07-28T02:17:17.000Z",
+                  "uid": "35240-9086d83b-ba77-48fc-9a5f-e4d216ed961a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:17.000Z",
+              "updatedAt": "2026-07-28T02:17:17.000Z",
+              "uid": "35240-386bafb5-4348-4233-b382-e702dea56a08"
+            },
+            {
+              "name": "update Account",
+              "id": "fbc0a419-c57d-4c8e-b02f-65ed8d6de4b1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\",\n  \"billing_name\": \"<string>\",\n  \"billing_email\": \"<string>\",\n  \"billing_details\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts/:account_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1f601b67-12bf-4c98-98f8-7925391f33d2",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "e0b7fd4b-742e-4a38-b872-c87ea540959c",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\",\n  \"billing_name\": \"<string>\",\n  \"billing_email\": \"<string>\",\n  \"billing_details\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"type\": \"<string>\",\n  \"capabilities\": {\n    \"sites\": {\n      \"included\": \"<integer>\",\n      \"used\": \"<integer>\"\n    },\n    \"collaborators\": {\n      \"included\": \"<integer>\",\n      \"used\": \"<integer>\"\n    }\n  },\n  \"billing_name\": \"<string>\",\n  \"billing_email\": \"<string>\",\n  \"billing_details\": \"<string>\",\n  \"billing_period\": \"<string>\",\n  \"payment_method_id\": \"<string>\",\n  \"type_name\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"owner_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roles_allowed\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:17:17.000Z",
+                  "updatedAt": "2026-07-28T02:17:17.000Z",
+                  "uid": "35240-e0b7fd4b-742e-4a38-b872-c87ea540959c"
+                },
+                {
+                  "id": "63d73c8e-670e-4357-a43b-9373b3f15c5d",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\",\n  \"billing_name\": \"<string>\",\n  \"billing_email\": \"<string>\",\n  \"billing_details\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:17.000Z",
+                  "updatedAt": "2026-07-28T02:17:17.000Z",
+                  "uid": "35240-63d73c8e-670e-4357-a43b-9373b3f15c5d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:17.000Z",
+              "updatedAt": "2026-07-28T02:17:17.000Z",
+              "uid": "35240-fbc0a419-c57d-4c8e-b02f-65ed8d6de4b1"
+            },
+            {
+              "name": "cancel Account",
+              "id": "d981c388-a75b-4a87-9352-294a85887bfb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts/:account_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a7983a4f-6ed2-42ac-8a5b-1fce1dda7edc",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "be049e9a-acbc-4c5a-9077-3645c70d3cbe",
+                  "name": "Not Content",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:17:17.000Z",
+                  "updatedAt": "2026-07-28T02:17:17.000Z",
+                  "uid": "35240-be049e9a-acbc-4c5a-9077-3645c70d3cbe"
+                },
+                {
+                  "id": "1fba8d4d-7442-48bc-9a28-fea83366ace3",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:17.000Z",
+                  "updatedAt": "2026-07-28T02:17:17.000Z",
+                  "uid": "35240-1fba8d4d-7442-48bc-9a28-fea83366ace3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:17.000Z",
+              "updatedAt": "2026-07-28T02:17:17.000Z",
+              "uid": "35240-d981c388-a75b-4a87-9352-294a85887bfb"
+            }
+          ],
+          "id": "b7102c6b-a4be-4698-9383-018196bc26ee",
+          "createdAt": "2026-07-28T02:17:17.000Z",
+          "updatedAt": "2026-07-28T02:17:17.000Z",
+          "uid": "35240-b7102c6b-a4be-4698-9383-018196bc26ee"
+        },
+        {
+          "name": "list Accounts For User",
+          "id": "e735a35d-3d63-4f56-b317-1a69e629d2f9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "816af860-9bdc-4aba-a8dc-d7df55e6593e",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capabilities\": {\n      \"sites\": {\n        \"included\": \"<integer>\",\n        \"used\": \"<integer>\"\n      },\n      \"collaborators\": {\n        \"included\": \"<integer>\",\n        \"used\": \"<integer>\"\n      }\n    },\n    \"billing_name\": \"<string>\",\n    \"billing_email\": \"<string>\",\n    \"billing_details\": \"<string>\",\n    \"billing_period\": \"<string>\",\n    \"payment_method_id\": \"<string>\",\n    \"type_name\": \"<string>\",\n    \"type_id\": \"<string>\",\n    \"owner_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roles_allowed\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"type\": \"<string>\",\n    \"capabilities\": {\n      \"sites\": {\n        \"included\": \"<integer>\",\n        \"used\": \"<integer>\"\n      },\n      \"collaborators\": {\n        \"included\": \"<integer>\",\n        \"used\": \"<integer>\"\n      }\n    },\n    \"billing_name\": \"<string>\",\n    \"billing_email\": \"<string>\",\n    \"billing_details\": \"<string>\",\n    \"billing_period\": \"<string>\",\n    \"payment_method_id\": \"<string>\",\n    \"type_name\": \"<string>\",\n    \"type_id\": \"<string>\",\n    \"owner_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"roles_allowed\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:17:17.000Z",
+              "updatedAt": "2026-07-28T02:17:17.000Z",
+              "uid": "35240-816af860-9bdc-4aba-a8dc-d7df55e6593e"
+            },
+            {
+              "id": "8fc4dd4c-b48e-4353-8039-50b607d637c6",
+              "name": "error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+              "createdAt": "2026-07-28T02:17:17.000Z",
+              "updatedAt": "2026-07-28T02:17:17.000Z",
+              "uid": "35240-8fc4dd4c-b48e-4353-8039-50b607d637c6"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:17.000Z",
+          "updatedAt": "2026-07-28T02:17:17.000Z",
+          "uid": "35240-e735a35d-3d63-4f56-b317-1a69e629d2f9"
+        },
+        {
+          "name": "create Account",
+          "id": "5f18dd5f-e39c-49c7-a350-76fe465d5fee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"payment_method_id\": \"<string>\",\n  \"period\": \"monthly\",\n  \"extra_seats_block\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "accounts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "41888a41-bf2d-47f9-a6f0-b339fcbf8e49",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"payment_method_id\": \"<string>\",\n  \"period\": \"monthly\",\n  \"extra_seats_block\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"type\": \"<string>\",\n  \"capabilities\": {\n    \"sites\": {\n      \"included\": \"<integer>\",\n      \"used\": \"<integer>\"\n    },\n    \"collaborators\": {\n      \"included\": \"<integer>\",\n      \"used\": \"<integer>\"\n    }\n  },\n  \"billing_name\": \"<string>\",\n  \"billing_email\": \"<string>\",\n  \"billing_details\": \"<string>\",\n  \"billing_period\": \"<string>\",\n  \"payment_method_id\": \"<string>\",\n  \"type_name\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"owner_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"roles_allowed\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:17:17.000Z",
+              "updatedAt": "2026-07-28T02:17:17.000Z",
+              "uid": "35240-41888a41-bf2d-47f9-a6f0-b339fcbf8e49"
+            },
+            {
+              "id": "0d97fa4f-b647-409c-8966-26c91de096ba",
+              "name": "error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"payment_method_id\": \"<string>\",\n  \"period\": \"monthly\",\n  \"extra_seats_block\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+              "createdAt": "2026-07-28T02:17:17.000Z",
+              "updatedAt": "2026-07-28T02:17:17.000Z",
+              "uid": "35240-0d97fa4f-b647-409c-8966-26c91de096ba"
+            }
+          ],
+          "createdAt": "2026-07-28T02:17:17.000Z",
+          "updatedAt": "2026-07-28T02:17:17.000Z",
+          "uid": "35240-5f18dd5f-e39c-49c7-a350-76fe465d5fee"
+        }
+      ],
+      "id": "2ed87101-f39c-4a8c-8205-954f7dd1934c",
+      "createdAt": "2026-07-28T02:17:17.000Z",
+      "updatedAt": "2026-07-28T02:17:17.000Z",
+      "uid": "35240-2ed87101-f39c-4a8c-8205-954f7dd1934c"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

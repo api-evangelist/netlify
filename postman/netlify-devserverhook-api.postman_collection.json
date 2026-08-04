@@ -1,0 +1,872 @@
+{
+  "info": {
+    "_postman_id": "6e8f4c90-05cb-4b66-8350-7aa9c549e70c",
+    "name": "Netlify Netlify's API documentation accessToken devServerHook API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:18:40.000Z",
+    "updatedAt": "2026-07-28T02:18:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6e8f4c90-05cb-4b66-8350-7aa9c549e70c"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "dev_server_hooks",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "get Site Dev Server Hook",
+                      "id": "f5a930ea-de50-4b52-bc82-0a5f898a7024",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_server_hooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "fd758010-a020-474d-baef-bb52fb56e701",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "9eefb6b3-27e8-4ec3-acf6-88b91b0e0dc1",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e99d1d12-6a27-46aa-89fe-c4d1113a602c",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "dev_server_hooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"url\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"type\": \"new_dev_server\"\n}",
+                          "createdAt": "2026-07-28T02:18:41.000Z",
+                          "updatedAt": "2026-07-28T02:18:41.000Z",
+                          "uid": "35240-e99d1d12-6a27-46aa-89fe-c4d1113a602c"
+                        },
+                        {
+                          "id": "f560adca-c757-4bb1-86c2-e4208b18a69c",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "dev_server_hooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:41.000Z",
+                          "updatedAt": "2026-07-28T02:18:41.000Z",
+                          "uid": "35240-f560adca-c757-4bb1-86c2-e4208b18a69c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:41.000Z",
+                      "updatedAt": "2026-07-28T02:18:41.000Z",
+                      "uid": "35240-f5a930ea-de50-4b52-bc82-0a5f898a7024"
+                    },
+                    {
+                      "name": "update Site Dev Server Hook",
+                      "id": "1218eb9f-19dc-47aa-a3e9-044432124a1e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"type\": \"content_refresh\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_server_hooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5d192995-4ffb-41cc-9b9b-996549ac3dbc",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "ca754862-45e9-4281-ac96-99885f3b4bc1",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7c1943dc-2ec9-4943-9b93-b0d81646ac3f",
+                          "name": "No content",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"type\": \"content_refresh\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "dev_server_hooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:18:41.000Z",
+                          "updatedAt": "2026-07-28T02:18:41.000Z",
+                          "uid": "35240-7c1943dc-2ec9-4943-9b93-b0d81646ac3f"
+                        },
+                        {
+                          "id": "6653f841-e0e4-47d8-99e6-adecdea9f1fb",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"title\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"type\": \"content_refresh\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "dev_server_hooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:41.000Z",
+                          "updatedAt": "2026-07-28T02:18:41.000Z",
+                          "uid": "35240-6653f841-e0e4-47d8-99e6-adecdea9f1fb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:41.000Z",
+                      "updatedAt": "2026-07-28T02:18:41.000Z",
+                      "uid": "35240-1218eb9f-19dc-47aa-a3e9-044432124a1e"
+                    },
+                    {
+                      "name": "delete Site Dev Server Hook",
+                      "id": "a8c353f2-5060-4351-a216-9223e8a4aa0b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_server_hooks",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e415c910-1c53-4ef8-8a04-7ba01685a77b",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "a4a1c0f7-d447-4aff-b388-8fe76a878618",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f524094a-ee90-42c6-9bfe-b6f242803144",
+                          "name": "No content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "dev_server_hooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:18:41.000Z",
+                          "updatedAt": "2026-07-28T02:18:41.000Z",
+                          "uid": "35240-f524094a-ee90-42c6-9bfe-b6f242803144"
+                        },
+                        {
+                          "id": "2a3395ef-934a-4bf6-8cfc-fcb0624bdd8d",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "dev_server_hooks",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:18:41.000Z",
+                          "updatedAt": "2026-07-28T02:18:41.000Z",
+                          "uid": "35240-2a3395ef-934a-4bf6-8cfc-fcb0624bdd8d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:18:41.000Z",
+                      "updatedAt": "2026-07-28T02:18:41.000Z",
+                      "uid": "35240-a8c353f2-5060-4351-a216-9223e8a4aa0b"
+                    }
+                  ],
+                  "id": "9646ef07-2708-448f-afea-47d457a6c5ad",
+                  "createdAt": "2026-07-28T02:18:41.000Z",
+                  "updatedAt": "2026-07-28T02:18:41.000Z",
+                  "uid": "35240-9646ef07-2708-448f-afea-47d457a6c5ad"
+                },
+                {
+                  "name": "list Site Dev Server Hooks",
+                  "id": "df09e513-4e6c-4de7-b0d3-1c2b8ccf6498",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "dev_server_hooks"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a0ebb861-d2bf-498d-8ae3-15970db48613",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b4d9b804-9a1c-49f3-bea6-0d77c5adb1f7",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_server_hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"url\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"type\": \"content_refresh\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"url\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"created_at\": \"<string>\",\n    \"type\": \"content_refresh\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:18:41.000Z",
+                      "updatedAt": "2026-07-28T02:18:41.000Z",
+                      "uid": "35240-b4d9b804-9a1c-49f3-bea6-0d77c5adb1f7"
+                    },
+                    {
+                      "id": "c401cf7a-4bef-4cd4-a3e1-c46b47d42437",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_server_hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:18:41.000Z",
+                      "updatedAt": "2026-07-28T02:18:41.000Z",
+                      "uid": "35240-c401cf7a-4bef-4cd4-a3e1-c46b47d42437"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:18:41.000Z",
+                  "updatedAt": "2026-07-28T02:18:41.000Z",
+                  "uid": "35240-df09e513-4e6c-4de7-b0d3-1c2b8ccf6498"
+                },
+                {
+                  "name": "create Site Dev Server Hook",
+                  "id": "8767d1bf-a5ff-4d86-a812-f58f3d186560",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"type\": \"content_refresh\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "dev_server_hooks"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cb9cb833-ff42-4cf7-bbab-8948ac693d2a",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "55870e82-8ceb-4f3e-a02d-4671e8bd77d7",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"type\": \"content_refresh\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_server_hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"url\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"type\": \"new_dev_server\"\n}",
+                      "createdAt": "2026-07-28T02:18:41.000Z",
+                      "updatedAt": "2026-07-28T02:18:41.000Z",
+                      "uid": "35240-55870e82-8ceb-4f3e-a02d-4671e8bd77d7"
+                    },
+                    {
+                      "id": "546cc81f-a606-404f-af15-2b5917ceb7f0",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"title\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"type\": \"content_refresh\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/dev_server_hooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "dev_server_hooks"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:18:41.000Z",
+                      "updatedAt": "2026-07-28T02:18:41.000Z",
+                      "uid": "35240-546cc81f-a606-404f-af15-2b5917ceb7f0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:18:41.000Z",
+                  "updatedAt": "2026-07-28T02:18:41.000Z",
+                  "uid": "35240-8767d1bf-a5ff-4d86-a812-f58f3d186560"
+                }
+              ],
+              "id": "91d00d6a-2544-4c1f-b797-accd8b575115",
+              "createdAt": "2026-07-28T02:18:41.000Z",
+              "updatedAt": "2026-07-28T02:18:41.000Z",
+              "uid": "35240-91d00d6a-2544-4c1f-b797-accd8b575115"
+            }
+          ],
+          "id": "2b580ac8-18e3-44e0-8d3b-75f5cdac53df",
+          "createdAt": "2026-07-28T02:18:41.000Z",
+          "updatedAt": "2026-07-28T02:18:41.000Z",
+          "uid": "35240-2b580ac8-18e3-44e0-8d3b-75f5cdac53df"
+        }
+      ],
+      "id": "6ed110f4-774a-424a-a9f7-0cf909b0bc85",
+      "createdAt": "2026-07-28T02:18:41.000Z",
+      "updatedAt": "2026-07-28T02:18:41.000Z",
+      "uid": "35240-6ed110f4-774a-424a-a9f7-0cf909b0bc85"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

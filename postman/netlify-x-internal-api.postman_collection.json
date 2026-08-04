@@ -1,0 +1,668 @@
+{
+  "info": {
+    "_postman_id": "ac0c3844-94b8-464e-84c4-ce519751a25f",
+    "name": "Netlify Netlify's API documentation accessToken X-Internal API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:45.000Z",
+    "updatedAt": "2026-07-28T02:19:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ac0c3844-94b8-464e-84c4-ce519751a25f"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "plugins",
+              "item": [
+                {
+                  "name": "{package}",
+                  "item": [
+                    {
+                      "name": "update Plugin",
+                      "id": "c65588ff-e183-4010-b542-e89ff3694313",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"pinned_version\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/plugins/:package",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "plugins",
+                            ":package"
+                          ],
+                          "variable": [
+                            {
+                              "id": "aa2ca992-8b26-4bab-8473-6d4d1dd45a01",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "458db6c7-cf39-4136-b50c-d93d5890be21",
+                              "key": "package",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This is an internal-only endpoint."
+                      },
+                      "response": [
+                        {
+                          "id": "48e67784-fe53-4fc4-9a20-1d0502c1d691",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"pinned_version\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/plugins/:package",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "plugins",
+                                ":package"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "package"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"package\": \"<string>\",\n  \"pinned_version\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:19:45.000Z",
+                          "updatedAt": "2026-07-28T02:19:45.000Z",
+                          "uid": "35240-48e67784-fe53-4fc4-9a20-1d0502c1d691"
+                        },
+                        {
+                          "id": "842444ba-fbf8-4eaa-9eef-96e95dd3c3ae",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"pinned_version\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/plugins/:package",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "plugins",
+                                ":package"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                },
+                                {
+                                  "key": "package"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:19:45.000Z",
+                          "updatedAt": "2026-07-28T02:19:45.000Z",
+                          "uid": "35240-842444ba-fbf8-4eaa-9eef-96e95dd3c3ae"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:19:45.000Z",
+                      "updatedAt": "2026-07-28T02:19:45.000Z",
+                      "uid": "35240-c65588ff-e183-4010-b542-e89ff3694313"
+                    }
+                  ],
+                  "id": "11f57af8-6ab7-4c19-89db-cc72621ae3b4",
+                  "createdAt": "2026-07-28T02:19:45.000Z",
+                  "updatedAt": "2026-07-28T02:19:45.000Z",
+                  "uid": "35240-11f57af8-6ab7-4c19-89db-cc72621ae3b4"
+                }
+              ],
+              "id": "cb4b047c-fcf1-4db9-a39a-3b5265139d80",
+              "createdAt": "2026-07-28T02:19:45.000Z",
+              "updatedAt": "2026-07-28T02:19:45.000Z",
+              "uid": "35240-cb4b047c-fcf1-4db9-a39a-3b5265139d80"
+            },
+            {
+              "name": "plugin_runs",
+              "item": [
+                {
+                  "name": "latest",
+                  "item": [
+                    {
+                      "name": "get Latest Plugin Runs",
+                      "id": "8f93ae94-dbbf-4be2-975b-4d914779ef25",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/plugin_runs/latest?packages=<string>,<string>&state=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "plugin_runs",
+                            "latest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "packages",
+                              "value": "<string>,<string>"
+                            },
+                            {
+                              "key": "state",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "661b6c14-999c-45d5-ae57-1eb5d1cd6989",
+                              "key": "site_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This is an internal-only endpoint."
+                      },
+                      "response": [
+                        {
+                          "id": "12b0d4be-3107-4654-8323-a07977965b27",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/plugin_runs/latest?packages=<string>,<string>&state=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "plugin_runs",
+                                "latest"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "packages",
+                                  "value": "<string>,<string>"
+                                },
+                                {
+                                  "key": "state",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"package\": \"<string>\",\n    \"version\": \"<string>\",\n    \"state\": \"<string>\",\n    \"reporting_event\": \"<string>\",\n    \"title\": \"<string>\",\n    \"summary\": \"<string>\",\n    \"text\": \"<string>\",\n    \"deploy_id\": \"<string>\"\n  },\n  {\n    \"package\": \"<string>\",\n    \"version\": \"<string>\",\n    \"state\": \"<string>\",\n    \"reporting_event\": \"<string>\",\n    \"title\": \"<string>\",\n    \"summary\": \"<string>\",\n    \"text\": \"<string>\",\n    \"deploy_id\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T02:19:45.000Z",
+                          "updatedAt": "2026-07-28T02:19:45.000Z",
+                          "uid": "35240-12b0d4be-3107-4654-8323-a07977965b27"
+                        },
+                        {
+                          "id": "3fc908f0-a827-4945-ac65-2e2e92ea3190",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/sites/:site_id/plugin_runs/latest?packages=<string>,<string>&state=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sites",
+                                ":site_id",
+                                "plugin_runs",
+                                "latest"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "packages",
+                                  "value": "<string>,<string>"
+                                },
+                                {
+                                  "key": "state",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "site_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:19:45.000Z",
+                          "updatedAt": "2026-07-28T02:19:45.000Z",
+                          "uid": "35240-3fc908f0-a827-4945-ac65-2e2e92ea3190"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:19:45.000Z",
+                      "updatedAt": "2026-07-28T02:19:45.000Z",
+                      "uid": "35240-8f93ae94-dbbf-4be2-975b-4d914779ef25"
+                    }
+                  ],
+                  "id": "6fc188b2-b1cb-4eae-b929-79f0386aeea8",
+                  "createdAt": "2026-07-28T02:19:45.000Z",
+                  "updatedAt": "2026-07-28T02:19:45.000Z",
+                  "uid": "35240-6fc188b2-b1cb-4eae-b929-79f0386aeea8"
+                }
+              ],
+              "id": "cf112cfd-04cb-47b5-ae68-85c3de09ea4d",
+              "createdAt": "2026-07-28T02:19:45.000Z",
+              "updatedAt": "2026-07-28T02:19:45.000Z",
+              "uid": "35240-cf112cfd-04cb-47b5-ae68-85c3de09ea4d"
+            }
+          ],
+          "id": "1e10c65b-eed9-4a2b-bea9-7cb9947d017f",
+          "createdAt": "2026-07-28T02:19:45.000Z",
+          "updatedAt": "2026-07-28T02:19:45.000Z",
+          "uid": "35240-1e10c65b-eed9-4a2b-bea9-7cb9947d017f"
+        }
+      ],
+      "id": "cf92dbdd-8707-4f4b-8b59-67b13695c8cc",
+      "createdAt": "2026-07-28T02:19:45.000Z",
+      "updatedAt": "2026-07-28T02:19:45.000Z",
+      "uid": "35240-cf92dbdd-8707-4f4b-8b59-67b13695c8cc"
+    },
+    {
+      "name": "deploys",
+      "item": [
+        {
+          "name": "{deploy_id}",
+          "item": [
+            {
+              "name": "plugin_runs",
+              "item": [
+                {
+                  "name": "create Plugin Run",
+                  "id": "a89fa374-5576-4d17-8597-d84b15f68042",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"package\": \"<string>\",\n  \"version\": \"<string>\",\n  \"state\": \"<string>\",\n  \"reporting_event\": \"<string>\",\n  \"title\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"text\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deploys/:deploy_id/plugin_runs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deploys",
+                        ":deploy_id",
+                        "plugin_runs"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e47710f9-9d4d-41fc-a543-e49cb920c6db",
+                          "key": "deploy_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "This is an internal-only endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "430c3fc1-2118-4547-8281-5bbf56e3c71e",
+                      "name": "CREATED",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"package\": \"<string>\",\n  \"version\": \"<string>\",\n  \"state\": \"<string>\",\n  \"reporting_event\": \"<string>\",\n  \"title\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"text\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/plugin_runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "plugin_runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deploy_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"package\": \"<string>\",\n  \"version\": \"<string>\",\n  \"state\": \"<string>\",\n  \"reporting_event\": \"<string>\",\n  \"title\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"text\": \"<string>\",\n  \"deploy_id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:19:45.000Z",
+                      "updatedAt": "2026-07-28T02:19:45.000Z",
+                      "uid": "35240-430c3fc1-2118-4547-8281-5bbf56e3c71e"
+                    },
+                    {
+                      "id": "23e286a6-d8c2-4d5a-b58a-fb0dda4fa0b8",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"package\": \"<string>\",\n  \"version\": \"<string>\",\n  \"state\": \"<string>\",\n  \"reporting_event\": \"<string>\",\n  \"title\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"text\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deploys/:deploy_id/plugin_runs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deploys",
+                            ":deploy_id",
+                            "plugin_runs"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deploy_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:45.000Z",
+                      "updatedAt": "2026-07-28T02:19:45.000Z",
+                      "uid": "35240-23e286a6-d8c2-4d5a-b58a-fb0dda4fa0b8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:45.000Z",
+                  "updatedAt": "2026-07-28T02:19:45.000Z",
+                  "uid": "35240-a89fa374-5576-4d17-8597-d84b15f68042"
+                }
+              ],
+              "id": "e202d564-606f-4285-8c57-1a616188dda0",
+              "createdAt": "2026-07-28T02:19:45.000Z",
+              "updatedAt": "2026-07-28T02:19:45.000Z",
+              "uid": "35240-e202d564-606f-4285-8c57-1a616188dda0"
+            }
+          ],
+          "id": "4d954a78-679e-41ce-88fc-89bd19808660",
+          "createdAt": "2026-07-28T02:19:45.000Z",
+          "updatedAt": "2026-07-28T02:19:45.000Z",
+          "uid": "35240-4d954a78-679e-41ce-88fc-89bd19808660"
+        }
+      ],
+      "id": "2cfffc98-8ec9-4ff4-9e95-ca3a9b801f93",
+      "createdAt": "2026-07-28T02:19:45.000Z",
+      "updatedAt": "2026-07-28T02:19:45.000Z",
+      "uid": "35240-2cfffc98-8ec9-4ff4-9e95-ca3a9b801f93"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

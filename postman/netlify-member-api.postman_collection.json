@@ -1,0 +1,857 @@
+{
+  "info": {
+    "_postman_id": "ac6b56e8-ed8c-41b5-adab-4a4aebf95390",
+    "name": "Netlify Netlify's API documentation accessToken Member API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:01.000Z",
+    "updatedAt": "2026-07-28T02:19:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ac6b56e8-ed8c-41b5-adab-4a4aebf95390"
+  },
+  "item": [
+    {
+      "name": "{account_slug}",
+      "item": [
+        {
+          "name": "members",
+          "item": [
+            {
+              "name": "{member_id}",
+              "item": [
+                {
+                  "name": "get Account Member",
+                  "id": "b4e149b6-b0ba-45f7-b445-dd429abb06d4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_slug",
+                        "members",
+                        ":member_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b66cc02e-e741-40de-96f8-2e11cf308198",
+                          "key": "account_slug",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "ed8ea141-928b-41ec-9dd0-ffffd3875c08",
+                          "key": "member_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "45b1e275-a440-4270-89c6-b8943fe6cdc5",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_slug",
+                            "members",
+                            ":member_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_slug"
+                            },
+                            {
+                              "key": "member_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:19:02.000Z",
+                      "updatedAt": "2026-07-28T02:19:02.000Z",
+                      "uid": "35240-45b1e275-a440-4270-89c6-b8943fe6cdc5"
+                    },
+                    {
+                      "id": "c3fcf342-7eb6-46c8-bea5-5db3efaa9050",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_slug",
+                            "members",
+                            ":member_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_slug"
+                            },
+                            {
+                              "key": "member_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:02.000Z",
+                      "updatedAt": "2026-07-28T02:19:02.000Z",
+                      "uid": "35240-c3fcf342-7eb6-46c8-bea5-5db3efaa9050"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:02.000Z",
+                  "updatedAt": "2026-07-28T02:19:02.000Z",
+                  "uid": "35240-b4e149b6-b0ba-45f7-b445-dd429abb06d4"
+                },
+                {
+                  "name": "update Account Member",
+                  "id": "e5bfec7b-25c1-4bb2-8630-14887a0668d0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"role\": \"Reviewer\",\n  \"site_access\": \"none\",\n  \"site_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_slug",
+                        "members",
+                        ":member_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "39690da9-8999-4fdc-b1a8-1ebb840812a7",
+                          "key": "account_slug",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "ed7215a7-0c49-4e90-99a3-fc8557abdd17",
+                          "key": "member_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2bacc5f0-ae7f-4c9d-abd6-161fcfb39e6e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"role\": \"Reviewer\",\n  \"site_access\": \"none\",\n  \"site_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_slug",
+                            "members",
+                            ":member_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_slug"
+                            },
+                            {
+                              "key": "member_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"avatar\": \"<string>\",\n  \"role\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:19:02.000Z",
+                      "updatedAt": "2026-07-28T02:19:02.000Z",
+                      "uid": "35240-2bacc5f0-ae7f-4c9d-abd6-161fcfb39e6e"
+                    },
+                    {
+                      "id": "c58832c6-451d-4c3f-ae55-f82803c2ed21",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"role\": \"Reviewer\",\n  \"site_access\": \"none\",\n  \"site_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_slug",
+                            "members",
+                            ":member_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_slug"
+                            },
+                            {
+                              "key": "member_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:02.000Z",
+                      "updatedAt": "2026-07-28T02:19:02.000Z",
+                      "uid": "35240-c58832c6-451d-4c3f-ae55-f82803c2ed21"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:02.000Z",
+                  "updatedAt": "2026-07-28T02:19:02.000Z",
+                  "uid": "35240-e5bfec7b-25c1-4bb2-8630-14887a0668d0"
+                },
+                {
+                  "name": "remove Account Member",
+                  "id": "1bdd2fc5-3bdb-4050-8fe4-7c8a34a7a28b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_slug",
+                        "members",
+                        ":member_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "64194475-e03d-4d6d-b736-576270cab087",
+                          "key": "account_slug",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "e186f086-f80a-45c9-9b6f-efa6e3cdd6c8",
+                          "key": "member_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c38a3292-d70b-4ae8-ad63-0527d0ca55aa",
+                      "name": "Not Content",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_slug",
+                            "members",
+                            ":member_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_slug"
+                            },
+                            {
+                              "key": "member_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:19:02.000Z",
+                      "updatedAt": "2026-07-28T02:19:02.000Z",
+                      "uid": "35240-c38a3292-d70b-4ae8-ad63-0527d0ca55aa"
+                    },
+                    {
+                      "id": "6655a1e7-3f0d-4649-b9e3-0ed1ff1f9bfb",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_slug/members/:member_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_slug",
+                            "members",
+                            ":member_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_slug"
+                            },
+                            {
+                              "key": "member_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:02.000Z",
+                      "updatedAt": "2026-07-28T02:19:02.000Z",
+                      "uid": "35240-6655a1e7-3f0d-4649-b9e3-0ed1ff1f9bfb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:02.000Z",
+                  "updatedAt": "2026-07-28T02:19:02.000Z",
+                  "uid": "35240-1bdd2fc5-3bdb-4050-8fe4-7c8a34a7a28b"
+                }
+              ],
+              "id": "502362f1-3122-463d-bdd1-9b8d335d86ba",
+              "createdAt": "2026-07-28T02:19:02.000Z",
+              "updatedAt": "2026-07-28T02:19:02.000Z",
+              "uid": "35240-502362f1-3122-463d-bdd1-9b8d335d86ba"
+            },
+            {
+              "name": "list Members For Account",
+              "id": "2ed1c506-bb3a-4087-9a8e-474031e7e0a7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:account_slug/members",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":account_slug",
+                    "members"
+                  ],
+                  "variable": [
+                    {
+                      "id": "34e455b7-e86a-4747-801a-14c6a4394564",
+                      "key": "account_slug",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "81ca59fb-8a76-47ba-ab5e-b9f8f60f1e4e",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_slug/members",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_slug",
+                        "members"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"role\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"role\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:19:02.000Z",
+                  "updatedAt": "2026-07-28T02:19:02.000Z",
+                  "uid": "35240-81ca59fb-8a76-47ba-ab5e-b9f8f60f1e4e"
+                },
+                {
+                  "id": "075fd1ee-365f-465f-9c0a-8adca467f9ce",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_slug/members",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_slug",
+                        "members"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:19:02.000Z",
+                  "updatedAt": "2026-07-28T02:19:02.000Z",
+                  "uid": "35240-075fd1ee-365f-465f-9c0a-8adca467f9ce"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:02.000Z",
+              "updatedAt": "2026-07-28T02:19:02.000Z",
+              "uid": "35240-2ed1c506-bb3a-4087-9a8e-474031e7e0a7"
+            },
+            {
+              "name": "add Member To Account",
+              "id": "ed707cca-de39-4b6c-acfb-ae1131ce3437",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"role\": \"Developer\",\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:account_slug/members",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":account_slug",
+                    "members"
+                  ],
+                  "variable": [
+                    {
+                      "id": "522dcc58-9db4-4968-b6c0-0c1b67addc3e",
+                      "key": "account_slug",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8634769e-65c7-4ede-93fa-3206048e4fbf",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"role\": \"Developer\",\n  \"email\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_slug/members",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_slug",
+                        "members"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"role\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"full_name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"avatar\": \"<string>\",\n    \"role\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:19:02.000Z",
+                  "updatedAt": "2026-07-28T02:19:02.000Z",
+                  "uid": "35240-8634769e-65c7-4ede-93fa-3206048e4fbf"
+                },
+                {
+                  "id": "e0a3e347-1300-48d5-abc4-c91705c2b7fb",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"role\": \"Developer\",\n  \"email\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_slug/members",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_slug",
+                        "members"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_slug"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:19:02.000Z",
+                  "updatedAt": "2026-07-28T02:19:02.000Z",
+                  "uid": "35240-e0a3e347-1300-48d5-abc4-c91705c2b7fb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:02.000Z",
+              "updatedAt": "2026-07-28T02:19:02.000Z",
+              "uid": "35240-ed707cca-de39-4b6c-acfb-ae1131ce3437"
+            }
+          ],
+          "id": "2688752a-ff76-4821-8d24-8c0a66b6b0b2",
+          "createdAt": "2026-07-28T02:19:02.000Z",
+          "updatedAt": "2026-07-28T02:19:02.000Z",
+          "uid": "35240-2688752a-ff76-4821-8d24-8c0a66b6b0b2"
+        }
+      ],
+      "id": "4439513a-ed82-41d8-9a00-72e84e24515a",
+      "createdAt": "2026-07-28T02:19:02.000Z",
+      "updatedAt": "2026-07-28T02:19:02.000Z",
+      "uid": "35240-4439513a-ed82-41d8-9a00-72e84e24515a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

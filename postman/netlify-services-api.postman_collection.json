@@ -1,0 +1,470 @@
+{
+  "info": {
+    "_postman_id": "f7ab1463-3b79-4a0d-aa52-3a1daea44ba1",
+    "name": "Netlify Netlify's API documentation accessToken Services API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:28.000Z",
+    "updatedAt": "2026-07-28T02:19:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f7ab1463-3b79-4a0d-aa52-3a1daea44ba1"
+  },
+  "item": [
+    {
+      "name": "services",
+      "item": [
+        {
+          "name": "{addonName}",
+          "item": [
+            {
+              "name": "manifest",
+              "item": [
+                {
+                  "name": "show Service Manifest",
+                  "id": "53fa8e0d-6dd8-42c2-9bc6-5c65155d3dff",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/services/:addonName/manifest",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "services",
+                        ":addonName",
+                        "manifest"
+                      ],
+                      "variable": [
+                        {
+                          "id": "875ba380-1c38-471f-ad71-b10b3ddc58a2",
+                          "key": "addonName",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "92ff5cb4-315b-4697-8a8f-25ccc143939d",
+                      "name": "retrieving from provider",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/services/:addonName/manifest",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "services",
+                            ":addonName",
+                            "manifest"
+                          ],
+                          "variable": [
+                            {
+                              "key": "addonName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T02:19:29.000Z",
+                      "updatedAt": "2026-07-28T02:19:29.000Z",
+                      "uid": "35240-92ff5cb4-315b-4697-8a8f-25ccc143939d"
+                    },
+                    {
+                      "id": "0b420ce4-6af9-4880-84c1-bb7cb565aa9c",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/services/:addonName/manifest",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "services",
+                            ":addonName",
+                            "manifest"
+                          ],
+                          "variable": [
+                            {
+                              "key": "addonName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:29.000Z",
+                      "updatedAt": "2026-07-28T02:19:29.000Z",
+                      "uid": "35240-0b420ce4-6af9-4880-84c1-bb7cb565aa9c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:29.000Z",
+                  "updatedAt": "2026-07-28T02:19:29.000Z",
+                  "uid": "35240-53fa8e0d-6dd8-42c2-9bc6-5c65155d3dff"
+                }
+              ],
+              "id": "4d1f2546-bbbc-452d-86e7-95e2247b9c00",
+              "createdAt": "2026-07-28T02:19:29.000Z",
+              "updatedAt": "2026-07-28T02:19:29.000Z",
+              "uid": "35240-4d1f2546-bbbc-452d-86e7-95e2247b9c00"
+            },
+            {
+              "name": "show Service",
+              "id": "e1cbce6a-2b6b-4f12-9bd8-5e8886b0010c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/services/:addonName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "services",
+                    ":addonName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b5e0d67f-cff7-4d23-bb26-899f4418c0af",
+                      "key": "addonName",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a9958beb-d56a-4bbf-a660-42c6600e1a58",
+                  "name": "services",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/services/:addonName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "services",
+                        ":addonName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "addonName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"service_path\": \"<string>\",\n  \"long_description\": \"<string>\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"icon\": \"<string>\",\n  \"manifest_url\": \"<string>\",\n  \"environments\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:19:29.000Z",
+                  "updatedAt": "2026-07-28T02:19:29.000Z",
+                  "uid": "35240-a9958beb-d56a-4bbf-a660-42c6600e1a58"
+                },
+                {
+                  "id": "b1db61a5-9ba0-4e3f-a2b9-d8462e216698",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/services/:addonName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "services",
+                        ":addonName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "addonName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:19:29.000Z",
+                  "updatedAt": "2026-07-28T02:19:29.000Z",
+                  "uid": "35240-b1db61a5-9ba0-4e3f-a2b9-d8462e216698"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:29.000Z",
+              "updatedAt": "2026-07-28T02:19:29.000Z",
+              "uid": "35240-e1cbce6a-2b6b-4f12-9bd8-5e8886b0010c"
+            }
+          ],
+          "id": "25d9e543-aac1-4c4f-8778-094271596e4c",
+          "createdAt": "2026-07-28T02:19:29.000Z",
+          "updatedAt": "2026-07-28T02:19:29.000Z",
+          "uid": "35240-25d9e543-aac1-4c4f-8778-094271596e4c"
+        },
+        {
+          "name": "get Services",
+          "id": "d067ed5e-d61d-4be5-af59-3bc11525ae14",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/services/?search=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "services",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7780078e-7b53-4fa1-8a8a-b51c65711008",
+              "name": "services",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/services/?search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "services",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"service_path\": \"<string>\",\n    \"long_description\": \"<string>\",\n    \"description\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"icon\": \"<string>\",\n    \"manifest_url\": \"<string>\",\n    \"environments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"slug\": \"<string>\",\n    \"service_path\": \"<string>\",\n    \"long_description\": \"<string>\",\n    \"description\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"icon\": \"<string>\",\n    \"manifest_url\": \"<string>\",\n    \"environments\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T02:19:29.000Z",
+              "updatedAt": "2026-07-28T02:19:29.000Z",
+              "uid": "35240-7780078e-7b53-4fa1-8a8a-b51c65711008"
+            },
+            {
+              "id": "69c2d1b3-ab0b-4d78-86bf-fdbef30b59df",
+              "name": "error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/services/?search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "services",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+              "createdAt": "2026-07-28T02:19:29.000Z",
+              "updatedAt": "2026-07-28T02:19:29.000Z",
+              "uid": "35240-69c2d1b3-ab0b-4d78-86bf-fdbef30b59df"
+            }
+          ],
+          "createdAt": "2026-07-28T02:19:29.000Z",
+          "updatedAt": "2026-07-28T02:19:29.000Z",
+          "uid": "35240-d067ed5e-d61d-4be5-af59-3bc11525ae14"
+        }
+      ],
+      "id": "54ce029f-5e80-4342-8e00-ca4fc32c8e54",
+      "createdAt": "2026-07-28T02:19:29.000Z",
+      "updatedAt": "2026-07-28T02:19:29.000Z",
+      "uid": "35240-54ce029f-5e80-4342-8e00-ca4fc32c8e54"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

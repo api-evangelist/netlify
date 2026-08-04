@@ -1,0 +1,170 @@
+{
+  "info": {
+    "_postman_id": "6485deae-a615-46fb-bb7d-5953dd5729f3",
+    "name": "Netlify Netlify's API documentation accessToken accountType API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:18.000Z",
+    "updatedAt": "2026-07-28T02:17:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6485deae-a615-46fb-bb7d-5953dd5729f3"
+  },
+  "item": [
+    {
+      "name": "accounts",
+      "item": [
+        {
+          "name": "types",
+          "item": [
+            {
+              "name": "list Account Types For User",
+              "id": "94abf518-4ed7-4564-9b5d-e0a348829fd0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts/types",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts",
+                    "types"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2b8e67ff-80cf-4487-ad45-628c5a0ca880",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "types"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"capabilities\": {},\n    \"monthly_dollar_price\": \"<integer>\",\n    \"yearly_dollar_price\": \"<integer>\",\n    \"monthly_seats_addon_dollar_price\": \"<integer>\",\n    \"yearly_seats_addon_dollar_price\": \"<integer>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"capabilities\": {},\n    \"monthly_dollar_price\": \"<integer>\",\n    \"yearly_dollar_price\": \"<integer>\",\n    \"monthly_seats_addon_dollar_price\": \"<integer>\",\n    \"yearly_seats_addon_dollar_price\": \"<integer>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:17:18.000Z",
+                  "updatedAt": "2026-07-28T02:17:18.000Z",
+                  "uid": "35240-2b8e67ff-80cf-4487-ad45-628c5a0ca880"
+                },
+                {
+                  "id": "d86059f8-b804-426c-a20f-44d1498e1e25",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/types",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "types"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:17:18.000Z",
+                  "updatedAt": "2026-07-28T02:17:18.000Z",
+                  "uid": "35240-d86059f8-b804-426c-a20f-44d1498e1e25"
+                }
+              ],
+              "createdAt": "2026-07-28T02:17:18.000Z",
+              "updatedAt": "2026-07-28T02:17:18.000Z",
+              "uid": "35240-94abf518-4ed7-4564-9b5d-e0a348829fd0"
+            }
+          ],
+          "id": "3d87ad02-d177-4758-a72a-e724f2823f05",
+          "createdAt": "2026-07-28T02:17:18.000Z",
+          "updatedAt": "2026-07-28T02:17:18.000Z",
+          "uid": "35240-3d87ad02-d177-4758-a72a-e724f2823f05"
+        }
+      ],
+      "id": "019f8dc0-b50d-483d-9cd1-47aa3d34d3e0",
+      "createdAt": "2026-07-28T02:17:18.000Z",
+      "updatedAt": "2026-07-28T02:17:18.000Z",
+      "uid": "35240-019f8dc0-b50d-483d-9cd1-47aa3d34d3e0"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

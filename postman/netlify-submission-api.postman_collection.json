@@ -1,0 +1,746 @@
+{
+  "info": {
+    "_postman_id": "7f2a5bc7-e010-4576-a16e-69b953b7038d",
+    "name": "Netlify Netlify's API documentation accessToken Submission API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:34.000Z",
+    "updatedAt": "2026-07-28T02:19:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7f2a5bc7-e010-4576-a16e-69b953b7038d"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "submissions",
+              "item": [
+                {
+                  "name": "list Site Submissions",
+                  "id": "6b0258b2-6ae6-4a5f-9f01-cabb4fb3ab2b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/submissions?page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "submissions"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0be11a55-2b2e-4b68-8e2f-0d32f004b402",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "57fa7e09-a8f1-4af0-8761-4067593f2bc1",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/submissions?page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"company\": \"<string>\",\n    \"summary\": \"<string>\",\n    \"body\": \"<string>\",\n    \"data\": {},\n    \"created_at\": \"<string>\",\n    \"site_url\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"company\": \"<string>\",\n    \"summary\": \"<string>\",\n    \"body\": \"<string>\",\n    \"data\": {},\n    \"created_at\": \"<string>\",\n    \"site_url\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:19:35.000Z",
+                      "updatedAt": "2026-07-28T02:19:35.000Z",
+                      "uid": "35240-57fa7e09-a8f1-4af0-8761-4067593f2bc1"
+                    },
+                    {
+                      "id": "2c08260e-6fce-4003-a8e4-a4b427a65d6d",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/submissions?page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:35.000Z",
+                      "updatedAt": "2026-07-28T02:19:35.000Z",
+                      "uid": "35240-2c08260e-6fce-4003-a8e4-a4b427a65d6d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:35.000Z",
+                  "updatedAt": "2026-07-28T02:19:35.000Z",
+                  "uid": "35240-6b0258b2-6ae6-4a5f-9f01-cabb4fb3ab2b"
+                }
+              ],
+              "id": "b81849c6-d5f0-41e9-91b1-ea23bf206d78",
+              "createdAt": "2026-07-28T02:19:35.000Z",
+              "updatedAt": "2026-07-28T02:19:35.000Z",
+              "uid": "35240-b81849c6-d5f0-41e9-91b1-ea23bf206d78"
+            }
+          ],
+          "id": "a817ed7f-9064-45b4-8add-047cb21c69b5",
+          "createdAt": "2026-07-28T02:19:35.000Z",
+          "updatedAt": "2026-07-28T02:19:35.000Z",
+          "uid": "35240-a817ed7f-9064-45b4-8add-047cb21c69b5"
+        }
+      ],
+      "id": "5a2868ad-59cf-44b7-aea2-72e76903d622",
+      "createdAt": "2026-07-28T02:19:35.000Z",
+      "updatedAt": "2026-07-28T02:19:35.000Z",
+      "uid": "35240-5a2868ad-59cf-44b7-aea2-72e76903d622"
+    },
+    {
+      "name": "forms",
+      "item": [
+        {
+          "name": "{form_id}",
+          "item": [
+            {
+              "name": "submissions",
+              "item": [
+                {
+                  "name": "list Form Submissions",
+                  "id": "4626974b-e14a-40d7-aeae-d4426139a773",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/forms/:form_id/submissions?page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "forms",
+                        ":form_id",
+                        "submissions"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6c3de0c3-06ee-4ee8-b8eb-957396868bc0",
+                          "key": "form_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "886d02b3-51ec-4c12-b9de-141eed7e84a7",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/forms/:form_id/submissions?page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "forms",
+                            ":form_id",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "form_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"company\": \"<string>\",\n    \"summary\": \"<string>\",\n    \"body\": \"<string>\",\n    \"data\": {},\n    \"created_at\": \"<string>\",\n    \"site_url\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"company\": \"<string>\",\n    \"summary\": \"<string>\",\n    \"body\": \"<string>\",\n    \"data\": {},\n    \"created_at\": \"<string>\",\n    \"site_url\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:19:35.000Z",
+                      "updatedAt": "2026-07-28T02:19:35.000Z",
+                      "uid": "35240-886d02b3-51ec-4c12-b9de-141eed7e84a7"
+                    },
+                    {
+                      "id": "4f758f43-4a54-4d26-b688-434a5a78525f",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/forms/:form_id/submissions?page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "forms",
+                            ":form_id",
+                            "submissions"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "form_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:35.000Z",
+                      "updatedAt": "2026-07-28T02:19:35.000Z",
+                      "uid": "35240-4f758f43-4a54-4d26-b688-434a5a78525f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:35.000Z",
+                  "updatedAt": "2026-07-28T02:19:35.000Z",
+                  "uid": "35240-4626974b-e14a-40d7-aeae-d4426139a773"
+                }
+              ],
+              "id": "93c24241-081f-4045-b7ff-1fd54dd10280",
+              "createdAt": "2026-07-28T02:19:35.000Z",
+              "updatedAt": "2026-07-28T02:19:35.000Z",
+              "uid": "35240-93c24241-081f-4045-b7ff-1fd54dd10280"
+            }
+          ],
+          "id": "4640d382-8647-4dc7-acb5-4ea49eae263c",
+          "createdAt": "2026-07-28T02:19:35.000Z",
+          "updatedAt": "2026-07-28T02:19:35.000Z",
+          "uid": "35240-4640d382-8647-4dc7-acb5-4ea49eae263c"
+        }
+      ],
+      "id": "41a7d2a0-fd8d-4508-b587-df1c6d0e5fdd",
+      "createdAt": "2026-07-28T02:19:35.000Z",
+      "updatedAt": "2026-07-28T02:19:35.000Z",
+      "uid": "35240-41a7d2a0-fd8d-4508-b587-df1c6d0e5fdd"
+    },
+    {
+      "name": "submissions",
+      "item": [
+        {
+          "name": "{submission_id}",
+          "item": [
+            {
+              "name": "list Form Submission",
+              "id": "ee2f4302-0e00-49ee-8fab-9b4346309f29",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/submissions/:submission_id?query=<string>&page=<integer>&per_page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "submissions",
+                    ":submission_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "ff36e52f-4711-4a2e-a227-178941f30b4e",
+                      "key": "submission_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d6733ad8-702a-446d-8884-d14186717b05",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/submissions/:submission_id?query=<string>&page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "submissions",
+                        ":submission_id"
+                      ],
+                      "query": [
+                        {
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "submission_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"company\": \"<string>\",\n    \"summary\": \"<string>\",\n    \"body\": \"<string>\",\n    \"data\": {},\n    \"created_at\": \"<string>\",\n    \"site_url\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"number\": \"<integer>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"company\": \"<string>\",\n    \"summary\": \"<string>\",\n    \"body\": \"<string>\",\n    \"data\": {},\n    \"created_at\": \"<string>\",\n    \"site_url\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T02:19:35.000Z",
+                  "updatedAt": "2026-07-28T02:19:35.000Z",
+                  "uid": "35240-d6733ad8-702a-446d-8884-d14186717b05"
+                },
+                {
+                  "id": "04ca15b8-dd36-4b2d-98f3-77705834e1ec",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/submissions/:submission_id?query=<string>&page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "submissions",
+                        ":submission_id"
+                      ],
+                      "query": [
+                        {
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "submission_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:19:35.000Z",
+                  "updatedAt": "2026-07-28T02:19:35.000Z",
+                  "uid": "35240-04ca15b8-dd36-4b2d-98f3-77705834e1ec"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:35.000Z",
+              "updatedAt": "2026-07-28T02:19:35.000Z",
+              "uid": "35240-ee2f4302-0e00-49ee-8fab-9b4346309f29"
+            },
+            {
+              "name": "delete Submission",
+              "id": "e0651a85-9de3-4aa3-b757-8445034d1cd3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/submissions/:submission_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "submissions",
+                    ":submission_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1f135bf3-7cf9-4750-85eb-4924419ebb29",
+                      "key": "submission_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "07864096-9647-4b10-a3d3-54b1d1fa7221",
+                  "name": "Deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/submissions/:submission_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "submissions",
+                        ":submission_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "submission_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:19:35.000Z",
+                  "updatedAt": "2026-07-28T02:19:35.000Z",
+                  "uid": "35240-07864096-9647-4b10-a3d3-54b1d1fa7221"
+                },
+                {
+                  "id": "a430f0f8-3e49-4300-ac7b-ecf43710468d",
+                  "name": "error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/submissions/:submission_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "submissions",
+                        ":submission_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "submission_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T02:19:35.000Z",
+                  "updatedAt": "2026-07-28T02:19:35.000Z",
+                  "uid": "35240-a430f0f8-3e49-4300-ac7b-ecf43710468d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:19:35.000Z",
+              "updatedAt": "2026-07-28T02:19:35.000Z",
+              "uid": "35240-e0651a85-9de3-4aa3-b757-8445034d1cd3"
+            }
+          ],
+          "id": "c6ec3251-10f1-456d-98a9-352dfc507c5f",
+          "createdAt": "2026-07-28T02:19:35.000Z",
+          "updatedAt": "2026-07-28T02:19:35.000Z",
+          "uid": "35240-c6ec3251-10f1-456d-98a9-352dfc507c5f"
+        }
+      ],
+      "id": "df120387-4956-4074-be10-4542d3e7b263",
+      "createdAt": "2026-07-28T02:19:35.000Z",
+      "updatedAt": "2026-07-28T02:19:35.000Z",
+      "uid": "35240-df120387-4956-4074-be10-4542d3e7b263"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

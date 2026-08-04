@@ -1,0 +1,254 @@
+{
+  "info": {
+    "_postman_id": "961859dd-a4b7-46d7-80e0-f10a922688ce",
+    "name": "Netlify Netlify's API documentation accessToken auditLog API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:22.000Z",
+    "updatedAt": "2026-07-28T02:17:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-961859dd-a4b7-46d7-80e0-f10a922688ce"
+  },
+  "item": [
+    {
+      "name": "accounts",
+      "item": [
+        {
+          "name": "{account_id}",
+          "item": [
+            {
+              "name": "audit",
+              "item": [
+                {
+                  "name": "list Account Audit Events",
+                  "id": "1c56b755-799c-4bdf-944b-8583ac650402",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/:account_id/audit?query=<string>&log_type=<string>&page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        ":account_id",
+                        "audit"
+                      ],
+                      "query": [
+                        {
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "log_type",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "bbacaa8b-3e10-46e7-a0b5-859ae06665ea",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b32de52d-24ea-470e-95f8-88ab121e6bbf",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/audit?query=<string>&log_type=<string>&page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "audit"
+                          ],
+                          "query": [
+                            {
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "log_type",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"account_id\": \"<string>\",\n    \"payload\": {\n      \"occaecat__\": {},\n      \"nisi_fa0\": {}\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"account_id\": \"<string>\",\n    \"payload\": {\n      \"exercitation_75\": {}\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T02:17:23.000Z",
+                      "updatedAt": "2026-07-28T02:17:23.000Z",
+                      "uid": "35240-b32de52d-24ea-470e-95f8-88ab121e6bbf"
+                    },
+                    {
+                      "id": "a16269b0-f188-4f33-96db-dedf960ffffa",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/:account_id/audit?query=<string>&log_type=<string>&page=<integer>&per_page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            ":account_id",
+                            "audit"
+                          ],
+                          "query": [
+                            {
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "log_type",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "per_page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:17:23.000Z",
+                      "updatedAt": "2026-07-28T02:17:23.000Z",
+                      "uid": "35240-a16269b0-f188-4f33-96db-dedf960ffffa"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:17:23.000Z",
+                  "updatedAt": "2026-07-28T02:17:23.000Z",
+                  "uid": "35240-1c56b755-799c-4bdf-944b-8583ac650402"
+                }
+              ],
+              "id": "8263f162-315a-4c70-a548-ce87b864f97c",
+              "createdAt": "2026-07-28T02:17:23.000Z",
+              "updatedAt": "2026-07-28T02:17:23.000Z",
+              "uid": "35240-8263f162-315a-4c70-a548-ce87b864f97c"
+            }
+          ],
+          "id": "4f438485-cee5-4c42-910f-8ae8fc800af8",
+          "createdAt": "2026-07-28T02:17:23.000Z",
+          "updatedAt": "2026-07-28T02:17:23.000Z",
+          "uid": "35240-4f438485-cee5-4c42-910f-8ae8fc800af8"
+        }
+      ],
+      "id": "15e349d6-bd15-4f53-8410-7bb5a6260a86",
+      "createdAt": "2026-07-28T02:17:23.000Z",
+      "updatedAt": "2026-07-28T02:17:23.000Z",
+      "uid": "35240-15e349d6-bd15-4f53-8410-7bb5a6260a86"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

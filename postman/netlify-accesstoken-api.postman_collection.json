@@ -1,0 +1,212 @@
+{
+  "info": {
+    "_postman_id": "9bebdfbe-3566-4b35-a281-f7c54b137c45",
+    "name": "Netlify Netlify's API documentation accessToken API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:17:15.000Z",
+    "updatedAt": "2026-07-28T02:17:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9bebdfbe-3566-4b35-a281-f7c54b137c45"
+  },
+  "item": [
+    {
+      "name": "oauth",
+      "item": [
+        {
+          "name": "tickets",
+          "item": [
+            {
+              "name": "{ticket_id}",
+              "item": [
+                {
+                  "name": "exchange",
+                  "item": [
+                    {
+                      "name": "exchange Ticket",
+                      "id": "4fea39b2-d04b-45db-ae1c-28d8a9d8b20a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/oauth/tickets/:ticket_id/exchange",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "oauth",
+                            "tickets",
+                            ":ticket_id",
+                            "exchange"
+                          ],
+                          "variable": [
+                            {
+                              "id": "83093dc2-50a8-4479-940b-b6f8d4b6a9c3",
+                              "key": "ticket_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0d54bab6-98b8-4008-b457-d7e19f965f11",
+                          "name": "ok",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/oauth/tickets/:ticket_id/exchange",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "oauth",
+                                "tickets",
+                                ":ticket_id",
+                                "exchange"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "ticket_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"access_token\": \"<string>\",\n  \"user_id\": \"<string>\",\n  \"user_email\": \"<string>\",\n  \"created_at\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:17:15.000Z",
+                          "updatedAt": "2026-07-28T02:17:15.000Z",
+                          "uid": "35240-0d54bab6-98b8-4008-b457-d7e19f965f11"
+                        },
+                        {
+                          "id": "c7926672-90d0-4115-8364-d38a03af9ab8",
+                          "name": "error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/oauth/tickets/:ticket_id/exchange",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "oauth",
+                                "tickets",
+                                ":ticket_id",
+                                "exchange"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "ticket_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T02:17:15.000Z",
+                          "updatedAt": "2026-07-28T02:17:15.000Z",
+                          "uid": "35240-c7926672-90d0-4115-8364-d38a03af9ab8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:17:15.000Z",
+                      "updatedAt": "2026-07-28T02:17:15.000Z",
+                      "uid": "35240-4fea39b2-d04b-45db-ae1c-28d8a9d8b20a"
+                    }
+                  ],
+                  "id": "990347a1-719b-4d52-b170-2572ddf194f8",
+                  "createdAt": "2026-07-28T02:17:15.000Z",
+                  "updatedAt": "2026-07-28T02:17:15.000Z",
+                  "uid": "35240-990347a1-719b-4d52-b170-2572ddf194f8"
+                }
+              ],
+              "id": "7187317e-7abb-4fd1-bc93-5ccfd5e25394",
+              "createdAt": "2026-07-28T02:17:15.000Z",
+              "updatedAt": "2026-07-28T02:17:15.000Z",
+              "uid": "35240-7187317e-7abb-4fd1-bc93-5ccfd5e25394"
+            }
+          ],
+          "id": "0f8e2803-0ff0-4825-90e8-4dfdfa9f7462",
+          "createdAt": "2026-07-28T02:17:15.000Z",
+          "updatedAt": "2026-07-28T02:17:15.000Z",
+          "uid": "35240-0f8e2803-0ff0-4825-90e8-4dfdfa9f7462"
+        }
+      ],
+      "id": "472c0277-ba44-44b1-a89c-98b64dff8c0d",
+      "createdAt": "2026-07-28T02:17:15.000Z",
+      "updatedAt": "2026-07-28T02:17:15.000Z",
+      "uid": "35240-472c0277-ba44-44b1-a89c-98b64dff8c0d"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}

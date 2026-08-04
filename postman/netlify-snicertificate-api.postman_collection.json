@@ -1,0 +1,380 @@
+{
+  "info": {
+    "_postman_id": "756d7382-3917-4bfe-9987-fad6e0e90afd",
+    "name": "Netlify Netlify's API documentation accessToken sniCertificate API",
+    "description": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify\u2019s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:19:30.000Z",
+    "updatedAt": "2026-07-28T02:19:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-756d7382-3917-4bfe-9987-fad6e0e90afd"
+  },
+  "item": [
+    {
+      "name": "sites",
+      "item": [
+        {
+          "name": "{site_id}",
+          "item": [
+            {
+              "name": "ssl",
+              "item": [
+                {
+                  "name": "show Site TLS Certificate",
+                  "id": "5bf06538-9d7c-4108-9eb9-b7c2977353f1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/ssl",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "ssl"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fa07b76c-d545-455f-8864-cb0bc1e95bd9",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f47a2644-3229-447b-a2a1-298b7e96bbb4",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/ssl",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "ssl"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"state\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"expires_at\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:19:31.000Z",
+                      "updatedAt": "2026-07-28T02:19:31.000Z",
+                      "uid": "35240-f47a2644-3229-447b-a2a1-298b7e96bbb4"
+                    },
+                    {
+                      "id": "3d505c3b-c2e8-4636-be23-7420a9f3cb49",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/ssl",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "ssl"
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:31.000Z",
+                      "updatedAt": "2026-07-28T02:19:31.000Z",
+                      "uid": "35240-3d505c3b-c2e8-4636-be23-7420a9f3cb49"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:31.000Z",
+                  "updatedAt": "2026-07-28T02:19:31.000Z",
+                  "uid": "35240-5bf06538-9d7c-4108-9eb9-b7c2977353f1"
+                },
+                {
+                  "name": "provision Site TLS Certificate",
+                  "id": "0444eae4-6199-4e70-b69d-c378f97e0b27",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sites/:site_id/ssl?certificate=<string>&key=<string>&ca_certificates=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sites",
+                        ":site_id",
+                        "ssl"
+                      ],
+                      "query": [
+                        {
+                          "key": "certificate",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "key",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "ca_certificates",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e75726aa-b6ca-47af-a208-a744bdc2b5d0",
+                          "key": "site_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f95d8e9c-7610-4b19-b3ad-fabea20ab342",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/ssl?certificate=<string>&key=<string>&ca_certificates=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "ssl"
+                          ],
+                          "query": [
+                            {
+                              "key": "certificate",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "key",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "ca_certificates",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"state\": \"<string>\",\n  \"domains\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"expires_at\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:19:31.000Z",
+                      "updatedAt": "2026-07-28T02:19:31.000Z",
+                      "uid": "35240-f95d8e9c-7610-4b19-b3ad-fabea20ab342"
+                    },
+                    {
+                      "id": "3ae36125-8e4e-4e8c-8eca-0da0ae6d6366",
+                      "name": "error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/sites/:site_id/ssl?certificate=<string>&key=<string>&ca_certificates=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sites",
+                            ":site_id",
+                            "ssl"
+                          ],
+                          "query": [
+                            {
+                              "key": "certificate",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "key",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "ca_certificates",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "site_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T02:19:31.000Z",
+                      "updatedAt": "2026-07-28T02:19:31.000Z",
+                      "uid": "35240-3ae36125-8e4e-4e8c-8eca-0da0ae6d6366"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:19:31.000Z",
+                  "updatedAt": "2026-07-28T02:19:31.000Z",
+                  "uid": "35240-0444eae4-6199-4e70-b69d-c378f97e0b27"
+                }
+              ],
+              "id": "a24f790c-8fe5-428c-b129-7aae34dff851",
+              "createdAt": "2026-07-28T02:19:31.000Z",
+              "updatedAt": "2026-07-28T02:19:31.000Z",
+              "uid": "35240-a24f790c-8fe5-428c-b129-7aae34dff851"
+            }
+          ],
+          "id": "1fc01bbf-0ba6-4a21-8f4c-1264facbb346",
+          "createdAt": "2026-07-28T02:19:31.000Z",
+          "updatedAt": "2026-07-28T02:19:31.000Z",
+          "uid": "35240-1fc01bbf-0ba6-4a21-8f4c-1264facbb346"
+        }
+      ],
+      "id": "e25f3770-c038-4107-b260-9453af6b86d2",
+      "createdAt": "2026-07-28T02:19:31.000Z",
+      "updatedAt": "2026-07-28T02:19:31.000Z",
+      "uid": "35240-e25f3770-c038-4107-b260-9453af6b86d2"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.netlify.com/api/v1"
+    }
+  ]
+}
