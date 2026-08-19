@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken X-Internal API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "X-Internal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "updatePlugin",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/plugins/:package",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is an internal-only endpoint."
+        },
+        {
+          "info": {
+            "name": "getLatestPluginRuns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/plugin_runs/latest",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "packages",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This is an internal-only endpoint."
+        },
+        {
+          "info": {
+            "name": "createPluginRun",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/deploys/:deploy_id/plugin_runs",
+            "params": [
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is an internal-only endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

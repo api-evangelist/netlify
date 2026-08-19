@@ -1,0 +1,38 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken accountType API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "accountType",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listAccountTypesForUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/accounts/types"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

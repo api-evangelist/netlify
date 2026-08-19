@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken Services API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getServices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/services/",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "showService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/services/:addonName",
+            "params": [
+              {
+                "name": "addonName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "showServiceManifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/services/:addonName/manifest",
+            "params": [
+              {
+                "name": "addonName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

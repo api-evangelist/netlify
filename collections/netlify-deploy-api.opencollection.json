@@ -1,0 +1,325 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken Deploy API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deploy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listSiteDeploys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/deploys",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploy-previews",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "production",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "branch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "latest-published",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createSiteDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/deploys",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploy-previews",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "production",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "branch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "latest-published",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getSiteDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/deploys/:deploy_id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateSiteDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/deploys/:deploy_id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteSiteDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/deploys/:deploy_id",
+            "params": [
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "cancelSiteDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/deploys/:deploy_id/cancel",
+            "params": [
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "restoreSiteDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/deploys/:deploy_id/restore",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "rollbackSiteDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/rollback",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/deploys/:deploy_id",
+            "params": [
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.netlify.com/api/v1/deploys/:deploy_id",
+            "params": [
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "lockDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/deploys/:deploy_id/lock",
+            "params": [
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "unlockDeploy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/deploys/:deploy_id/unlock",
+            "params": [
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

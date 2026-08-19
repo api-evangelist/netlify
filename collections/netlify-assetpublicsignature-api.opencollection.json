@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken assetPublicSignature API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "assetPublicSignature",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSiteAssetPublicSignature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/assets/:asset_id/public_signature",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

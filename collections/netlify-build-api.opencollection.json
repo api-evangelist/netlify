@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken Build API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Build",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listSiteBuilds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/builds",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createSiteBuild",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/builds",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getSiteBuild",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/builds/:build_id",
+            "params": [
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "notifyBuildStart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/builds/:build_id/start",
+            "params": [
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "buildbot_version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "build_version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getAccountBuildStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/:account_id/builds/status",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

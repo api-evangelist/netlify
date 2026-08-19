@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken buildHook API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "buildHook",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listSiteBuildHooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/build_hooks",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createSiteBuildHook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/build_hooks",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getSiteBuildHook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/build_hooks/:id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateSiteBuildHook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/build_hooks/:id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteSiteBuildHook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/build_hooks/:id",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

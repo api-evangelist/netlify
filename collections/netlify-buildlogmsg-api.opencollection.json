@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken buildLogMsg API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "buildLogMsg",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "updateSiteBuildLog",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/builds/:build_id/log",
+            "params": [
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

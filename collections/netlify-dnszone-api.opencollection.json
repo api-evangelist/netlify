@@ -1,0 +1,244 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken dnsZone API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "dnsZone",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getDNSForSite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/dns",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "configureDNSForSite",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/dns",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDnsZones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/dns_zones",
+            "params": [
+              {
+                "name": "account_slug",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createDnsZone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/dns_zones",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getDnsZone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/dns_zones/:zone_id",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteDnsZone",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.netlify.com/api/v1/dns_zones/:zone_id",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "transferDnsZone",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.netlify.com/api/v1/dns_zones/:zone_id/transfer",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "query",
+                "description": "the account of the dns zone"
+              },
+              {
+                "name": "transfer_account_id",
+                "value": "",
+                "type": "query",
+                "description": "the account you want to transfer the dns zone to"
+              },
+              {
+                "name": "transfer_user_id",
+                "value": "",
+                "type": "query",
+                "description": "the user you want to transfer the dns zone to"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getDnsRecords",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/dns_zones/:zone_id/dns_records",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createDnsRecord",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.netlify.com/api/v1/dns_zones/:zone_id/dns_records",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getIndividualDnsRecord",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/dns_zones/:zone_id/dns_records/:dns_record_id",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dns_record_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteDnsRecord",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.netlify.com/api/v1/dns_zones/:zone_id/dns_records/:dns_record_id",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dns_record_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

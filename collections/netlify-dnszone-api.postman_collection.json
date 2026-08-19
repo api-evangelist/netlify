@@ -1,0 +1,1766 @@
+{
+  "item": [
+    {
+      "id": "5521bf6b-eee1-4942-8308-1cee643f268b",
+      "name": "dnsZone",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf66c681-27cd-409e-b1ab-03c8441dd7f8",
+          "name": "get DNS For Site",
+          "request": {
+            "name": "get DNS For Site",
+            "description": {},
+            "url": {
+              "path": [
+                "sites",
+                ":site_id",
+                "dns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5ea0821-fbbc-4c6f-80dd-6b951468798a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"errors\": [\n      \"string\",\n      \"string\"\n    ],\n    \"supported_record_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"user_id\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"records\": [\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 4634,\n        \"priority\": 9045,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 9984,\n        \"tag\": \"string\",\n        \"managed\": true\n      },\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 6327,\n        \"priority\": 1482,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 2646,\n        \"tag\": \"string\",\n        \"managed\": true\n      }\n    ],\n    \"dns_servers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"account_id\": \"string\",\n    \"site_id\": \"string\",\n    \"account_slug\": \"string\",\n    \"account_name\": \"string\",\n    \"domain\": \"string\",\n    \"ipv6_enabled\": true,\n    \"dedicated\": false\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"errors\": [\n      \"string\",\n      \"string\"\n    ],\n    \"supported_record_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"user_id\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"records\": [\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 3642,\n        \"priority\": 3753,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 1214,\n        \"tag\": \"string\",\n        \"managed\": true\n      },\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 7752,\n        \"priority\": 4391,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 4017,\n        \"tag\": \"string\",\n        \"managed\": false\n      }\n    ],\n    \"dns_servers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"account_id\": \"string\",\n    \"site_id\": \"string\",\n    \"account_slug\": \"string\",\n    \"account_name\": \"string\",\n    \"domain\": \"string\",\n    \"ipv6_enabled\": true,\n    \"dedicated\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "becca490-5a0a-4dc1-8fb5-e35481c3d9b9",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0c46f34-3ac2-4f9f-ac51-d02ab30091f1",
+          "name": "configure DNS For Site",
+          "request": {
+            "name": "configure DNS For Site",
+            "description": {},
+            "url": {
+              "path": [
+                "sites",
+                ":site_id",
+                "dns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aec6a717-bbf5-477e-985d-ab98908918eb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"errors\": [\n      \"string\",\n      \"string\"\n    ],\n    \"supported_record_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"user_id\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"records\": [\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 7121,\n        \"priority\": 9940,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 2145,\n        \"tag\": \"string\",\n        \"managed\": false\n      },\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 3142,\n        \"priority\": 247,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 8102,\n        \"tag\": \"string\",\n        \"managed\": false\n      }\n    ],\n    \"dns_servers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"account_id\": \"string\",\n    \"site_id\": \"string\",\n    \"account_slug\": \"string\",\n    \"account_name\": \"string\",\n    \"domain\": \"string\",\n    \"ipv6_enabled\": true,\n    \"dedicated\": false\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"errors\": [\n      \"string\",\n      \"string\"\n    ],\n    \"supported_record_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"user_id\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"records\": [\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 2633,\n        \"priority\": 8567,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 2619,\n        \"tag\": \"string\",\n        \"managed\": true\n      },\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 9842,\n        \"priority\": 2922,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 9930,\n        \"tag\": \"string\",\n        \"managed\": false\n      }\n    ],\n    \"dns_servers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"account_id\": \"string\",\n    \"site_id\": \"string\",\n    \"account_slug\": \"string\",\n    \"account_name\": \"string\",\n    \"domain\": \"string\",\n    \"ipv6_enabled\": false,\n    \"dedicated\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2952a4d-6306-4a93-a8b0-6607ba0aa974",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8360375c-78df-4a4e-bd90-253d619a6725",
+          "name": "get Dns Zones",
+          "request": {
+            "name": "get Dns Zones",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_slug",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "252d604c-f2bc-46b4-889d-d4495525d151",
+              "name": "get all DNS zones the user has access to",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"errors\": [\n      \"string\",\n      \"string\"\n    ],\n    \"supported_record_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"user_id\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"records\": [\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 7121,\n        \"priority\": 9940,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 2145,\n        \"tag\": \"string\",\n        \"managed\": false\n      },\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 3142,\n        \"priority\": 247,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 8102,\n        \"tag\": \"string\",\n        \"managed\": false\n      }\n    ],\n    \"dns_servers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"account_id\": \"string\",\n    \"site_id\": \"string\",\n    \"account_slug\": \"string\",\n    \"account_name\": \"string\",\n    \"domain\": \"string\",\n    \"ipv6_enabled\": true,\n    \"dedicated\": false\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"errors\": [\n      \"string\",\n      \"string\"\n    ],\n    \"supported_record_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"user_id\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"records\": [\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 2633,\n        \"priority\": 8567,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 2619,\n        \"tag\": \"string\",\n        \"managed\": true\n      },\n      {\n        \"id\": \"string\",\n        \"hostname\": \"string\",\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"ttl\": 9842,\n        \"priority\": 2922,\n        \"dns_zone_id\": \"string\",\n        \"site_id\": \"string\",\n        \"flag\": 9930,\n        \"tag\": \"string\",\n        \"managed\": false\n      }\n    ],\n    \"dns_servers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"account_id\": \"string\",\n    \"site_id\": \"string\",\n    \"account_slug\": \"string\",\n    \"account_name\": \"string\",\n    \"domain\": \"string\",\n    \"ipv6_enabled\": false,\n    \"dedicated\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf9846b8-ab4e-427c-af50-e3793834c1b4",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf84a597-f1dc-4637-8424-c70f2af7a187",
+          "name": "create Dns Zone",
+          "request": {
+            "name": "create Dns Zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_slug\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a2a647b-3078-4051-bf0a-652ac8523659",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_slug\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"supported_record_types\": [\n    \"string\",\n    \"string\"\n  ],\n  \"user_id\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"records\": [\n    {\n      \"id\": \"string\",\n      \"hostname\": \"string\",\n      \"type\": \"string\",\n      \"value\": \"string\",\n      \"ttl\": 1281,\n      \"priority\": 1834,\n      \"dns_zone_id\": \"string\",\n      \"site_id\": \"string\",\n      \"flag\": 256,\n      \"tag\": \"string\",\n      \"managed\": false\n    },\n    {\n      \"id\": \"string\",\n      \"hostname\": \"string\",\n      \"type\": \"string\",\n      \"value\": \"string\",\n      \"ttl\": 8259,\n      \"priority\": 4927,\n      \"dns_zone_id\": \"string\",\n      \"site_id\": \"string\",\n      \"flag\": 1958,\n      \"tag\": \"string\",\n      \"managed\": true\n    }\n  ],\n  \"dns_servers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"account_id\": \"string\",\n  \"site_id\": \"string\",\n  \"account_slug\": \"string\",\n  \"account_name\": \"string\",\n  \"domain\": \"string\",\n  \"ipv6_enabled\": false,\n  \"dedicated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8e37d13-e136-4542-8ff7-b3339754bca7",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_slug\": \"<string>\",\n  \"site_id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df345196-7961-4bb4-bb64-908eaa79407e",
+          "name": "get Dns Zone",
+          "request": {
+            "name": "get Dns Zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones",
+                ":zone_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0eadf123-86c4-4a7f-9c29-775b38c574c3",
+              "name": "get a single DNS zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"supported_record_types\": [\n    \"string\",\n    \"string\"\n  ],\n  \"user_id\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"records\": [\n    {\n      \"id\": \"string\",\n      \"hostname\": \"string\",\n      \"type\": \"string\",\n      \"value\": \"string\",\n      \"ttl\": 1281,\n      \"priority\": 1834,\n      \"dns_zone_id\": \"string\",\n      \"site_id\": \"string\",\n      \"flag\": 256,\n      \"tag\": \"string\",\n      \"managed\": false\n    },\n    {\n      \"id\": \"string\",\n      \"hostname\": \"string\",\n      \"type\": \"string\",\n      \"value\": \"string\",\n      \"ttl\": 8259,\n      \"priority\": 4927,\n      \"dns_zone_id\": \"string\",\n      \"site_id\": \"string\",\n      \"flag\": 1958,\n      \"tag\": \"string\",\n      \"managed\": true\n    }\n  ],\n  \"dns_servers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"account_id\": \"string\",\n  \"site_id\": \"string\",\n  \"account_slug\": \"string\",\n  \"account_name\": \"string\",\n  \"domain\": \"string\",\n  \"ipv6_enabled\": false,\n  \"dedicated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e004eb3-ccd7-4ad6-b53b-648968eee7f8",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a806101-cb5f-4d25-86ca-8d698aac4bdb",
+          "name": "delete Dns Zone",
+          "request": {
+            "name": "delete Dns Zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones",
+                ":zone_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5adafc65-01ac-4a19-8c0c-6f44d38f3bcf",
+              "name": "delete a single DNS zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5463fc15-ce3c-4df5-b53a-b6288d3e9c32",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af869c2e-2716-4bb7-8ab5-6cad83ee4a08",
+          "name": "transfer Dns Zone",
+          "request": {
+            "name": "transfer Dns Zone",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones",
+                ":zone_id",
+                "transfer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "account_id",
+                  "value": "<string>",
+                  "description": "(Required) the account of the dns zone"
+                },
+                {
+                  "disabled": false,
+                  "key": "transfer_account_id",
+                  "value": "<string>",
+                  "description": "(Required) the account you want to transfer the dns zone to"
+                },
+                {
+                  "disabled": false,
+                  "key": "transfer_user_id",
+                  "value": "<string>",
+                  "description": "(Required) the user you want to transfer the dns zone to"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ac94979-2898-4692-bd43-a36be909830f",
+              "name": "transfer a DNS zone to another account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transfer_account_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transfer_user_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"supported_record_types\": [\n    \"string\",\n    \"string\"\n  ],\n  \"user_id\": \"string\",\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\",\n  \"records\": [\n    {\n      \"id\": \"string\",\n      \"hostname\": \"string\",\n      \"type\": \"string\",\n      \"value\": \"string\",\n      \"ttl\": 1281,\n      \"priority\": 1834,\n      \"dns_zone_id\": \"string\",\n      \"site_id\": \"string\",\n      \"flag\": 256,\n      \"tag\": \"string\",\n      \"managed\": false\n    },\n    {\n      \"id\": \"string\",\n      \"hostname\": \"string\",\n      \"type\": \"string\",\n      \"value\": \"string\",\n      \"ttl\": 8259,\n      \"priority\": 4927,\n      \"dns_zone_id\": \"string\",\n      \"site_id\": \"string\",\n      \"flag\": 1958,\n      \"tag\": \"string\",\n      \"managed\": true\n    }\n  ],\n  \"dns_servers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"account_id\": \"string\",\n  \"site_id\": \"string\",\n  \"account_slug\": \"string\",\n  \"account_name\": \"string\",\n  \"domain\": \"string\",\n  \"ipv6_enabled\": false,\n  \"dedicated\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fa1bf5f-bb95-42ed-9f8c-50f5369bb91e",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transfer_account_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "transfer_user_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8aec5a1b-ee6b-429e-abf7-86e802be743d",
+          "name": "get Dns Records",
+          "request": {
+            "name": "get Dns Records",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones",
+                ":zone_id",
+                "dns_records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "995f453e-f763-440c-82d7-001b6ccbb0c6",
+              "name": "get all DNS records for a single DNS zone",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "dns_records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"hostname\": \"string\",\n    \"type\": \"string\",\n    \"value\": \"string\",\n    \"ttl\": 7224,\n    \"priority\": 4145,\n    \"dns_zone_id\": \"string\",\n    \"site_id\": \"string\",\n    \"flag\": 7240,\n    \"tag\": \"string\",\n    \"managed\": false\n  },\n  {\n    \"id\": \"string\",\n    \"hostname\": \"string\",\n    \"type\": \"string\",\n    \"value\": \"string\",\n    \"ttl\": 9691,\n    \"priority\": 4619,\n    \"dns_zone_id\": \"string\",\n    \"site_id\": \"string\",\n    \"flag\": 9568,\n    \"tag\": \"string\",\n    \"managed\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5dbfc070-6171-471f-a868-1f5c0fafaa3d",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "dns_records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49b64774-f89e-4c82-b4af-4f811521ae23",
+          "name": "create Dns Record",
+          "request": {
+            "name": "create Dns Record",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones",
+                ":zone_id",
+                "dns_records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"hostname\": \"<string>\",\n  \"value\": \"<string>\",\n  \"ttl\": \"<long>\",\n  \"priority\": \"<long>\",\n  \"weight\": \"<long>\",\n  \"port\": \"<long>\",\n  \"flag\": \"<long>\",\n  \"tag\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d00375f-336b-453e-8ff2-bc76aec80121",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "dns_records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"hostname\": \"<string>\",\n  \"value\": \"<string>\",\n  \"ttl\": \"<long>\",\n  \"priority\": \"<long>\",\n  \"weight\": \"<long>\",\n  \"port\": \"<long>\",\n  \"flag\": \"<long>\",\n  \"tag\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"hostname\": \"string\",\n  \"type\": \"string\",\n  \"value\": \"string\",\n  \"ttl\": 9288,\n  \"priority\": 7951,\n  \"dns_zone_id\": \"string\",\n  \"site_id\": \"string\",\n  \"flag\": 5807,\n  \"tag\": \"string\",\n  \"managed\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3bae15da-a05a-47ac-a5fe-3cbd8d99338c",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "dns_records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"hostname\": \"<string>\",\n  \"value\": \"<string>\",\n  \"ttl\": \"<long>\",\n  \"priority\": \"<long>\",\n  \"weight\": \"<long>\",\n  \"port\": \"<long>\",\n  \"flag\": \"<long>\",\n  \"tag\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16ef42c7-a56f-4611-b2a3-4d3b5a103a57",
+          "name": "get Individual Dns Record",
+          "request": {
+            "name": "get Individual Dns Record",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones",
+                ":zone_id",
+                "dns_records",
+                ":dns_record_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dns_record_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8943c22-3071-4bad-a81b-766f0983be9b",
+              "name": "get a single DNS record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "dns_records",
+                    ":dns_record_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dns_record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"hostname\": \"string\",\n  \"type\": \"string\",\n  \"value\": \"string\",\n  \"ttl\": 9288,\n  \"priority\": 7951,\n  \"dns_zone_id\": \"string\",\n  \"site_id\": \"string\",\n  \"flag\": 5807,\n  \"tag\": \"string\",\n  \"managed\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5280c14-4e78-4964-91bd-0de81abe0ee6",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "dns_records",
+                    ":dns_record_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dns_record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be13799e-42d6-48f3-b483-684e4cd1a2a6",
+          "name": "delete Dns Record",
+          "request": {
+            "name": "delete Dns Record",
+            "description": {},
+            "url": {
+              "path": [
+                "dns_zones",
+                ":zone_id",
+                "dns_records",
+                ":dns_record_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dns_record_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cacbc86-0486-4596-bb4e-bdaf36f8488e",
+              "name": "record deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "dns_records",
+                    ":dns_record_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dns_record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c033e9c8-a470-4d6d-a40a-9ea85a12e8bb",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dns_zones",
+                    ":zone_id",
+                    "dns_records",
+                    ":dns_record_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dns_record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9600\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.netlify.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ffad8c8b-3e83-4ce9-9952-c3a5ac590f1c",
+    "name": "Netlify Netlify's API documentation accessToken dnsZone API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+      "type": "text/plain"
+    }
+  }
+}

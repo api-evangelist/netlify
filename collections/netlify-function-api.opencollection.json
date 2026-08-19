@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Netlify Netlify's API documentation accessToken Function API",
+    "version": "2.33.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://app.netlify.com/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Function",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "searchSiteFunctions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.netlify.com/api/v1/sites/:site_id/functions",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "uploadDeployFunction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.netlify.com/api/v1/deploys/:deploy_id/functions/:name",
+            "headers": [
+              {
+                "name": "X-Nf-Retry-Count",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deploy_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "runtime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "invocation_mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timeout",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

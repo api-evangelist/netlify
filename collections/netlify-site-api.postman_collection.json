@@ -1,0 +1,1399 @@
+{
+  "item": [
+    {
+      "id": "b639c101-1b6c-48b2-b28c-ec1768992100",
+      "name": "Site",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84d10dfc-5245-44cc-8be7-8c345248524d",
+          "name": "list Sites",
+          "request": {
+            "name": "list Sites",
+            "description": {
+              "content": "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff66a890-cac2-4e2e-b7c9-d35ac1fa9d90",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"state\": \"string\",\n    \"plan\": \"string\",\n    \"name\": \"string\",\n    \"custom_domain\": \"string\",\n    \"domain_aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"branch_deploy_custom_domain\": \"string\",\n    \"deploy_preview_custom_domain\": \"string\",\n    \"password\": \"string\",\n    \"notification_email\": \"string\",\n    \"url\": \"string\",\n    \"ssl_url\": \"string\",\n    \"admin_url\": \"string\",\n    \"screenshot_url\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"user_id\": \"string\",\n    \"session_id\": \"string\",\n    \"ssl\": true,\n    \"force_ssl\": false,\n    \"managed_dns\": false,\n    \"deploy_url\": \"string\",\n    \"published_deploy\": {\n      \"id\": \"string\",\n      \"site_id\": \"string\",\n      \"user_id\": \"string\",\n      \"build_id\": \"string\",\n      \"state\": \"string\",\n      \"name\": \"string\",\n      \"url\": \"string\",\n      \"ssl_url\": \"string\",\n      \"admin_url\": \"string\",\n      \"deploy_url\": \"string\",\n      \"deploy_ssl_url\": \"string\",\n      \"screenshot_url\": \"string\",\n      \"review_id\": 868.837133916579,\n      \"draft\": false,\n      \"required\": [\n        \"string\",\n        \"string\"\n      ],\n      \"required_functions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"error_message\": \"string\",\n      \"branch\": \"string\",\n      \"commit_ref\": \"string\",\n      \"commit_url\": \"string\",\n      \"skipped\": true,\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\",\n      \"published_at\": \"string\",\n      \"title\": \"string\",\n      \"context\": \"string\",\n      \"locked\": false,\n      \"review_url\": \"string\",\n      \"framework\": \"string\",\n      \"function_schedules\": [\n        {\n          \"name\": \"string\",\n          \"cron\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"cron\": \"string\"\n        }\n      ]\n    },\n    \"account_name\": \"string\",\n    \"account_slug\": \"string\",\n    \"git_provider\": \"string\",\n    \"deploy_hook\": \"string\",\n    \"capabilities\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"processing_settings\": {\n      \"html\": {\n        \"pretty_urls\": true\n      }\n    },\n    \"build_settings\": {\n      \"id\": 174,\n      \"provider\": \"string\",\n      \"deploy_key_id\": \"string\",\n      \"repo_path\": \"string\",\n      \"repo_branch\": \"string\",\n      \"dir\": \"string\",\n      \"functions_dir\": \"string\",\n      \"cmd\": \"string\",\n      \"allowed_branches\": [\n        \"string\",\n        \"string\"\n      ],\n      \"public_repo\": false,\n      \"private_logs\": true,\n      \"repo_url\": \"string\",\n      \"env\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"installation_id\": 4732,\n      \"stop_builds\": false\n    },\n    \"id_domain\": \"string\",\n    \"default_hooks_data\": {\n      \"access_token\": \"string\"\n    },\n    \"build_image\": \"string\",\n    \"prerender\": \"string\",\n    \"functions_region\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"state\": \"string\",\n    \"plan\": \"string\",\n    \"name\": \"string\",\n    \"custom_domain\": \"string\",\n    \"domain_aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"branch_deploy_custom_domain\": \"string\",\n    \"deploy_preview_custom_domain\": \"string\",\n    \"password\": \"string\",\n    \"notification_email\": \"string\",\n    \"url\": \"string\",\n    \"ssl_url\": \"string\",\n    \"admin_url\": \"string\",\n    \"screenshot_url\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"user_id\": \"string\",\n    \"session_id\": \"string\",\n    \"ssl\": true,\n    \"force_ssl\": true,\n    \"managed_dns\": false,\n    \"deploy_url\": \"string\",\n    \"published_deploy\": {\n      \"id\": \"string\",\n      \"site_id\": \"string\",\n      \"user_id\": \"string\",\n      \"build_id\": \"string\",\n      \"state\": \"string\",\n      \"name\": \"string\",\n      \"url\": \"string\",\n      \"ssl_url\": \"string\",\n      \"admin_url\": \"string\",\n      \"deploy_url\": \"string\",\n      \"deploy_ssl_url\": \"string\",\n      \"screenshot_url\": \"string\",\n      \"review_id\": 1649.0749830715113,\n      \"draft\": false,\n      \"required\": [\n        \"string\",\n        \"string\"\n      ],\n      \"required_functions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"error_message\": \"string\",\n      \"branch\": \"string\",\n      \"commit_ref\": \"string\",\n      \"commit_url\": \"string\",\n      \"skipped\": true,\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\",\n      \"published_at\": \"string\",\n      \"title\": \"string\",\n      \"context\": \"string\",\n      \"locked\": true,\n      \"review_url\": \"string\",\n      \"framework\": \"string\",\n      \"function_schedules\": [\n        {\n          \"name\": \"string\",\n          \"cron\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"cron\": \"string\"\n        }\n      ]\n    },\n    \"account_name\": \"string\",\n    \"account_slug\": \"string\",\n    \"git_provider\": \"string\",\n    \"deploy_hook\": \"string\",\n    \"capabilities\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"processing_settings\": {\n      \"html\": {\n        \"pretty_urls\": false\n      }\n    },\n    \"build_settings\": {\n      \"id\": 198,\n      \"provider\": \"string\",\n      \"deploy_key_id\": \"string\",\n      \"repo_path\": \"string\",\n      \"repo_branch\": \"string\",\n      \"dir\": \"string\",\n      \"functions_dir\": \"string\",\n      \"cmd\": \"string\",\n      \"allowed_branches\": [\n        \"string\",\n        \"string\"\n      ],\n      \"public_repo\": false,\n      \"private_logs\": false,\n      \"repo_url\": \"string\",\n      \"env\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"installation_id\": 7230,\n      \"stop_builds\": true\n    },\n    \"id_domain\": \"string\",\n    \"default_hooks_data\": {\n      \"access_token\": \"string\"\n    },\n    \"build_image\": \"string\",\n    \"prerender\": \"string\",\n    \"functions_region\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9929895f-1b3a-4e16-872b-a075dc088684",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9502\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "703c473a-77cc-4570-94e0-ba84475afb95",
+          "name": "create Site",
+          "request": {
+            "name": "create Site",
+            "description": {
+              "content": "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [createEnvVars](#tag/environmentVariables/operation/createEnvVars) to create environment variables for a site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "configure_dns",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4ace2f0-1c3c-490d-9eca-5219c83d03a7",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "configure_dns",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1e8e0fe-70c3-4812-b198-f94791912785",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "configure_dns",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9502\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f8aebc9-b573-43a7-81b9-c078444c910c",
+          "name": "get Site",
+          "request": {
+            "name": "get Site",
+            "description": {
+              "content": "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "feature_flags",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31a494e3-209b-4b37-ba83-e35281ec7ec1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feature_flags",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfb6fa8a-d029-4062-990e-9aedf6b6fb4f",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feature_flags",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9502\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77b231a3-be49-40f0-bc35-89aaf558f110",
+          "name": "delete Site",
+          "request": {
+            "name": "delete Site",
+            "description": {},
+            "url": {
+              "path": [
+                "sites",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5206f73c-6be3-4354-ac28-7426171fa432",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2611cdd-b657-4589-b10a-a5ed0d56fa20",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9502\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc43131c-f1af-4d3b-ab75-80645a98b88b",
+          "name": "update Site",
+          "request": {
+            "name": "update Site",
+            "description": {
+              "content": "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [updateEnvVar](#tag/environmentVariables/operation/updateEnvVar) to update a site's environment variables.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2331e15d-388b-4763-9c9a-6a569d18ecc9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "728b81e5-5385-4a51-abef-9a43f36a29a6",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9502\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00aadf34-6a3f-40ca-82b4-d9557913133c",
+          "name": "unlink Site Repo",
+          "request": {
+            "name": "unlink Site Repo",
+            "description": {
+              "content": "[Beta] Unlinks the repo from the site.\n\nThis action will also:\n- Delete associated deploy keys\n- Delete outgoing webhooks for the repo\n- Delete the site's build hooks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                ":site_id",
+                "unlink_repo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29e00d9c-1236-4592-bb83-66ac8708db15",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id",
+                    "unlink_repo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d4c0f8e-a9dd-48ca-842b-a48300a35bc6",
+              "name": "Site not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    ":site_id",
+                    "unlink_repo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76ae933c-691a-449c-90ce-d0587e3f8d21",
+          "name": "list Sites For Account",
+          "request": {
+            "name": "list Sites For Account",
+            "description": {
+              "content": "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [getEnvVars](#tag/environmentVariables/operation/getEnvVars) to retrieve site environment variables.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_slug",
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "581f9dff-4cec-4204-95e8-a049f1fb4042",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_slug",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"plan\": \"<string>\",\n    \"name\": \"<string>\",\n    \"custom_domain\": \"<string>\",\n    \"domain_aliases\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"branch_deploy_custom_domain\": \"<string>\",\n    \"deploy_preview_custom_domain\": \"<string>\",\n    \"password\": \"<string>\",\n    \"notification_email\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"user_id\": \"<string>\",\n    \"session_id\": \"<string>\",\n    \"ssl\": \"<boolean>\",\n    \"force_ssl\": \"<boolean>\",\n    \"managed_dns\": \"<boolean>\",\n    \"deploy_url\": \"<string>\",\n    \"published_deploy\": {\n      \"id\": \"<string>\",\n      \"site_id\": \"<string>\",\n      \"user_id\": \"<string>\",\n      \"build_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"ssl_url\": \"<string>\",\n      \"admin_url\": \"<string>\",\n      \"deploy_url\": \"<string>\",\n      \"deploy_ssl_url\": \"<string>\",\n      \"screenshot_url\": \"<string>\",\n      \"review_id\": \"<number>\",\n      \"draft\": \"<boolean>\",\n      \"required\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"required_functions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"error_message\": \"<string>\",\n      \"branch\": \"<string>\",\n      \"commit_ref\": \"<string>\",\n      \"commit_url\": \"<string>\",\n      \"skipped\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"published_at\": \"<dateTime>\",\n      \"title\": \"<string>\",\n      \"context\": \"<string>\",\n      \"locked\": \"<boolean>\",\n      \"review_url\": \"<string>\",\n      \"framework\": \"<string>\",\n      \"function_schedules\": [\n        {\n          \"name\": \"<string>\",\n          \"cron\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"cron\": \"<string>\"\n        }\n      ]\n    },\n    \"account_name\": \"<string>\",\n    \"account_slug\": \"<string>\",\n    \"git_provider\": \"<string>\",\n    \"deploy_hook\": \"<string>\",\n    \"capabilities\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"processing_settings\": {\n      \"html\": {\n        \"pretty_urls\": \"<boolean>\"\n      }\n    },\n    \"build_settings\": {\n      \"id\": \"<integer>\",\n      \"provider\": \"<string>\",\n      \"deploy_key_id\": \"<string>\",\n      \"repo_path\": \"<string>\",\n      \"repo_branch\": \"<string>\",\n      \"dir\": \"<string>\",\n      \"functions_dir\": \"<string>\",\n      \"cmd\": \"<string>\",\n      \"allowed_branches\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"public_repo\": \"<boolean>\",\n      \"private_logs\": \"<boolean>\",\n      \"repo_url\": \"<string>\",\n      \"env\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"installation_id\": \"<integer>\",\n      \"stop_builds\": \"<boolean>\"\n    },\n    \"id_domain\": \"<string>\",\n    \"default_hooks_data\": {\n      \"access_token\": \"<string>\"\n    },\n    \"build_image\": \"<string>\",\n    \"prerender\": \"<string>\",\n    \"functions_region\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"plan\": \"<string>\",\n    \"name\": \"<string>\",\n    \"custom_domain\": \"<string>\",\n    \"domain_aliases\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"branch_deploy_custom_domain\": \"<string>\",\n    \"deploy_preview_custom_domain\": \"<string>\",\n    \"password\": \"<string>\",\n    \"notification_email\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"user_id\": \"<string>\",\n    \"session_id\": \"<string>\",\n    \"ssl\": \"<boolean>\",\n    \"force_ssl\": \"<boolean>\",\n    \"managed_dns\": \"<boolean>\",\n    \"deploy_url\": \"<string>\",\n    \"published_deploy\": {\n      \"id\": \"<string>\",\n      \"site_id\": \"<string>\",\n      \"user_id\": \"<string>\",\n      \"build_id\": \"<string>\",\n      \"state\": \"<string>\",\n      \"name\": \"<string>\",\n      \"url\": \"<string>\",\n      \"ssl_url\": \"<string>\",\n      \"admin_url\": \"<string>\",\n      \"deploy_url\": \"<string>\",\n      \"deploy_ssl_url\": \"<string>\",\n      \"screenshot_url\": \"<string>\",\n      \"review_id\": \"<number>\",\n      \"draft\": \"<boolean>\",\n      \"required\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"required_functions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"error_message\": \"<string>\",\n      \"branch\": \"<string>\",\n      \"commit_ref\": \"<string>\",\n      \"commit_url\": \"<string>\",\n      \"skipped\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"published_at\": \"<dateTime>\",\n      \"title\": \"<string>\",\n      \"context\": \"<string>\",\n      \"locked\": \"<boolean>\",\n      \"review_url\": \"<string>\",\n      \"framework\": \"<string>\",\n      \"function_schedules\": [\n        {\n          \"name\": \"<string>\",\n          \"cron\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"cron\": \"<string>\"\n        }\n      ]\n    },\n    \"account_name\": \"<string>\",\n    \"account_slug\": \"<string>\",\n    \"git_provider\": \"<string>\",\n    \"deploy_hook\": \"<string>\",\n    \"capabilities\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"processing_settings\": {\n      \"html\": {\n        \"pretty_urls\": \"<boolean>\"\n      }\n    },\n    \"build_settings\": {\n      \"id\": \"<integer>\",\n      \"provider\": \"<string>\",\n      \"deploy_key_id\": \"<string>\",\n      \"repo_path\": \"<string>\",\n      \"repo_branch\": \"<string>\",\n      \"dir\": \"<string>\",\n      \"functions_dir\": \"<string>\",\n      \"cmd\": \"<string>\",\n      \"allowed_branches\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"public_repo\": \"<boolean>\",\n      \"private_logs\": \"<boolean>\",\n      \"repo_url\": \"<string>\",\n      \"env\": {\n        \"key_0\": \"<string>\"\n      },\n      \"installation_id\": \"<integer>\",\n      \"stop_builds\": \"<boolean>\"\n    },\n    \"id_domain\": \"<string>\",\n    \"default_hooks_data\": {\n      \"access_token\": \"<string>\"\n    },\n    \"build_image\": \"<string>\",\n    \"prerender\": \"<string>\",\n    \"functions_region\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb18832f-b3b3-4a30-8d19-c83c39393a55",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_slug",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9502\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5879100c-4346-4d9a-a483-018c6e073944",
+          "name": "create Site In Team",
+          "request": {
+            "name": "create Site In Team",
+            "description": {
+              "content": "**Note:** Environment variable keys and values have moved from `build_settings.env` and `repo.env` to a new endpoint. Please use [createEnvVars](#tag/environmentVariables/operation/createEnvVars) to create environment variables for a site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_slug",
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "configure_dns",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5a1181d5-41a6-43e6-87a8-387cfc2f3565",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_slug",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "configure_dns",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57b40e47-31f6-4e02-94da-3e05b0435d42",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_slug",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "configure_dns",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"custom_domain\": \"<string>\",\n  \"domain_aliases\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"branch_deploy_custom_domain\": \"<string>\",\n  \"deploy_preview_custom_domain\": \"<string>\",\n  \"password\": \"<string>\",\n  \"notification_email\": \"<string>\",\n  \"url\": \"<string>\",\n  \"ssl_url\": \"<string>\",\n  \"admin_url\": \"<string>\",\n  \"screenshot_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"user_id\": \"<string>\",\n  \"session_id\": \"<string>\",\n  \"ssl\": \"<boolean>\",\n  \"force_ssl\": \"<boolean>\",\n  \"managed_dns\": \"<boolean>\",\n  \"deploy_url\": \"<string>\",\n  \"published_deploy\": {\n    \"id\": \"<string>\",\n    \"site_id\": \"<string>\",\n    \"user_id\": \"<string>\",\n    \"build_id\": \"<string>\",\n    \"state\": \"<string>\",\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"ssl_url\": \"<string>\",\n    \"admin_url\": \"<string>\",\n    \"deploy_url\": \"<string>\",\n    \"deploy_ssl_url\": \"<string>\",\n    \"screenshot_url\": \"<string>\",\n    \"review_id\": \"<number>\",\n    \"draft\": \"<boolean>\",\n    \"required\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"required_functions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"error_message\": \"<string>\",\n    \"branch\": \"<string>\",\n    \"commit_ref\": \"<string>\",\n    \"commit_url\": \"<string>\",\n    \"skipped\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"published_at\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"context\": \"<string>\",\n    \"locked\": \"<boolean>\",\n    \"review_url\": \"<string>\",\n    \"framework\": \"<string>\",\n    \"function_schedules\": [\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"cron\": \"<string>\"\n      }\n    ]\n  },\n  \"account_name\": \"<string>\",\n  \"account_slug\": \"<string>\",\n  \"git_provider\": \"<string>\",\n  \"deploy_hook\": \"<string>\",\n  \"capabilities\": {\n    \"key_0\": {}\n  },\n  \"processing_settings\": {\n    \"html\": {\n      \"pretty_urls\": \"<boolean>\"\n    }\n  },\n  \"build_settings\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  },\n  \"id_domain\": \"<string>\",\n  \"default_hooks_data\": {\n    \"access_token\": \"<string>\"\n  },\n  \"build_image\": \"<string>\",\n  \"prerender\": \"<string>\",\n  \"functions_region\": \"<string>\",\n  \"repo\": {\n    \"id\": \"<integer>\",\n    \"provider\": \"<string>\",\n    \"deploy_key_id\": \"<string>\",\n    \"repo_path\": \"<string>\",\n    \"repo_branch\": \"<string>\",\n    \"dir\": \"<string>\",\n    \"functions_dir\": \"<string>\",\n    \"cmd\": \"<string>\",\n    \"allowed_branches\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"public_repo\": \"<boolean>\",\n    \"private_logs\": \"<boolean>\",\n    \"repo_url\": \"<string>\",\n    \"env\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"installation_id\": \"<integer>\",\n    \"stop_builds\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 9502\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.netlify.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ee0febd0-8938-4983-91bc-b0a45428955e",
+    "name": "Netlify Netlify's API documentation accessToken Site API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+      "type": "text/plain"
+    }
+  }
+}

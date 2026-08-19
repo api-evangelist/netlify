@@ -1,0 +1,770 @@
+{
+  "item": [
+    {
+      "id": "66297dcf-a107-4875-a8df-9f518b0d4350",
+      "name": "accountMembership",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e218768b-dae1-4540-9fad-779862c82927",
+          "name": "list Accounts For User",
+          "request": {
+            "name": "list Accounts For User",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f61aaedf-8560-4046-b31d-2b15c6d0b13c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"type\": \"string\",\n    \"capabilities\": {\n      \"sites\": {\n        \"included\": 5711,\n        \"used\": 1327\n      },\n      \"collaborators\": {\n        \"included\": 6471,\n        \"used\": 8800\n      }\n    },\n    \"billing_name\": \"string\",\n    \"billing_email\": \"string\",\n    \"billing_details\": \"string\",\n    \"billing_period\": \"string\",\n    \"payment_method_id\": \"string\",\n    \"type_name\": \"string\",\n    \"type_id\": \"string\",\n    \"owner_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"roles_allowed\": [\n      \"string\",\n      \"string\"\n    ],\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"type\": \"string\",\n    \"capabilities\": {\n      \"sites\": {\n        \"included\": 4167,\n        \"used\": 2723\n      },\n      \"collaborators\": {\n        \"included\": 2955,\n        \"used\": 9745\n      }\n    },\n    \"billing_name\": \"string\",\n    \"billing_email\": \"string\",\n    \"billing_details\": \"string\",\n    \"billing_period\": \"string\",\n    \"payment_method_id\": \"string\",\n    \"type_name\": \"string\",\n    \"type_id\": \"string\",\n    \"owner_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"roles_allowed\": [\n      \"string\",\n      \"string\"\n    ],\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d08b7542-62da-4755-a1ff-adb453fe46cf",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 8114\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3739e85b-ad95-4e4d-afbc-2f27f210e01d",
+          "name": "create Account",
+          "request": {
+            "name": "create Account",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"payment_method_id\": \"<string>\",\n  \"period\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "999db55d-2d02-40a4-ae2e-0231d9eb2d35",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"payment_method_id\": \"<string>\",\n  \"period\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"type\": \"string\",\n  \"capabilities\": {\n    \"sites\": {\n      \"included\": 1681,\n      \"used\": 7532\n    },\n    \"collaborators\": {\n      \"included\": 6024,\n      \"used\": 8040\n    }\n  },\n  \"billing_name\": \"string\",\n  \"billing_email\": \"string\",\n  \"billing_details\": \"string\",\n  \"billing_period\": \"string\",\n  \"payment_method_id\": \"string\",\n  \"type_name\": \"string\",\n  \"type_id\": \"string\",\n  \"owner_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"roles_allowed\": [\n    \"string\",\n    \"string\"\n  ],\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19a393a8-8661-49fd-8fb4-7cfa41eb6310",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"payment_method_id\": \"<string>\",\n  \"period\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 8114\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5e4dad7-4f09-4423-b6c0-c5701484050d",
+          "name": "get Account",
+          "request": {
+            "name": "get Account",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6d94dc3-69b4-4b84-aa88-2a54f12fec40",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"type\": \"string\",\n    \"capabilities\": {\n      \"sites\": {\n        \"included\": 28,\n        \"used\": 2505\n      },\n      \"collaborators\": {\n        \"included\": 7605,\n        \"used\": 8157\n      }\n    },\n    \"billing_name\": \"string\",\n    \"billing_email\": \"string\",\n    \"billing_details\": \"string\",\n    \"billing_period\": \"string\",\n    \"payment_method_id\": \"string\",\n    \"type_name\": \"string\",\n    \"type_id\": \"string\",\n    \"owner_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"roles_allowed\": [\n      \"string\",\n      \"string\"\n    ],\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"type\": \"string\",\n    \"capabilities\": {\n      \"sites\": {\n        \"included\": 2095,\n        \"used\": 9354\n      },\n      \"collaborators\": {\n        \"included\": 8219,\n        \"used\": 7944\n      }\n    },\n    \"billing_name\": \"string\",\n    \"billing_email\": \"string\",\n    \"billing_details\": \"string\",\n    \"billing_period\": \"string\",\n    \"payment_method_id\": \"string\",\n    \"type_name\": \"string\",\n    \"type_id\": \"string\",\n    \"owner_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"roles_allowed\": [\n      \"string\",\n      \"string\"\n    ],\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a76d7c3-2fa9-4b3f-b625-b95346996368",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 8114\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e75420d-9d5c-4411-b4ad-9fa6404e0d8f",
+          "name": "update Account",
+          "request": {
+            "name": "update Account",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\",\n  \"billing_name\": \"<string>\",\n  \"billing_email\": \"<string>\",\n  \"billing_details\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bba8f7d5-c4dd-4c02-a4e3-7493549b5e63",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\",\n  \"billing_name\": \"<string>\",\n  \"billing_email\": \"<string>\",\n  \"billing_details\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"type\": \"string\",\n  \"capabilities\": {\n    \"sites\": {\n      \"included\": 1681,\n      \"used\": 7532\n    },\n    \"collaborators\": {\n      \"included\": 6024,\n      \"used\": 8040\n    }\n  },\n  \"billing_name\": \"string\",\n  \"billing_email\": \"string\",\n  \"billing_details\": \"string\",\n  \"billing_period\": \"string\",\n  \"payment_method_id\": \"string\",\n  \"type_name\": \"string\",\n  \"type_id\": \"string\",\n  \"owner_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"roles_allowed\": [\n    \"string\",\n    \"string\"\n  ],\n  \"created_at\": \"string\",\n  \"updated_at\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dde064f0-c5f2-4dcc-b53f-208d3ff6b869",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"slug\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"extra_seats_block\": \"<integer>\",\n  \"billing_name\": \"<string>\",\n  \"billing_email\": \"<string>\",\n  \"billing_details\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 8114\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4687f101-9f0c-4091-860f-e0bd6ca5180f",
+          "name": "cancel Account",
+          "request": {
+            "name": "cancel Account",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts",
+                ":account_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ec744c5-0046-4016-9d76-38afccae7a56",
+              "name": "Not Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d0367edc-4da3-476c-b539-f4d8a669afab",
+              "name": "error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": 8114\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.netlify.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "authUrl",
+        "value": "https://app.netlify.com/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "037a8463-04e5-4699-a03d-59ed8265aef3",
+    "name": "Netlify Netlify's API documentation accessToken accountMembership API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.\n\nThis document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).\n\nAdditionally, we have two API clients for your convenience:\n- [Go Client](https://github.com/netlify/open-api#go-client)\n- [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)",
+      "type": "text/plain"
+    }
+  }
+}
