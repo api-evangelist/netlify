@@ -1,4 +1,4 @@
-generated: '2026-07-11'
+generated: '2026-08-27'
 method: searched
 probe: true
 source: https://trust-center.netlify-corp.com/
@@ -19,3 +19,32 @@ evidence:
   - hipaa
   - trust center
   - gdpr
+canonical_url: https://trust.netlify.com/
+canonical_url_note: >-
+  https://www.netlify.com/security/ links its Trust Center as https://trust.netlify.com/, which
+  is the customer-facing hostname; the probe above reached the same Trust Center at its
+  netlify-corp.com origin. trust.netlify.com returned HTTP 403 to this crawler on 2026-08-27
+  (bot challenge, not a dead page) — the certifications below are therefore read from the
+  netlify-corp.com origin and from Netlify's own security page, not from a 403.
+enriched: '2026-08-27'
+enriched_method: searched
+additional_certifications:
+- CCPA
+- DORA
+compliance_detail:
+  soc2: SOC 2 Type 2, audited annually by an independent third party. Report available to Enterprise customers through the Trust Center.
+  iso27001: ISO 27001 certificate viewable online by all customers.
+  iso27018: ISO 27018.
+  pci_dss: PCI DSS v4.0. Compliant for SAQ-A, with a full RoC assessment completed.
+  hipaa: HIPAA.
+  gdpr_ccpa: GDPR and CCPA, with a published GDPR/CCPA policy at https://www.netlify.com/gdpr-ccpa/.
+  dora: DORA listed among certifications on the security page.
+compliance_sources:
+- url: https://www.netlify.com/security/
+  status: 200
+- url: https://www.netlify.com/security.md
+  status: 200
+  note: Netlify serves a Markdown twin of the security page at the same path plus .md.
+- url: https://trust.netlify.com/
+  status: 403
+  note: Bot challenge to this crawler; the page demonstrably exists and is linked from the security page.

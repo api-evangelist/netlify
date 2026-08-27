@@ -1,23 +1,13 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken Deploy API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify Deploy API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged Deploy across 2 of this provider''s published API definitions: netlify-deploy-api-openapi.yml, netlify-openapi-2.57.0-swagger.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -168,6 +158,50 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
       x-codegen-request-body-name: deploy
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: deploy-previews
+      in: query
+      schema:
+        type: boolean
+    - name: production
+      in: query
+      schema:
+        type: boolean
+    - name: state
+      in: query
+      schema:
+        type: string
+        enum:
+        - new
+        - pending_review
+        - accepted
+        - rejected
+        - enqueued
+        - building
+        - uploading
+        - uploaded
+        - preparing
+        - prepared
+        - processing
+        - processed
+        - ready
+        - error
+        - retrying
+    - name: branch
+      in: query
+      schema:
+        type: string
+    - name: latest-published
+      in: query
+      schema:
+        type: boolean
+    servers:
+    - url: https://api.netlify.com/api/v1
   /sites/{site_id}/deploys/{deploy_id}:
     get:
       tags:
@@ -257,6 +291,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    servers:
+    - url: https://api.netlify.com/api/v1
   /deploys/{deploy_id}/cancel:
     post:
       tags:
@@ -281,6 +317,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    servers:
+    - url: https://api.netlify.com/api/v1
   /sites/{site_id}/deploys/{deploy_id}/restore:
     post:
       tags:
@@ -310,6 +348,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    servers:
+    - url: https://api.netlify.com/api/v1
   /sites/{site_id}/rollback:
     put:
       tags:
@@ -331,6 +371,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
   /deploys/{deploy_id}:
     get:
       tags:
@@ -375,6 +423,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    servers:
+    - url: https://api.netlify.com/api/v1
   /deploys/{deploy_id}/lock:
     post:
       tags:
@@ -399,6 +449,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    servers:
+    - url: https://api.netlify.com/api/v1
   /deploys/{deploy_id}/unlock:
     post:
       tags:
@@ -423,39 +475,100 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    servers:
+    - url: https://api.netlify.com/api/v1
+  /deploys/{deploy_id}/validations_report:
+    patch:
+      operationId: updateDeployValidations
+      tags:
+      - Deploy
+      description: Updates the deploy validations report for a deploy.
+      x-internal: true
+      x-controller: api/v1/deploys
+      x-action: validations_report
+      parameters:
+      - name: deploy_id
+        description: The ID of the deploy
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The id of the deploy validations report
+                  deploy_id:
+                    type: string
+                    description: The id of the deploy
+                  secret_scan_result:
+                    type: object
+                    properties:
+                      scannedFilesCount:
+                        type: integer
+                        description: The number of files scanned
+                      secretsScanMatches:
+                        type: array
+                        items:
+                          type: string
+                        description: The list of secrets scan matches
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                secrets_scan:
+                  type: object
+        required: true
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
-    excludedFunctionRoute:
+    trafficRulesRateLimitConfig:
       type: object
       properties:
-        pattern:
+        algorithm:
           type: string
-        literal:
-          type: string
-        expression:
-          type: string
-    functionRoute:
+          enum:
+          - sliding_window
+        window_size:
+          type: integer
+        window_limit:
+          type: integer
+    error:
+      required:
+      - message
       type: object
       properties:
-        pattern:
+        code:
+          type: integer
+          format: int64
+        message:
           type: string
-        literal:
-          type: string
-        expression:
-          type: string
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - POST
-            - PUT
-            - PATCH
-            - DELETE
-            - OPTIONS
-        prefer_static:
-          type: boolean
+    trafficRulesConfig:
+      type: object
+      properties:
+        action:
+          type: object
+          properties:
+            type:
+              type: string
+            config:
+              type: object
+              properties:
+                to:
+                  type: string
+                rate_limit_config:
+                  $ref: '#/components/schemas/trafficRulesRateLimitConfig'
+                aggregate:
+                  $ref: '#/components/schemas/trafficRulesAggregateConfig'
     deploy:
       type: object
       properties:
@@ -528,37 +641,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/functionSchedule'
-    trafficRulesRateLimitConfig:
-      type: object
-      properties:
-        algorithm:
-          type: string
-          enum:
-          - sliding_window
-        window_size:
-          type: integer
-        window_limit:
-          type: integer
-    functionSchedule:
-      type: object
-      properties:
-        name:
-          type: string
-        cron:
-          type: string
-    trafficRulesAggregateConfig:
-      type: object
-      properties:
-        keys:
-          type: array
-          items:
-            type: object
-            properties:
-              type:
-                type: string
-                enum:
-                - ip
-                - domain
     deployFiles:
       type: object
       properties:
@@ -586,34 +668,44 @@ components:
           type: string
         framework_version:
           type: string
-    error:
-      required:
-      - message
+    functionRoute:
       type: object
       properties:
-        code:
-          type: integer
-          format: int64
-        message:
+        pattern:
           type: string
-          nullable: false
-    trafficRulesConfig:
+        literal:
+          type: string
+        expression:
+          type: string
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - POST
+            - PUT
+            - PATCH
+            - DELETE
+            - OPTIONS
+        prefer_static:
+          type: boolean
+    functionSchedule:
       type: object
       properties:
-        action:
-          type: object
-          properties:
-            type:
-              type: string
-            config:
-              type: object
-              properties:
-                to:
-                  type: string
-                rate_limit_config:
-                  $ref: '#/components/schemas/trafficRulesRateLimitConfig'
-                aggregate:
-                  $ref: '#/components/schemas/trafficRulesAggregateConfig'
+        name:
+          type: string
+        cron:
+          type: string
+    excludedFunctionRoute:
+      type: object
+      properties:
+        pattern:
+          type: string
+        literal:
+          type: string
+        expression:
+          type: string
     functionConfig:
       type: object
       properties:
@@ -636,6 +728,19 @@ components:
           type: integer
         traffic_rules:
           $ref: '#/components/schemas/trafficRulesConfig'
+    trafficRulesAggregateConfig:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum:
+                - ip
+                - domain
   securitySchemes:
     netlifyAuth:
       type: oauth2
@@ -646,6 +751,9 @@ components:
 externalDocs:
   description: Online documentation
   url: https://www.netlify.com/docs/api/
+x-refined-from:
+- netlify-deploy-api-openapi.yml
+- netlify-openapi-2.57.0-swagger.json
 x-tagGroups:
 - name: OAuth
   tags:

@@ -1,23 +1,13 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken splitTest API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify Split Test API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged splitTest across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-splittest-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -27,183 +17,316 @@ tags:
   x-displayName: Split test
 paths:
   /sites/{site_id}/traffic_splits:
-    get:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: createSplitTest
       tags:
       - splitTest
-      operationId: getSplitTests
-      parameters:
-      - name: site_id
-        in: path
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  site_id:
+                    type: string
+                  name:
+                    type: string
+                  path:
+                    type: string
+                  branches:
+                    type: array
+                    items:
+                      type: object
+                  active:
+                    type: boolean
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+                  unpublished_at:
+                    type: string
+                    format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                branch_tests:
+                  type: object
         required: true
-        schema:
-          type: string
+    get:
+      operationId: getSplitTests
+      tags:
+      - splitTest
       responses:
         '200':
           description: split_tests
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/splitTests'
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    site_id:
+                      type: string
+                    name:
+                      type: string
+                    path:
+                      type: string
+                    branches:
+                      type: array
+                      items:
+                        type: object
+                    active:
+                      type: boolean
+                    created_at:
+                      type: string
+                      format: dateTime
+                    updated_at:
+                      type: string
+                      format: dateTime
+                    unpublished_at:
+                      type: string
+                      format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-    post:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
+  /sites/{site_id}/traffic_splits/{split_test_id}:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: split_test_id
+      in: path
+      required: true
+      schema:
+        type: string
+    put:
+      operationId: updateSplitTest
       tags:
       - splitTest
-      operationId: createSplitTest
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/splitTestSetup'
-        required: true
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/splitTest'
+                type: object
+                properties:
+                  id:
+                    type: string
+                  site_id:
+                    type: string
+                  name:
+                    type: string
+                  path:
+                    type: string
+                  branches:
+                    type: array
+                    items:
+                      type: object
+                  active:
+                    type: boolean
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+                  unpublished_at:
+                    type: string
+                    format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: branch_tests
-  /sites/{site_id}/traffic_splits/{split_test_id}:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                branch_tests:
+                  type: object
+        required: true
     get:
+      operationId: getSplitTest
       tags:
       - splitTest
-      operationId: getSplitTest
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: split_test_id
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '200':
           description: split_test
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/splitTest'
+                type: object
+                properties:
+                  id:
+                    type: string
+                  site_id:
+                    type: string
+                  name:
+                    type: string
+                  path:
+                    type: string
+                  branches:
+                    type: array
+                    items:
+                      type: object
+                  active:
+                    type: boolean
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+                  unpublished_at:
+                    type: string
+                    format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-    put:
-      tags:
-      - splitTest
-      operationId: updateSplitTest
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: split_test_id
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/splitTestSetup'
-        required: true
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/splitTest'
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: branch_tests
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
   /sites/{site_id}/traffic_splits/{split_test_id}/publish:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: split_test_id
+      in: path
+      required: true
+      schema:
+        type: string
     post:
+      operationId: enableSplitTest
       tags:
       - splitTest
-      operationId: enableSplitTest
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: split_test_id
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '204':
           description: enable
-          content: {}
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
   /sites/{site_id}/traffic_splits/{split_test_id}/unpublish:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: split_test_id
+      in: path
+      required: true
+      schema:
+        type: string
     post:
+      operationId: disableSplitTest
       tags:
       - splitTest
-      operationId: disableSplitTest
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: split_test_id
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '204':
           description: disabled
-          content: {}
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
-    splitTestSetup:
-      type: object
-      properties:
-        branch_tests:
-          type: object
-          properties: {}
     splitTest:
       type: object
       properties:
@@ -231,6 +354,16 @@ components:
         unpublished_at:
           type: string
           format: dateTime
+    splitTestSetup:
+      type: object
+      properties:
+        branch_tests:
+          type: object
+          properties: {}
+    splitTests:
+      type: array
+      items:
+        $ref: '#/components/schemas/splitTest'
     error:
       required:
       - message
@@ -241,21 +374,19 @@ components:
           format: int64
         message:
           type: string
-          nullable: false
-    splitTests:
-      type: array
-      items:
-        $ref: '#/components/schemas/splitTest'
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-refined-from:
+- netlify-openapi-2.57.0-swagger.json
+- netlify-splittest-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:

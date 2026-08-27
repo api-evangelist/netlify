@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Netlify Netlify's API documentation accessToken Services API
   description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
@@ -110,7 +110,6 @@ components:
           format: int64
         message:
           type: string
-          nullable: false
     service:
       type: object
       properties:

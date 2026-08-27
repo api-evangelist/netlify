@@ -1,0 +1,179 @@
+generated: '2026-08-27'
+method: searched
+status: published
+source: >-
+  https://www.netlify.com/.well-known/api-catalog (RFC 9727 linkset, HTTP 200) ->
+  https://www.netlify.com/.well-known/mcp/server-card.json (HTTP 200) ->
+  https://netlify-mcp.netlify.app/mcp (POST tools/list returned HTTP 401 with a
+  WWW-Authenticate Bearer challenge, proving the endpoint is live and OAuth-gated).
+  Tool inventory read from the published first-party package @netlify/mcp@1.15.1
+  (dist/netlify-mcp.js), which is the same build version the remote server card reports.
+description: >-
+  Netlify ships an official MCP server in BOTH deployments. A hosted remote server answers
+  Streamable HTTP at https://netlify-mcp.netlify.app/mcp behind OAuth, and the identical
+  build runs locally over stdio as `npx -y @netlify/mcp`. Netlify advertises the remote
+  endpoint from its own /.well-known/api-catalog, which makes it one of the few providers
+  whose MCP surface is machine-discoverable from the domain root rather than only from prose.
+server:
+  name: Netlify MCP Server
+  version: 1.15.1
+  transport: streamable-http
+  url: https://netlify-mcp.netlify.app/mcp
+  auth: oauth2
+  server_card: well-known/netlify-mcp-server-card.json
+  protected_resource: well-known/netlify-mcp-oauth-protected-resource.json
+  authorization_server: well-known/netlify-mcp-oauth-authorization-server.json
+  oauth:
+    issuer: https://netlify-mcp.netlify.app/
+    authorization_endpoint: https://netlify-mcp.netlify.app/oauth-server/auth
+    token_endpoint: https://netlify-mcp.netlify.app/oauth-server/token
+    registration_endpoint: https://netlify-mcp.netlify.app/oauth-server/reg
+    dynamic_client_registration: true
+    scopes_supported: [offline_access, read, write, claudeai]
+    bearer_methods_supported: [header]
+  docs: https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/
+local:
+  name: '@netlify/mcp'
+  transport: stdio
+  install: npx -y @netlify/mcp
+  package: https://www.npmjs.com/package/@netlify/mcp
+  source: https://github.com/netlify/netlify-mcp
+  version: 1.15.1
+  requires: Node.js 22 or higher
+  auth: >-
+    Uses the local Netlify CLI credentials; a NETLIFY_PERSONAL_ACCESS_TOKEN environment
+    variable can be supplied instead.
+client_setup:
+  claude_code: claude mcp add --transport http netlify https://netlify-mcp.netlify.app/mcp
+  mcp_json: '{"mcpServers":{"netlify":{"command":"npx","args":["-y","@netlify/mcp"]}}}'
+  source: https://docs.netlify.com/llms.txt
+tool_shape:
+  note: >-
+    Netlify does not expose one MCP tool per operation by default. Tools are registered
+    per DOMAIN and per read/write split, as `netlify-<domain>-services-reader` and
+    `netlify-<domain>-services-updater`, and the caller selects the operation through a
+    `selectSchema` discriminated union. A verbose mode registers one tool per operation as
+    `netlify-<domain>-<operation>`. Both forms are listed below.
+  default_tools:
+    - netlify-user-services-reader
+    - netlify-deploy-services-reader
+    - netlify-deploy-services-updater
+    - netlify-team-services-reader
+    - netlify-project-services-reader
+    - netlify-project-services-updater
+    - netlify-extension-services-reader
+    - netlify-extension-services-updater
+  verbose_tool_pattern: netlify-<domain>-<operation>
+tools:
+  - name: netlify-user-get-user
+    domain: user
+    operation: get-user
+    access: read
+  - name: netlify-deploy-get-deploy
+    domain: deploy
+    operation: get-deploy
+    access: read
+  - name: netlify-deploy-get-deploy-for-site
+    domain: deploy
+    operation: get-deploy-for-site
+    access: read
+    availability: remote-only
+    note: Carries omitFromLocalMCP; registered on the hosted server, not on the stdio build.
+  - name: netlify-deploy-deploy-site
+    domain: deploy
+    operation: deploy-site
+    access: write
+    note: >-
+      Registered twice in the package with different flags — one variant omitted from the
+      local build, one omitted from the remote build — so the deploy path differs between
+      the two deployments.
+  - name: netlify-team-get-teams
+    domain: team
+    operation: get-teams
+    access: read
+  - name: netlify-team-get-team
+    domain: team
+    operation: get-team
+    access: read
+  - name: netlify-project-get-project
+    domain: project
+    operation: get-project
+    access: read
+  - name: netlify-project-get-projects
+    domain: project
+    operation: get-projects
+    access: read
+  - name: netlify-project-get-forms-for-project
+    domain: project
+    operation: get-forms-for-project
+    access: read
+  - name: netlify-project-create-new-project
+    domain: project
+    operation: create-new-project
+    access: write
+  - name: netlify-project-update-project-name
+    domain: project
+    operation: update-project-name
+    access: write
+  - name: netlify-project-update-visitor-access-controls
+    domain: project
+    operation: update-visitor-access-controls
+    access: write
+  - name: netlify-project-update-forms
+    domain: project
+    operation: update-forms
+    access: write
+  - name: netlify-project-manage-form-submissions
+    domain: project
+    operation: manage-form-submissions
+    access: write
+  - name: netlify-project-manage-env-vars
+    domain: project
+    operation: manage-env-vars
+    access: write
+  - name: netlify-extension-get-extensions
+    domain: extension
+    operation: get-extensions
+    access: read
+  - name: netlify-extension-get-full-extension-details
+    domain: extension
+    operation: get-full-extension-details
+    access: read
+  - name: netlify-extension-change-extension-installation
+    domain: extension
+    operation: change-extension-installation
+    access: write
+  - name: netlify-extension-initialize-database
+    domain: extension
+    operation: initialize-database
+    access: write
+coverage:
+  operations: 19
+  read: 10
+  write: 9
+  domains: [user, deploy, team, project, extension]
+  note: >-
+    inputSchema for each operation is declared with zod inside the package and is not
+    reproduced here. A live authenticated tools/list against the remote endpoint would
+    return the JSON Schema form; the anonymous probe is refused with 401.
+deployment:
+  mode: both
+  endpoint: https://netlify-mcp.netlify.app/mcp
+  install: npx -y @netlify/mcp
+  package: https://www.npmjs.com/package/@netlify/mcp
+  auth: oauth
+  verified: probed
+  probe: gated
+  checked: '2026-08-27'
+  evidence:
+    - url: https://www.netlify.com/.well-known/api-catalog
+      status: 200
+    - url: https://www.netlify.com/.well-known/mcp/server-card.json
+      status: 200
+    - url: https://netlify-mcp.netlify.app/mcp
+      status: 401
+      note: 'WWW-Authenticate: Bearer realm="MCP Server", resource_metadata=".../oauth-protected-resource/mcp"'
+    - url: https://netlify-mcp.netlify.app/.well-known/oauth-authorization-server
+      status: 200
+    - url: https://registry.npmjs.org/@netlify/mcp
+      status: 200

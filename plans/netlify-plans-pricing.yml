@@ -6,8 +6,14 @@ providerId: netlify
 created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+# 2026-08-27: upgraded generated -> searched. Every tier, price and quota below was re-read
+# from https://www.netlify.com/pricing/ (HTTP 200) on 2026-08-27 and confirmed, and the
+# credit-consumption rates, Pro credit tiers, add-on pricing and per-plan retention limits
+# that the original sweep omitted were added.
+method: searched
+modified: '2026-08-27'
+plan_count: 4
+verified: '2026-08-27'
 reconciled: true
 tags:
   - Hosting
@@ -15,7 +21,9 @@ tags:
   - Frontend
 description: 'Netlify credit-based plans: Free / Personal / Pro / Enterprise.'
 sources:
-  - https://www.netlify.com/pricing/
+  - url: https://www.netlify.com/pricing/
+    status: 200
+    fetched: '2026-08-27'
 plans:
   - id: netlify-free
     name: Free
@@ -71,7 +79,8 @@ plans:
   - id: netlify-pro
     name: Pro
     type: paid
-    description: $20/month; 3,000 credits.
+    description: >-
+      $20/month with unlimited members; credit tiers from 3,000 to 20,000 credits per month.
     entries:
       - label: Monthly
         name: monthly
@@ -93,11 +102,13 @@ plans:
         unit: 1
         price: '0.00'
         userMultiplied: false
+    credit_tiers: [3000, 5000, 10000, 15000, 20000]
     elements:
+      - name: Unlimited members (seat pricing removed)
       - name: Private organization repos
       - name: Shared environment variables
-      - name: 3+ concurrent builds
-      - name: 30-day analytics
+      - name: 3 concurrent builds (then $40 each)
+      - name: 30-day analytics and metrics
   - id: netlify-enterprise
     name: Enterprise
     type: enterprise
@@ -114,9 +125,60 @@ plans:
         price: custom
         userMultiplied: false
     elements:
-      - name: Unlimited credits
+      - name: Custom credit allocation
       - name: 99.99% SLA
       - name: Enterprise network tier
       - name: High-performance builds
       - name: SSO + SCIM
       - name: 24/7 dedicated support
+
+# --- Added 2026-08-27, read verbatim from https://www.netlify.com/pricing/ ---
+billing_model: credit-based
+credit_consumption:
+  - item: Production deploy
+    rate: 15 credits each
+    note: Deploy Previews and branch deploys are unlimited and not charged.
+  - item: Compute
+    rate: 10 credits per GB-hour
+    note: Covers serverless functions, Agent Runs, and Netlify Database compute.
+  - item: Bandwidth
+    rate: 20 credits per GB
+    note: Web bandwidth plus Netlify Database egress.
+  - item: Web requests
+    rate: 2 credits per 10k requests
+  - item: AI inference
+    rate: varies by model
+add_on_credits:
+  enabled_by: auto recharge (disabled by default)
+  tiers:
+    - price: '5.00'
+      credits: 500
+    - price: '10.00'
+      credits: 1500
+    - price: custom
+      credits: custom
+      plan: Enterprise
+per_plan_limits:
+  deploy_retention:
+    free: 30 days
+    personal: 90 days
+    pro: 90 days
+    enterprise: up to 365 days (configurable by Owners and Developers)
+    source: https://docs.netlify.com/deploy/manage-deploys/manage-deploys-overview/#deploy-retention
+  observability_retention:
+    personal: 1 day
+    pro: 30 days
+  concurrent_builds:
+    free: 1
+    personal: 1 (then $40 each)
+    pro: 3 (then $40 each)
+    enterprise: custom
+  preview_servers:
+    free: 1
+    personal: 1 (then $15 each)
+    pro: 1 (then $15 each)
+api_pricing_note: >-
+  There is no separate charge for calling the Netlify REST API and no API-specific plan. API
+  usage consumes the same credit pool as the platform, so an agent driving deploys is metered
+  at 15 credits per production deploy exactly as a human is.
+calculator: https://www.netlify.com/pricing/

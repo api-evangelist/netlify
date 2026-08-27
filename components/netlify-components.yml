@@ -1,0 +1,97 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://docs.netlify.com/llms.txt and the docs pages it indexes,
+  https://github.com/netlify/netlify-identity-widget, registry.npmjs.org and
+  data.jsdelivr.com (2026-08-27), plus live probes of
+  https://identity.netlify.com/v1/netlify-identity-widget.js.
+description: >-
+  Client-side and embeddable surfaces Netlify ships for a developer to drop into a page or a
+  README, as distinct from the SDKs in packages/. Netlify's component surface is small and older
+  than the rest of the platform: one authentication widget, one repository badge, and two hosted
+  drop-in surfaces.
+families:
+  - family: Authentication widget
+    components:
+      - name: Netlify Identity Widget
+        kind: embeddable-js-widget
+        description: >-
+          Drop-in login, signup and password-recovery modal for Netlify Identity. Mounts itself on
+          the page and exposes a netlifyIdentity global.
+        repository: https://github.com/netlify/netlify-identity-widget
+        npm: netlify-identity-widget
+        npm_version: 2.0.3
+        npm_published: '2026-02-26'
+        loaders:
+          - type: script-tag
+            url: https://identity.netlify.com/v1/netlify-identity-widget.js
+            pinned: false
+            probed: '2026-08-27'
+            http_status: 200
+            bytes: 240416
+            note: >-
+              /v1/ is a floating channel, not a version. A page loading this URL cannot tell which
+              build it received, and neither can we. Pin via npm or a versioned CDN path if the
+              build matters.
+          - type: script-tag
+            url: https://identity.netlify.com/v1/netlify-identity.js
+            pinned: false
+            probed: '2026-08-27'
+            http_status: 200
+            bytes: 240089
+            note: Second entry point served from the same unpinned channel.
+          - type: npm
+            install: npm install netlify-identity-widget
+            pinned: true
+        docs: https://docs.netlify.com/manage/security/secure-user-access-to-sites/netlify-identity/
+        skill: skills/netlify-identity.md
+        note: >-
+          A 2026-05-02 changelog entry ("Netlify Identity package update: CSRF protection with
+          new...") shows the widget is still maintained, but it is the oldest-shipping surface in
+          this file.
+  - family: Repository and site badges
+    components:
+      - name: Deploy to Netlify button
+        kind: markdown-badge
+        description: >-
+          An image link dropped into a README or docs page that takes a visitor through creating a
+          Netlify project from the linked Git repository in one click.
+        pattern: https://app.netlify.com/start/deploy?repository=<git-repo-url>
+        image: https://www.netlify.com/img/deploy/button.svg
+        docs: https://docs.netlify.com/deploy/create-deploys/
+        skill: skills/netlify-deploy.md
+      - name: Powered by Netlify badge
+        kind: injected-page-badge
+        description: >-
+          A badge Netlify renders on qualifying projects, shipped alongside the pre-launch toolbar.
+        announced: '2026-08-19'
+        source: https://www.netlify.com/changelog/2026-08-19-pre-launch-toolbar-and-powered-by-netlify-badge/
+        note: Platform-injected rather than developer-embedded.
+  - family: Hosted drop-in surfaces
+    components:
+      - name: Netlify Drop
+        kind: hosted-upload-surface
+        url: https://app.netlify.com/drop
+        description: >-
+          Drag-and-drop a folder into a browser and get a deployed site with no account and no
+          repository. Refreshed 2026-07-27.
+        source: https://www.netlify.com/changelog/2026-07-27-netlify-drop-refresh/
+      - name: Pre-launch toolbar
+        kind: injected-page-toolbar
+        description: >-
+          A toolbar Netlify renders on private projects so a reviewer can share the project and run
+          AI checks before it is made public.
+        announced: '2026-08-19'
+        source: https://www.netlify.com/changelog/2026-08-19-pre-launch-toolbar-and-powered-by-netlify-badge/
+not_components:
+  - detail: >-
+      Netlify Extensions (built with @netlify/sdk) render inside the Netlify dashboard rather than
+      in a customer's page, so they are recorded as an SDK in packages/, not as an embeddable
+      component here.
+  - detail: >-
+      Framework adapters such as @netlify/plugin-nextjs and @netlify/vite-plugin are build-time
+      integrations, not client-side components.
+absent:
+  - >-
+    No web-component / custom-element library, no design system published for consumer pages, and
+    no embeddable analytics or dashboard widget.

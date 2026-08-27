@@ -1,0 +1,128 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://cli.netlify.com/ (command reference, HTTP 200, 2026-08-27),
+  https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/ (read as Markdown),
+  https://github.com/netlify/cli, and registry.npmjs.org/netlify-cli.
+description: >-
+  Netlify's first-party command line interface. It is the primary human and agent entry point to
+  the platform — the local dev server, the deploy path, and the escape hatch to any REST
+  operation the CLI does not wrap. The MCP server's local build shells out to it.
+name: Netlify CLI
+official: true
+package: netlify-cli
+registry: npm
+version: 27.4.0
+published: '2026-08-26'
+binaries: [netlify, ntl]
+repository: https://github.com/netlify/cli
+docs: https://cli.netlify.com/
+guide: https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/
+requires: Node.js
+install:
+  - method: npm (global)
+    command: npm install -g netlify-cli
+  - method: npm (project-local)
+    command: npm install --save-dev netlify-cli
+    note: >-
+      Netlify's docs recommend the local install for CI, so the CLI version is pinned in the
+      project rather than floating with the runner image.
+  - method: npx
+    command: npx netlify-cli <command>
+authentication:
+  interactive: netlify login
+  token_env: NETLIFY_AUTH_TOKEN
+  credential_store: >-
+    Credentials are written to a local config.json; `netlify login` grants an authorization
+    that appears under Authorized applications as "Netlify CLI" and can be revoked there.
+  sso_note: >-
+    Under team SAML SSO, a personal access token must be granted team access explicitly at
+    generation time or the CLI is denied.
+  docs: https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/#authentication
+telemetry:
+  collected: true
+  note: The CLI collects usage data; the docs document how to opt out.
+  docs: https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/#usage-data-collection
+command_groups:
+  - group: authentication and account
+    commands: [login, logout, status, switch, teams]
+  - group: project lifecycle
+    commands: [create, init, clone, link, unlink, sites, claim, open]
+    note: >-
+      `netlify create "<natural language description>"` generates, deploys and downloads a new
+      project from a prompt, using Agent Runners — a CLI command whose implementation is an agent.
+  - group: build and deploy
+    commands: [build, deploy, serve, watch]
+    key_flags:
+      - flag: build --dry
+        detail: Prints the build steps that would run without executing them.
+      - flag: build --context <context>
+        detail: Builds against a named deploy context (production, deploy-preview, branch-deploy, dev).
+      - flag: deploy --prod
+        detail: Publishes to production. Without it, the deploy is a draft at its own URL.
+      - flag: deploy --dir / --functions
+        detail: Selects the publish directory and functions directory.
+      - flag: deploy --alias
+        detail: Names the draft deploy URL.
+      - flag: deploy --allow-anonymous
+        detail: Deploys without an account, creating an unclaimed project.
+  - group: local development
+    commands: [dev, functions, logs]
+  - group: data and configuration
+    commands: [env, blobs, database]
+  - group: AI and agents
+    commands: [agents]
+  - group: raw API access
+    commands: [api]
+    note: >-
+      `netlify api <methodName>` calls any operation in the OpenAPI directly by operationId,
+      which makes every one of the 180 REST operations reachable from the CLI even where no
+      dedicated command exists. This is the CLI's most under-documented capability.
+  - group: utilities
+    commands: [recipes, completion]
+commands:
+  - agents
+  - api
+  - blobs
+  - build
+  - claim
+  - clone
+  - completion
+  - create
+  - database
+  - deploy
+  - dev
+  - env
+  - functions
+  - init
+  - link
+  - login
+  - logout
+  - logs
+  - open
+  - recipes
+  - serve
+  - sites
+  - status
+  - switch
+  - teams
+  - unlink
+  - watch
+command_count: 27
+key_flows:
+  - name: Link an existing project and develop locally
+    steps: [netlify clone <repo>, netlify dev]
+  - name: Set up continuous deployment
+    steps: [netlify init, 'netlify init --manual (to supply your own deploy key and webhook)']
+  - name: Manual production deploy
+    steps: [netlify build, netlify deploy --prod]
+  - name: Rehearse a build without running it
+    steps: [netlify build --dry]
+  - name: Create a project from a prompt
+    steps: ['netlify create "a landing page for a SaaS product with a waitlist signup"']
+  - name: Call an unwrapped REST operation
+    steps: ['netlify api <operationId> --data ''{...}''']
+relationship_to_mcp: >-
+  The local stdio MCP server (@netlify/mcp) instructs the agent to install netlify-cli and uses
+  it for the deploy path, so on a local install the CLI is a dependency of the MCP surface rather
+  than an alternative to it. The hosted remote MCP server does not need it.

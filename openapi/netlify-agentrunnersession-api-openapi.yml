@@ -1,0 +1,583 @@
+openapi: 3.2.0
+info:
+  version: 2.57.0
+  title: Netlify's API documentation Agent Runner Session API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify''s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: agentRunnerSession
+paths:
+  /agent_runners/{agent_runner_id}/sessions:
+    parameters:
+    - name: agent_runner_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listAgentRunnerSessions
+      tags:
+      - agentRunnerSession
+      parameters:
+      - name: page
+        required: false
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: per_page
+        required: false
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: state
+        in: query
+        schema:
+          type: string
+          enum:
+          - live
+          - error
+      - name: from
+        in: query
+        schema:
+          type: integer
+      - name: to
+        in: query
+        schema:
+          type: integer
+      - name: order_by
+        in: query
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    agent_runner_id:
+                      type: string
+                    dev_server_id:
+                      type: string
+                    state:
+                      type: string
+                    created_at:
+                      type: string
+                      format: dateTime
+                    updated_at:
+                      type: string
+                      format: dateTime
+                    done_at:
+                      type: string
+                      format: dateTime
+                    title:
+                      type: string
+                    prompt:
+                      type: string
+                    agent_config:
+                      type: object
+                      properties:
+                        agent:
+                          type: string
+                        model:
+                          type: string
+                    result:
+                      type: string
+                    result_diff:
+                      type: string
+                    commit_sha:
+                      type: string
+                    deploy_id:
+                      type: string
+                    deploy_url:
+                      type: string
+                    duration:
+                      type: integer
+                    steps:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                          message:
+                            type: string
+                    user:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        full_name:
+                          type: string
+                        email:
+                          type: string
+                        avatar_url:
+                          type: string
+                    attached_file_keys:
+                      type: array
+                      items:
+                        type: string
+                    result_zip_file_name:
+                      type: string
+                    is_published:
+                      type: boolean
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    post:
+      operationId: createAgentRunnerSession
+      tags:
+      - agentRunnerSession
+      parameters:
+      - name: prompt
+        in: query
+        schema:
+          type: string
+      - name: agent
+        in: query
+        schema:
+          type: string
+      - name: model
+        in: query
+        schema:
+          type: string
+      - name: file_keys
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  agent_runner_id:
+                    type: string
+                  dev_server_id:
+                    type: string
+                  state:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+                  done_at:
+                    type: string
+                    format: dateTime
+                  title:
+                    type: string
+                  prompt:
+                    type: string
+                  agent_config:
+                    type: object
+                    properties:
+                      agent:
+                        type: string
+                      model:
+                        type: string
+                  result:
+                    type: string
+                  result_diff:
+                    type: string
+                  commit_sha:
+                    type: string
+                  deploy_id:
+                    type: string
+                  deploy_url:
+                    type: string
+                  duration:
+                    type: integer
+                  steps:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        message:
+                          type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      full_name:
+                        type: string
+                      email:
+                        type: string
+                      avatar_url:
+                        type: string
+                  attached_file_keys:
+                    type: array
+                    items:
+                      type: string
+                  result_zip_file_name:
+                    type: string
+                  is_published:
+                    type: boolean
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+  /agent_runners/{agent_runner_id}/sessions/{agent_runner_session_id}:
+    parameters:
+    - name: agent_runner_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: agent_runner_session_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getAgentRunnerSession
+      tags:
+      - agentRunnerSession
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  agent_runner_id:
+                    type: string
+                  dev_server_id:
+                    type: string
+                  state:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+                  done_at:
+                    type: string
+                    format: dateTime
+                  title:
+                    type: string
+                  prompt:
+                    type: string
+                  agent_config:
+                    type: object
+                    properties:
+                      agent:
+                        type: string
+                      model:
+                        type: string
+                  result:
+                    type: string
+                  result_diff:
+                    type: string
+                  commit_sha:
+                    type: string
+                  deploy_id:
+                    type: string
+                  deploy_url:
+                    type: string
+                  duration:
+                    type: integer
+                  steps:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        message:
+                          type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      full_name:
+                        type: string
+                      email:
+                        type: string
+                      avatar_url:
+                        type: string
+                  attached_file_keys:
+                    type: array
+                    items:
+                      type: string
+                  result_zip_file_name:
+                    type: string
+                  is_published:
+                    type: boolean
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    patch:
+      operationId: updateAgentRunnerSession
+      tags:
+      - agentRunnerSession
+      parameters:
+      - name: is_published
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  agent_runner_id:
+                    type: string
+                  dev_server_id:
+                    type: string
+                  state:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+                  done_at:
+                    type: string
+                    format: dateTime
+                  title:
+                    type: string
+                  prompt:
+                    type: string
+                  agent_config:
+                    type: object
+                    properties:
+                      agent:
+                        type: string
+                      model:
+                        type: string
+                  result:
+                    type: string
+                  result_diff:
+                    type: string
+                  commit_sha:
+                    type: string
+                  deploy_id:
+                    type: string
+                  deploy_url:
+                    type: string
+                  duration:
+                    type: integer
+                  steps:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        message:
+                          type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      full_name:
+                        type: string
+                      email:
+                        type: string
+                      avatar_url:
+                        type: string
+                  attached_file_keys:
+                    type: array
+                    items:
+                      type: string
+                  result_zip_file_name:
+                    type: string
+                  is_published:
+                    type: boolean
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    delete:
+      operationId: deleteAgentRunnerSession
+      tags:
+      - agentRunnerSession
+      responses:
+        '202':
+          description: Accepted
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+components:
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
+externalDocs:
+  url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Database
+  tags:
+  - database
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature

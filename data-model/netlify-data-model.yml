@@ -1,0 +1,293 @@
+generated: '2026-08-27'
+method: derived
+source: >-
+  Derived from the 103 definitions and their id-reference fields in Netlify's own OpenAPI —
+  openapi/_original/netlify-openapi-2.57.0-swagger.json, fetched verbatim from
+  https://open-api.netlify.com/swagger.json on 2026-08-27 — cross-read against the object
+  examples in https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/.
+description: >-
+  The entity-relationship graph of the Netlify API. Netlify's model is a strict hierarchy rooted
+  at the account (team): an account owns sites, a site owns everything else, and a deploy is the
+  immutable unit that everything about published content hangs off. Relationships are expressed
+  as flat `*_id` foreign keys on the object, never as embedded sub-resources — there is no
+  expansion mechanism, so an agent traversing the graph must make one call per hop.
+identifiers:
+  format: 24-character lowercase hexadecimal (MongoDB ObjectId shape)
+  example: '52465f435803544542000001'
+  prefixes: none
+  note: >-
+    Netlify uses no type prefix on identifiers, so an id alone does not say what kind of object
+    it points at. A caller who loses track of which field an id came from cannot recover the type
+    from the value.
+naming_note: >-
+  The Netlify UI calls a site a "Project". The API, the CLI, the client libraries and the
+  NETLIFY_SITE_ID environment variable all still say `site` / `site_id`, and Netlify's own docs
+  state these are the same value. Every relationship below uses the API name.
+entity_count: 103
+root_entities: [user, account, site, deploy]
+entities:
+  - name: user
+    description: An individual Netlify user.
+    key: id
+    relationships:
+      - type: has_many
+        target: account
+        via: accountMembership
+      - type: has_many
+        target: accessToken
+        via: accessToken.user_id
+      - type: has_many
+        target: site
+        via: site.user_id
+      - type: has_many
+        target: paymentMethod
+  - name: account
+    aliases: [accountMembership, team]
+    description: A team. The billing and ownership boundary; audit logs and env vars live here.
+    key: id
+    relationships:
+      - type: has_many
+        target: site
+        via: site.account_id
+      - type: has_many
+        target: member
+      - type: belongs_to
+        target: accountType
+        via: accountMembership.type_id
+      - type: belongs_to
+        target: paymentMethod
+        via: accountMembership.payment_method_id
+      - type: has_many
+        target: auditLog
+        via: auditLog.account_id
+      - type: has_many
+        target: environmentVariable
+        via: /accounts/{account_id}/env
+  - name: site
+    aliases: [project]
+    description: >-
+      The central entity. Almost every other object carries a site_id. Owns its deploys, DNS,
+      forms, functions, snippets, hooks, split tests, assets, dev servers and database.
+    key: id
+    relationships:
+      - type: belongs_to
+        target: account
+        via: site.account_id
+      - type: belongs_to
+        target: user
+        via: site.user_id
+      - type: has_many
+        target: deploy
+      - type: has_many
+        target: build
+      - type: has_many
+        target: form
+        via: form.site_id
+      - type: has_many
+        target: snippet
+        via: snippet.site_id
+      - type: has_many
+        target: hook
+        via: hook.site_id
+      - type: has_many
+        target: buildHook
+        via: buildHook.site_id
+      - type: has_many
+        target: splitTest
+        via: splitTest.site_id
+      - type: has_many
+        target: asset
+        via: asset.site_id
+      - type: has_many
+        target: dnsZone
+        via: dnsZone.site_id
+      - type: has_many
+        target: devServer
+        via: devServer.site_id
+      - type: has_many
+        target: agentRunner
+        via: agentRunner.site_id
+      - type: has_one
+        target: siteDatabase
+      - type: has_one
+        target: metadata
+        via: /sites/{site_id}/metadata
+      - type: has_one
+        target: sniCertificate
+      - type: has_many
+        target: serviceInstance
+  - name: deploy
+    description: >-
+      An immutable, atomic publication of a site's files. The unit of rollback: publishing a
+      previous deploy IS the undo. See the reversibility block in conventions/.
+    key: id
+    relationships:
+      - type: belongs_to
+        target: site
+        via: deploy.site_id
+      - type: belongs_to
+        target: user
+        via: deploy.user_id
+      - type: belongs_to
+        target: build
+        via: deploy.build_id
+      - type: has_many
+        target: file
+      - type: has_many
+        target: function
+      - type: has_one
+        target: deployedBranch
+        via: deployedBranch.deploy_id
+    states: [new, building, ready, current, old, error]
+    note: >-
+      The `state` field is how a caller knows which deploy is live: `current` for the published
+      one, `old` for a superseded one. Retention (30/90/365 days by plan) determines how far back
+      `old` deploys remain restorable.
+  - name: build
+    description: A build run that produces a deploy.
+    relationships:
+      - type: has_one
+        target: deploy
+        via: build.deploy_id
+      - type: has_many
+        target: buildLogMsg
+  - name: form
+    relationships:
+      - type: belongs_to
+        target: site
+        via: form.site_id
+      - type: has_many
+        target: submission
+  - name: submission
+    relationships:
+      - type: belongs_to
+        target: form
+      - type: belongs_to
+        target: site
+    note: >-
+      Deleting a form makes its previous submissions permanently unavailable and future
+      submissions return 404 — the parent delete cascades irreversibly.
+  - name: dnsZone
+    relationships:
+      - type: belongs_to
+        target: account
+        via: dnsZone.account_id
+      - type: belongs_to
+        target: site
+        via: dnsZone.site_id
+      - type: belongs_to
+        target: user
+        via: dnsZone.user_id
+      - type: has_many
+        target: dnsRecord
+        via: dnsRecord.dns_zone_id
+  - name: dnsRecord
+    relationships:
+      - type: belongs_to
+        target: dnsZone
+        via: dnsRecord.dns_zone_id
+      - type: belongs_to
+        target: site
+        via: dnsRecord.site_id
+  - name: hook
+    description: An outgoing webhook subscription on a site event.
+    relationships:
+      - type: belongs_to
+        target: site
+        via: hook.site_id
+      - type: belongs_to
+        target: hookType
+    detail: asyncapi/netlify-webhooks-asyncapi.yml
+  - name: buildHook
+    description: An inbound URL that triggers a build.
+    relationships:
+      - type: belongs_to
+        target: site
+        via: buildHook.site_id
+  - name: asset
+    relationships:
+      - type: belongs_to
+        target: site
+        via: asset.site_id
+      - type: belongs_to
+        target: user
+        via: asset.creator_id
+      - type: has_one
+        target: assetPublicSignature
+  - name: agentRunner
+    description: >-
+      An AI agent run against a site. Present in upstream open-api 2.57.0 only; absent from the
+      refined set under openapi/.
+    relationships:
+      - type: belongs_to
+        target: site
+        via: agentRunner.site_id
+      - type: belongs_to
+        target: agentRunner
+        via: agentRunner.parent_agent_runner_id
+      - type: belongs_to
+        target: deploy
+        via: agentRunner.base_deploy_id
+      - type: has_many
+        target: agentRunnerSession
+      - type: has_many
+        target: agentRunnerHook
+  - name: agentRunnerSession
+    relationships:
+      - type: belongs_to
+        target: agentRunner
+        via: agentRunnerSession.agent_runner_id
+      - type: belongs_to
+        target: devServer
+        via: agentRunnerSession.dev_server_id
+      - type: belongs_to
+        target: deploy
+        via: agentRunnerSession.deploy_id
+  - name: siteDatabase
+    description: >-
+      Netlify Database (Neon Postgres). Present in upstream 2.57.0 only. Branch-and-snapshot
+      shaped, mirroring the deploy model.
+    relationships:
+      - type: has_many
+        target: databaseBranch
+      - type: has_many
+        target: databaseSnapshot
+      - type: has_many
+        target: databaseMigration
+  - name: databaseBranch
+    relationships:
+      - type: belongs_to
+        target: databaseBranch
+        via: createDatabaseBranchRequest.parent_branch_id
+  - name: databaseSnapshot
+    relationships:
+      - type: belongs_to
+        target: databaseBranch
+        via: databaseSnapshot.source_branch_id
+  - name: devServer
+    relationships:
+      - type: belongs_to
+        target: site
+        via: devServer.site_id
+      - type: has_many
+        target: devServerHook
+        via: devServerHook.site_id
+  - name: ticket
+    description: The OAuth handshake object used by the CLI to exchange for an access token.
+    relationships:
+      - type: belongs_to
+        target: oauth_application
+        via: ticket.client_id
+      - type: exchanges_for
+        target: accessToken
+graph_notes:
+  - >-
+    The graph is a tree, not a mesh. Almost every leaf entity carries exactly one foreign key,
+    site_id, and there are no many-to-many join objects except accountMembership.
+  - >-
+    Because there is no expansion mechanism and no batch-get endpoint, rendering a site's full
+    state costs one request per collection — roughly a dozen calls for a single site.
+  - >-
+    Two subgraphs, agentRunner and siteDatabase, exist only in the current upstream contract and
+    are missing from the refined specs in openapi/. See lifecycle/netlify-lifecycle.yml.
+render: null

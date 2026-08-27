@@ -1,36 +1,26 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken Ticket API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify Ticket API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged ticket across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-ticket-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
 - netlifyAuth: []
 tags:
-- name: Ticket
+- name: ticket
   x-displayName: Ticket
 paths:
   /oauth/tickets:
     post:
-      tags:
-      - Ticket
       operationId: createTicket
+      tags:
+      - ticket
       parameters:
       - name: client_id
         in: query
@@ -39,22 +29,78 @@ paths:
           type: string
       responses:
         '201':
-          description: ok
+          description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ticket'
+                type: object
+                properties:
+                  id:
+                    type: string
+                  client_id:
+                    type: string
+                  authorized:
+                    type: boolean
+                  created_at:
+                    type: string
+                    format: dateTime
+        '401':
+          description: OAuth application not found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
   /oauth/tickets/{ticket_id}:
     get:
-      tags:
-      - Ticket
       operationId: showTicket
+      tags:
+      - ticket
       parameters:
       - name: ticket_id
         in: path
@@ -67,13 +113,33 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ticket'
+                type: object
+                properties:
+                  id:
+                    type: string
+                  client_id:
+                    type: string
+                  authorized:
+                    type: boolean
+                  created_at:
+                    type: string
+                    format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
     ticket:
@@ -98,17 +164,19 @@ components:
           format: int64
         message:
           type: string
-          nullable: false
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-refined-from:
+- netlify-openapi-2.57.0-swagger.json
+- netlify-ticket-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:

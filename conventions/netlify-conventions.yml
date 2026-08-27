@@ -1,0 +1,227 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/ (read as Markdown
+  at .../get-started-with-api.md), https://docs.netlify.com/deploy/manage-deploys/manage-deploys-overview/,
+  Netlify's live OpenAPI at https://open-api.netlify.com/swagger.json (2.57.0), and unauthenticated
+  live responses from https://api.netlify.com/api/v1 observed 2026-08-27.
+description: >-
+  Cross-cutting request/response semantics for the Netlify REST API — the behaviour that applies
+  to every operation and that OpenAPI does not fully express. Netlify's API is deliberately plain:
+  Bearer OAuth2, page/per_page pagination with a Link header, a two-field error envelope, and
+  X-RateLimit-* headers. It publishes no idempotency mechanism.
+base_url: https://api.netlify.com/api/v1
+api_style: REST over HTTPS, JSON request and response bodies. HTTPS only.
+
+authentication:
+  scheme: OAuth2 Bearer token
+  header: 'Authorization: Bearer <token>'
+  token_types:
+    - personal access token (PAT), generated in app.netlify.com user settings
+    - OAuth2 access token, for public integrations
+  authorization_endpoint: https://app.netlify.com/authorize
+  flow: implicit (as declared in the OpenAPI securityDefinitions)
+  scopes: none — see scopes/netlify-scopes.yml
+  notes:
+    - A password reset permanently invalidates every PAT and OAuth token issued before it.
+    - >-
+      Under team SAML SSO, personal access tokens are denied team access by default; access must
+      be granted explicitly when the token is generated, while logged in to that team.
+  docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/#authentication
+  detail: authentication/netlify-authentication.yml
+
+idempotency:
+  supported: false
+  mechanism: null
+  detail: >-
+    Netlify documents no idempotency key header and the OpenAPI declares no such parameter on
+    any of the 180 operations. Retrying a POST after a network failure can create a second
+    resource. The one place where repetition is naturally safe is the deploy flow: a deploy is
+    created from a file-digest manifest, so re-uploading a file whose digest Netlify already
+    holds is a no-op — but that is a property of content addressing, not a documented
+    idempotency contract, and it does not cover createSite, createDnsRecord, createTicket or
+    any other write.
+  checked: '2026-08-27'
+
+dry_run_mode:
+  supported: partial
+  detail: >-
+    There is no dry-run parameter on the REST API. The CLI offers `netlify build --dry`, which
+    prints the build steps that would run without executing them, and `netlify deploy` without
+    `--prod` produces a draft deploy at its own URL rather than publishing to production. Both
+    are rehearsal paths for a human at the CLI, not an API flag an agent can set.
+  docs: https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/
+
+pagination:
+  style: page-number
+  request_params:
+    page: 1-based page number
+    per_page: page size, maximum and default 100
+  trigger: Any list response exceeding 100 items is paginated.
+  response_fields: none — the page metadata is in headers, not the body
+  response_headers:
+    Link: 'RFC 5988 Link header carrying rel="next", rel="last" (and rel="prev"/rel="first" where applicable)'
+  example: 'Link: <https://api.netlify.com/api/v1/sites?page=3&per_page=20>; rel="next", <...?page=5&per_page=20>; rel="last"'
+  docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/#pagination
+
+field_expansion:
+  supported: false
+  detail: No expand/fields/include parameter is documented or declared in the OpenAPI.
+
+sparse_fieldsets:
+  supported: false
+
+metadata:
+  supported: true
+  mechanism: >-
+    Sites carry an arbitrary metadata object, read and written through the metadata tag
+    (getSiteMetadata, updateSiteMetadata) at /sites/{site_id}/metadata.
+  scope: site
+  note: >-
+    Unlike a generic key-value tag store, this is a single JSON document per site. Build hooks
+    and split tests do not have their own metadata surface.
+
+request_tracing:
+  request_id_header: X-Request-Id
+  additional_headers:
+    X-Runtime: server-side processing time in seconds
+    X-Nf-Srv-Version: the API server build serving the request
+  observed: '2026-08-27'
+  evidence: >-
+    GET https://api.netlify.com/api/v1/sites (unauthenticated) returned HTTP 401 with
+    x-request-id: 572222ae-562e-4bff-80fb-2658409b3b1a, x-runtime: 0.004541 and
+    x-nf-srv-version: b484ad4.
+  note: >-
+    The header is emitted on every response including errors, but Netlify's docs do not tell a
+    caller to quote it in a support request, so its role is observed rather than documented.
+
+versioning:
+  scheme: path prefix
+  current: v1
+  mechanism: 'Every URL begins https://api.netlify.com/api/v1/ — the version is in the path.'
+  policy: >-
+    Netlify states: "If we change the API in backward-incompatible ways, we'll bump the version
+    marker and maintain stable support for the old URLs." There has been exactly one version
+    marker, v1, since the API launched.
+  spec_version: 2.57.0
+  spec_version_source: https://open-api.netlify.com/swagger.json
+  docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/#basics
+  detail: lifecycle/netlify-lifecycle.yml
+  changelog: changelog/netlify-changelog.yml
+
+error_envelope:
+  media_type: application/json
+  format: proprietary
+  rfc9457: false
+  schema:
+    code: integer — mirrors the HTTP status
+    message: string — human-readable, required
+  observed_example: '{"code":401,"message":"Access Denied"}'
+  note: >-
+    The OpenAPI attaches this envelope to a `default` response on 172 of 180 operations. Some
+    routes fall outside it — an unmatched path under /api/v1 returns HTTP 404 with a text/plain
+    body of "Not Found", not JSON.
+  detail: errors/netlify-problem-types.yml
+
+rate_limit_signaling:
+  response_headers:
+    X-RateLimit-Limit: requests permitted in the window
+    X-RateLimit-Remaining: requests left in the window
+    X-RateLimit-Reset: unix timestamp at which the window resets
+  status_on_exhaustion: 429
+  retry_after: not documented
+  detail: rate-limits/netlify-rate-limits.yml
+  docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/#rate-limiting
+
+reversibility:
+  grade: verified
+  summary: >-
+    Netlify's central write — publishing a deploy — is reversible by design, and the window in
+    which it stays reversible is stated in the docs as a retention period. Most other writes
+    are not: there is no undo for a deleted site, DNS record, form or environment variable.
+  write_surfaces:
+    - surface: publish a deploy
+      forward_operations: [createSiteDeploy, createSiteBuild, uploadDeployFile]
+      reversal_operation: restoreSiteDeploy
+      also: [rollbackSiteDeploy]
+      rest: POST /api/v1/sites/{site_id}/deploys/{deploy_id}/restore
+      mechanism: >-
+        Deploys are atomic and immutable, so rolling back means publishing a previous deploy
+        rather than undoing the current one. Netlify states rollbacks are instantaneous.
+      window: >-
+        As long as the target deploy still exists. Netlify deletes deploys after 30 days on
+        the Free plan and 90 days on paid plans; Enterprise Owners and Developers can raise the
+        retention limit to as much as 365 days. The currently published deploy is never deleted.
+      window_stated: true
+      docs: https://docs.netlify.com/deploy/manage-deploys/manage-deploys-overview/#deploy-retention
+      caveat: >-
+        If the site is connected to Git with auto publishing on, the next Git-triggered
+        production deploy overwrites the rolled-back version. Locking the deploy (disabling
+        auto publishing) is the way to hold a rollback in place.
+    - surface: run a deploy
+      forward_operations: [createSiteBuild, createSiteDeploy]
+      reversal_operation: cancelSiteDeploy
+      rest: POST /api/v1/deploys/{deploy_id}/cancel
+      window: While the deploy is still building. Once published, use restoreSiteDeploy instead.
+      window_stated: false
+    - surface: publish state
+      forward_operations: [unlockDeploy]
+      reversal_operation: lockDeploy
+      note: >-
+        Locking and unlocking a deploy are each other's inverse and can be repeated freely;
+        there is no window.
+      window_stated: true
+    - surface: disable a site
+      forward_operations: [disableSite]
+      reversal_operation: enableSite
+      note: >-
+        Present in upstream open-api 2.57.0. enableSite can return 422 "Cannot enable this
+        site", so the reversal is not unconditional.
+      window_stated: false
+    - surface: restore a database snapshot
+      forward_operations: [createSiteDatabaseSnapshot]
+      reversal_operation: restoreSiteDatabaseSnapshot
+      rest: POST /api/v1/sites/{site_id}/database/snapshot/{snapshot_id}/restore
+      note: Netlify Database only; present in upstream 2.57.0.
+      window_stated: false
+    - surface: reset a database branch
+      forward_operations: [runSiteDatabaseMigrations]
+      reversal_operation: resetSiteDatabaseBranch
+      note: >-
+        Resets a branch back to its source. Refused with 400 when the target is the production
+        branch.
+      window_stated: false
+  irreversible:
+    - operations: [deleteSite]
+      detail: No restore operation exists for a deleted site.
+    - operations: [deleteSiteForm, deleteSubmission]
+      detail: >-
+        Netlify's docs state that after a form is deleted, future submissions return 404 and
+        previous submissions are no longer available.
+    - operations: [deleteDnsZone, deleteDnsRecord]
+      detail: No undo; the record must be recreated.
+    - operations: [deleteEnvVar, deleteEnvVarValue]
+      detail: >-
+        No undo, and secret values cannot be read back after they are set, so a deleted secret
+        cannot be reconstructed from the API.
+    - operations: [deleteSiteDeploy, deleteDeploy]
+      detail: >-
+        Deleting a deploy removes a rollback target. Netlify refuses to delete the deploy
+        currently published to the site's main URL.
+    - operations: [cancelAccount]
+      detail: Account cancellation has no reversal operation in the API.
+    - operations: [purgeCache]
+      detail: >-
+        A cache purge cannot be undone; content is re-fetched from origin. Consequence is
+        performance, not data loss.
+  read_only: false
+  checked: '2026-08-27'
+
+cross_references:
+  authentication: authentication/netlify-authentication.yml
+  scopes: scopes/netlify-scopes.yml
+  errors: errors/netlify-problem-types.yml
+  lifecycle: lifecycle/netlify-lifecycle.yml
+  rate_limits: rate-limits/netlify-rate-limits.yml
+  changelog: changelog/netlify-changelog.yml
+  webhooks: asyncapi/netlify-webhooks-asyncapi.yml

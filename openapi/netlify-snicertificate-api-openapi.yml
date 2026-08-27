@@ -1,23 +1,13 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken sniCertificate API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify Sni Certificate API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged sniCertificate across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-snicertificate-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -27,33 +17,25 @@ tags:
   x-displayName: SNI certificate
 paths:
   /sites/{site_id}/ssl:
-    get:
-      tags:
-      - sniCertificate
-      operationId: showSiteTLSCertificate
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/sniCertificate'
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
     post:
+      operationId: provisionSiteTLSCertificate
       tags:
       - sniCertificate
-      operationId: provisionSiteTLSCertificate
+      description: 'Provisions or updates a TLS certificate for the site.
+
+
+        **Creating a certificate (site has no certificate):**
+
+        - Omit certificate params to initiate Let''s Encrypt provisioning
+
+        - Provide certificate, key, and ca_certificates to upload a custom certificate
+
+
+        **Updating a certificate (site already has a certificate):**
+
+        - REQUIRES certificate, key, and ca_certificates to replace with a new custom certificate
+
+        - Use POST /api/v1/sites/{site_id}/ssl/renew to renew an existing Let''s Encrypt certificate'
       parameters:
       - name: site_id
         in: path
@@ -62,14 +44,17 @@ paths:
           type: string
       - name: certificate
         in: query
+        description: PEM-encoded certificate. Required when updating an existing certificate.
         schema:
           type: string
       - name: key
         in: query
+        description: PEM-encoded private key. Required when updating an existing certificate.
         schema:
           type: string
       - name: ca_certificates
         in: query
+        description: PEM-encoded CA certificate chain. Required when updating an existing certificate.
         schema:
           type: string
       responses:
@@ -78,13 +63,135 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/sniCertificate'
+                type: object
+                properties:
+                  state:
+                    type: string
+                  domains:
+                    type: array
+                    items:
+                      type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+                  expires_at:
+                    type: string
+                    format: dateTime
+        '422':
+          description: 'Unprocessable Entity. Returns errors such as: "certificate parameter is required when updating an existing certificate" (when updating without params), "No custom domain configured", or "bad dns for custom domain"'
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    get:
+      operationId: showSiteTLSCertificate
+      tags:
+      - sniCertificate
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  state:
+                    type: string
+                  domains:
+                    type: array
+                    items:
+                      type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+                  expires_at:
+                    type: string
+                    format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
+  /sites/{site_id}/ssl/certificates:
+    get:
+      operationId: getAllCertificates
+      tags:
+      - sniCertificate
+      parameters:
+      - name: site_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: domain
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Array of SNI Certificates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    state:
+                      type: string
+                    domains:
+                      type: array
+                      items:
+                        type: string
+                    created_at:
+                      type: string
+                      format: dateTime
+                    updated_at:
+                      type: string
+                      format: dateTime
+                    expires_at:
+                      type: string
+                      format: dateTime
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
     sniCertificate:
@@ -115,17 +222,19 @@ components:
           format: int64
         message:
           type: string
-          nullable: false
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-refined-from:
+- netlify-openapi-2.57.0-swagger.json
+- netlify-snicertificate-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:

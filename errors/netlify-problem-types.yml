@@ -1,0 +1,150 @@
+generated: '2026-08-27'
+method: derived
+source: >-
+  Derived from the 4xx/5xx responses declared in Netlify's own OpenAPI —
+  openapi/_original/netlify-openapi-2.57.0-swagger.json, fetched verbatim from
+  https://open-api.netlify.com/swagger.json on 2026-08-27 (180 operations, 172 of which carry a
+  `default` error response) — and enriched with live unauthenticated responses observed against
+  https://api.netlify.com/api/v1 on the same day. Netlify publishes no separate error-code
+  reference page.
+format: proprietary
+rfc9457: false
+media_type: application/json
+envelope:
+  schema_name: error
+  required: [message]
+  fields:
+    code:
+      type: integer
+      description: Mirrors the HTTP status code. Not a distinct machine-readable error identifier.
+    message:
+      type: string
+      description: Human-readable description. Required; not enumerated anywhere by Netlify.
+  observed_example: '{"code":401,"message":"Access Denied"}'
+  note: >-
+    There is no `type` URI, no `title`, no `detail`/`instance` split and no stable per-condition
+    error slug. A client cannot branch on anything but the HTTP status and a free-text string,
+    which means every Netlify error handler is coupled to English prose.
+coverage:
+  operations_total: 180
+  operations_with_default_error: 172
+  operations_with_explicit_4xx: 42
+  status_counts:
+    '400': 6
+    '401': 1
+    '403': 4
+    '404': 13
+    '409': 4
+    '422': 12
+    '423': 2
+  note: >-
+    No operation declares a 429 response even though the API is rate limited and the docs state
+    exhaustion is signalled with 429, and no operation declares a 5xx.
+problem_types:
+  - status: 400
+    title: Bad Request
+    meaning: The request parameters are invalid.
+    operations: [purgeCache, createSiteBuild, resetSiteDatabaseBranch]
+    published_messages:
+      - Invalid request parameters
+      - Bad Request
+      - >-
+        Invalid request — for example, the target is the production branch or the source branch
+        is the same as the target.
+    remediation: Correct the parameters. Not retryable unchanged.
+  - status: 401
+    title: Unauthorized
+    meaning: The Bearer token is missing, invalid, revoked or denied access to the team.
+    operations: [createTicket]
+    published_messages:
+      - Access Denied
+      - OAuth application not found
+    observed: 'GET /api/v1/sites with no Authorization header returned {"code":401,"message":"Access Denied"}.'
+    remediation: >-
+      Issue a new personal access token or complete the OAuth flow. Note that a Netlify password
+      reset invalidates every previously issued token, and that under team SAML SSO a PAT is
+      denied team access unless it was granted at generation time.
+  - status: 403
+    title: Forbidden
+    meaning: The token is valid but the account's plan or role does not permit the operation.
+    operations: [setSiteDatabaseBranchComputeSettings]
+    published_messages:
+      - Compute customization requires a Pro or higher plan
+    remediation: >-
+      A plan or role change is required. Retrying will not help. This is the status that
+      distinguishes "you may not" from "you are not signed in".
+  - status: 404
+    title: Not Found
+    meaning: The addressed resource does not exist, or a feature is not enabled for this site/account.
+    operations:
+      - getAllCertificates
+      - purgeCache
+      - getAIGatewayToken
+      - getAccountAIGatewayToken
+      - getSiteDatabaseBranch
+      - resetSiteDatabaseBranch
+      - getSiteDatabaseMigration
+    published_messages:
+      - Not Found
+      - Site not found
+      - AI Gateway not available for this site
+      - AI Gateway not available for this account
+      - Branch not found
+      - Database or branch not found
+      - Migration, database, or branch not found
+    remediation: >-
+      Verify the identifier. Be aware that Netlify overloads 404 for "feature not provisioned"
+      as well as "record absent" — an agent cannot tell the two apart from the status alone.
+    note: >-
+      A request to a path that is not routed at all returns HTTP 404 with a text/plain body of
+      "Not Found" rather than the JSON envelope. Observed 2026-08-27 on GET /api/v1/zzz.
+  - status: 409
+    title: Conflict
+    meaning: The operation conflicts with the current state of the resource.
+    operations: [agentRunnerPullRequest, runSiteDatabaseMigrations]
+    published_messages:
+      - Conflict
+      - Migration conflict - migration modified or removed after being applied
+    remediation: Re-read current state and reconcile before retrying.
+  - status: 422
+    title: Unprocessable Entity
+    meaning: The request was well-formed but failed a domain validation rule.
+    operations: [provisionSiteTLSCertificate, getAllCertificates, enableSite, createTicket, runSiteDatabaseMigrations]
+    published_messages:
+      - >-
+        Unprocessable Entity. Returns errors such as "certificate parameter is required when
+        updating an existing certificate".
+      - Unprocessable Entity
+      - Cannot enable this site
+      - Validation error
+      - Migration validation failed
+    remediation: Fix the offending field. Not retryable unchanged.
+  - status: 423
+    title: Locked
+    meaning: The resource is disabled and cannot be operated on.
+    operations: [listSiteDatabaseMigrations]
+    published_messages:
+      - Database is disabled
+    remediation: Re-enable the resource before retrying.
+  - status: 429
+    title: Too Many Requests
+    meaning: The rate limit for the token was exceeded.
+    operations: []
+    declared_in_openapi: false
+    remediation: >-
+      Back off using X-RateLimit-Reset. Documented in the API guide but absent from every
+      operation in the OpenAPI, so a generated client will not know to expect it.
+    docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/#rate-limiting
+webhook_semantics:
+  - detail: >-
+      For OUTGOING webhooks, a subscriber endpoint that returns HTTP 410 Gone causes Netlify to
+      delete the hook. This is the one place where a status code returned BY the consumer changes
+      Netlify's state.
+    docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+gaps:
+  - No error-code reference page exists in Netlify's documentation.
+  - >-
+    No stable machine-readable error identifier. `code` duplicates the HTTP status, so two
+    unrelated 422s are indistinguishable except by English text.
+  - No 429 or 5xx response is declared on any operation in the OpenAPI.
+  - No Retry-After header is documented.

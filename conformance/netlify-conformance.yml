@@ -1,0 +1,247 @@
+generated: '2026-08-27'
+method: derived
+source: >-
+  Asserted against Netlify's own OpenAPI (openapi/ and
+  openapi/_original/netlify-openapi-2.57.0-swagger.json), the live discovery documents saved in
+  well-known/, live responses from https://api.netlify.com/api/v1 observed 2026-08-27, and
+  Netlify's published security and compliance pages
+  (https://www.netlify.com/security/, https://trust.netlify.com/).
+description: >-
+  Cross-cutting and industry standards Netlify's contracts and endpoints do and do not conform to.
+  The strong results are all on the discovery and agent side — a genuine RFC 9727 API catalog, RFC
+  8414/9728 OAuth metadata on the MCP server, MCP itself, AsyncAPI for the webhook surface. The
+  REST API itself is conventional rather than standards-conformant: no RFC 9457 errors, no SCIM
+  schema on the API, no OpenID Connect discovery.
+
+standards:
+  - id: openapi
+    name: OpenAPI / Swagger
+    conforms: true
+    version: 'Swagger 2.0 upstream; OpenAPI 3.0.1 in the converted _original and 3.2.0 in the refined set'
+    evidence:
+      - >-
+        https://open-api.netlify.com/swagger.json returns HTTP 200 with swagger "2.0", host
+        api.netlify.com, basePath /api/v1, 116 paths and 180 operations. Saved verbatim at
+        openapi/_original/netlify-openapi-2.57.0-swagger.json.
+      - 'Published as a package: @netlify/open-api and github.com/netlify/open-api/v2.'
+      - 'Source of record: https://github.com/netlify/open-api'
+
+  - id: rfc9727
+    name: RFC 9727 — API catalog (/.well-known/api-catalog)
+    conforms: true
+    evidence:
+      - >-
+        https://www.netlify.com/.well-known/api-catalog returns HTTP 200 with content-type
+        application/linkset+json and a linkset[] carrying anchor, service-desc and service-doc
+        for two services (the REST API and the MCP server). Saved at
+        well-known/netlify-api-catalog.json.
+    note: >-
+      Rare in this catalog. It makes both of Netlify's machine surfaces discoverable from the
+      domain root without reading any prose.
+
+  - id: rfc9264
+    name: RFC 9264 — Linkset
+    conforms: true
+    evidence:
+      - The api-catalog document is served as application/linkset+json with a JSON linkset[] array.
+
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: true
+    evidence:
+      - >-
+        The OpenAPI declares securityDefinitions.netlifyAuth as type oauth2, flow implicit,
+        authorizationUrl https://app.netlify.com/authorize.
+      - >-
+        Live: GET https://api.netlify.com/api/v1/sites without a Bearer token returns HTTP 401
+        {"code":401,"message":"Access Denied"}.
+      - >-
+        The MCP server at https://netlify-mcp.netlify.app/mcp returns 401 with a
+        WWW-Authenticate Bearer challenge.
+    note: >-
+      The declared flow is `implicit`, which the OAuth 2.0 Security Best Current Practice
+      (RFC 9700) recommends against; authorization code with PKCE is the current guidance. The
+      MCP authorization server, by contrast, advertises response_types_supported ["code"].
+
+  - id: rfc8414
+    name: RFC 8414 — OAuth 2.0 Authorization Server Metadata
+    conforms: partial
+    evidence:
+      - >-
+        https://netlify-mcp.netlify.app/.well-known/oauth-authorization-server returns HTTP 200
+        with issuer, authorization_endpoint, token_endpoint, registration_endpoint and
+        scopes_supported. Saved at well-known/netlify-mcp-oauth-authorization-server.json.
+      - >-
+        https://api.netlify.com/.well-known/oauth-authorization-server returns HTTP 404 — the
+        REST API's own OAuth server publishes no metadata document.
+    note: Conformant for the MCP surface only, not for the platform OAuth used by the REST API.
+
+  - id: rfc9728
+    name: RFC 9728 — OAuth 2.0 Protected Resource Metadata
+    conforms: partial
+    evidence:
+      - >-
+        https://netlify-mcp.netlify.app/.well-known/oauth-protected-resource/mcp returns HTTP 200
+        with resource, authorization_servers[], scopes_supported and bearer_methods_supported;
+        the 401 from /mcp names it in resource_metadata. Saved at
+        well-known/netlify-mcp-oauth-protected-resource.json.
+      - The REST API at api.netlify.com serves no protected-resource metadata (404).
+
+  - id: rfc7591
+    name: RFC 7591 — OAuth 2.0 Dynamic Client Registration
+    conforms: true
+    evidence:
+      - >-
+        The MCP authorization server advertises registration_endpoint
+        https://netlify-mcp.netlify.app/oauth-server/reg.
+    note: Applies to the MCP server. Public REST integrations still register an app by hand in the UI.
+
+  - id: mcp
+    name: Model Context Protocol
+    conforms: true
+    version: streamable-http transport
+    evidence:
+      - >-
+        Server card at https://www.netlify.com/.well-known/mcp/server-card.json declares
+        serverInfo {name, version 1.15.1}, url, transport.type "streamable-http" and
+        capabilities.tools true.
+      - >-
+        POST tools/list to https://netlify-mcp.netlify.app/mcp returns a JSON-RPC-shaped 401
+        with an RFC 9728 challenge — a live, correctly-gated MCP endpoint.
+      - First-party stdio build published as @netlify/mcp@1.15.1.
+    detail: mcp/netlify-mcp.yml
+
+  - id: agent-skills
+    name: Agent Skills (SKILL.md packaging)
+    conforms: true
+    evidence:
+      - >-
+        15 provider-authored skills at
+        https://github.com/netlify/context-and-tools/tree/main/agent-plugin/skills, each a
+        SKILL.md with name and description frontmatter. Saved verbatim under skills/.
+      - >-
+        Netlify's llms.txt documents the install path `npx skills add netlify/context-and-tools
+        --skill '*' --yes`.
+
+  - id: llmstxt
+    name: llms.txt
+    conforms: true
+    evidence:
+      - >-
+        https://docs.netlify.com/llms.txt returns HTTP 200, 25,089 bytes, indexing 108 docs URLs.
+      - >-
+        Every docs page is also served as Markdown by appending .md — verified on
+        /api-and-cli-guides/api-guides/get-started-with-api.md (200) and on the marketing site at
+        /security.md (200).
+    note: >-
+      Netlify does NOT publish an llms-full.txt. The .md twin of every page makes one largely
+      unnecessary.
+
+  - id: asyncapi
+    name: AsyncAPI
+    conforms: true
+    version: 2.6.0
+    evidence:
+      - >-
+        asyncapi/netlify-webhooks-asyncapi.yml models the outgoing webhook and inbound build-hook
+        surfaces. This is an API Evangelist authored description of Netlify's documented events,
+        not a Netlify-published AsyncAPI.
+    authored_by: api-evangelist
+
+  - id: rfc5988
+    name: RFC 5988 / RFC 8288 — Web Linking (Link header pagination)
+    conforms: true
+    evidence:
+      - >-
+        Netlify's API guide documents pagination via a Link header with rel="next" and
+        rel="last" on any list response over 100 items.
+
+  - id: pagination
+    name: Pagination
+    conforms: true
+    style: page-number (page / per_page, max 100)
+    evidence:
+      - https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/#pagination
+    detail: conventions/netlify-conventions.yml
+
+  - id: rate-limit-headers
+    name: Rate limit signalling
+    conforms: partial
+    evidence:
+      - >-
+        Netlify returns the legacy X-RateLimit-Limit / X-RateLimit-Remaining / X-RateLimit-Reset
+        headers, not the IETF draft RateLimit / RateLimit-Policy fields.
+      - No Retry-After header is documented, and no operation declares a 429 in the OpenAPI.
+    detail: rate-limits/netlify-rate-limits.yml
+
+  - id: rfc9457
+    name: RFC 9457 — Problem Details for HTTP APIs
+    conforms: false
+    evidence:
+      - >-
+        The error envelope is {code:int, message:string} served as application/json, not
+        application/problem+json. Observed live: {"code":401,"message":"Access Denied"}.
+    detail: errors/netlify-problem-types.yml
+
+  - id: idempotency
+    name: Idempotency keys
+    conforms: false
+    evidence:
+      - >-
+        No Idempotency-Key header is documented, and no parameter of that shape appears on any
+        of the 180 operations in the OpenAPI.
+    detail: conventions/netlify-conventions.yml
+
+  - id: rfc8594
+    name: RFC 8594 — Sunset HTTP header
+    conforms: false
+    evidence:
+      - No Sunset or Deprecation header is documented or declared, and no operation is marked deprecated.
+    detail: lifecycle/netlify-lifecycle.yml
+
+  - id: rfc9116
+    name: RFC 9116 — security.txt
+    conforms: false
+    evidence:
+      - >-
+        /.well-known/security.txt returned 404 on api.netlify.com, www.netlify.com,
+        docs.netlify.com, open-api.netlify.com and developers.netlify.com (probed 2026-08-27).
+        app.netlify.com answers 200 with an SPA shell, which is not a document.
+    note: >-
+      Netlify does run a disclosure programme — it is on HackerOne. The gap is the discovery
+      document, not the programme. See security/netlify-vulnerability-disclosure.yml.
+
+  - id: oidc
+    name: OpenID Connect Discovery
+    conforms: false
+    evidence:
+      - /.well-known/openid-configuration returned 404 on every probed host.
+    note: >-
+      Netlify supports SAML SSO and SCIM provisioning for Enterprise teams, but those are
+      product features configured in the dashboard; no OIDC discovery document is served.
+
+  - id: scim
+    name: SCIM 2.0
+    conforms: unknown
+    evidence:
+      - >-
+        Netlify advertises "SSO & SCIM" on the Enterprise tier
+        (https://www.netlify.com/pricing/), but no SCIM endpoint, urn:ietf:params:scim:schemas:*
+        URN or /scim/v2 path appears anywhere in the public OpenAPI.
+    note: >-
+      Recorded as unknown rather than conforming: the claim is on a pricing page, and this
+      pipeline scores contracts, not marketing copy. Confirming it would need Enterprise
+      documentation this pass could not reach.
+
+domain_standard:
+  applicable: false
+  detail: >-
+    Netlify's market — web hosting, CDN and CI/CD for front-end applications — has no
+    market-wide interchange standard of the kind SCIM, FHIR, OpenRTB, OneRoster or ISO 20022
+    provide in their sectors. There is no domain schema for "deploy a site", so no
+    domain_standard_conformance is asserted. This is a reward-only dimension and its absence is
+    not a finding against Netlify.
+  adjacent_standards_shipped:
+    - >-
+      Where Netlify DOES speak an ecosystem standard it is an agent/discovery one — RFC 9727,
+      RFC 8414/9728, MCP, Agent Skills, llms.txt — and those are recorded above.

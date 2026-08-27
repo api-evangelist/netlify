@@ -1,0 +1,189 @@
+generated: '2026-08-27'
+method: derived
+source: >-
+  Derived by binding the MCP operations read from the published @netlify/mcp@1.15.1 package
+  (mcp/netlify-mcp.yml) to the REST operationIds in Netlify's own OpenAPI —
+  openapi/_original/netlify-openapi-2.57.0-swagger.json, fetched verbatim from
+  https://open-api.netlify.com/swagger.json on 2026-08-27 (180 operations), and the refined
+  one-per-tag set under openapi/ (133 operations, generated from open-api 2.33.1).
+purpose: >-
+  Make the MCP operation the first-class unit and bind it to the REST operation that backs it,
+  so an agent can see what a tool actually does and inherit the operation's real parameters and
+  request body as its input contract.
+surfaces:
+  rest_openapi: openapi/                                   # 133 ops, split one-per-tag, from open-api 2.33.1
+  rest_openapi_current: openapi/_original/netlify-openapi-2.57.0-swagger.json   # 180 ops, Swagger 2.0, live
+  mcp_remote: https://netlify-mcp.netlify.app/mcp          # live; tools/list gated behind OAuth (401)
+  mcp_local: npx -y @netlify/mcp                           # stdio; same build (1.15.1)
+  graphql: null                                            # Netlify Graph is retired; see graphql/netlify-graphql.md
+gated:
+  - surface: mcp_remote
+    detail: >-
+      An anonymous POST of {"jsonrpc":"2.0","id":1,"method":"tools/list"} returns HTTP 401
+      unauthenticated, so the live inputSchema for each tool could not be read. Bindings below
+      were made from the published package's operation names and zod schemas plus the REST
+      contract, not from a live tools/list.
+crosswalk:
+  - tool: netlify-user-get-user
+    category: user
+    rest: [getCurrentUser]
+    binding: rest
+    confidence: high
+  - tool: netlify-team-get-teams
+    category: team
+    rest: [listAccountsForUser]
+    binding: rest
+    confidence: high
+  - tool: netlify-team-get-team
+    category: team
+    rest: [getAccount]
+    binding: rest
+    confidence: high
+  - tool: netlify-project-get-projects
+    category: project
+    rest: [listSites, listSitesForAccount]
+    binding: rest
+    confidence: high
+    note: >-
+      "Project" is the current UI name for what the API still calls a site; Netlify's own docs
+      state Project ID, site_id and NETLIFY_SITE_ID are the same value.
+  - tool: netlify-project-get-project
+    category: project
+    rest: [getSite]
+    binding: rest
+    confidence: high
+  - tool: netlify-project-create-new-project
+    category: project
+    rest: [createSite, createSiteInTeam]
+    binding: rest
+    confidence: high
+    note: The tool takes an optional teamSlug, which selects between the two operations.
+  - tool: netlify-project-update-project-name
+    category: project
+    rest: [updateSite]
+    binding: rest
+    confidence: high
+  - tool: netlify-project-update-visitor-access-controls
+    category: project
+    rest: [updateSite]
+    binding: rest
+    confidence: medium
+    note: >-
+      Visitor access control (password protection / project visibility) is written through the
+      site object; the OpenAPI does not model the individual access-control fields, so the
+      binding is to the operation, not to a named field.
+  - tool: netlify-project-get-forms-for-project
+    category: forms
+    rest: [listSiteForms]
+    binding: rest
+    confidence: high
+  - tool: netlify-project-update-forms
+    category: forms
+    rest: [updateSite, deleteSiteForm]
+    binding: rest
+    confidence: medium
+    note: >-
+      Enabling or disabling form processing is a site setting; deleting a form is its own
+      operation. The tool covers both, so it maps to two REST operations.
+  - tool: netlify-project-manage-form-submissions
+    category: forms
+    rest: [listSiteSubmissions, listFormSubmissions, listFormSubmission, deleteSubmission]
+    binding: rest
+    confidence: high
+  - tool: netlify-project-manage-env-vars
+    category: environment
+    rest: [getEnvVars, getEnvVar, getSiteEnvVars, createEnvVars, updateEnvVar, setEnvVarValue, deleteEnvVar, deleteEnvVarValue]
+    binding: rest
+    confidence: high
+    note: One composite tool fronts the entire eight-operation environmentVariables tag.
+  - tool: netlify-deploy-get-deploy
+    category: deploy
+    rest: [getDeploy]
+    binding: rest
+    confidence: high
+  - tool: netlify-deploy-get-deploy-for-site
+    category: deploy
+    rest: [getSiteDeploy, listSiteDeploys]
+    binding: rest
+    confidence: high
+  - tool: netlify-deploy-deploy-site
+    category: deploy
+    rest: [createSiteDeploy, uploadDeployFile, uploadDeployFunction, createSiteBuild]
+    binding: composite
+    confidence: medium
+    note: >-
+      A deploy is a multi-step flow — create the deploy with a file digest manifest, upload the
+      files Netlify asks for, then let the build finish. The local build shells out to the
+      Netlify CLI for this; the remote build uploads through its own proxy path. Treat as a
+      composite over the deploy tag rather than a single operation.
+  - tool: netlify-extension-initialize-database
+    category: database
+    rest: [createSiteDatabase, getSiteDatabase]
+    binding: rest
+    confidence: medium
+    note: >-
+      Bound against the `database` tag, which exists ONLY in the current upstream spec
+      (2.57.0) and is absent from the refined set under openapi/ (built from 2.33.1).
+mcp_only:
+  - tool: netlify-extension-get-extensions
+    reason: >-
+      The Netlify Extensions catalog has no operation in the public OpenAPI — neither the
+      refined set nor upstream 2.57.0 carries an extensions tag.
+  - tool: netlify-extension-get-full-extension-details
+    reason: Same as above; no public REST operation for extension detail.
+  - tool: netlify-extension-change-extension-installation
+    reason: >-
+      Installing or uninstalling an extension on a team/site is not exposed in the public
+      OpenAPI. This is a genuine MCP-only capability, not a naming mismatch.
+rest_only:
+  summary: >-
+    Only 22 of 180 upstream REST operations are reachable through an MCP tool. Whole tags have
+    no tool at all.
+  tags_without_a_tool:
+    - dnsZone
+    - sniCertificate
+    - snippet
+    - splitTest
+    - hook
+    - hookType
+    - buildHook
+    - asset
+    - assetPublicSignature
+    - file
+    - metadata
+    - purge
+    - auditLog
+    - accessToken
+    - ticket
+    - member
+    - accountMembership
+    - accountType
+    - paymentMethod
+    - service
+    - serviceInstance
+    - devServer
+    - devServerHook
+    - buildLogMsg
+    - deployKey
+    - deployedBranch
+  notable_absences:
+    - operation: restoreSiteDeploy
+      detail: Rollback to a previous deploy has no MCP tool, though it is the primary undo path.
+    - operation: rollbackSiteDeploy
+      detail: Same as above.
+    - operation: cancelSiteDeploy
+      detail: An agent cannot cancel a running deploy through MCP.
+    - operation: purgeCache
+      detail: Cache purge is REST-only.
+    - operation: listAccountAuditEvents
+      detail: The audit log an agent's own actions land in is not readable through MCP.
+coverage:
+  mcp_operations: 19
+  bound_to_rest: 16
+  mcp_only: 3
+  rest_operations_current: 180
+  rest_operations_reachable_via_mcp: 22
+  rest_operations_unreachable_via_mcp: 158
+  note: >-
+    "Reachable" counts the distinct operationIds named in crosswalk[].rest. The MCP surface is
+    a deliberately small, agent-shaped slice of the REST API, not a projection of it.

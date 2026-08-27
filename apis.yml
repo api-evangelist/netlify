@@ -1,8 +1,14 @@
 aid: netlify
 name: Netlify
-description: Netlify is a cloud platform for building, deploying, and scaling modern
-  web applications with continuous deployment, serverless functions, and edge computing
-  capabilities.
+description: >-
+  Netlify is a cloud platform for building, deploying and scaling modern web applications, with
+  continuous deployment from Git, serverless and edge functions, a global CDN, forms, identity,
+  Postgres storage and an image CDN. Its public REST API at https://api.netlify.com/api/v1 is
+  described by an OpenAPI that Netlify maintains in the open at github.com/netlify/open-api and
+  serves at open-api.netlify.com, covering deploys, sites, DNS, builds, forms, environment
+  variables and split tests. Netlify also ships an unusually complete agent surface: an RFC 9727
+  API catalog at the domain root, an OAuth-gated remote MCP server, fifteen published Agent
+  Skills, an llms.txt, and a Markdown twin of every documentation page.
 kind: contract
 accessModel:
   pricing: freemium
@@ -32,7 +38,7 @@ tags:
 - Websites
 url: https://raw.githubusercontent.com/api-evangelist/netlify/refs/heads/main/apis.yml
 created: '2023-11-14'
-modified: '2026-05-30'
+modified: '2026-08-27'
 specificationVersion: '0.23'
 apis:
 - aid: netlify:netlify-accesstoken-api
@@ -47,6 +53,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-accesstoken-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-accesstoken-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -71,6 +79,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-accountmembership-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-accountmembership-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -95,6 +105,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-accounttype-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-accounttype-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -117,6 +129,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-asset-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-asset-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -140,6 +154,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-assetpublicsignature-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-assetpublicsignature-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -164,6 +180,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-auditlog-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-auditlog-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -188,6 +206,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-build-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-build-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -211,6 +231,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-buildhook-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-buildhook-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -234,6 +256,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-buildlogmsg-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-buildlogmsg-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -256,6 +280,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-deploy-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-deploy-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -279,6 +305,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-deployedbranch-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-deployedbranch-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -302,6 +330,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-deploykey-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-deploykey-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -326,6 +356,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-devserver-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-devserver-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -349,6 +381,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-devserverhook-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-devserverhook-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -372,6 +406,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-dnszone-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-dnszone-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -396,6 +432,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-environmentvariables-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-environmentvariables-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -418,6 +456,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-file-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-file-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -440,6 +480,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-form-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-form-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -462,6 +504,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-function-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-function-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -484,6 +528,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-hook-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-hook-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -507,6 +553,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-hooktype-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-hooktype-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -529,6 +577,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-member-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-member-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -551,6 +601,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-metadata-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-metadata-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -575,6 +627,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-paymentmethod-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-paymentmethod-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -597,6 +651,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-purge-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-purge-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -620,6 +676,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-serviceinstance-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-serviceinstance-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -642,6 +700,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-services-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-services-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -664,6 +724,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-site-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-site-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -687,6 +749,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-snicertificate-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-snicertificate-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -709,6 +773,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-snippet-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-snippet-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -733,6 +799,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-splittest-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-splittest-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -755,6 +823,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-submission-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-submission-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -777,6 +847,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-ticket-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-ticket-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -799,6 +871,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-user-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-user-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -821,6 +895,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-x-internal-api-openapi.yml
+  - type: Overlay
+    url: overlays/netlify-x-internal-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -833,6 +909,76 @@ apis:
     url: https://github.com/netlify/open-api
   - type: GraphQL
     url: graphql/netlify-graphql.md
+- aid: netlify:netlify-agentrunner-api
+  name: Netlify Agent Runner API
+  description: The agentRunner API from Netlify — 6 operation(s) for agentrunner.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - agentRunner
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-agentrunner-api-openapi.yml
+- aid: netlify:netlify-agentrunnerhook-api
+  name: Netlify Agent Runner Hook API
+  description: The agentRunnerHook API from Netlify — 2 operation(s) for agentrunnerhook.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - agentRunnerHook
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-agentrunnerhook-api-openapi.yml
+- aid: netlify:netlify-agentrunnersession-api
+  name: Netlify Agent Runner Session API
+  description: The agentRunnerSession API from Netlify — 2 operation(s) for agentrunnersession.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - agentRunnerSession
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-agentrunnersession-api-openapi.yml
+- aid: netlify:netlify-aigateway-api
+  name: Netlify AI Gateway API
+  description: The aiGateway API from Netlify — 3 operation(s) for aigateway.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - aiGateway
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-aigateway-api-openapi.yml
+- aid: netlify:netlify-database-api
+  name: Netlify Database API
+  description: The database API from Netlify — 14 operation(s) for database.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - database
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-database-api-openapi.yml
+- aid: netlify:netlify-edgefunction-api
+  name: Netlify Edge Function API
+  description: The edgeFunction API from Netlify — 1 operation(s) for edgefunction.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - edgeFunction
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-edgefunction-api-openapi.yml
+- aid: netlify:netlify-service-api
+  name: Netlify Service API
+  description: The service API from Netlify — 3 operation(s) for service.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - service
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-service-api-openapi.yml
 common:
 - type: IssueTracker
   url: https://github.com/netlify/open-api/issues
@@ -912,7 +1058,7 @@ common:
   - 'Free: 300 credits/mo, unlimited deploy previews, global CDN'
   - 'Personal at $9/mo: 1,000 credits, smart secret detection'
   - 'Pro at $20/mo: 3,000 credits, 3+ concurrent builds, private repos'
-  - 'Enterprise custom: unlimited credits, 99.99% SLA, SSO/SCIM'
+  - 'Enterprise custom: custom credit allocation, 99.99% SLA, SSO/SCIM'
   - REST API at api.netlify.com
   - 'Open API: 500 req/min/token rate limit'
   - 'Deploy creates: 3/min/site'
@@ -935,6 +1081,62 @@ common:
   type: MCPServer
 - type: LlmsText
   url: https://docs.netlify.com/llms.txt
+- type: Packages
+  url: packages/netlify-packages.yml
+- type: SDKs
+  url: packages/netlify-packages.yml
+- type: CLI
+  url: cli/netlify-cli.yml
+- type: Components
+  url: components/netlify-components.yml
+- type: WellKnown
+  url: well-known/netlify-well-known.yml
+- type: APICatalog
+  url: well-known/netlify-api-catalog.json
+- type: MCPServer
+  url: mcp/netlify-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/netlify-tool-crosswalk.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/netlify-llms.txt
+- type: Conventions
+  url: conventions/netlify-conventions.yml
+- type: ErrorCatalog
+  url: errors/netlify-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/netlify-lifecycle.yml
+- type: ChangeLog
+  url: changelog/netlify-changelog.yml
+- type: Conformance
+  url: conformance/netlify-conformance.yml
+- type: Compliance
+  url: security/netlify-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/netlify-vulnerability-disclosure.yml
+- type: Security
+  url: security/netlify-vulnerability-disclosure.yml
+- type: DataModel
+  url: data-model/netlify-data-model.yml
+- type: Plans
+  url: plans/netlify-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/netlify-rate-limits.yml
+- type: Webhooks
+  url: asyncapi/netlify-webhooks-asyncapi.yml
+- type: Vocabulary
+  url: vocabulary/netlify-vocabulary.yml
+- type: DeveloperPortal
+  url: https://developers.netlify.com/
+- type: APIReference
+  url: https://open-api.netlify.com/
+- type: SignUp
+  url: https://app.netlify.com/signup
+- type: HelpCenter
+  url: https://answers.netlify.com/
+- type: AgentSkillSource
+  url: https://github.com/netlify/context-and-tools
 integrations:
 - name: Templates
 - name: +More
@@ -962,3 +1164,8 @@ maintainers:
 - FN: Netlify
   email: support@netlify.com
   url: https://www.netlify.com
+x-enrichment:
+  date: '2026-08-27'
+  status: enriched
+  artifacts_added: 69
+  pass: local-v1

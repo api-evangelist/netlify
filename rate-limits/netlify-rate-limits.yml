@@ -4,40 +4,78 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Netlify
 providerId: netlify
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
+# 2026-08-27: upgraded from generated to searched. Every limit and header below was read from
+# Netlify's own API guide (fetched as Markdown) on 2026-08-27, and the stale docs URL that the
+# 2026-05-04 sweep recorded was replaced with the live one.
+method: searched
+modified: '2026-08-27'
 reconciled: true
 tags:
   - Rate Limiting
   - Hosting
-description: Netlify Open API rate limits per token.
+description: >-
+  Published rate limits for the Netlify REST API at https://api.netlify.com/api/v1, plus the
+  build-concurrency limits that apply per plan. Netlify documents both the numbers and the
+  response headers, but declares no 429 response on any operation in its OpenAPI.
 sources:
-  - https://www.netlify.com/pricing/
-  - https://docs.netlify.com/api-and-cli-guides/api/get-started/#rate-limiting
+  - url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/#rate-limiting
+    status: 200
+    fetched: '2026-08-27'
+  - url: https://www.netlify.com/pricing/
+    status: 200
+    fetched: '2026-08-27'
 headers:
   limit: X-RateLimit-Limit
   remaining: X-RateLimit-Remaining
   reset: X-RateLimit-Reset
+header_example: |
+  X-RateLimit-Limit: 500
+  X-RateLimit-Remaining: 56
+  X-RateLimit-Reset: 1372700873
+header_note: >-
+  Legacy X-RateLimit-* naming, not the IETF draft RateLimit / RateLimit-Policy fields. Reset is a
+  unix timestamp. No Retry-After header is documented. The headers were not observed on the
+  unauthenticated 401 probed on 2026-08-27; Netlify's docs describe them as present on API
+  requests generally.
 responseCodes:
   throttled: 429
+declared_in_openapi: false
+declared_in_openapi_note: >-
+  No operation in open-api 2.57.0 declares a 429 response, so a client generated from the spec
+  will not expect one.
+limit_count: 5
 limits:
-  - name: Open API (per token)
+  - name: Netlify REST API (per token)
     scope: token
     metric: requests_per_minute
     limit: 500
     timeFrame: minute
-  - name: Deploy creates
-    scope: site
+    published: 'You can make up to 500 requests per minute for most requests.'
+  - name: Deploys via the API (per minute)
+    scope: token
     metric: deploys_per_minute
     limit: 3
     timeFrame: minute
-  - name: Concurrent builds (Free/Personal)
+    published: 'You can deploy through the Netlify API up to 3 times per minute.'
+  - name: Deploys via the API (per day)
+    scope: token
+    metric: deploys_per_day
+    limit: 100
+    timeFrame: day
+    published: '...and up to 100 times per day.'
+  - name: Concurrent builds (Free and Personal)
     scope: team
     metric: concurrent
     limit: 1
+    note: Personal can add more at $40 each.
+    source: https://www.netlify.com/pricing/
   - name: Concurrent builds (Pro)
     scope: team
     metric: concurrent
     limit: 3
+    note: Additional concurrent builds at $40 each. Enterprise is custom.
+    source: https://www.netlify.com/pricing/
+increase_path:
+  method: contact support
+  url: https://www.netlify.com/support/
+  published: 'If you need higher limits, please contact us.'

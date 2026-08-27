@@ -1,0 +1,46 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Netlify Netlify's API documentation accessToken devServer API
+  version: 1.0.0
+extends: openapi/netlify-devserver-api-openapi.yml
+x-generated: '2026-08-27'
+x-method: generated
+x-source: openapi/netlify-devserver-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      catalog: https://apis.io/netlify
+      provider: Netlify
+      maintainer: Kin Lane <kin@apievangelist.com>
+      upstream_contract: https://open-api.netlify.com/swagger.json
+      upstream_version: 2.57.0
+      artifacts:
+      - apis.yml
+      - conventions/netlify-conventions.yml
+      - authentication/netlify-authentication.yml
+      - scopes/netlify-scopes.yml
+      - errors/netlify-problem-types.yml
+      - lifecycle/netlify-lifecycle.yml
+      - rate-limits/netlify-rate-limits.yml
+      - conformance/netlify-conformance.yml
+      - data-model/netlify-data-model.yml
+      - packages/netlify-packages.yml
+      - mcp/netlify-mcp.yml
+      - mcp/netlify-tool-crosswalk.yml
+      - well-known/netlify-well-known.yml
+      - skills/_index.yml
+      operations: 5
+- target: $.info
+  update:
+    x-runtime-semantics:
+      authentication: OAuth 2.0 Bearer token; no granular scopes.
+      pagination: page / per_page (max 100); page metadata in the Link header.
+      idempotency: Not supported. No Idempotency-Key header is documented or declared.
+      error_envelope: '{code:int, message:string} as application/json. Not RFC 9457.'
+      rate_limits: 500 requests/minute per token; X-RateLimit-Limit / -Remaining / -Reset; 429 on exhaustion (not
+        declared in this spec).
+      request_tracing: X-Request-Id on every response.
+      reversibility: Publishing a deploy is reversible via restoreSiteDeploy for as long as the target deploy is
+        retained (30 days free / 90 days paid / up to 365 days Enterprise). Deletes of sites, forms, DNS records
+        and env vars are not reversible.

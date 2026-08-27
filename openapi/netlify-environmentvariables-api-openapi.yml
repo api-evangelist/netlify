@@ -1,23 +1,13 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken environmentVariables API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify Environment Variables API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged environmentVariables across 2 of this provider''s published API definitions: netlify-environmentvariables-api-openapi.yml, netlify-openapi-2.57.0-swagger.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -142,6 +132,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
       x-codegen-request-body-name: env_vars
+    servers:
+    - url: https://api.netlify.com/api/v1
   /api/v1/sites/{site_id}/env:
     get:
       tags:
@@ -191,6 +183,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    servers:
+    - url: https://api.netlify.com/api/v1
   /accounts/{account_id}/env/{key}:
     get:
       tags:
@@ -385,6 +379,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/error'
       x-codegen-request-body-name: env_var
+    servers:
+    - url: https://api.netlify.com/api/v1
   /accounts/{account_id}/env/{key}/value/{id}:
     delete:
       tags:
@@ -425,8 +421,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error'
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
     envVarUser:
       type: object
       properties:
@@ -446,31 +454,6 @@ components:
           type: string
           description: A URL pointing to the user's avatar
           x-faker: internet.avatar
-    envVarValue:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The environment variable value's universally unique ID
-          x-faker: datatype.uuid
-        value:
-          type: string
-          description: The environment variable's unencrypted value
-          x-faker: internet.password
-        context:
-          type: string
-          description: The deploy context in which this value will be used. `dev` refers to local development when running `netlify dev`.
-          enum:
-          - all
-          - dev
-          - branch-deploy
-          - deploy-preview
-          - production
-          - branch
-        context_parameter:
-          type: string
-          description: An additional parameter for custom branches. Currently, this is used for specifying a branch name when `context=branch`.
-      description: Environment variable value model definition
     envVar:
       type: object
       properties:
@@ -505,17 +488,31 @@ components:
         updated_by:
           $ref: '#/components/schemas/envVarUser'
       description: Environment variable model definition
-    error:
-      required:
-      - message
+    envVarValue:
       type: object
       properties:
-        code:
-          type: integer
-          format: int64
-        message:
+        id:
           type: string
-          nullable: false
+          description: The environment variable value's universally unique ID
+          x-faker: datatype.uuid
+        value:
+          type: string
+          description: The environment variable's unencrypted value
+          x-faker: internet.password
+        context:
+          type: string
+          description: The deploy context in which this value will be used. `dev` refers to local development when running `netlify dev`.
+          enum:
+          - all
+          - dev
+          - branch-deploy
+          - deploy-preview
+          - production
+          - branch
+        context_parameter:
+          type: string
+          description: An additional parameter for custom branches. Currently, this is used for specifying a branch name when `context=branch`.
+      description: Environment variable value model definition
   securitySchemes:
     netlifyAuth:
       type: oauth2
@@ -526,6 +523,9 @@ components:
 externalDocs:
   description: Online documentation
   url: https://www.netlify.com/docs/api/
+x-refined-from:
+- netlify-environmentvariables-api-openapi.yml
+- netlify-openapi-2.57.0-swagger.json
 x-tagGroups:
 - name: OAuth
   tags:

@@ -1,0 +1,240 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  Registry metadata read live on 2026-08-27 from registry.npmjs.org, proxy.golang.org,
+  rubygems.org and data.jsdelivr.com, cross-checked against Netlify's own SDK page
+  (https://developers.netlify.com/sdk/), the CLI docs (https://cli.netlify.com/) and the
+  netlify GitHub organization (https://github.com/netlify).
+description: >-
+  First-party Netlify client libraries, CLI, platform primitives and framework adapters.
+  Netlify's public API client story is JavaScript/TypeScript first: the Node.js API client
+  (@netlify/api) is generated from the same open-api definition that backs
+  https://open-api.netlify.com/swagger.json. There is no first-party Python, Java, .NET,
+  PHP or Rust client; the maintained Ruby and Go artifacts are, respectively, a 2016-era
+  gem and the Go module that ships the OpenAPI definition itself.
+languages_covered: [javascript, typescript, go, ruby]
+languages_not_covered: [python, java, dotnet, php, ruby-modern, rust]
+packages:
+  - name: netlify-cli
+    registry: npm
+    url: https://www.npmjs.com/package/netlify-cli
+    repository: https://github.com/netlify/cli
+    language: javascript
+    kind: cli
+    official: true
+    version: 27.4.0
+    published: '2026-08-26'
+    install: npm install -g netlify-cli
+    note: The Netlify CLI. Detail of its command surface is in cli/netlify-cli.yml.
+  - name: netlify
+    registry: npm
+    url: https://www.npmjs.com/package/netlify
+    repository: https://github.com/netlify/cli
+    language: javascript
+    kind: cli
+    official: true
+    version: 27.4.0
+    published: '2026-08-26'
+    note: >-
+      Alias of netlify-cli, published from the same repository at the same version. It was
+      historically the JS API client; that role now belongs to @netlify/api.
+  - name: '@netlify/api'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/api
+    repository: https://github.com/netlify/build
+    language: typescript
+    kind: sdk
+    official: true
+    version: 15.1.2
+    published: '2026-08-19'
+    note: >-
+      Netlify Node.js API client for the REST API at https://api.netlify.com/api/v1 —
+      the SDK that corresponds to the OpenAPI in openapi/.
+  - name: '@netlify/open-api'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/open-api
+    repository: https://github.com/netlify/open-api
+    language: typescript
+    kind: specification
+    official: true
+    version: 2.57.0
+    published: '2026-07-07'
+    note: >-
+      The OpenAPI (Swagger 2.0) definition itself, shipped as a module. Same version as
+      the live https://open-api.netlify.com/swagger.json captured in
+      openapi/_original/netlify-openapi-2.57.0-swagger.json.
+  - name: github.com/netlify/open-api/v2
+    registry: go
+    url: https://pkg.go.dev/github.com/netlify/open-api/v2
+    repository: https://github.com/netlify/open-api
+    language: go
+    kind: sdk
+    official: true
+    version: v2.57.0
+    published: '2026-07-07'
+    note: >-
+      Go module carrying the OpenAPI definition plus go-swagger generated client/models.
+      Verified via proxy.golang.org/github.com/netlify/open-api/v2/@latest. The
+      unversioned module path (github.com/netlify/open-api) is frozen at v1.4.0
+      (2021-01-22).
+  - name: '@netlify/mcp'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/mcp
+    repository: https://github.com/netlify/netlify-mcp
+    language: typescript
+    kind: mcp-server
+    official: true
+    version: 1.15.1
+    published: '2025-11-11'
+    install: npx -y @netlify/mcp
+    note: >-
+      Local stdio MCP server. Its version matches the serverInfo.version reported by the
+      hosted remote server card, so the same build backs both deployments; the npm release
+      date is nonetheless the oldest of any actively-shipped Netlify package here.
+      See mcp/netlify-mcp.yml.
+  - name: '@netlify/functions'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/functions
+    repository: https://github.com/netlify/primitives
+    language: typescript
+    kind: primitive
+    official: true
+    version: 6.0.0
+    published: '2026-08-18'
+  - name: '@netlify/edge-functions'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/edge-functions
+    repository: https://github.com/netlify/primitives
+    language: typescript
+    kind: primitive
+    official: true
+    version: 4.0.0
+    published: '2026-08-18'
+  - name: '@netlify/blobs'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/blobs
+    repository: https://github.com/netlify/primitives
+    language: typescript
+    kind: primitive
+    official: true
+    version: 11.0.1
+    published: '2026-08-18'
+  - name: '@netlify/cache'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/cache
+    repository: https://github.com/netlify/primitives
+    language: typescript
+    kind: primitive
+    official: true
+    version: 4.0.0
+    published: '2026-08-18'
+  - name: '@netlify/neon'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/neon
+    repository: https://github.com/netlify/neon
+    language: typescript
+    kind: primitive
+    official: true
+    version: 0.1.2
+    published: '2026-01-19'
+    note: Netlify Database (Neon Postgres) client.
+  - name: '@netlify/sdk'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/sdk
+    repository: https://github.com/netlify/sdk
+    language: typescript
+    kind: sdk
+    official: true
+    version: 5.0.4
+    published: '2026-03-30'
+    note: Extension-authoring SDK (Netlify Extensions), not a REST API client.
+  - name: '@netlify/build'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/build
+    repository: https://github.com/netlify/build
+    language: typescript
+    kind: build
+    official: true
+    version: 36.4.2
+    published: '2026-08-25'
+  - name: '@netlify/vite-plugin'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/vite-plugin
+    repository: https://github.com/netlify/primitives
+    language: typescript
+    kind: adapter
+    official: true
+    version: 3.0.0
+    published: '2026-08-26'
+  - name: '@netlify/plugin-nextjs'
+    registry: npm
+    url: https://www.npmjs.com/package/@netlify/plugin-nextjs
+    repository: https://github.com/netlify/next-runtime
+    language: typescript
+    kind: adapter
+    official: true
+    version: 5.15.13
+    published: '2026-07-27'
+  - name: netlify-identity-widget
+    registry: npm
+    url: https://www.npmjs.com/package/netlify-identity-widget
+    repository: https://github.com/netlify/netlify-identity-widget
+    language: javascript
+    kind: component
+    official: true
+    version: 2.0.3
+    published: '2026-02-26'
+    note: See components/netlify-components.yml for the CDN distribution of this widget.
+  - name: netlify-identity-widget (CDN build)
+    registry: cdn
+    url: https://identity.netlify.com/v1/netlify-identity-widget.js
+    language: javascript
+    kind: component
+    official: true
+    version: null
+    published: null
+    note: >-
+      Checked 2026-08-27, HTTP 200, 240,416 bytes. The documented script-tag distribution is
+      served from a Netlify-owned host at an UNPINNED path — /v1/ is a floating channel, not a
+      version, and the file carries no version marker a consumer can read. A consumer cannot
+      tell which build they are loading, so no version or release date can honestly be
+      recorded. The npm package above (2.0.3, 2026-02-26) is the pinnable equivalent.
+  - name: netlify
+    registry: rubygems
+    url: https://rubygems.org/gems/netlify
+    language: ruby
+    kind: sdk
+    official: true
+    version: 0.2.2
+    published: '2016-11-03'
+    note: >-
+      Authored by Netlify co-founder Mathias Biilmann Christensen and points at
+      https://www.netlify.com, so it is first-party by origin — but it has had no release
+      in nearly ten years and predates most of the current API. Treat as abandoned.
+  - name: netlify-py
+    registry: pypi
+    url: https://pypi.org/project/netlify-py/
+    repository: https://github.com/akshay-realiq/netlify_py
+    language: python
+    kind: sdk
+    official: false
+    version: 0.1.0
+    published: null
+    note: >-
+      Third-party community wrapper, listed only to record that the sole PyPI result is NOT
+      from Netlify. The bare `netlify` name is unclaimed on PyPI (404). Release date not
+      recorded because it was not read in this pass.
+absent:
+  - registry: pypi
+    detail: No first-party Netlify Python client. `netlify` returns 404 on PyPI.
+  - registry: maven
+    detail: No first-party Java client found on the SDK page or in the GitHub organization.
+  - registry: nuget
+    detail: No first-party .NET client found.
+  - registry: packagist
+    detail: No first-party PHP client found.
+  - registry: crates.io
+    detail: >-
+      No first-party Rust client found. crates.io answered 403 to an unauthenticated
+      lookup of `netlify` on 2026-08-27, so absence there is from the docs and GitHub
+      organization rather than from the registry.

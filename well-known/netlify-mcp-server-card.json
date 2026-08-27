@@ -1,0 +1,15 @@
+{
+  "serverInfo": {
+    "name": "Netlify MCP Server",
+    "version": "1.15.1"
+  },
+  "description": "Official Netlify MCP server. Lets AI agents and coding tools create, deploy, and manage Netlify projects — deploys, environment variables, access controls, forms, DNS, and serverless/edge functions — over a remote Streamable HTTP connection. No local install required.",
+  "url": "https://netlify-mcp.netlify.app/mcp",
+  "transport": {
+    "type": "streamable-http"
+  },
+  "capabilities": {
+    "tools": true
+  },
+  "documentation": "https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/"
+}

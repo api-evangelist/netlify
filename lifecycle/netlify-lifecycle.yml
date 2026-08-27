@@ -1,0 +1,127 @@
+generated: '2026-08-27'
+method: searched
+source: >-
+  https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/,
+  https://docs.netlify.com/deploy/manage-deploys/manage-deploys-overview/,
+  https://www.netlify.com/changelog/, https://www.netlifystatus.com/api/v2/summary.json (probed
+  2026-08-27), https://www.netlify.com/pricing/, and Netlify's own OpenAPI at
+  https://open-api.netlify.com/swagger.json (2.57.0).
+description: >-
+  Versioning, deprecation, support and availability posture for the Netlify REST API. The API has
+  been on a single path version since launch, Netlify commits to keeping old URLs working across
+  breaking changes, and there is no formal deprecation-header practice.
+
+versioning:
+  scheme: path prefix
+  current: v1
+  base_url: https://api.netlify.com/api/v1
+  spec_version: 2.57.0
+  spec_version_source: https://open-api.netlify.com/swagger.json
+  spec_package: '@netlify/open-api@2.57.0 (npm), github.com/netlify/open-api/v2 v2.57.0 (Go)'
+  policy_statement: >-
+    "The path is prefixed with the API version. If we change the API in backward-incompatible
+    ways, we'll bump the version marker and maintain stable support for the old URLs."
+  policy_source: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  observed: >-
+    The version marker has never been bumped. The contract has grown additively — open-api
+    2.33.1 declared 133 operations and 2.57.0 declares 180, with no operation removed.
+
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  detail: >-
+    No operation in the OpenAPI carries `deprecated: true`, and Netlify publishes no deprecation
+    policy page, no Sunset or Deprecation response headers, and no advance-notice window for
+    API removals. Product deprecations are announced in the changelog and the docs instead — the
+    pricing page marks Large Media as "(Deprecated)", Netlify Graph (the GraphQL surface, see
+    graphql/netlify-graphql.md) was retired outright and its host no longer resolves, and the
+    2026-05-21 changelog entry ends Build Plugins support for Node.js 18 and 20. None of these
+    was signalled in-band.
+  product_deprecations_observed:
+    - name: Netlify Graph / GraphQL API
+      status: retired
+      detail: graph.netlify.com no longer resolves. See graphql/netlify-graphql.md.
+    - name: Large Media
+      status: deprecated
+      source: https://www.netlify.com/pricing/
+    - name: Build Plugins on Node.js 18 and 20
+      status: end of support
+      date: '2026-05-21'
+      source: https://www.netlify.com/changelog/
+
+data_retention:
+  deploys:
+    free: 30 days
+    paid: 90 days
+    enterprise_max: 365 days
+    never_deleted: The deploy currently published to the site's main URL.
+    cadence: Netlify runs deploy deletions daily; a retention change takes effect immediately.
+    docs: https://docs.netlify.com/deploy/manage-deploys/manage-deploys-overview/#deploy-retention
+    note: >-
+      This retention period is also the rollback window — see the reversibility block in
+      conventions/netlify-conventions.yml.
+  failed_and_cancelled_deploys:
+    free: 30 days
+    paid: 90 days
+  observability:
+    personal: 1 day
+    pro: 30 days
+    source: https://www.netlify.com/pricing/
+
+sla:
+  published: true
+  uptime: 99.99%
+  plan: Enterprise only
+  source: https://www.netlify.com/pricing/
+  note: Free, Personal and Pro plans carry no published uptime commitment.
+
+support:
+  free: Community forums (https://answers.netlify.com/)
+  personal: Priority email support
+  pro: Priority email support
+  enterprise: 24/7 dedicated support
+  forums: https://answers.netlify.com/
+  contact: https://www.netlify.com/support/
+  source: https://www.netlify.com/pricing/
+
+status_page:
+  url: https://www.netlifystatus.com/
+  platform: Atlassian Statuspage
+  machine_readable: true
+  api:
+    summary: https://www.netlifystatus.com/api/v2/summary.json
+    probed: '2026-08-27'
+    http_status: 200
+    observed_state: All Systems Operational
+    components: 40
+    note: >-
+      A dedicated "API" component is tracked separately from the edge network, build pipeline
+      and application UI, and the page also tracks upstream dependencies (GitHub, Bitbucket,
+      GitLab, npm) that can break Netlify builds.
+  subscribe: https://www.netlifystatus.com/
+
+release_communication:
+  changelog: https://www.netlify.com/changelog/
+  feed: https://www.netlify.com/changelog/feed.xml
+  detail: changelog/netlify-changelog.yml
+  spec_releases: https://github.com/netlify/open-api/releases
+  security_advisories: >-
+    Framework and runtime CVEs affecting hosted sites are published as "Security Update" entries
+    in the same changelog feed rather than in a separate advisory channel.
+
+catalog_currency:
+  refined_spec_version: 2.33.1
+  refined_operations: 133
+  upstream_spec_version: 2.57.0
+  upstream_operations: 180
+  gap: >-
+    The one-per-tag OpenAPIs under openapi/ were generated from open-api 2.33.1 and are 47
+    operations behind the live contract. The missing surface is entirely new product: Agent
+    Runners (14 operations), Netlify Database (21), AI Gateway (3), certificate listing, and
+    site enable/disable. The current upstream spec is captured verbatim at
+    openapi/_original/netlify-openapi-2.57.0-swagger.json; re-splitting it is a refine-openapis
+    job, not an enrichment one.
+  checked: '2026-08-27'

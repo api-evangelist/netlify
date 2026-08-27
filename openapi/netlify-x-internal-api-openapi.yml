@@ -1,36 +1,27 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken X-Internal API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify X Internal API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged x-internal across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-x-internal-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
 - netlifyAuth: []
 tags:
-- name: X-Internal
+- name: x-internal
 paths:
   /sites/{site_id}/plugins/{package}:
     put:
-      tags:
-      - X-Internal
-      description: This is an internal-only endpoint.
+      x-internal: true
       operationId: updatePlugin
+      tags:
+      - x-internal
+      description: This is an internal-only endpoint.
       parameters:
       - name: site_id
         in: path
@@ -42,33 +33,49 @@ paths:
         required: true
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/pluginParams'
-        required: false
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/plugin'
+                type: object
+                properties:
+                  package:
+                    type: string
+                  pinned_version:
+                    type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-      x-internal: true
-      x-codegen-request-body-name: plugin_params
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pinned_version:
+                  type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
   /sites/{site_id}/plugin_runs/latest:
     get:
-      tags:
-      - X-Internal
-      description: This is an internal-only endpoint.
+      x-internal: true
       operationId: getLatestPluginRuns
+      tags:
+      - x-internal
+      description: This is an internal-only endpoint.
       parameters:
       - name: site_id
         in: path
@@ -78,8 +85,6 @@ paths:
       - name: packages
         in: query
         required: true
-        style: form
-        explode: false
         schema:
           type: array
           items:
@@ -96,49 +101,131 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/pluginRun'
+                  allOf:
+                  - type: object
+                    properties:
+                      package:
+                        type: string
+                      version:
+                        type: string
+                      state:
+                        type: string
+                      reporting_event:
+                        type: string
+                      title:
+                        type: string
+                      summary:
+                        type: string
+                      text:
+                        type: string
+                  - type: object
+                    properties:
+                      deploy_id:
+                        type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-      x-internal: true
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
   /deploys/{deploy_id}/plugin_runs:
     post:
-      tags:
-      - X-Internal
-      description: This is an internal-only endpoint.
+      x-internal: true
       operationId: createPluginRun
+      tags:
+      - x-internal
+      description: This is an internal-only endpoint.
       parameters:
       - name: deploy_id
         in: path
         required: true
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/pluginRunData'
-        required: false
       responses:
         '201':
           description: CREATED
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/pluginRun'
+                allOf:
+                - type: object
+                  properties:
+                    package:
+                      type: string
+                    version:
+                      type: string
+                    state:
+                      type: string
+                    reporting_event:
+                      type: string
+                    title:
+                      type: string
+                    summary:
+                      type: string
+                    text:
+                      type: string
+                - type: object
+                  properties:
+                    deploy_id:
+                      type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-      x-internal: true
-      x-codegen-request-body-name: plugin_run
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                package:
+                  type: string
+                version:
+                  type: string
+                state:
+                  type: string
+                reporting_event:
+                  type: string
+                title:
+                  type: string
+                summary:
+                  type: string
+                text:
+                  type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
     pluginRun:
       allOf:
       - $ref: '#/components/schemas/pluginRunData'
@@ -146,11 +233,6 @@ components:
         properties:
           deploy_id:
             type: string
-    pluginParams:
-      type: object
-      properties:
-        pinned_version:
-          type: string
     pluginRunData:
       type: object
       properties:
@@ -168,17 +250,11 @@ components:
           type: string
         text:
           type: string
-    error:
-      required:
-      - message
+    pluginParams:
       type: object
       properties:
-        code:
-          type: integer
-          format: int64
-        message:
+        pinned_version:
           type: string
-          nullable: false
     plugin:
       type: object
       properties:
@@ -191,11 +267,14 @@ components:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-refined-from:
+- netlify-openapi-2.57.0-swagger.json
+- netlify-x-internal-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:

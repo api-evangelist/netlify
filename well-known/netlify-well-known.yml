@@ -1,0 +1,186 @@
+generated: '2026-08-27'
+method: probed
+source: >-
+  Live probe of the /.well-known/ discovery surface on every apis.yml baseURL host, every
+  OpenAPI servers[] host (https://api.netlify.com/api/v1), the docs/console hosts, and the
+  host named by Netlify's own API catalog (netlify-mcp.netlify.app). Status is the HTTP code
+  observed at fetch time on 2026-08-27. Only responses carrying a real, correctly-typed
+  payload were saved verbatim.
+description: >-
+  Netlify serves a genuine RFC 9727 API catalog at https://www.netlify.com/.well-known/api-catalog
+  (application/linkset+json). The linkset anchors two services: the REST API at
+  https://api.netlify.com/api/v1 (service-desc -> https://open-api.netlify.com/swagger.json) and
+  the remote MCP server at https://netlify-mcp.netlify.app/mcp (service-desc -> an MCP server card
+  at https://www.netlify.com/.well-known/mcp/server-card.json). That MCP host in turn publishes
+  RFC 8414 authorization-server metadata and RFC 9728 protected-resource metadata. Netlify does
+  NOT serve a /.well-known/security.txt on any host probed.
+notes:
+  - >-
+    app.netlify.com answers HTTP 200 with a text/html single-page-app shell for EVERY
+    /.well-known/* path, including paths that do not exist. Those 200s are recorded here as
+    shell responses and are NOT counted as served documents.
+  - >-
+    Netlify's bug bounty and disclosure route is published on HackerOne, not in a security.txt.
+    See security/netlify-vulnerability-disclosure.yml.
+hosts:
+  - host: https://api.netlify.com
+    note: OpenAPI servers[] host and apis.yml baseURL host for all 35 API entries.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://www.netlify.com
+    note: Corporate/marketing host; carries the API catalog and the MCP server card.
+    documents:
+      - path: /.well-known/api-catalog
+        status: 200
+        type: application/linkset+json
+        file: netlify-api-catalog.json
+      - path: /.well-known/mcp/server-card.json
+        status: 200
+        type: application/json
+        file: netlify-mcp-server-card.json
+        note: Referenced as service-desc by the api-catalog linkset.
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://netlify-mcp.netlify.app
+    note: >-
+      Remote MCP server host named by the api-catalog linkset. Serves OAuth discovery
+      documents anonymously; the /mcp endpoint itself returns 401 with a WWW-Authenticate
+      Bearer challenge pointing at the protected-resource metadata.
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        type: application/json
+        file: netlify-mcp-oauth-authorization-server.json
+      - path: /.well-known/oauth-protected-resource/mcp
+        status: 200
+        type: application/json
+        file: netlify-mcp-oauth-protected-resource.json
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        type: application/json
+        note: Identical body to /.well-known/oauth-protected-resource/mcp; not saved twice.
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://docs.netlify.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://app.netlify.com
+    note: >-
+      SPA catch-all. Every path below returned 200 with text/html, including nonexistent ones.
+      None of these is a served document.
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        type: text/html
+        served: false
+        note: SPA shell, not a document.
+      - path: /.well-known/openid-configuration
+        status: 200
+        type: text/html
+        served: false
+        note: SPA shell, not a document.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        type: text/html
+        served: false
+        note: SPA shell, not a document.
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        type: text/html
+        served: false
+        note: SPA shell, not a document.
+      - path: /.well-known/api-catalog
+        status: 200
+        type: text/html
+        served: false
+        note: SPA shell, not a document.
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        type: text/html
+        served: false
+        note: SPA shell, not a document.
+      - path: /.well-known/agent-card.json
+        status: 200
+        type: text/html
+        served: false
+        note: SPA shell, not a document. No AgentCard pointer is emitted.
+      - path: /.well-known/agent.json
+        status: 200
+        type: text/html
+        served: false
+        note: SPA shell, not a document.
+  - host: https://open-api.netlify.com
+    note: OpenAPI reference host named by the api-catalog service-desc link.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://developers.netlify.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404

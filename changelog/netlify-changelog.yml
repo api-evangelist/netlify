@@ -1,0 +1,237 @@
+generated: '2026-08-27'
+method: searched
+source: https://www.netlify.com/changelog/feed.xml (HTTP 200, 290 entries, fetched 2026-08-27)
+description: 'Netlify''s product changelog. It is a PRODUCT changelog, not an API changelog: entries
+  announce dashboard, build, AI Gateway, Agent Runners and framework changes, and REST API additions
+  appear only when they accompany a product launch. The versioned record of the contract itself lives
+  in the open-api repository releases, not here.'
+changelog_url: https://www.netlify.com/changelog/
+feed: https://www.netlify.com/changelog/feed.xml
+feed_format: RSS 2.0
+machine_readable: true
+dated: true
+entry_count_in_feed: 290
+earliest_in_feed: '2020-10-30'
+latest_in_feed: '2026-08-25'
+scheme:
+  versioned: false
+  detail: Entries are dated and slugged, not versioned. There is no semver, no release number and no
+    breaking/non-breaking label, so a reader has to infer impact from prose.
+  api_version_record: https://github.com/netlify/open-api/releases
+  current_spec_version: 2.57.0
+categories_observed:
+- security update
+- ai gateway
+- agent runners
+- framework support
+- billing and plans
+- team management
+- deploys
+- database
+- cli
+breaking_change_signalling:
+  in_feed: false
+  detail: No entry in the recent window is marked breaking. End-of-support notices do appear as ordinary
+    entries — for example Build Plugins ending support for Node.js 18 and 20 on 2026-05-21 — but they
+    carry no machine-readable deprecation marker. See lifecycle/netlify-lifecycle.yml.
+entries:
+- date: '2026-08-25'
+  title: 'Security Update: Two critical Next.js vulnerabilities'
+  type: security
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-25-nextjs-security-vulnerabilities/
+  summary: The Next.js team has disclosed two critical severity vulnerabilities, both of which can lead
+    to unauthenticated remote code execution. Both are patched in 15.5.24 and 16.3.3. Netlify-hosted
+    sites are
+- date: '2026-08-19'
+  title: Pre-launch toolbar and the Powered by Netlify badge
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-19-pre-launch-toolbar-and-powered-by-netlify-badge/
+  summary: Private projects on Netlify will now show a pre-launch toolbar so you can share your project
+    for review and run audits using AI checks before you make your project public. Private projects
+    and agent r
+- date: '2026-08-19'
+  title: Agent Runners can now ask clarifying questions
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-19-agent-runners-clarifying-questions/
+  summary: Agent Runners can now ask you clarifying questions before they start building. When a few
+    details could significantly improve the result, the agent pauses and asks instead of guessing. The
+    clarifying
+- date: '2026-08-13'
+  title: Google Gemini 3.7 Flash now available in AI Gateway and Agent Runners
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/gemini-3-7-flash-ai-gateway-agent-runners/
+  summary: Google’s Gemini 3.7 Flash model is now available through Netlify’s AI Gateway and Agent Runners
+    with zero configuration required. Use the Google GenAI SDK directly in your Netlify Functions without
+    ma
+- date: '2026-08-12'
+  title: Manage your team invitations from your Netlify dashboard
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-12-accept-team-invites-in-app/
+  summary: Invitations to join an existing team now show up within your Netlify dashboard, where you
+    can accept or decline them directly without checking your email inbox. Previously, the invitation
+    email was th
+- date: '2026-08-12'
+  title: Pay for Netlify with Apple Pay and Google Pay
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-12-apple-pay-google-pay/
+  summary: You can now pay for Netlify with Apple Pay or Google Pay, in addition to paying by credit
+    card. Both options show up as you’d expect at checkout, so you can confirm a payment with the device
+    you alrea
+- date: '2026-08-12'
+  title: Simplified single sign-on (SSO) process
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-12-sso-sign-in-with-email/
+  summary: If your team uses SSO (single sign-on) with an identity provider, you can now sign in with
+    just your email address without using your team ID. Netlify recognizes your domain and sends you
+    straight to
+- date: '2026-08-06'
+  title: SolidStart 2 just works on Netlify
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-06-solidstart-2-on-netlify/
+  summary: SolidStart 2 is out, and it deploys to Netlify with no framework-specific adapter to install,
+    a first for full-stack frameworks on Netlify. While SolidStart 1 deployed to Netlify through Nitro
+    under t
+- date: '2026-08-06'
+  title: AI Gateway adds OpenRouter support for more AI model choice
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-06-ai-gateway-openrouter/
+  summary: The AI Gateway now supports OpenRouter, giving you access to models from providers beyond
+    Netlify's direct integrations (OpenAI, Anthropic, Google Gemini). This partnership opens up models
+    from provid
+- date: '2026-08-06'
+  title: Agent Runners adds OpenCode and AI model controls
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-08-06-opencode-agent-runners/
+  summary: Through a new partnership with OpenRouter, you can now choose OpenCode as an AI agent with
+    Agent Runners. OpenCode allows you to choose many different AI models, including Kimi, DeepSeek,
+    and GLM. Lea
+- date: '2026-07-30'
+  title: Ask mode for Agent Runners
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-30-agent-runners-ask-mode/
+  summary: Netlify Agent Runners now have a mode selector. Pick Ask and the agent reads, investigates,
+    and answers questions about your project. Build is still the default and works exactly as before.
+    Ask mode i
+- date: '2026-07-30'
+  title: GPT-5.6 Luna and Terra price reduction on AI Gateway
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/gpt-5-6-luna-terra-price-reduction-ai-gateway/
+  summary: GPT-5.6 Luna now costs 80% less and GPT-5.6 Terra is 20% less through Netlify AI Gateway,
+    making both models more cost-efficient for production AI workloads. These reductions improve the
+    price-perform
+- date: '2026-07-28'
+  title: Keep projects private by default with project visibility
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-28-start-with-private-project-urls/
+  summary: Teams on a Free, Personal, or Pro plan now have project visibility settings to ensure that
+    all of your project stay private until you decide to make them public. More people are shipping
+    prototypes, i
+- date: '2026-07-27'
+  title: 'Security Update: Multiple vulnerabilities in Nuxt'
+  type: security
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-27-nuxt-security-vulnerabilities/
+  summary: The Nuxt team has disclosed several security vulnerabilities fixed in Nuxt 4.5.1 and 3.21.10,
+    ranging from a high-severity server-side remote code execution (under specific conditions) to lower-severi
+- date: '2026-07-27'
+  title: Netlify Drop updates
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-27-netlify-drop-refresh/
+  summary: Netlify Drop has a refreshed look, with even more support for your questions and guidance
+    on what’s next after you drop your latest site or app. We first launched Netlify Drop 13 years ago
+    when we int
+- date: '2026-07-24'
+  title: Claude Opus 5 Now Available in AI Gateway and Agent Runners
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/claude-opus-5-ai-gateway-agent-runners/
+  summary: Anthropic’s Claude Opus 5 model is now available through Netlify’s AI Gateway and Agent Runners
+    with zero configuration required. Use the Anthropic SDK directly in your Netlify Functions without
+    manag
+- date: '2026-07-23'
+  title: 'Security Update: Multiple vulnerabilities in React Router'
+  type: security
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-23-react-router-security-vulnerabilities/
+  summary: The React Router team has disclosed five security vulnerabilities affecting React Router.
+    These issues are patched in React Router 7.18.0 (one issue was patched earlier, in 7.13.0). Here’s
+    what Netlif
+- date: '2026-07-21'
+  title: 'Security Update: Multiple vulnerabilities in Next.js'
+  type: security
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-21-nextjs-security-vulnerabilities/
+  summary: The Next.js team has disclosed nine security vulnerabilities, all patched in 15.5.21 and
+    16.2.11. The issues span server-side request forgery (SSRF), a middleware authorization bypass,
+    denial of servi
+- date: '2026-07-21'
+  title: Google Gemini 3.6 Flash and Gemini 3.5 Flash-Lite Now Available in AI Gateway and Agent Runners
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/gemini-3-6-flash-3-5-flash-lite-ai-gateway-agent-runners/
+  summary: Google’s Gemini 3.6 Flash and Gemini 3.5 Flash-Lite models are now available through Netlify’s
+    AI Gateway and Agent Runners with zero configuration required. Use the Google GenAI SDK directly
+    in your
+- date: '2026-07-20'
+  title: Invite Developers and Internal Builders without assigning a project
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-20-invite-builders-without-project-access/
+  summary: You can now invite a Developer or Internal Builder to your team without assigning them to
+    an existing project. Previously, the UI required every new Developer or Internal Builder to be given
+    access to
+- date: '2026-07-15'
+  title: Set AI usage limits for individual team members
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-15-per-member-ai-usage-limits/
+  summary: Team Owners on Pro plans can now limit Agent Runners spend for individual members in your
+    team, giving you finer control over how AI credits are used across your team. Set a single credit
+    limit that a
+- date: '2026-07-14'
+  title: Introducing Pro plan monthly credit tiers with rollovers
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-14-pro-plan-credit-tiers/
+  summary: Team Owners on the credit-based Pro plan can now choose how many monthly credits come with
+    their plan, instead of a single fixed amount. Pick the tier that fits your usage, and change it
+    whenever your
+- date: '2026-07-09'
+  title: OpenAI GPT-5.6 Sol, Luna, and Terra Now Available in AI Gateway and Agent Runners
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/gpt-5-6-sol-luna-terra-ai-gateway-agent-runners/
+  summary: OpenAI’s GPT-5.6 Sol, Luna, and Terra models are now available through Netlify’s AI Gateway
+    and Agent Runners with zero configuration required. Use the OpenAI SDK directly in your Netlify
+    Functions wi
+- date: '2026-07-07'
+  title: Node.js 24 is now the default for Builds and Functions on new sites
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/2026-07-07-nodejs-24-default-new-sites/
+  summary: New sites created on Netlify now use Node.js 24 by default for both builds and Netlify Functions.
+    Existing sites aren’t affected — they keep using whatever Node.js version they’re currently pinned
+    to,
+- date: '2026-07-01'
+  title: Claude Fable 5 reactivated in AI Gateway
+  type: addition
+  breaking: false
+  url: https://www.netlify.com/changelog/claude-fable-5-re-enabled/
+  summary: Anthropic’s Claude Fable 5 model is once again available through Netlify’s AI Gateway with
+    zero configuration required. Use the Anthropic SDK directly in your Netlify Functions without managing
+    API ke
+note: Recent window only (25 most recent of 290 entries in the feed).

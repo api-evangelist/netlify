@@ -1,14 +1,212 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/netlify-openapi-original.yml
-docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-note: Netlify OAuth2 does not use granular scopes - tokens (OAuth or personal access
-  tokens) carry full account access, and Netlify staff confirm only a single public
-  scope exists (https://answers.netlify.com/t/netlify-oauth-scopes/112113).
+generated: '2026-08-27'
+method: searched
+source: openapi/ (35 refined specs, all declaring the same netlifyAuth oauth2 scheme) plus https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  and https://docs.netlify.com/manage/accounts-and-billing/team-management/roles-and-permissions/, both
+  fetched 2026-08-27.
+docs: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/#authentication
+scope_count: 0
+note: 'Netlify OAuth2 declares NO granular scopes. The securityDefinitions entry in Netlify''s own OpenAPI
+  carries an empty scopes object across all 35 refined specs and in upstream 2.57.0, and Netlify staff
+  have confirmed only a single public scope exists (https://answers.netlify.com/t/netlify-oauth-scopes/112113).
+  A personal access token or an OAuth token therefore carries the full authority of the account it was
+  issued for: an agent given a token to read deploys can also delete the site. There is no read-only token
+  and no way to scope a token to one project.'
+authorization_endpoint: https://app.netlify.com/authorize
+scopes: []
+authorization_model:
+  mechanism: team roles, not token scopes
+  detail: Permission is bounded by the ROLE of the user the token belongs to, applied at the team level
+    in the dashboard — not by anything the token itself carries. A token cannot be narrower than its owner.
+  roles_docs: https://docs.netlify.com/manage/accounts-and-billing/team-management/roles-and-permissions/
+  sso_constraint: Under team SAML SSO, personal access tokens are denied team access by default; access
+    must be granted explicitly at generation time while signed in to that team.
+  revocation: Resetting the Netlify account password permanently invalidates every PAT and OAuth token
+    issued before the reset.
+related_oauth_surface:
+  name: Netlify MCP server
+  resource: https://netlify-mcp.netlify.app/mcp
+  scopes_supported:
+  - offline_access
+  - read
+  - write
+  - claudeai
+  source: well-known/netlify-mcp-oauth-authorization-server.json
+  note: The MCP server DOES advertise scopes — a read/write split the REST API does not offer. These govern
+    the MCP session, not the underlying Netlify REST token, so they are recorded separately and are not
+    scopes of the API above.
 schemes:
 - name: netlifyAuth
-  source: openapi/netlify-openapi-original.yml
+  source: openapi/netlify-accesstoken-api-openapi.yml
   flows:
   - flow: implicit
     authorizationUrl: https://app.netlify.com/authorize
-scopes: []
+- name: netlifyAuth
+  source: openapi/netlify-accountmembership-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-accounttype-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-asset-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-assetpublicsignature-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-auditlog-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-build-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-buildhook-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-buildlogmsg-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-deploy-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-deployedbranch-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-deploykey-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-devserver-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-devserverhook-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-dnszone-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-environmentvariables-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-file-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-form-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-function-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-hook-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-hooktype-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-member-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-metadata-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-paymentmethod-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-purge-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-serviceinstance-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-services-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-site-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-snicertificate-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-snippet-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-splittest-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-submission-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-ticket-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-user-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize
+- name: netlifyAuth
+  source: openapi/netlify-x-internal-api-openapi.yml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://app.netlify.com/authorize

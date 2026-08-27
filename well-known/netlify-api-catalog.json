@@ -1,0 +1,38 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://api.netlify.com/api/v1",
+      "service-desc": [
+        {
+          "href": "https://open-api.netlify.com/swagger.json",
+          "type": "application/json",
+          "title": "Netlify REST API — OpenAPI specification"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://docs.netlify.com/api/get-started/",
+          "type": "text/html",
+          "title": "Netlify REST API documentation"
+        }
+      ]
+    },
+    {
+      "anchor": "https://netlify-mcp.netlify.app/mcp",
+      "service-desc": [
+        {
+          "href": "https://www.netlify.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "Netlify MCP server card"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/",
+          "type": "text/html",
+          "title": "Netlify MCP server documentation"
+        }
+      ]
+    }
+  ]
+}

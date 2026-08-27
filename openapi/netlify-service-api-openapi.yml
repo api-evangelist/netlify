@@ -1,0 +1,270 @@
+openapi: 3.2.0
+info:
+  version: 2.57.0
+  title: Netlify's API documentation Service API
+  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
+
+
+    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify''s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
+
+
+    Additionally, we have two API clients for your convenience:
+
+    - [Go Client](https://github.com/netlify/open-api#go-client)
+
+    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: service
+  x-displayName: Service
+paths:
+  /services/:
+    parameters:
+    - name: search
+      in: query
+      schema:
+        type: string
+    get:
+      operationId: getServices
+      tags:
+      - service
+      responses:
+        '200':
+          description: services
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    slug:
+                      type: string
+                    service_path:
+                      type: string
+                    long_description:
+                      type: string
+                    description:
+                      type: string
+                    events:
+                      type: array
+                      items:
+                        type: object
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                    icon:
+                      type: string
+                    manifest_url:
+                      type: string
+                    environments:
+                      type: array
+                      items:
+                        type: string
+                    created_at:
+                      type: string
+                      format: dateTime
+                    updated_at:
+                      type: string
+                      format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+  /services/{addonName}:
+    parameters:
+    - name: addonName
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: showService
+      tags:
+      - service
+      responses:
+        '200':
+          description: services
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  slug:
+                    type: string
+                  service_path:
+                    type: string
+                  long_description:
+                    type: string
+                  description:
+                    type: string
+                  events:
+                    type: array
+                    items:
+                      type: object
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                  icon:
+                    type: string
+                  manifest_url:
+                    type: string
+                  environments:
+                    type: array
+                    items:
+                      type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+  /services/{addonName}/manifest:
+    parameters:
+    - name: addonName
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: showServiceManifest
+      tags:
+      - service
+      responses:
+        '201':
+          description: retrieving from provider
+          content:
+            application/json:
+              schema:
+                type: object
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+components:
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
+externalDocs:
+  url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Database
+  tags:
+  - database
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature

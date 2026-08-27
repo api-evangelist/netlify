@@ -1,42 +1,32 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken Snippet API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify Snippet API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged snippet across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-snippet-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
 - netlifyAuth: []
 tags:
-- name: Snippet
+- name: snippet
   x-displayName: Snippet
 paths:
   /sites/{site_id}/snippets:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
-      tags:
-      - Snippet
       operationId: listSiteSnippets
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
+      tags:
+      - snippet
       responses:
         '200':
           description: OK
@@ -45,131 +35,233 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/snippet'
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int32
+                    site_id:
+                      type: string
+                    title:
+                      type: string
+                    general:
+                      type: string
+                    general_position:
+                      type: string
+                    goal:
+                      type: string
+                    goal_position:
+                      type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
     post:
-      tags:
-      - Snippet
       operationId: createSiteSnippet
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/snippet'
-        required: true
+      tags:
+      - snippet
       responses:
         '201':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/snippet'
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int32
+                  site_id:
+                    type: string
+                  title:
+                    type: string
+                  general:
+                    type: string
+                  general_position:
+                    type: string
+                  goal:
+                    type: string
+                  goal_position:
+                    type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: snippet
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  format: int32
+                site_id:
+                  type: string
+                title:
+                  type: string
+                general:
+                  type: string
+                general_position:
+                  type: string
+                goal:
+                  type: string
+                goal_position:
+                  type: string
+        required: true
+    servers:
+    - url: https://api.netlify.com/api/v1
   /sites/{site_id}/snippets/{snippet_id}:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: snippet_id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
-      tags:
-      - Snippet
       operationId: getSiteSnippet
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: snippet_id
-        in: path
-        required: true
-        schema:
-          type: string
+      tags:
+      - snippet
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/snippet'
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int32
+                  site_id:
+                    type: string
+                  title:
+                    type: string
+                  general:
+                    type: string
+                  general_position:
+                    type: string
+                  goal:
+                    type: string
+                  goal_position:
+                    type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
     put:
-      tags:
-      - Snippet
       operationId: updateSiteSnippet
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: snippet_id
-        in: path
-        required: true
-        schema:
-          type: string
+      tags:
+      - snippet
+      responses:
+        '204':
+          description: No content
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/snippet'
+              type: object
+              properties:
+                id:
+                  type: integer
+                  format: int32
+                site_id:
+                  type: string
+                title:
+                  type: string
+                general:
+                  type: string
+                general_position:
+                  type: string
+                goal:
+                  type: string
+                goal_position:
+                  type: string
         required: true
-      responses:
-        '204':
-          description: No content
-          content: {}
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: snippet
     delete:
-      tags:
-      - Snippet
       operationId: deleteSiteSnippet
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: snippet_id
-        in: path
-        required: true
-        schema:
-          type: string
+      tags:
+      - snippet
       responses:
         '204':
           description: No content
-          content: {}
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
     snippet:
       type: object
       properties:
@@ -188,27 +280,19 @@ components:
           type: string
         goal_position:
           type: string
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-          nullable: false
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-refined-from:
+- netlify-openapi-2.57.0-swagger.json
+- netlify-snippet-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:

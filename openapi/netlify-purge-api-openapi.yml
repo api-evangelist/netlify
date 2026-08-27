@@ -1,54 +1,51 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken Purge API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify Purge API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged purge across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-purge-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
 - netlifyAuth: []
 tags:
-- name: Purge
+- name: purge
   x-displayName: Cache purge
 paths:
   /purge:
     post:
-      tags:
-      - Purge
-      description: Purges cached content from Netlify's CDN. Supports purging by Cache-Tag.
       operationId: purgeCache
+      description: Purges cached content from Netlify's CDN. Supports purging by Cache-Tag.
+      tags:
+      - purge
+      responses:
+        '202':
+          description: OK
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Site not found
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/purge'
+              type: object
+              properties:
+                site_id:
+                  type: string
+                site_slug:
+                  type: string
+                cache_tags:
+                  type: array
+                  items:
+                    type: string
         required: true
-      responses:
-        '202':
-          description: OK
-          content: {}
-        '400':
-          description: Invalid request parameters
-          content: {}
-        '404':
-          description: Site not found
-          content: {}
-      x-codegen-request-body-name: payload
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
     purge:
@@ -67,11 +64,14 @@ components:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-refined-from:
+- netlify-openapi-2.57.0-swagger.json
+- netlify-purge-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:

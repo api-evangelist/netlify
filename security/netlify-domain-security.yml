@@ -1,4 +1,4 @@
-generated: '2026-07-11'
+generated: '2026-08-27'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -23,9 +23,9 @@ domains:
 - domain: netlify.com
   dnssec: false
   caa:
-  - 128 issue "digicert.com;account=2d83e9ac9b6776c3f215150f6ebceea8cefe3bc2e1fb5efffb1d71e200575226"
   - 128 issue "amazon.com"
   - 128 iodef "mailto:security@netlify.com"
+  - 128 issue "digicert.com;account=2d83e9ac9b6776c3f215150f6ebceea8cefe3bc2e1fb5efffb1d71e200575226"
   spf: true
   dmarc: true
   dmarc_policy: reject

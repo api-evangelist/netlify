@@ -1,36 +1,26 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Netlify Netlify's API documentation accessToken Submission API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify’s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  title: Netlify Submission API
   termsOfService: https://www.netlify.com/legal/terms-of-use/
-  version: 2.33.1
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
+  version: '1.0'
+  description: 'Operations tagged submission across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-submission-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
 - netlifyAuth: []
 tags:
-- name: Submission
+- name: submission
   x-displayName: Form submission
 paths:
   /sites/{site_id}/submissions:
     get:
-      tags:
-      - Submission
       operationId: listSiteSubmissions
+      tags:
+      - submission
       parameters:
       - name: site_id
         in: path
@@ -38,11 +28,13 @@ paths:
         schema:
           type: string
       - name: page
+        required: false
         in: query
         schema:
           type: integer
           format: int32
       - name: per_page
+        required: false
         in: query
         schema:
           type: integer
@@ -55,18 +47,55 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/submission'
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    number:
+                      type: integer
+                      format: int32
+                    email:
+                      type: string
+                    name:
+                      type: string
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    company:
+                      type: string
+                    summary:
+                      type: string
+                    body:
+                      type: string
+                    data:
+                      type: object
+                    created_at:
+                      type: string
+                      format: dateTime
+                    site_url:
+                      type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
   /forms/{form_id}/submissions:
     get:
-      tags:
-      - Submission
       operationId: listFormSubmissions
+      tags:
+      - submission
       parameters:
       - name: form_id
         in: path
@@ -74,11 +103,13 @@ paths:
         schema:
           type: string
       - name: page
+        required: false
         in: query
         schema:
           type: integer
           format: int32
       - name: per_page
+        required: false
         in: query
         schema:
           type: integer
@@ -91,34 +122,74 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/submission'
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    number:
+                      type: integer
+                      format: int32
+                    email:
+                      type: string
+                    name:
+                      type: string
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    company:
+                      type: string
+                    summary:
+                      type: string
+                    body:
+                      type: string
+                    data:
+                      type: object
+                    created_at:
+                      type: string
+                      format: dateTime
+                    site_url:
+                      type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
   /submissions/{submission_id}:
+    parameters:
+    - name: submission_id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
-      tags:
-      - Submission
       operationId: listFormSubmission
+      tags:
+      - submission
       parameters:
-      - name: submission_id
-        in: path
-        required: true
-        schema:
-          type: string
       - name: query
         in: query
         schema:
           type: string
       - name: page
+        required: false
         in: query
         schema:
           type: integer
           format: int32
       - name: per_page
+        required: false
         in: query
         schema:
           type: integer
@@ -131,35 +202,83 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/submission'
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    number:
+                      type: integer
+                      format: int32
+                    email:
+                      type: string
+                    name:
+                      type: string
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    company:
+                      type: string
+                    summary:
+                      type: string
+                    body:
+                      type: string
+                    data:
+                      type: object
+                    created_at:
+                      type: string
+                      format: dateTime
+                    site_url:
+                      type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
     delete:
-      tags:
-      - Submission
       operationId: deleteSubmission
-      parameters:
-      - name: submission_id
-        in: path
-        required: true
-        schema:
-          type: string
+      tags:
+      - submission
       responses:
         '204':
           description: Deleted
-          content: {}
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+    servers:
+    - url: https://api.netlify.com/api/v1
 components:
   schemas:
+    error:
+      required:
+      - message
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+        message:
+          type: string
     submission:
       type: object
       properties:
@@ -190,27 +309,19 @@ components:
           format: dateTime
         site_url:
           type: string
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-          nullable: false
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-refined-from:
+- netlify-openapi-2.57.0-swagger.json
+- netlify-submission-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:
