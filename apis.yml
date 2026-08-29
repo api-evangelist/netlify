@@ -10,6 +10,20 @@ description: >-
   API catalog at the domain root, an OAuth-gated remote MCP server, fifteen published Agent
   Skills, an llms.txt, and a Markdown twin of every documentation page.
 kind: contract
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -980,6 +994,9 @@ apis:
   - type: OpenAPI
     url: openapi/netlify-service-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/netlify-capability-edges.yml
+  name: Netlify Business Capability Map
 - type: IssueTracker
   url: https://github.com/netlify/open-api/issues
 - type: Releases
