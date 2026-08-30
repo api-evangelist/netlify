@@ -60,8 +60,7 @@ apis:
   description: The accessToken API from Netlify — 1 operation(s) for accesstoken.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Access Token
+  tags: []
   tags_raw:
   - accessToken
   properties:
@@ -86,8 +85,7 @@ apis:
   description: The accountMembership API from Netlify — 2 operation(s) for accountmembership.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Account Membership
+  tags: []
   tags_raw:
   - accountMembership
   properties:
@@ -112,8 +110,7 @@ apis:
   description: The accountType API from Netlify — 1 operation(s) for accounttype.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - AccountType
+  tags: []
   tags_raw:
   - accountType
   properties:
@@ -363,8 +360,7 @@ apis:
   description: The devServer API from Netlify — 3 operation(s) for devserver.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Dev Server
+  tags: []
   tags_raw:
   - devServer
   properties:
@@ -439,8 +435,7 @@ apis:
   description: The environmentVariables API from Netlify — 4 operation(s) for environmentvariables.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Environment Variables
+  tags: []
   tags_raw:
   - environmentVariables
   properties:
@@ -634,8 +629,7 @@ apis:
   description: The paymentMethod API from Netlify — 1 operation(s) for paymentmethod.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Payment Method
+  tags: []
   tags_raw:
   - paymentMethod
   properties:
@@ -806,8 +800,7 @@ apis:
   description: The splitTest API from Netlify — 4 operation(s) for splittest.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - SplitTest
+  tags: []
   tags_raw:
   - splitTest
   properties:
@@ -928,7 +921,8 @@ apis:
   description: The agentRunner API from Netlify — 6 operation(s) for agentrunner.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
+  tags: []
+  tags_raw:
   - agentRunner
   properties:
   - type: OpenAPI
@@ -938,7 +932,8 @@ apis:
   description: The agentRunnerHook API from Netlify — 2 operation(s) for agentrunnerhook.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
+  tags: []
+  tags_raw:
   - agentRunnerHook
   properties:
   - type: OpenAPI
@@ -948,7 +943,8 @@ apis:
   description: The agentRunnerSession API from Netlify — 2 operation(s) for agentrunnersession.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
+  tags: []
+  tags_raw:
   - agentRunnerSession
   properties:
   - type: OpenAPI
@@ -959,6 +955,8 @@ apis:
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
   tags:
+  - AI Gateway
+  tags_raw:
   - aiGateway
   properties:
   - type: OpenAPI
@@ -969,6 +967,8 @@ apis:
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
   tags:
+  - Database
+  tags_raw:
   - database
   properties:
   - type: OpenAPI
@@ -978,7 +978,8 @@ apis:
   description: The edgeFunction API from Netlify — 1 operation(s) for edgefunction.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags:
+  tags: []
+  tags_raw:
   - edgeFunction
   properties:
   - type: OpenAPI
@@ -989,6 +990,8 @@ apis:
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
   tags:
+  - Service
+  tags_raw:
   - service
   properties:
   - type: OpenAPI
