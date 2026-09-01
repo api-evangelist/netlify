@@ -60,7 +60,8 @@ apis:
   description: The accessToken API from Netlify — 1 operation(s) for accesstoken.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags: []
+  tags:
+  - Access Token
   tags_raw:
   - accessToken
   properties:
@@ -85,7 +86,8 @@ apis:
   description: The accountMembership API from Netlify — 2 operation(s) for accountmembership.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags: []
+  tags:
+  - Account Membership
   tags_raw:
   - accountMembership
   properties:
@@ -360,7 +362,8 @@ apis:
   description: The devServer API from Netlify — 3 operation(s) for devserver.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags: []
+  tags:
+  - Dev Server
   tags_raw:
   - devServer
   properties:
@@ -435,7 +438,8 @@ apis:
   description: The environmentVariables API from Netlify — 4 operation(s) for environmentvariables.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags: []
+  tags:
+  - Environment Variables
   tags_raw:
   - environmentVariables
   properties:
@@ -629,7 +633,8 @@ apis:
   description: The paymentMethod API from Netlify — 1 operation(s) for paymentmethod.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags: []
+  tags:
+  - Payment Method
   tags_raw:
   - paymentMethod
   properties:
@@ -800,7 +805,8 @@ apis:
   description: The splitTest API from Netlify — 4 operation(s) for splittest.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
-  tags: []
+  tags:
+  - SplitTest
   tags_raw:
   - splitTest
   properties:
