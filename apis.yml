@@ -1003,6 +1003,8 @@ apis:
   - type: OpenAPI
     url: openapi/netlify-service-api-openapi.yml
 common:
+- type: Website
+  url: https://www.netlify.com/
 - type: CapabilityMap
   url: capabilities/netlify-capability-edges.yml
   name: Netlify Business Capability Map
