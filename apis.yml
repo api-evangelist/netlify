@@ -56,58 +56,6 @@ created: '2023-11-14'
 modified: '2026-08-27'
 specificationVersion: '0.23'
 apis:
-- aid: netlify:netlify-accesstoken-api
-  name: Netlify accessToken API
-  description: The accessToken API from Netlify — 1 operation(s) for accesstoken.
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Access Token
-  tags_raw:
-  - accessToken
-  properties:
-  - type: OpenAPI
-    url: openapi/netlify-accesstoken-api-openapi.yml
-  - type: Overlay
-    url: overlays/netlify-accesstoken-overlay.yaml
-  - type: Documentation
-    url: https://open-api.netlify.com/
-  - type: AsyncAPI
-    url: asyncapi/netlify-webhooks-asyncapi.yml
-  - type: GettingStarted
-    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: API Guides
-    url: https://docs.netlify.com/api-and-cli-guides/overview/
-  - type: OpenAPI Source
-    url: https://github.com/netlify/open-api
-  - type: GraphQL
-    url: graphql/netlify-graphql.md
-- aid: netlify:netlify-accountmembership-api
-  name: Netlify accountMembership API
-  description: The accountMembership API from Netlify — 2 operation(s) for accountmembership.
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Account Membership
-  tags_raw:
-  - accountMembership
-  properties:
-  - type: OpenAPI
-    url: openapi/netlify-accountmembership-api-openapi.yml
-  - type: Overlay
-    url: overlays/netlify-accountmembership-overlay.yaml
-  - type: Documentation
-    url: https://open-api.netlify.com/
-  - type: AsyncAPI
-    url: asyncapi/netlify-webhooks-asyncapi.yml
-  - type: GettingStarted
-    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: API Guides
-    url: https://docs.netlify.com/api-and-cli-guides/overview/
-  - type: OpenAPI Source
-    url: https://github.com/netlify/open-api
-  - type: GraphQL
-    url: graphql/netlify-graphql.md
 - aid: netlify:netlify-accounttype-api
   name: Netlify accountType API
   description: The accountType API from Netlify — 1 operation(s) for accounttype.
@@ -170,32 +118,6 @@ apis:
     url: openapi/netlify-assetpublicsignature-api-openapi.yml
   - type: Overlay
     url: overlays/netlify-assetpublicsignature-overlay.yaml
-  - type: Documentation
-    url: https://open-api.netlify.com/
-  - type: AsyncAPI
-    url: asyncapi/netlify-webhooks-asyncapi.yml
-  - type: GettingStarted
-    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: API Guides
-    url: https://docs.netlify.com/api-and-cli-guides/overview/
-  - type: OpenAPI Source
-    url: https://github.com/netlify/open-api
-  - type: GraphQL
-    url: graphql/netlify-graphql.md
-- aid: netlify:netlify-auditlog-api
-  name: Netlify auditLog API
-  description: The auditLog API from Netlify — 1 operation(s) for auditlog.
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Audit Log
-  tags_raw:
-  - auditLog
-  properties:
-  - type: OpenAPI
-    url: openapi/netlify-auditlog-api-openapi.yml
-  - type: Overlay
-    url: overlays/netlify-auditlog-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -358,32 +280,6 @@ apis:
     url: https://github.com/netlify/open-api
   - type: GraphQL
     url: graphql/netlify-graphql.md
-- aid: netlify:netlify-devserver-api
-  name: Netlify devServer API
-  description: The devServer API from Netlify — 3 operation(s) for devserver.
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Dev Server
-  tags_raw:
-  - devServer
-  properties:
-  - type: OpenAPI
-    url: openapi/netlify-devserver-api-openapi.yml
-  - type: Overlay
-    url: overlays/netlify-devserver-overlay.yaml
-  - type: Documentation
-    url: https://open-api.netlify.com/
-  - type: AsyncAPI
-    url: asyncapi/netlify-webhooks-asyncapi.yml
-  - type: GettingStarted
-    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: API Guides
-    url: https://docs.netlify.com/api-and-cli-guides/overview/
-  - type: OpenAPI Source
-    url: https://github.com/netlify/open-api
-  - type: GraphQL
-    url: graphql/netlify-graphql.md
 - aid: netlify:netlify-devserverhook-api
   name: Netlify devServerHook API
   description: The devServerHook API from Netlify — 2 operation(s) for devserverhook.
@@ -422,32 +318,6 @@ apis:
     url: openapi/netlify-dnszone-api-openapi.yml
   - type: Overlay
     url: overlays/netlify-dnszone-overlay.yaml
-  - type: Documentation
-    url: https://open-api.netlify.com/
-  - type: AsyncAPI
-    url: asyncapi/netlify-webhooks-asyncapi.yml
-  - type: GettingStarted
-    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: API Guides
-    url: https://docs.netlify.com/api-and-cli-guides/overview/
-  - type: OpenAPI Source
-    url: https://github.com/netlify/open-api
-  - type: GraphQL
-    url: graphql/netlify-graphql.md
-- aid: netlify:netlify-environmentvariables-api
-  name: Netlify environmentVariables API
-  description: The environmentVariables API from Netlify — 4 operation(s) for environmentvariables.
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Environment Variables
-  tags_raw:
-  - environmentVariables
-  properties:
-  - type: OpenAPI
-    url: openapi/netlify-environmentvariables-api-openapi.yml
-  - type: Overlay
-    url: overlays/netlify-environmentvariables-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -629,32 +499,6 @@ apis:
     url: https://github.com/netlify/open-api
   - type: GraphQL
     url: graphql/netlify-graphql.md
-- aid: netlify:netlify-paymentmethod-api
-  name: Netlify paymentMethod API
-  description: The paymentMethod API from Netlify — 1 operation(s) for paymentmethod.
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - Payment Method
-  tags_raw:
-  - paymentMethod
-  properties:
-  - type: OpenAPI
-    url: openapi/netlify-paymentmethod-api-openapi.yml
-  - type: Overlay
-    url: overlays/netlify-paymentmethod-overlay.yaml
-  - type: Documentation
-    url: https://open-api.netlify.com/
-  - type: AsyncAPI
-    url: asyncapi/netlify-webhooks-asyncapi.yml
-  - type: GettingStarted
-    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: API Guides
-    url: https://docs.netlify.com/api-and-cli-guides/overview/
-  - type: OpenAPI Source
-    url: https://github.com/netlify/open-api
-  - type: GraphQL
-    url: graphql/netlify-graphql.md
 - aid: netlify:netlify-purge-api
   name: Netlify Purge API
   description: The Purge API from Netlify — 1 operation(s) for purge.
@@ -765,32 +609,6 @@ apis:
     url: openapi/netlify-snippet-api-openapi.yml
   - type: Overlay
     url: overlays/netlify-snippet-overlay.yaml
-  - type: Documentation
-    url: https://open-api.netlify.com/
-  - type: AsyncAPI
-    url: asyncapi/netlify-webhooks-asyncapi.yml
-  - type: GettingStarted
-    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  - type: API Guides
-    url: https://docs.netlify.com/api-and-cli-guides/overview/
-  - type: OpenAPI Source
-    url: https://github.com/netlify/open-api
-  - type: GraphQL
-    url: graphql/netlify-graphql.md
-- aid: netlify:netlify-splittest-api
-  name: Netlify splitTest API
-  description: The splitTest API from Netlify — 4 operation(s) for splittest.
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - SplitTest
-  tags_raw:
-  - splitTest
-  properties:
-  - type: OpenAPI
-    url: openapi/netlify-splittest-api-openapi.yml
-  - type: Overlay
-    url: overlays/netlify-splittest-overlay.yaml
   - type: Documentation
     url: https://open-api.netlify.com/
   - type: AsyncAPI
@@ -932,18 +750,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-agentrunnersession-api-openapi.yml
-- aid: netlify:netlify-aigateway-api
-  name: Netlify AI Gateway API
-  description: The aiGateway API from Netlify — 3 operation(s) for aigateway.
-  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
-  baseURL: https://api.netlify.com/api/v1/
-  tags:
-  - AI Gateway
-  tags_raw:
-  - aiGateway
-  properties:
-  - type: OpenAPI
-    url: openapi/netlify-aigateway-api-openapi.yml
 - aid: netlify:netlify-database-api
   name: Netlify Database API
   description: The database API from Netlify — 14 operation(s) for database.
@@ -979,7 +785,197 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/netlify-service-api-openapi.yml
+- aid: netlify:netlify-access-token-api
+  name: Netlify Access Token API
+  description: The Access Token API from Netlify — 1 operation(s) for access token.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Access Token
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-access-token-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-account-membership-api
+  name: Netlify Account Membership API
+  description: The Account Membership API from Netlify — 2 operation(s) for account membership.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Account Membership
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-account-membership-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-ai-gateway-api
+  name: Netlify AI Gateway API
+  description: The AI Gateway API from Netlify — 3 operation(s) for ai gateway.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - AI Gateway
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-ai-gateway-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-audit-log-api
+  name: Netlify Audit Log API
+  description: The Audit Log API from Netlify — 1 operation(s) for audit log.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Audit Log
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-audit-log-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-dev-server-api
+  name: Netlify Dev Server API
+  description: The Dev Server API from Netlify — 4 operation(s) for dev server.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Dev Server
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-dev-server-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-environment-variables-api
+  name: Netlify Environment Variables API
+  description: The Environment Variables API from Netlify — 4 operation(s) for environment variables.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Environment Variables
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-environment-variables-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-payment-method-api
+  name: Netlify Payment Method API
+  description: The Payment Method API from Netlify — 1 operation(s) for payment method.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Payment Method
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-payment-method-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
+- aid: netlify:netlify-split-test-api
+  name: Netlify Split Test API
+  description: The Split Test API from Netlify — 4 operation(s) for split test.
+  humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  baseURL: https://api.netlify.com/api/v1/
+  tags:
+  - Split Test
+  properties:
+  - type: OpenAPI
+    url: openapi/netlify-split-test-api-openapi.yml
+  - type: Documentation
+    url: https://open-api.netlify.com/
+  - type: AsyncAPI
+    url: asyncapi/netlify-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+  - type: API Guides
+    url: https://docs.netlify.com/api-and-cli-guides/overview/
+  - type: OpenAPI Source
+    url: https://github.com/netlify/open-api
+  - type: GraphQL
+    url: graphql/netlify-graphql.md
 common:
+- type: Overlay
+  url: overlays/netlify-accesstoken-overlay.yaml
+- type: Overlay
+  url: overlays/netlify-accountmembership-overlay.yaml
+- type: Overlay
+  url: overlays/netlify-auditlog-overlay.yaml
+- type: Overlay
+  url: overlays/netlify-devserver-overlay.yaml
+- type: Overlay
+  url: overlays/netlify-environmentvariables-overlay.yaml
+- type: Overlay
+  url: overlays/netlify-paymentmethod-overlay.yaml
+- type: Overlay
+  url: overlays/netlify-splittest-overlay.yaml
 - type: Overlay
   url: overlays/netlify-services-overlay.yaml
 - type: Website
