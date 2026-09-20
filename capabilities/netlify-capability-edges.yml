@@ -34,7 +34,8 @@ edges:
   reason: Operations create and monitor builds of a site from source, i.e. continuous integration build
     pipelines and artefact production.
 - tag: environmentVariables
-  spec_file: netlify-environmentvariables-api-openapi.yml
+  spec_file: netlify-environment-variables-api-openapi.yml
+  reanchored_from: netlify-environmentvariables-api-openapi.yml
   capability_id: BC-4210.60
   capability_id_l1: BC-4210
   capability_name: Configuration & Secrets Management
@@ -44,7 +45,8 @@ edges:
   reason: CRUD over account- and site-scoped environment variables and their values is runtime configuration/secrets
     management for deployed services.
 - tag: splitTest
-  spec_file: netlify-splittest-api-openapi.yml
+  spec_file: netlify-split-test-api-openapi.yml
+  reanchored_from: netlify-splittest-api-openapi.yml
   capability_id: BC-4280.50
   capability_id_l1: BC-4280
   capability_name: A/B Test Execution
@@ -73,7 +75,8 @@ edges:
   reason: Provisioning managed Postgres databases, branches and compute settings is storage/compute infrastructure
     provisioning. Not data governance or modelling, so IT Infrastructure Management is the honest fit.
 - tag: devServer
-  spec_file: netlify-devserver-api-openapi.yml
+  spec_file: netlify-dev-server-api-openapi.yml
+  reanchored_from: netlify-devserver-api-openapi.yml
   capability_id: BC-4210.20
   capability_id_l1: BC-4210
   capability_name: Environment Management
