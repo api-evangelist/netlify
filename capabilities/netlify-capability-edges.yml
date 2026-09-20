@@ -1,0 +1,92 @@
+slug: netlify
+provider: Netlify
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 8
+edges:
+- tag: Deploy
+  spec_file: netlify-deploy-api-openapi.yml
+  capability_id: BC-4210.40
+  capability_id_l1: BC-4210
+  capability_name: Deployment Orchestration
+  confidence: 0.85
+  evidence: '"POST /deploys/{deploy_id}/cancel cancelSiteDeploy", "PUT /sites/{site_id}/rollback rollbackSiteDeploy",
+    "POST /deploys/{deploy_id}/lock lockDeploy"'
+  reason: Creating, cancelling, restoring, rolling back and locking deploys is deployment orchestration
+    of software changes to production.
+- tag: Build
+  spec_file: netlify-build-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.82
+  evidence: '"POST /sites/{site_id}/builds createSiteBuild", "GET /{account_id}/builds/status getAccountBuildStatus",
+    schema "buildStatus"'
+  reason: Operations create and monitor builds of a site from source, i.e. continuous integration build
+    pipelines and artefact production.
+- tag: environmentVariables
+  spec_file: netlify-environmentvariables-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.8
+  evidence: GET /accounts/{account_id}/env  getEnvVars; PATCH /accounts/{account_id}/env/{key}  setEnvVarValue;
+    schema envVarValue
+  reason: CRUD over account- and site-scoped environment variables and their values is runtime configuration/secrets
+    management for deployed services.
+- tag: splitTest
+  spec_file: netlify-splittest-api-openapi.yml
+  capability_id: BC-4280.50
+  capability_id_l1: BC-4280
+  capability_name: A/B Test Execution
+  confidence: 0.78
+  evidence: POST /sites/{site_id}/traffic_splits createSplitTest ... POST /sites/{site_id}/traffic_splits/{split_test_id}/publish
+    enableSplitTest
+  reason: Operations create, configure, enable and disable traffic splits between site branches — configuration
+    and runtime control of A/B tests, matching A/B Test Execution.
+- tag: buildHook
+  spec_file: netlify-buildhook-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.75
+  evidence: POST /sites/{site_id}/build_hooks createSiteBuildHook; schemas buildHook, buildHookSetup
+  reason: Build hooks trigger the platform's build pipeline for a site, i.e. continuous integration/build
+    triggering on a continuous-deployment platform. Some overlap with deployment orchestration.
+- tag: database
+  spec_file: netlify-database-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /sites/{site_id}/database createSiteDatabase; PUT /sites/{site_id}/database/compute/settings
+    setSiteDatabaseComputeSettings
+  reason: Provisioning managed Postgres databases, branches and compute settings is storage/compute infrastructure
+    provisioning. Not data governance or modelling, so IT Infrastructure Management is the honest fit.
+- tag: devServer
+  spec_file: netlify-devserver-api-openapi.yml
+  capability_id: BC-4210.20
+  capability_id_l1: BC-4210
+  capability_name: Environment Management
+  confidence: 0.7
+  evidence: POST /sites/{site_id}/dev_servers  createSiteDevServer; updateDevServerState
+  reason: Creating, listing, deleting and state-managing development servers for a site is provisioning
+    and stewardship of non-production environments, i.e. Environment Management.
+- tag: dnsZone
+  spec_file: netlify-dnszone-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /dns_zones  createDnsZone; POST /dns_zones/{zone_id}/dns_records  createDnsRecord
+  reason: Managing DNS zones and records for hosted sites is network/cloud infrastructure administration
+    (IT Infrastructure Management), not a telecom network capability.
