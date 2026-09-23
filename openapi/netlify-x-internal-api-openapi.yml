@@ -1,26 +1,26 @@
 openapi: 3.2.0
 info:
-  title: Netlify X Internal API
+  version: 2.57.0
+  title: Netlify's API documentation X Internal API
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
-  version: '1.0'
-  description: 'Operations tagged x-internal across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-x-internal-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
 - netlifyAuth: []
 tags:
-- name: x-internal
+- name: x Internal
 paths:
   /sites/{site_id}/plugins/{package}:
     put:
       x-internal: true
       operationId: updatePlugin
       tags:
-      - x-internal
+      - x Internal
       description: This is an internal-only endpoint.
       parameters:
       - name: site_id
@@ -67,14 +67,14 @@ paths:
               properties:
                 pinned_version:
                   type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+      summary: Update plugin
+      x-summary-source: derived
   /sites/{site_id}/plugin_runs/latest:
     get:
       x-internal: true
       operationId: getLatestPluginRuns
       tags:
-      - x-internal
+      - x Internal
       description: This is an internal-only endpoint.
       parameters:
       - name: site_id
@@ -136,14 +136,14 @@ paths:
                     format: int64
                   message:
                     type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+      summary: Get latest plugin runs
+      x-summary-source: derived
   /deploys/{deploy_id}/plugin_runs:
     post:
       x-internal: true
       operationId: createPluginRun
       tags:
-      - x-internal
+      - x Internal
       description: This is an internal-only endpoint.
       parameters:
       - name: deploy_id
@@ -212,56 +212,9 @@ paths:
                   type: string
                 text:
                   type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+      summary: Create plugin run
+      x-summary-source: derived
 components:
-  schemas:
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-    pluginRun:
-      allOf:
-      - $ref: '#/components/schemas/pluginRunData'
-      - type: object
-        properties:
-          deploy_id:
-            type: string
-    pluginRunData:
-      type: object
-      properties:
-        package:
-          type: string
-        version:
-          type: string
-        state:
-          type: string
-        reporting_event:
-          type: string
-        title:
-          type: string
-        summary:
-          type: string
-        text:
-          type: string
-    pluginParams:
-      type: object
-      properties:
-        pinned_version:
-          type: string
-    plugin:
-      type: object
-      properties:
-        package:
-          type: string
-        pinned_version:
-          type: string
   securitySchemes:
     netlifyAuth:
       type: oauth2
@@ -272,9 +225,6 @@ components:
 externalDocs:
   url: https://www.netlify.com/docs/api/
   description: Online documentation
-x-refined-from:
-- netlify-openapi-2.57.0-swagger.json
-- netlify-x-internal-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:
@@ -325,6 +275,9 @@ x-tagGroups:
 - name: Functions
   tags:
   - function
+- name: Database
+  tags:
+  - database
 - name: Forms
   tags:
   - form
@@ -336,4 +289,3 @@ x-tagGroups:
   tags:
   - asset
   - assetPublicSignature
-x-original-swagger-version: '2.0'

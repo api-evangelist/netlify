@@ -1,19 +1,19 @@
 openapi: 3.2.0
 info:
-  title: Netlify Snippet API
+  version: 2.57.0
+  title: Netlify's API documentation Snippet API
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
-  version: '1.0'
-  description: 'Operations tagged snippet across 2 of this provider''s published API definitions: netlify-openapi-2.57.0-swagger.json, netlify-snippet-api-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
 - netlifyAuth: []
 tags:
-- name: snippet
+- name: Snippet
   x-displayName: Snippet
 paths:
   /sites/{site_id}/snippets:
@@ -26,7 +26,7 @@ paths:
     get:
       operationId: listSiteSnippets
       tags:
-      - snippet
+      - Snippet
       responses:
         '200':
           description: OK
@@ -66,10 +66,12 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: List site snippets
+      x-summary-source: derived
     post:
       operationId: createSiteSnippet
       tags:
-      - snippet
+      - Snippet
       responses:
         '201':
           description: OK
@@ -129,8 +131,8 @@ paths:
                 goal_position:
                   type: string
         required: true
-    servers:
-    - url: https://api.netlify.com/api/v1
+      summary: Create site snippet
+      x-summary-source: derived
   /sites/{site_id}/snippets/{snippet_id}:
     parameters:
     - name: site_id
@@ -146,7 +148,7 @@ paths:
     get:
       operationId: getSiteSnippet
       tags:
-      - snippet
+      - Snippet
       responses:
         '200':
           description: OK
@@ -184,10 +186,12 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Get site snippet
+      x-summary-source: derived
     put:
       operationId: updateSiteSnippet
       tags:
-      - snippet
+      - Snippet
       responses:
         '204':
           description: No content
@@ -227,10 +231,12 @@ paths:
                 goal_position:
                   type: string
         required: true
+      summary: Update site snippet
+      x-summary-source: derived
     delete:
       operationId: deleteSiteSnippet
       tags:
-      - snippet
+      - Snippet
       responses:
         '204':
           description: No content
@@ -248,38 +254,9 @@ paths:
                     format: int64
                   message:
                     type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+      summary: Delete site snippet
+      x-summary-source: derived
 components:
-  schemas:
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-    snippet:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        site_id:
-          type: string
-        title:
-          type: string
-        general:
-          type: string
-        general_position:
-          type: string
-        goal:
-          type: string
-        goal_position:
-          type: string
   securitySchemes:
     netlifyAuth:
       type: oauth2
@@ -290,9 +267,6 @@ components:
 externalDocs:
   url: https://www.netlify.com/docs/api/
   description: Online documentation
-x-refined-from:
-- netlify-openapi-2.57.0-swagger.json
-- netlify-snippet-api-openapi.yml
 x-tagGroups:
 - name: OAuth
   tags:
@@ -343,6 +317,9 @@ x-tagGroups:
 - name: Functions
   tags:
   - function
+- name: Database
+  tags:
+  - database
 - name: Forms
   tags:
   - form
@@ -354,4 +331,3 @@ x-tagGroups:
   tags:
   - asset
   - assetPublicSignature
-x-original-swagger-version: '2.0'

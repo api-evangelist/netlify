@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Netlify Account Type API
+  version: 2.57.0
+  title: Netlify's API documentation Account Type API
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
-  version: '1.0'
-  description: 'Operations tagged accountType across 2 of this provider''s published API definitions: netlify-accounttype-api-openapi.yml, netlify-openapi-2.57.0-swagger.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -18,9 +18,9 @@ tags:
 paths:
   /accounts/types:
     get:
+      operationId: listAccountTypesForUser
       tags:
       - accountType
-      operationId: listAccountTypesForUser
       responses:
         '200':
           description: OK
@@ -29,60 +29,51 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/accountType'
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    capabilities:
+                      type: object
+                    monthly_dollar_price:
+                      type: integer
+                    yearly_dollar_price:
+                      type: integer
+                    monthly_seats_addon_dollar_price:
+                      type: integer
+                    yearly_seats_addon_dollar_price:
+                      type: integer
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-    servers:
-    - url: https://api.netlify.com/api/v1
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: List account types for user
+      x-summary-source: derived
 components:
-  schemas:
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-    accountType:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        capabilities:
-          type: object
-          properties: {}
-        monthly_dollar_price:
-          type: integer
-        yearly_dollar_price:
-          type: integer
-        monthly_seats_addon_dollar_price:
-          type: integer
-        yearly_seats_addon_dollar_price:
-          type: integer
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
-x-refined-from:
-- netlify-accounttype-api-openapi.yml
-- netlify-openapi-2.57.0-swagger.json
+  description: Online documentation
 x-tagGroups:
 - name: OAuth
   tags:
@@ -133,6 +124,9 @@ x-tagGroups:
 - name: Functions
   tags:
   - function
+- name: Database
+  tags:
+  - database
 - name: Forms
   tags:
   - form
@@ -144,4 +138,3 @@ x-tagGroups:
   tags:
   - asset
   - assetPublicSignature
-x-original-swagger-version: '2.0'

@@ -1,0 +1,499 @@
+openapi: 3.2.0
+info:
+  version: 2.57.0
+  title: Netlify's API documentation Account Membership API
+  description: Netlify is a hosting service for the programmable web.
+  termsOfService: https://www.netlify.com/legal/terms-of-use/
+  x-logo:
+    url: netlify-logo.png
+    href: https://www.netlify.com/docs/
+    altText: Netlify
+servers:
+- url: https://api.netlify.com/api/v1
+security:
+- netlifyAuth: []
+tags:
+- name: Account Membership
+  x-displayName: Accounts
+paths:
+  /accounts:
+    get:
+      operationId: listAccountsForUser
+      tags:
+      - Account Membership
+      parameters:
+      - name: minimal
+        x-internal: true
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    slug:
+                      type: string
+                    type:
+                      type: string
+                    capabilities:
+                      type: object
+                      properties:
+                        sites:
+                          type: object
+                          properties:
+                            included:
+                              type: integer
+                            used:
+                              type: integer
+                        collaborators:
+                          type: object
+                          properties:
+                            included:
+                              type: integer
+                            used:
+                              type: integer
+                    billing_name:
+                      type: string
+                    billing_email:
+                      type: string
+                    billing_details:
+                      type: string
+                    billing_period:
+                      type: string
+                    payment_method_id:
+                      type: string
+                    type_name:
+                      type: string
+                    type_id:
+                      type: string
+                    owner_ids:
+                      type: array
+                      items:
+                        type: string
+                    roles_allowed:
+                      type: array
+                      items:
+                        type: string
+                    created_at:
+                      type: string
+                      format: dateTime
+                    updated_at:
+                      type: string
+                      format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: List accounts for user
+      x-summary-source: derived
+    post:
+      operationId: createAccount
+      tags:
+      - Account Membership
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  slug:
+                    type: string
+                  type:
+                    type: string
+                  capabilities:
+                    type: object
+                    properties:
+                      sites:
+                        type: object
+                        properties:
+                          included:
+                            type: integer
+                          used:
+                            type: integer
+                      collaborators:
+                        type: object
+                        properties:
+                          included:
+                            type: integer
+                          used:
+                            type: integer
+                  billing_name:
+                    type: string
+                  billing_email:
+                    type: string
+                  billing_details:
+                    type: string
+                  billing_period:
+                    type: string
+                  payment_method_id:
+                    type: string
+                  type_name:
+                    type: string
+                  type_id:
+                    type: string
+                  owner_ids:
+                    type: array
+                    items:
+                      type: string
+                  roles_allowed:
+                    type: array
+                    items:
+                      type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - type_id
+              properties:
+                name:
+                  type: string
+                type_id:
+                  type: string
+                payment_method_id:
+                  type: string
+                period:
+                  type: string
+                  enum:
+                  - monthly
+                  - yearly
+                extra_seats_block:
+                  type: integer
+        required: true
+      summary: Create account
+      x-summary-source: derived
+  /accounts/{account_id}:
+    parameters:
+    - name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getAccount
+      tags:
+      - Account Membership
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  slug:
+                    type: string
+                  type:
+                    type: string
+                  capabilities:
+                    type: object
+                    properties:
+                      sites:
+                        type: object
+                        properties:
+                          included:
+                            type: integer
+                          used:
+                            type: integer
+                      collaborators:
+                        type: object
+                        properties:
+                          included:
+                            type: integer
+                          used:
+                            type: integer
+                  billing_name:
+                    type: string
+                  billing_email:
+                    type: string
+                  billing_details:
+                    type: string
+                  billing_period:
+                    type: string
+                  payment_method_id:
+                    type: string
+                  type_name:
+                    type: string
+                  type_id:
+                    type: string
+                  owner_ids:
+                    type: array
+                    items:
+                      type: string
+                  roles_allowed:
+                    type: array
+                    items:
+                      type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Get account
+      x-summary-source: derived
+    put:
+      operationId: updateAccount
+      tags:
+      - Account Membership
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  slug:
+                    type: string
+                  type:
+                    type: string
+                  capabilities:
+                    type: object
+                    properties:
+                      sites:
+                        type: object
+                        properties:
+                          included:
+                            type: integer
+                          used:
+                            type: integer
+                      collaborators:
+                        type: object
+                        properties:
+                          included:
+                            type: integer
+                          used:
+                            type: integer
+                  billing_name:
+                    type: string
+                  billing_email:
+                    type: string
+                  billing_details:
+                    type: string
+                  billing_period:
+                    type: string
+                  payment_method_id:
+                    type: string
+                  type_name:
+                    type: string
+                  type_id:
+                    type: string
+                  owner_ids:
+                    type: array
+                    items:
+                      type: string
+                  roles_allowed:
+                    type: array
+                    items:
+                      type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  updated_at:
+                    type: string
+                    format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                slug:
+                  type: string
+                type_id:
+                  type: string
+                extra_seats_block:
+                  type: integer
+                billing_name:
+                  type: string
+                billing_email:
+                  type: string
+                billing_details:
+                  type: string
+      summary: Update account
+      x-summary-source: derived
+    delete:
+      operationId: cancelAccount
+      tags:
+      - Account Membership
+      responses:
+        '204':
+          description: Not Content
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Cancel account
+      x-summary-source: derived
+components:
+  securitySchemes:
+    netlifyAuth:
+      type: oauth2
+      flows:
+        implicit:
+          scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
+externalDocs:
+  url: https://www.netlify.com/docs/api/
+  description: Online documentation
+x-tagGroups:
+- name: OAuth
+  tags:
+  - ticket
+  - accessToken
+- name: User accounts
+  tags:
+  - user
+  - accountMembership
+  - member
+  - accountType
+  - paymentMethod
+  - auditLog
+- name: Site
+  tags:
+  - site
+  - environmentVariables
+  - file
+  - metadata
+  - purge
+  - snippet
+- name: Domain names
+  tags:
+  - dnsZone
+  - sniCertificate
+- name: Deploys
+  tags:
+  - deploy
+  - deployedBranch
+  - deployKey
+- name: Builds
+  tags:
+  - build
+  - buildLogMsg
+- name: Dev servers
+  tags:
+  - devServer
+- name: Webhooks and notifications
+  tags:
+  - hook
+  - hookType
+  - buildHook
+  - devServerHook
+- name: Services
+  tags:
+  - service
+  - serviceInstance
+- name: Functions
+  tags:
+  - function
+- name: Database
+  tags:
+  - database
+- name: Forms
+  tags:
+  - form
+  - submission
+- name: Split tests
+  tags:
+  - splitTest
+- name: Large media
+  tags:
+  - asset
+  - assetPublicSignature

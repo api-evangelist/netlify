@@ -2,17 +2,7 @@ openapi: 3.2.0
 info:
   version: 2.57.0
   title: Netlify's API documentation Database API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify''s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
@@ -23,7 +13,7 @@ servers:
 security:
 - netlifyAuth: []
 tags:
-- name: database
+- name: Database
   x-displayName: Database
 paths:
   /sites/{site_id}/database:
@@ -36,7 +26,7 @@ paths:
     post:
       operationId: createSiteDatabase
       tags:
-      - database
+      - Database
       description: Creates a new database for the specified site. If a database already exists, returns the existing connection string. The database region defaults to the site's functions region if not specified.
       responses:
         '200':
@@ -85,10 +75,12 @@ paths:
                 region:
                   type: string
                   description: The region where the database should be created. Defaults to the site's functions region if not specified.
+      summary: Create site database
+      x-summary-source: derived
     get:
       operationId: getSiteDatabase
       tags:
-      - database
+      - Database
       description: Returns the database connection string for the specified site.
       parameters:
       - name: role
@@ -125,10 +117,12 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Get site database
+      x-summary-source: derived
     delete:
       operationId: deleteSiteDatabase
       tags:
-      - database
+      - Database
       description: Deletes the database and all associated branches and snapshots for the specified site.
       responses:
         '204':
@@ -147,6 +141,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Delete site database
+      x-summary-source: derived
   /sites/{site_id}/database/branch:
     parameters:
     - name: site_id
@@ -157,7 +153,7 @@ paths:
     post:
       operationId: createSiteDatabaseBranch
       tags:
-      - database
+      - Database
       description: Creates a new database branch. If a branch already exists for the specified branch ID, returns the existing connection string.
       responses:
         '200':
@@ -224,6 +220,8 @@ paths:
                   description: Arbitrary metadata to associate with the branch
                   additionalProperties: true
         required: true
+      summary: Create site database branch
+      x-summary-source: derived
   /sites/{site_id}/database/branches:
     parameters:
     - name: site_id
@@ -234,7 +232,7 @@ paths:
     get:
       operationId: listSiteDatabaseBranches
       tags:
-      - database
+      - Database
       description: Returns all branches for the site's database with compute status and metadata.
       responses:
         '200':
@@ -330,6 +328,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: List site database branches
+      x-summary-source: derived
   /sites/{site_id}/database/branch/{branch_id}:
     parameters:
     - name: site_id
@@ -346,7 +346,7 @@ paths:
     get:
       operationId: getSiteDatabaseBranch
       tags:
-      - database
+      - Database
       description: Returns the database branch connection string for a specific branch.
       parameters:
       - name: role
@@ -389,10 +389,12 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Get site database branch
+      x-summary-source: derived
     delete:
       operationId: deleteSiteDatabaseBranch
       tags:
-      - database
+      - Database
       description: Deletes a database branch.
       responses:
         '204':
@@ -411,6 +413,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Delete site database branch
+      x-summary-source: derived
   /sites/{site_id}/database/branch/{branch_id}/reset:
     parameters:
     - name: site_id
@@ -427,7 +431,7 @@ paths:
     post:
       operationId: resetSiteDatabaseBranch
       tags:
-      - database
+      - Database
       description: Resets a non-production database branch by re-forking it from a source branch (defaults to the production branch). If the target branch is already in sync with the source, returns the existing connection string without performing a reset, unless `force=true` is passed. The production branch cannot be reset.
       parameters:
       - name: force
@@ -490,6 +494,8 @@ paths:
                 source_branch_id:
                   type: string
                   description: The ID of the branch to re-fork the target branch from. Defaults to "production" if not specified.
+      summary: Reset site database branch
+      x-summary-source: derived
   /sites/{site_id}/database/branch/{branch_id}/compute/settings:
     parameters:
     - name: site_id
@@ -506,7 +512,7 @@ paths:
     put:
       operationId: setSiteDatabaseBranchComputeSettings
       tags:
-      - database
+      - Database
       description: Sets compute settings for a specific database branch, overriding project-level settings. Requires a Pro or higher plan.
       responses:
         '200':
@@ -576,6 +582,8 @@ paths:
                   minimum: -1
                   description: Seconds of inactivity before the compute endpoint is suspended. Use -1 for always on, or a non-negative value.
         required: true
+      summary: Set site database branch compute settings
+      x-summary-source: derived
   /sites/{site_id}/database/compute/settings:
     parameters:
     - name: site_id
@@ -586,7 +594,7 @@ paths:
     put:
       operationId: setSiteDatabaseComputeSettings
       tags:
-      - database
+      - Database
       description: Sets project-level compute settings for the database. Applied to new branches. Can be overridden per-branch. Requires a Pro or higher plan.
       responses:
         '200':
@@ -656,10 +664,12 @@ paths:
                   minimum: -1
                   description: Seconds of inactivity before the compute endpoint is suspended. Use -1 for always on, or a non-negative value.
         required: true
+      summary: Set site database compute settings
+      x-summary-source: derived
     get:
       operationId: getSiteDatabaseComputeSettings
       tags:
-      - database
+      - Database
       description: Returns the project-level compute settings for the database. Returns effective settings (custom or tier defaults). Requires a Pro or higher plan.
       responses:
         '200':
@@ -698,10 +708,12 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Get site database compute settings
+      x-summary-source: derived
     delete:
       operationId: clearSiteDatabaseComputeSettings
       tags:
-      - database
+      - Database
       description: Resets project-level compute settings to tier defaults. Requires a Pro or higher plan.
       responses:
         '204':
@@ -722,6 +734,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Clear site database compute settings
+      x-summary-source: derived
   /sites/{site_id}/database/migrations:
     parameters:
     - name: site_id
@@ -732,7 +746,7 @@ paths:
     get:
       operationId: listSiteDatabaseMigrations
       tags:
-      - database
+      - Database
       description: Returns the list of migrations available for the specified branch, indicating which ones have been applied to the database.
       parameters:
       - name: branch
@@ -787,6 +801,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: List site database migrations
+      x-summary-source: derived
   /sites/{site_id}/database/migrations/{name}:
     parameters:
     - name: site_id
@@ -803,7 +819,7 @@ paths:
     get:
       operationId: getSiteDatabaseMigration
       tags:
-      - database
+      - Database
       description: Returns the contents of a named migration for the specified branch.
       parameters:
       - name: branch
@@ -851,6 +867,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Get site database migration
+      x-summary-source: derived
   /sites/{site_id}/database/migrations/{deploy_id}:
     parameters:
     - name: site_id
@@ -867,7 +885,7 @@ paths:
     post:
       operationId: runSiteDatabaseMigrations
       tags:
-      - database
+      - Database
       description: Runs database migrations for the specified deploy. Finds the deploy and determines the appropriate branch.
       responses:
         '200':
@@ -900,6 +918,8 @@ paths:
                 dry_run:
                   type: boolean
                   description: If true, validates migrations without applying them.
+      summary: Run site database migrations
+      x-summary-source: derived
   /sites/{site_id}/database/snapshot:
     parameters:
     - name: site_id
@@ -910,7 +930,7 @@ paths:
     post:
       operationId: createSiteDatabaseSnapshot
       tags:
-      - database
+      - Database
       description: Creates a point-in-time snapshot of a database branch. Defaults to the production branch if no branch name is specified.
       responses:
         '201':
@@ -991,6 +1011,8 @@ paths:
                     source:
                       type: string
                       description: The source that created the snapshot
+      summary: Create site database snapshot
+      x-summary-source: derived
   /sites/{site_id}/database/snapshots:
     parameters:
     - name: site_id
@@ -1001,7 +1023,7 @@ paths:
     get:
       operationId: listSiteDatabaseSnapshots
       tags:
-      - database
+      - Database
       description: Returns all snapshots for the site's database.
       responses:
         '200':
@@ -1065,6 +1087,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: List site database snapshots
+      x-summary-source: derived
   /sites/{site_id}/database/snapshot/{snapshot_id}:
     parameters:
     - name: site_id
@@ -1081,7 +1105,7 @@ paths:
     delete:
       operationId: deleteSiteDatabaseSnapshot
       tags:
-      - database
+      - Database
       description: Deletes a database snapshot.
       responses:
         '204':
@@ -1100,6 +1124,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Delete site database snapshot
+      x-summary-source: derived
   /sites/{site_id}/database/snapshot/{snapshot_id}/restore:
     parameters:
     - name: site_id
@@ -1116,7 +1142,7 @@ paths:
     post:
       operationId: restoreSiteDatabaseSnapshot
       tags:
-      - database
+      - Database
       description: Restores a snapshot to a database branch. Defaults to the production branch if no branch_name is specified.
       responses:
         '200':
@@ -1145,6 +1171,8 @@ paths:
                 branch_id:
                   type: string
                   description: The ID of the branch to restore the snapshot to. Defaults to "production" if not specified.
+      summary: Restore site database snapshot
+      x-summary-source: derived
 components:
   securitySchemes:
     netlifyAuth:

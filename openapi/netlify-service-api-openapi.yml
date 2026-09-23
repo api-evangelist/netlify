@@ -2,17 +2,7 @@ openapi: 3.2.0
 info:
   version: 2.57.0
   title: Netlify's API documentation Service API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify''s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
@@ -23,7 +13,7 @@ servers:
 security:
 - netlifyAuth: []
 tags:
-- name: service
+- name: Service
   x-displayName: Service
 paths:
   /services/:
@@ -35,7 +25,7 @@ paths:
     get:
       operationId: getServices
       tags:
-      - service
+      - Service
       responses:
         '200':
           description: services
@@ -94,6 +84,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Get services
+      x-summary-source: derived
   /services/{addonName}:
     parameters:
     - name: addonName
@@ -104,7 +96,7 @@ paths:
     get:
       operationId: showService
       tags:
-      - service
+      - Service
       responses:
         '200':
           description: services
@@ -161,6 +153,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Show service
+      x-summary-source: derived
   /services/{addonName}/manifest:
     parameters:
     - name: addonName
@@ -171,7 +165,7 @@ paths:
     get:
       operationId: showServiceManifest
       tags:
-      - service
+      - Service
       responses:
         '201':
           description: retrieving from provider
@@ -193,6 +187,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Show service manifest
+      x-summary-source: derived
 components:
   securitySchemes:
     netlifyAuth:

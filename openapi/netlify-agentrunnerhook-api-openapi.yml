@@ -2,17 +2,7 @@ openapi: 3.2.0
 info:
   version: 2.57.0
   title: Netlify's API documentation Agent Runner Hook API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify''s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
@@ -80,6 +70,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: List site agent runner hooks
+      x-summary-source: derived
     post:
       x-internal: true
       operationId: createSiteAgentRunnerHook
@@ -145,6 +137,8 @@ paths:
                 agent:
                   type: string
         required: true
+      summary: Create site agent runner hook
+      x-summary-source: derived
   /sites/{site_id}/agent_runner_hooks/{id}:
     parameters:
     - name: site_id
@@ -203,6 +197,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Get site agent runner hook
+      x-summary-source: derived
     put:
       x-internal: true
       operationId: updateSiteAgentRunnerHook
@@ -240,6 +236,8 @@ paths:
                 agent:
                   type: string
         required: true
+      summary: Update site agent runner hook
+      x-summary-source: derived
     delete:
       x-internal: true
       operationId: deleteSiteAgentRunnerHook
@@ -262,6 +260,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Delete site agent runner hook
+      x-summary-source: derived
 components:
   securitySchemes:
     netlifyAuth:

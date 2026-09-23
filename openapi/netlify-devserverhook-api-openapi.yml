@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Netlify Dev Server Hook API
+  version: 2.57.0
+  title: Netlify's API documentation Dev Server Hook API
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
-  version: '1.0'
-  description: 'Operations tagged devServerHook across 2 of this provider''s published API definitions: netlify-devserverhook-api-openapi.yml, netlify-openapi-2.57.0-swagger.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -17,16 +17,16 @@ tags:
   x-displayName: Dev server hook
 paths:
   /sites/{site_id}/dev_server_hooks:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
+      operationId: listSiteDevServerHooks
       tags:
       - devServerHook
-      operationId: listSiteDevServerHooks
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '200':
           description: OK
@@ -35,137 +35,105 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/devServerHook'
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    title:
+                      type: string
+                    branch:
+                      type: string
+                    url:
+                      type: string
+                    site_id:
+                      type: string
+                    created_at:
+                      type: string
+                      format: dateTime
+                    type:
+                      type: string
+                      enum:
+                      - new_dev_server
+                      - content_refresh
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: List site dev server hooks
+      x-summary-source: derived
     post:
+      operationId: createSiteDevServerHook
       tags:
       - devServerHook
-      operationId: createSiteDevServerHook
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/devServerHookSetup'
-        required: true
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/devServerHook'
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  branch:
+                    type: string
+                  url:
+                    type: string
+                  site_id:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  type:
+                    type: string
+                    enum:
+                    - new_dev_server
+                    - content_refresh
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: devServerHook
-    parameters:
-    - name: site_id
-      in: path
-      required: true
-      schema:
-        type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
-  /sites/{site_id}/dev_server_hooks/{id}:
-    get:
-      tags:
-      - devServerHook
-      operationId: getSiteDevServerHook
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/devServerHook'
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-    put:
-      tags:
-      - devServerHook
-      operationId: updateSiteDevServerHook
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/devServerHookSetup'
+              type: object
+              properties:
+                title:
+                  type: string
+                branch:
+                  type: string
+                type:
+                  type: string
+                  enum:
+                  - new_dev_server
+                  - content_refresh
         required: true
-      responses:
-        '204':
-          description: No content
-          content: {}
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: devServerHook
-    delete:
-      tags:
-      - devServerHook
-      operationId: deleteSiteDevServerHook
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '204':
-          description: No content
-          content: {}
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
+      summary: Create site dev server hook
+      x-summary-source: derived
+  /sites/{site_id}/dev_server_hooks/{id}:
     parameters:
     - name: site_id
       in: path
@@ -177,66 +145,125 @@ paths:
       required: true
       schema:
         type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+    get:
+      operationId: getSiteDevServerHook
+      tags:
+      - devServerHook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  branch:
+                    type: string
+                  url:
+                    type: string
+                  site_id:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+                  type:
+                    type: string
+                    enum:
+                    - new_dev_server
+                    - content_refresh
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Get site dev server hook
+      x-summary-source: derived
+    put:
+      operationId: updateSiteDevServerHook
+      tags:
+      - devServerHook
+      responses:
+        '204':
+          description: No content
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                branch:
+                  type: string
+                type:
+                  type: string
+                  enum:
+                  - new_dev_server
+                  - content_refresh
+        required: true
+      summary: Update site dev server hook
+      x-summary-source: derived
+    delete:
+      operationId: deleteSiteDevServerHook
+      tags:
+      - devServerHook
+      responses:
+        '204':
+          description: No content
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Delete site dev server hook
+      x-summary-source: derived
 components:
-  schemas:
-    devServerHookSetup:
-      type: object
-      properties:
-        title:
-          type: string
-        branch:
-          type: string
-        type:
-          type: string
-          enum:
-          - new_dev_server
-          - content_refresh
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-    devServerHook:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        branch:
-          type: string
-        url:
-          type: string
-        site_id:
-          type: string
-        created_at:
-          type: string
-          format: dateTime
-        type:
-          type: string
-          enum:
-          - new_dev_server
-          - content_refresh
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
-x-refined-from:
-- netlify-devserverhook-api-openapi.yml
-- netlify-openapi-2.57.0-swagger.json
+  description: Online documentation
 x-tagGroups:
 - name: OAuth
   tags:
@@ -287,6 +314,9 @@ x-tagGroups:
 - name: Functions
   tags:
   - function
+- name: Database
+  tags:
+  - database
 - name: Forms
   tags:
   - form
@@ -298,4 +328,3 @@ x-tagGroups:
   tags:
   - asset
   - assetPublicSignature
-x-original-swagger-version: '2.0'

@@ -2,17 +2,7 @@ openapi: 3.2.0
 info:
   version: 2.57.0
   title: Netlify's API documentation Agent Runner API
-  description: 'Netlify is a hosting service for the programmable web. It understands your documents and provides an API to handle atomic deploys of websites, manage form submissions, inject JavaScript snippets, and much more. This is a REST-style API that uses JSON for serialization and OAuth 2 for authentication.
-
-
-    This document is an OpenAPI reference for the Netlify API that you can explore. For more detailed instructions for common uses, please visit the [online documentation](https://www.netlify.com/docs/api/). Visit our Community forum to join the conversation about [understanding and using Netlify''s API](https://community.netlify.com/t/common-issue-understanding-and-using-netlifys-api/160).
-
-
-    Additionally, we have two API clients for your convenience:
-
-    - [Go Client](https://github.com/netlify/open-api#go-client)
-
-    - [JS Client](https://github.com/netlify/build/tree/main/packages/js-client)'
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
@@ -175,6 +165,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: List agent runners
+      x-summary-source: derived
     post:
       operationId: createAgentRunner
       tags:
@@ -316,6 +308,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Create agent runner
+      x-summary-source: derived
   /agent_runners/upload_url:
     post:
       x-internal: true
@@ -359,6 +353,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Create agent runner upload url
+      x-summary-source: derived
   /agent_runners/{agent_runner_id}:
     parameters:
     - name: agent_runner_id
@@ -463,6 +459,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Get agent runner
+      x-summary-source: derived
     patch:
       operationId: updateAgentRunner
       tags:
@@ -560,6 +558,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Update agent runner
+      x-summary-source: derived
     delete:
       operationId: deleteAgentRunner
       tags:
@@ -581,6 +581,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Delete agent runner
+      x-summary-source: derived
   /agent_runners/{agent_runner_id}/archive:
     parameters:
     - name: agent_runner_id
@@ -613,6 +615,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Archive agent runner
+      x-summary-source: derived
   /agent_runners/{agent_runner_id}/pull_request:
     parameters:
     - name: agent_runner_id
@@ -648,6 +652,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Agent runner pull request
+      x-summary-source: derived
   /agent_runners/{agent_runner_id}/commit:
     parameters:
     - name: agent_runner_id
@@ -689,6 +695,8 @@ paths:
                     format: int64
                   message:
                     type: string
+      summary: Agent runner commit to branch
+      x-summary-source: derived
 components:
   securitySchemes:
     netlifyAuth:

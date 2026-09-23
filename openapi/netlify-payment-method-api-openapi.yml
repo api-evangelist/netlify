@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   version: 2.57.0
-  title: Netlify's API documentation Asset Public Signature API
+  title: Netlify's API documentation Payment Method API
   description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
@@ -13,35 +13,47 @@ servers:
 security:
 - netlifyAuth: []
 tags:
-- name: assetPublicSignature
-  x-displayName: Asset public signature
+- name: Payment Method
+  x-displayName: Payment method
 paths:
-  /sites/{site_id}/assets/{asset_id}/public_signature:
-    parameters:
-    - name: site_id
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: asset_id
-      in: path
-      required: true
-      schema:
-        type: string
+  /billing/payment_methods:
     get:
-      operationId: getSiteAssetPublicSignature
+      operationId: listPaymentMethodsForUser
       tags:
-      - assetPublicSignature
+      - Payment Method
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  url:
-                    type: string
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    method_name:
+                      type: string
+                    type:
+                      type: string
+                    state:
+                      type: string
+                    data:
+                      type: object
+                      properties:
+                        card_type:
+                          type: string
+                        last4:
+                          type: string
+                        email:
+                          type: string
+                    created_at:
+                      type: string
+                      format: dateTime
+                    updated_at:
+                      type: string
+                      format: dateTime
         default:
           description: error
           content:
@@ -56,7 +68,7 @@ paths:
                     format: int64
                   message:
                     type: string
-      summary: Get site asset public signature
+      summary: List payment methods for user
       x-summary-source: derived
 components:
   securitySchemes:

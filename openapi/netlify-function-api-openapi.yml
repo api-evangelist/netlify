@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Netlify Function API
+  version: 2.57.0
+  title: Netlify's API documentation Function API
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
-  version: '1.0'
-  description: 'Operations tagged Function across 2 of this provider''s published API definitions: netlify-function-api-openapi.yml, netlify-openapi-2.57.0-swagger.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -18,9 +18,9 @@ tags:
 paths:
   /sites/{site_id}/functions:
     get:
+      operationId: searchSiteFunctions
       tags:
       - Function
-      operationId: searchSiteFunctions
       parameters:
       - name: site_id
         in: path
@@ -29,6 +29,7 @@ paths:
           type: string
       - name: filter
         in: query
+        required: false
         schema:
           type: string
       responses:
@@ -39,20 +40,44 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/siteFunction'
+                  type: object
+                  properties:
+                    branch:
+                      type: string
+                    created_at:
+                      type: string
+                      format: dateTime
+                    functions:
+                      type: array
+                      items:
+                        type: object
+                    id:
+                      type: string
+                    log_type:
+                      type: string
+                    provider:
+                      type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-    servers:
-    - url: https://api.netlify.com/api/v1
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Search site functions
+      x-summary-source: derived
   /deploys/{deploy_id}/functions/{name}:
     put:
+      operationId: uploadDeployFunction
       tags:
       - Function
-      operationId: uploadDeployFunction
       parameters:
       - name: deploy_id
         in: path
@@ -84,6 +109,36 @@ paths:
         in: header
         schema:
           type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  sha:
+                    type: string
+                  region:
+                    type: string
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
       requestBody:
         content:
           application/octet-stream:
@@ -91,75 +146,19 @@ paths:
               type: string
               format: binary
         required: true
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/function'
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: file_body
-    servers:
-    - url: https://api.netlify.com/api/v1
+      summary: Upload deploy function
+      x-summary-source: derived
 components:
-  schemas:
-    siteFunction:
-      type: object
-      properties:
-        branch:
-          type: string
-        created_at:
-          type: string
-          format: dateTime
-        functions:
-          type: array
-          items:
-            type: object
-            properties: {}
-        id:
-          type: string
-        log_type:
-          type: string
-        provider:
-          type: string
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-    function:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        sha:
-          type: string
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
-x-refined-from:
-- netlify-function-api-openapi.yml
-- netlify-openapi-2.57.0-swagger.json
+  description: Online documentation
 x-tagGroups:
 - name: OAuth
   tags:
@@ -210,6 +209,9 @@ x-tagGroups:
 - name: Functions
   tags:
   - function
+- name: Database
+  tags:
+  - database
 - name: Forms
   tags:
   - form
@@ -221,4 +223,3 @@ x-tagGroups:
   tags:
   - asset
   - assetPublicSignature
-x-original-swagger-version: '2.0'

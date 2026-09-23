@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Netlify Build API
+  version: 2.57.0
+  title: Netlify's API documentation Build API
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
-  version: '1.0'
-  description: 'Operations tagged Build across 2 of this provider''s published API definitions: netlify-build-api-openapi.yml, netlify-openapi-2.57.0-swagger.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -17,22 +17,25 @@ tags:
   x-displayName: Build
 paths:
   /sites/{site_id}/builds:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
+      operationId: listSiteBuilds
       tags:
       - Build
-      operationId: listSiteBuilds
       parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
       - name: page
+        required: false
         in: query
         schema:
           type: integer
           format: int32
       - name: per_page
+        required: false
         in: query
         schema:
           type: integer
@@ -45,112 +48,188 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/build'
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    deploy_id:
+                      type: string
+                    sha:
+                      type: string
+                    done:
+                      type: boolean
+                    error:
+                      type: string
+                    created_at:
+                      type: string
+                      format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: List site builds
+      x-summary-source: derived
     post:
+      operationId: createSiteBuild
       tags:
       - Build
-      operationId: createSiteBuild
+      description: 'Runs a build for a site. The build will be scheduled to run at the first opportunity, but it might not start immediately if insufficient account build capacity is available.
+
+
+        Files for build can be uploaded as a zipped site using one of these methods:
+
+        1. Set Content-Type to ''application/zip'' and send the zip file as the raw request body
+
+        2. Set Content-Type to ''multipart/form-data'' and include the zip file in the ''zip'' field'
       parameters:
-      - name: site_id
-        in: path
-        required: true
+      - name: branch
+        description: If no branch is specified, it is treated as a production deploy If a branch IS specified and matches the main branch, it is also production If a branch is specified and doesn't match the main branch, it is a branch deploy
+        required: false
+        in: query
         schema:
           type: string
+      - name: clear_cache
+        description: Whether to clear the build cache before building
+        required: false
+        in: query
+        schema:
+          type: boolean
+      - name: image
+        description: The build image tag to use for the build
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: template_id
+        description: The build template to use for the build
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: title
+        description: The title of the build
+        required: false
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  deploy_id:
+                    type: string
+                  sha:
+                    type: string
+                  done:
+                    type: boolean
+                  error:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
-              $ref: '#/components/schemas/buildSetup'
-        required: false
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/build'
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: build
-    parameters:
-    - name: site_id
-      in: path
-      required: true
-      schema:
-        type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+              type: object
+              properties:
+                zip:
+                  type: string
+                  description: 'A zip file containing the site files to build.
+
+                    Only used with Content-Type ''multipart/form-data''.
+
+                    Alternatively, set Content-Type to ''application/zip'' and send the zip as the raw request body (no ''zip'' parameter needed).
+
+                    '
+                  format: binary
+      summary: Create site build
+      x-summary-source: derived
   /builds/{build_id}:
-    get:
-      tags:
-      - Build
-      operationId: getSiteBuild
-      parameters:
-      - name: build_id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/build'
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
     parameters:
     - name: build_id
       in: path
       required: true
       schema:
         type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
-  /builds/{build_id}/start:
-    post:
+    get:
+      operationId: getSiteBuild
       tags:
       - Build
-      operationId: notifyBuildStart
-      parameters:
-      - name: build_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: buildbot_version
-        in: query
-        schema:
-          type: string
-      - name: build_version
-        in: query
-        schema:
-          type: string
       responses:
-        '204':
-          description: No content
-          content: {}
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  deploy_id:
+                    type: string
+                  sha:
+                    type: string
+                  done:
+                    type: boolean
+                  error:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Get site build
+      x-summary-source: derived
+  /builds/{build_id}/start:
     parameters:
     - name: build_id
       in: path
@@ -172,19 +251,40 @@ paths:
       required: false
       schema:
         type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
-  /{account_id}/builds/status:
-    get:
+    post:
+      operationId: notifyBuildStart
       tags:
       - Build
+      responses:
+        '204':
+          description: No content
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Notify build start
+      x-summary-source: derived
+  /{account_id}/builds/status:
+    parameters:
+    - name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
       operationId: getAccountBuildStatus
-      parameters:
-      - name: account_id
-        in: path
-        required: true
-        schema:
-          type: string
+      tags:
+      - Build
       responses:
         '200':
           description: OK
@@ -193,102 +293,65 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/buildStatus'
+                  type: object
+                  properties:
+                    active:
+                      type: integer
+                    pending_concurrency:
+                      type: integer
+                    enqueued:
+                      type: integer
+                    build_count:
+                      type: integer
+                    minutes:
+                      type: object
+                      properties:
+                        current:
+                          type: integer
+                        current_average_sec:
+                          type: integer
+                        previous:
+                          type: integer
+                        period_start_date:
+                          type: string
+                          format: dateTime
+                        period_end_date:
+                          type: string
+                          format: dateTime
+                        last_updated_at:
+                          type: string
+                          format: dateTime
+                        included_minutes:
+                          type: string
+                        included_minutes_with_packs:
+                          type: string
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-    parameters:
-    - name: account_id
-      in: path
-      required: true
-      schema:
-        type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Get account build status
+      x-summary-source: derived
 components:
-  schemas:
-    buildStatus:
-      type: object
-      properties:
-        active:
-          type: integer
-        pending_concurrency:
-          type: integer
-        enqueued:
-          type: integer
-        build_count:
-          type: integer
-        minutes:
-          type: object
-          properties:
-            current:
-              type: integer
-            current_average_sec:
-              type: integer
-            previous:
-              type: integer
-            period_start_date:
-              type: string
-              format: dateTime
-            period_end_date:
-              type: string
-              format: dateTime
-            last_updated_at:
-              type: string
-              format: dateTime
-            included_minutes:
-              type: string
-            included_minutes_with_packs:
-              type: string
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-    buildSetup:
-      type: object
-      properties:
-        image:
-          type: string
-        clear_cache:
-          type: boolean
-    build:
-      type: object
-      properties:
-        id:
-          type: string
-        deploy_id:
-          type: string
-        sha:
-          type: string
-        done:
-          type: boolean
-        error:
-          type: string
-        created_at:
-          type: string
-          format: dateTime
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
-x-refined-from:
-- netlify-build-api-openapi.yml
-- netlify-openapi-2.57.0-swagger.json
+  description: Online documentation
 x-tagGroups:
 - name: OAuth
   tags:
@@ -339,6 +402,9 @@ x-tagGroups:
 - name: Functions
   tags:
   - function
+- name: Database
+  tags:
+  - database
 - name: Forms
   tags:
   - form
@@ -350,4 +416,3 @@ x-tagGroups:
   tags:
   - asset
   - assetPublicSignature
-x-original-swagger-version: '2.0'

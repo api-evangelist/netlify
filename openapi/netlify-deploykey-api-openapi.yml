@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Netlify Deploy Key API
+  version: 2.57.0
+  title: Netlify's API documentation Deploy Key API
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
-  version: '1.0'
-  description: 'Operations tagged deployKey across 2 of this provider''s published API definitions: netlify-deploykey-api-openapi.yml, netlify-openapi-2.57.0-swagger.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -18,9 +18,9 @@ tags:
 paths:
   /deploy_keys:
     get:
+      operationId: listDeployKeys
       tags:
       - deployKey
-      operationId: listDeployKeys
       responses:
         '200':
           description: OK
@@ -29,119 +29,142 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/deployKey'
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    public_key:
+                      type: string
+                    created_at:
+                      type: string
+                      format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: List deploy keys
+      x-summary-source: derived
     post:
+      operationId: createDeployKey
       tags:
       - deployKey
-      operationId: createDeployKey
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/deployKey'
+                type: object
+                properties:
+                  id:
+                    type: string
+                  public_key:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-    servers:
-    - url: https://api.netlify.com/api/v1
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Create deploy key
+      x-summary-source: derived
   /deploy_keys/{key_id}:
-    get:
-      tags:
-      - deployKey
-      operationId: getDeployKey
-      parameters:
-      - name: key_id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/deployKey'
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-    delete:
-      tags:
-      - deployKey
-      operationId: deleteDeployKey
-      parameters:
-      - name: key_id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '204':
-          description: Not Content
-          content: {}
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
     parameters:
     - name: key_id
       in: path
       required: true
       schema:
         type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+    get:
+      operationId: getDeployKey
+      tags:
+      - deployKey
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  public_key:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Get deploy key
+      x-summary-source: derived
+    delete:
+      operationId: deleteDeployKey
+      tags:
+      - deployKey
+      responses:
+        '204':
+          description: Not Content
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Delete deploy key
+      x-summary-source: derived
 components:
-  schemas:
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-    deployKey:
-      type: object
-      properties:
-        id:
-          type: string
-        public_key:
-          type: string
-        created_at:
-          type: string
-          format: dateTime
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
-x-refined-from:
-- netlify-deploykey-api-openapi.yml
-- netlify-openapi-2.57.0-swagger.json
+  description: Online documentation
 x-tagGroups:
 - name: OAuth
   tags:
@@ -192,6 +215,9 @@ x-tagGroups:
 - name: Functions
   tags:
   - function
+- name: Database
+  tags:
+  - database
 - name: Forms
   tags:
   - form
@@ -203,4 +229,3 @@ x-tagGroups:
   tags:
   - asset
   - assetPublicSignature
-x-original-swagger-version: '2.0'

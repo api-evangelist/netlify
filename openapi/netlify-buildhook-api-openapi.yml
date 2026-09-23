@@ -1,13 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Netlify Build Hook API
+  version: 2.57.0
+  title: Netlify's API documentation Build Hook API
+  description: Netlify is a hosting service for the programmable web.
   termsOfService: https://www.netlify.com/legal/terms-of-use/
   x-logo:
     url: netlify-logo.png
     href: https://www.netlify.com/docs/
     altText: Netlify
-  version: '1.0'
-  description: 'Operations tagged buildHook across 2 of this provider''s published API definitions: netlify-buildhook-api-openapi.yml, netlify-openapi-2.57.0-swagger.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.netlify.com/api/v1
 security:
@@ -17,16 +17,16 @@ tags:
   x-displayName: Build hook
 paths:
   /sites/{site_id}/build_hooks:
+    parameters:
+    - name: site_id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
+      operationId: listSiteBuildHooks
       tags:
       - buildHook
-      operationId: listSiteBuildHooks
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
       responses:
         '200':
           description: OK
@@ -35,137 +35,90 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/buildHook'
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    title:
+                      type: string
+                    branch:
+                      type: string
+                    url:
+                      type: string
+                    site_id:
+                      type: string
+                    created_at:
+                      type: string
+                      format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: List site build hooks
+      x-summary-source: derived
     post:
+      operationId: createSiteBuildHook
       tags:
       - buildHook
-      operationId: createSiteBuildHook
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/buildHookSetup'
-        required: true
       responses:
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/buildHook'
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  branch:
+                    type: string
+                  url:
+                    type: string
+                  site_id:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
         default:
           description: error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: buildHook
-    parameters:
-    - name: site_id
-      in: path
-      required: true
-      schema:
-        type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
-  /sites/{site_id}/build_hooks/{id}:
-    get:
-      tags:
-      - buildHook
-      operationId: getSiteBuildHook
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/buildHook'
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-    put:
-      tags:
-      - buildHook
-      operationId: updateSiteBuildHook
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/buildHookSetup'
+              type: object
+              properties:
+                title:
+                  type: string
+                branch:
+                  type: string
         required: true
-      responses:
-        '204':
-          description: No content
-          content: {}
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
-      x-codegen-request-body-name: buildHook
-    delete:
-      tags:
-      - buildHook
-      operationId: deleteSiteBuildHook
-      parameters:
-      - name: site_id
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '204':
-          description: No content
-          content: {}
-        default:
-          description: error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error'
+      summary: Create site build hook
+      x-summary-source: derived
+  /sites/{site_id}/build_hooks/{id}:
     parameters:
     - name: site_id
       in: path
@@ -177,56 +130,115 @@ paths:
       required: true
       schema:
         type: string
-    servers:
-    - url: https://api.netlify.com/api/v1
+    get:
+      operationId: getSiteBuildHook
+      tags:
+      - buildHook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  branch:
+                    type: string
+                  url:
+                    type: string
+                  site_id:
+                    type: string
+                  created_at:
+                    type: string
+                    format: dateTime
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Get site build hook
+      x-summary-source: derived
+    put:
+      operationId: updateSiteBuildHook
+      tags:
+      - buildHook
+      responses:
+        '204':
+          description: No content
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                branch:
+                  type: string
+        required: true
+      summary: Update site build hook
+      x-summary-source: derived
+    delete:
+      operationId: deleteSiteBuildHook
+      tags:
+      - buildHook
+      responses:
+        '204':
+          description: No content
+        default:
+          description: error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                properties:
+                  code:
+                    type: integer
+                    format: int64
+                  message:
+                    type: string
+      summary: Delete site build hook
+      x-summary-source: derived
 components:
-  schemas:
-    buildHook:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        branch:
-          type: string
-        url:
-          type: string
-        site_id:
-          type: string
-        created_at:
-          type: string
-          format: dateTime
-    error:
-      required:
-      - message
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int64
-        message:
-          type: string
-    buildHookSetup:
-      type: object
-      properties:
-        title:
-          type: string
-        branch:
-          type: string
   securitySchemes:
     netlifyAuth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: https://app.netlify.com/authorize
           scopes: {}
+          authorizationUrl: https://app.netlify.com/authorize
 externalDocs:
-  description: Online documentation
   url: https://www.netlify.com/docs/api/
-x-refined-from:
-- netlify-buildhook-api-openapi.yml
-- netlify-openapi-2.57.0-swagger.json
+  description: Online documentation
 x-tagGroups:
 - name: OAuth
   tags:
@@ -277,6 +289,9 @@ x-tagGroups:
 - name: Functions
   tags:
   - function
+- name: Database
+  tags:
+  - database
 - name: Forms
   tags:
   - form
@@ -288,4 +303,3 @@ x-tagGroups:
   tags:
   - asset
   - assetPublicSignature
-x-original-swagger-version: '2.0'
