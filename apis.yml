@@ -58,7 +58,7 @@ modified: '2026-08-27'
 specificationVersion: '0.23'
 apis:
 - aid: netlify:netlify-accounttype-api
-  name: Netlify accountType API
+  name: Netlify Account Type API
   description: The accountType API from Netlify — 1 operation(s) for accounttype.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -107,7 +107,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-assetpublicsignature-api
-  name: Netlify assetPublicSignature API
+  name: Netlify Asset Public Signature API
   description: The assetPublicSignature API from Netlify — 1 operation(s) for assetpublicsignature.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -158,7 +158,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-buildhook-api
-  name: Netlify buildHook API
+  name: Netlify Build Hook API
   description: The buildHook API from Netlify — 2 operation(s) for buildhook.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -183,7 +183,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-buildlogmsg-api
-  name: Netlify buildLogMsg API
+  name: Netlify Build Log Msg API
   description: The buildLogMsg API from Netlify — 1 operation(s) for buildlogmsg.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -232,7 +232,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-deployedbranch-api
-  name: Netlify deployedBranch API
+  name: Netlify Deployed Branch API
   description: The deployedBranch API from Netlify — 1 operation(s) for deployedbranch.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -257,7 +257,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-deploykey-api
-  name: Netlify deployKey API
+  name: Netlify Deploy Key API
   description: The deployKey API from Netlify — 2 operation(s) for deploykey.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -282,7 +282,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-devserverhook-api
-  name: Netlify devServerHook API
+  name: Netlify Dev Server Hook API
   description: The devServerHook API from Netlify — 2 operation(s) for devserverhook.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -307,7 +307,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-dnszone-api
-  name: Netlify dnsZone API
+  name: Netlify Dns Zone API
   description: The dnsZone API from Netlify — 6 operation(s) for dnszone.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -428,7 +428,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-hooktype-api
-  name: Netlify hookType API
+  name: Netlify Hook Type API
   description: The hookType API from Netlify — 1 operation(s) for hooktype.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -525,7 +525,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-serviceinstance-api
-  name: Netlify serviceInstance API
+  name: Netlify Service Instance API
   description: The serviceInstance API from Netlify — 3 operation(s) for serviceinstance.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -574,7 +574,7 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 - aid: netlify:netlify-snicertificate-api
-  name: Netlify sniCertificate API
+  name: Netlify Sni Certificate API
   description: The sniCertificate API from Netlify — 1 operation(s) for snicertificate.
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
@@ -858,8 +858,6 @@ apis:
   humanURL: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
   baseURL: https://api.netlify.com/api/v1/
   tags:
-  - Audit Logs
-  tags_raw:
   - Audit Log
   properties:
   - type: OpenAPI
