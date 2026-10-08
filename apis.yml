@@ -965,6 +965,8 @@ apis:
   - type: GraphQL
     url: graphql/netlify-graphql.md
 common:
+- type: FinOps
+  url: finops/netlify-finops.yml
 - type: VendorFacets
   url: vendor-facets/netlify-vendor-facets.yml
 - type: Overlay
