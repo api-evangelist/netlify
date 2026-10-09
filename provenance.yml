@@ -22,17 +22,17 @@ artifacts:
     method: searched
     evidence: declared in the artifact
   collections/netlify-accesstoken-api.opencollection.json:
-    method: derived
-    evidence: openapi/netlify-accesstoken-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-accesstoken-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-accesstoken-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-accountmembership-api.opencollection.json:
-    method: derived
-    evidence: openapi/netlify-accountmembership-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-accountmembership-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-accountmembership-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-accounttype-api.opencollection.json:
     method: derived
     evidence: openapi/netlify-accounttype-api
@@ -52,11 +52,11 @@ artifacts:
     method: derived
     evidence: openapi/netlify-assetpublicsignature-api
   collections/netlify-auditlog-api.opencollection.json:
-    method: derived
-    evidence: openapi/netlify-auditlog-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-auditlog-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-auditlog-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-build-api.opencollection.json:
     method: derived
     evidence: openapi/netlify-build-api
@@ -94,11 +94,11 @@ artifacts:
     method: derived
     evidence: openapi/netlify-deploykey-api
   collections/netlify-devserver-api.opencollection.json:
-    method: derived
-    evidence: openapi/netlify-devserver-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-devserver-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-devserver-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-devserverhook-api.opencollection.json:
     method: derived
     evidence: openapi/netlify-devserverhook-api
@@ -112,11 +112,11 @@ artifacts:
     method: derived
     evidence: openapi/netlify-dnszone-api
   collections/netlify-environmentvariables-api.opencollection.json:
-    method: derived
-    evidence: openapi/netlify-environmentvariables-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-environmentvariables-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-environmentvariables-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-file-api.opencollection.json:
     method: derived
     evidence: openapi/netlify-file-api
@@ -160,11 +160,11 @@ artifacts:
     method: derived
     evidence: openapi/netlify-metadata-api
   collections/netlify-paymentmethod-api.opencollection.json:
-    method: derived
-    evidence: openapi/netlify-paymentmethod-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-paymentmethod-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-paymentmethod-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-purge-api.opencollection.json:
     method: derived
     evidence: openapi/netlify-purge-api
@@ -178,11 +178,11 @@ artifacts:
     method: derived
     evidence: openapi/netlify-serviceinstance-api
   collections/netlify-services-api.opencollection.json:
-    method: derived
-    evidence: openapi/netlify-services-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-services-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-services-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-site-api.opencollection.json:
     method: derived
     evidence: openapi/netlify-site-api
@@ -202,11 +202,11 @@ artifacts:
     method: derived
     evidence: openapi/netlify-snippet-api
   collections/netlify-splittest-api.opencollection.json:
-    method: derived
-    evidence: openapi/netlify-splittest-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-splittest-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-splittest-api
+    method: unknown
+    evidence: no authorship recorded
   collections/netlify-submission-api.opencollection.json:
     method: derived
     evidence: openapi/netlify-submission-api
@@ -249,6 +249,9 @@ artifacts:
   finops/netlify-finops.yml:
     method: generated
     evidence: declared in the artifact
+  front-door-ai/2026-09-17.yml:
+    method: unknown
+    evidence: no authorship recorded
   graphql/netlify-graphql.md:
     method: unknown
     evidence: no authorship recorded
@@ -468,55 +471,7 @@ artifacts:
   json-structure/netlify-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-06T210741.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-07T135032.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T093022.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T111628.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-11T211707.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-12T193225.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-17T064519.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T080027.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T082702.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T114122.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T165047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T191845.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T205517.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-21T110057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T064859.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T171257.yml:
+  kin/checks-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -603,6 +558,123 @@ artifacts:
   kin/score-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T144739.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T195450.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T211839.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T011047.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T224210.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T200636.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T213054.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T214843.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T232836.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T204815.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T222408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T062655.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T080032.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T204651.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T221936.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-13T214537.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T064754.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T210656.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T225847.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T211329.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T230249.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T210549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T225339.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T211151.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T233623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T205255.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T231945.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T165737.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T193153.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T205903.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T232958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T211425.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T233935.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-22T213221.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-23T000603.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T064009.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090406.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T161608.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/netlify-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -617,14 +689,16 @@ artifacts:
     evidence: declared in the artifact
   openapi/_original/netlify-openapi-2.57.0-swagger.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/netlify-openapi-original.yml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
-  openapi/netlify-accesstoken-api-openapi.yml:
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
+  openapi/netlify-access-token-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/netlify-accountmembership-api-openapi.yml:
+  openapi/netlify-account-membership-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/netlify-accounttype-api-openapi.yml:
@@ -639,7 +713,7 @@ artifacts:
   openapi/netlify-agentrunnersession-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/netlify-aigateway-api-openapi.yml:
+  openapi/netlify-ai-gateway-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/netlify-asset-api-openapi.yml:
@@ -648,7 +722,7 @@ artifacts:
   openapi/netlify-assetpublicsignature-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/netlify-auditlog-api-openapi.yml:
+  openapi/netlify-audit-log-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/netlify-build-api-openapi.yml:
@@ -672,7 +746,7 @@ artifacts:
   openapi/netlify-deploykey-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/netlify-devserver-api-openapi.yml:
+  openapi/netlify-dev-server-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/netlify-devserverhook-api-openapi.yml:
@@ -684,7 +758,7 @@ artifacts:
   openapi/netlify-edgefunction-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/netlify-environmentvariables-api-openapi.yml:
+  openapi/netlify-environment-variables-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/netlify-file-api-openapi.yml:
@@ -708,7 +782,7 @@ artifacts:
   openapi/netlify-metadata-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/netlify-paymentmethod-api-openapi.yml:
+  openapi/netlify-payment-method-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/netlify-purge-api-openapi.yml:
@@ -720,9 +794,6 @@ artifacts:
   openapi/netlify-serviceinstance-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/netlify-services-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/netlify-site-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -732,7 +803,7 @@ artifacts:
   openapi/netlify-snippet-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/netlify-splittest-api-openapi.yml:
+  openapi/netlify-split-test-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/netlify-submission-api-openapi.yml:
@@ -859,11 +930,11 @@ artifacts:
     method: searched
     evidence: declared in the artifact
   postman/netlify-accesstoken-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-accesstoken-api
+    method: unknown
+    evidence: no authorship recorded
   postman/netlify-accountmembership-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-accountmembership-api
+    method: unknown
+    evidence: no authorship recorded
   postman/netlify-accounttype-api.postman_collection.json:
     method: derived
     evidence: openapi/netlify-accounttype-api
@@ -874,8 +945,8 @@ artifacts:
     method: derived
     evidence: openapi/netlify-assetpublicsignature-api
   postman/netlify-auditlog-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-auditlog-api
+    method: unknown
+    evidence: no authorship recorded
   postman/netlify-build-api.postman_collection.json:
     method: derived
     evidence: openapi/netlify-build-api
@@ -895,8 +966,8 @@ artifacts:
     method: derived
     evidence: openapi/netlify-deploykey-api
   postman/netlify-devserver-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-devserver-api
+    method: unknown
+    evidence: no authorship recorded
   postman/netlify-devserverhook-api.postman_collection.json:
     method: derived
     evidence: openapi/netlify-devserverhook-api
@@ -904,8 +975,8 @@ artifacts:
     method: derived
     evidence: openapi/netlify-dnszone-api
   postman/netlify-environmentvariables-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-environmentvariables-api
+    method: unknown
+    evidence: no authorship recorded
   postman/netlify-file-api.postman_collection.json:
     method: derived
     evidence: openapi/netlify-file-api
@@ -928,8 +999,8 @@ artifacts:
     method: derived
     evidence: openapi/netlify-metadata-api
   postman/netlify-paymentmethod-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-paymentmethod-api
+    method: unknown
+    evidence: no authorship recorded
   postman/netlify-purge-api.postman_collection.json:
     method: derived
     evidence: openapi/netlify-purge-api
@@ -937,8 +1008,8 @@ artifacts:
     method: derived
     evidence: openapi/netlify-serviceinstance-api
   postman/netlify-services-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-services-api
+    method: unknown
+    evidence: no authorship recorded
   postman/netlify-site-api.postman_collection.json:
     method: derived
     evidence: openapi/netlify-site-api
@@ -949,8 +1020,8 @@ artifacts:
     method: derived
     evidence: openapi/netlify-snippet-api
   postman/netlify-splittest-api.postman_collection.json:
-    method: derived
-    evidence: openapi/netlify-splittest-api
+    method: unknown
+    evidence: no authorship recorded
   postman/netlify-submission-api.postman_collection.json:
     method: derived
     evidence: openapi/netlify-submission-api
@@ -1030,6 +1101,9 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   skills/netlify-mcp-servers.md:
+    method: unknown
+    evidence: no authorship recorded
+  vendor-facets/netlify-vendor-facets.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/netlify-vocabulary.yml:
