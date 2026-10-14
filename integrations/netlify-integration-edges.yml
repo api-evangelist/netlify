@@ -1,0 +1,24 @@
+generated: '2026-10-14'
+method: searched
+checked:
+- new-relic/integrations/new-relic-integration-edges.yml
+source:
+- new-relic/integrations/new-relic-integration-edges.yml
+edges:
+- partner_name: New Relic (own)
+  partner: new-relic
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://newrelic.com/instant-observability/netlify-logs
+  mirror_of: new-relic/integrations/new-relic-integration-edges.yml
+  apps:
+  - Netlify Logs
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Community
