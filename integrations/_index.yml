@@ -168,3 +168,145 @@
     builder: 'community (Meltano Hub variant maintainers: franloza)'
   status: not-a-workflow
   arazzo: null
+- slug: netlify-go-module-proxy
+  label: Go module proxy
+  partner_name: Go module proxy
+  category: official SDK (Go)
+  type: register
+  channel: package-registry
+  evidence: https://pkg.go.dev/github.com/netlify/open-api/v2
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/netlify/open-api/v2
+      version: v2.60.0
+      released: '2026-09-25'
+      released_field: Time
+      lapsed: false
+      page: https://pkg.go.dev/github.com/netlify/open-api/v2
+      repo_leg: github-org:netlify
+      publisher_leg: org:netlify
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: netlify-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/@netlify/api
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@netlify/api'
+      version: 15.1.2
+      released: '2026-08-19'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@netlify/api
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: '@netlify/blobs'
+      version: 11.1.4
+      released: '2026-10-08'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@netlify/blobs
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: '@netlify/build'
+      version: 37.4.3
+      released: '2026-10-17'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@netlify/build
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: '@netlify/cache'
+      version: 4.0.2
+      released: '2026-10-01'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@netlify/cache
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: '@netlify/edge-functions'
+      version: 4.0.2
+      released: '2026-10-01'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@netlify/edge-functions
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: '@netlify/functions'
+      version: 6.0.2
+      released: '2026-10-01'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@netlify/functions
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: '@netlify/open-api'
+      version: 2.60.0
+      released: '2026-09-25'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@netlify/open-api
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: netlify
+      version: 27.13.0
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/netlify
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: netlify-cli
+      version: 27.13.0
+      released: '2026-10-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/netlify-cli
+      repo_leg: github-org:netlify
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    - name: netlify-identity-widget
+      version: 2.0.3
+      released: '2026-07-16'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/netlify-identity-widget
+      repo_leg: domain:netlify.com
+      publisher_leg: email:netlify.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
