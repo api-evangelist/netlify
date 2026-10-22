@@ -39,6 +39,12 @@ checked:
 - https://www.indexventures.com/companies/
 - https://www.sequoiacap.com/our-companies/
 - https://www.sequoiacap.com/sitemap.xml
+- https://vercel.com/integrations
+- https://vercel.com/marketplace
+- https://vercel.com/sitemap.xml
+- https://www.netlify.com/integrations.md
+- https://www.netlify.com/integrations/
+- https://www.netlify.com/llms.txt
 source:
 - new-relic/integrations/new-relic-integration-edges.yml
 edges:
@@ -680,3 +686,2118 @@ edges:
     sector: Enterprise;Infra
   detected_by: sweep-vc-portfolios.py
   first_seen: '2026-10-21'
+- partner_name: 21YunBox
+  app: 21YunBox
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/21yunbox/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.21cloudbox.com/
+  apps:
+  - 21YunBox
+- partner_name: Ably
+  app: Ably
+  partner: ably
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/ably/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://ably.com?utm_campaign=GLB-2210-netlify-mktp&utm_content=netlify-marketplace&utm_medium=marketplace&utm_source=netlify&src=GLB-2210-netlify-mktp
+  apps:
+  - Ably Setup Guide
+- partner_name: Adobe Experience Manager
+  app: Adobe Experience Manager
+  partner: adobe-experience-manager
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/adobeexperiencemanager/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://business.adobe.com/products/experience-manager/adobe-experience-manager.html
+- partner_name: Agility CMS
+  app: Agility CMS
+  partner: agility-cms
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/agility-cms/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://agilitycms.com
+  apps:
+  - Agility CMS Setup Guide
+- partner_name: Aiven
+  app: Aiven
+  partner: aiven
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/aiven/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://aiven.io/
+  apps:
+  - Aiven Setup Guide
+- partner_name: Algolia
+  app: Algolia
+  partner: algolia
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/algolia/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.algolia.com/?utm_source=netlify&utm_medium=referral
+  apps:
+  - Algolia Crawler
+- partner_name: Ample
+  app: Ample
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: unknown
+  relationship: platform-app
+  direction: unknown
+  evidence: https://www.netlify.com/integrations/ample/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+- partner_name: Amplience
+  app: Amplience
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/amplience/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://amplience.com/blog/building-the-amplience-blog-part-1/
+  apps:
+  - Amplience Setup Guide
+- partner_name: Anima
+  app: Anima
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/anima/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.animaapp.com/
+  apps:
+  - Anima Setup Guide
+- partner_name: Applitools
+  app: Applitools
+  partner: applitools
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/applitools/
+  category: Testing & QA
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://applitools.com/
+  apps:
+  - Visual Diff (Applitools)
+- partner_name: Arcjet
+  app: Arcjet
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: unknown
+  relationship: platform-app
+  direction: unknown
+  evidence: https://www.netlify.com/integrations/arcjet/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: extension
+  apps:
+  - Arcjet Extension for Netlify
+- partner_name: Atlassian Bitbucket
+  app: Atlassian Bitbucket
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/atlassian-bitbucket/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: Netlify's own Git-provider connection to Bitbucket (no publisher action)
+  partner_url: https://bitbucket.org/product/
+  partner_candidate: bitbucket
+  apps:
+  - Atlassian Bitbucket Connect with Git
+- partner_name: Atlassian Trello
+  app: Atlassian Trello
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/atlassian-trello/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://trello.com/en
+  partner_candidate: trello
+  apps:
+  - Atlassian Trello Collaborative Deploy Preview
+- partner_name: Auth0
+  app: Auth0
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/auth0/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://support.auth0.com/
+  partner_candidate: auth0
+  apps:
+  - Auth0 extension
+- partner_name: AWS S3
+  app: AWS S3
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/aws-s3/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://aws.amazon.com/s3/
+  partner_candidate: amazon
+  apps:
+  - AWS S3 Log Drains
+- partner_name: Axiom
+  app: Axiom
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/axiom/
+  category: Observability
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://axiom.co
+  partner_candidate: axiom-co
+  apps:
+  - Axiom Log Drains
+- partner_name: BigCommerce
+  app: BigCommerce
+  partner: bigcommerce
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/bigcommerce/
+  category: E-commerce
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.bigcommerce.com/
+  apps:
+  - Bigcommerce Starter Template
+- partner_name: Bloomreach
+  app: Bloomreach
+  partner: bloomreach
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/bloomreach/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.bloomreach.com
+  apps:
+  - Bloomreach Setup Guide
+- partner_name: Bolt
+  app: Bolt
+  partner: bolt-new
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/bolt/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://bolt.new/
+- partner_name: BrowserStack
+  app: BrowserStack
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/browserstack/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://www.browserstack.com/
+  partner_candidate: browserstack
+  apps:
+  - BrowserStack Collaborative Deploy Preview
+- partner_name: Builder.io
+  app: Builder.io
+  partner: builder-io
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/builder-io/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.builder.io/
+  apps:
+  - Builder.io Setup Guide
+- partner_name: Bynder
+  app: Bynder
+  partner: bynder
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/bynder/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.bynder.com/en/
+- partner_name: Clerk
+  app: Clerk
+  partner: clerk-com
+  partner_match: domain+verified
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/clerk/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: clerk.dev 308 -> clerk.com
+  partner_url: https://clerk.dev/
+  apps:
+  - Clerk Starter
+- partner_name: CloudCannon
+  app: CloudCannon
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/cloudcannon/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://cloudcannon.com/
+  apps:
+  - Cloud Cannon Setup Guide
+- partner_name: Cloudflare
+  app: Cloudflare
+  partner: cloudflare
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/cloudflare/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.cloudflare.com/
+  apps:
+  - Cloudflare cache purge
+- partner_name: Cloudinary
+  app: Cloudinary
+  partner: cloudinary
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/cloudinary/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://cloudinary.com/
+  apps:
+  - Cloudinary
+- partner_name: CockroachDB
+  app: CockroachDB
+  partner: cockroachdb
+  partner_match: domain+verified
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/cockroachdb/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: repo cockroachdb (name CockroachDB) on cockroachlabs.com
+  partner_url: https://www.cockroachlabs.com/
+  apps:
+  - CockroachDB Setup Guide
+- partner_name: Codezero
+  app: Codezero
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/codezero/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://codezero.io/
+  apps:
+  - Codezero Extension for Netlify
+- partner_name: CommandBar
+  app: CommandBar
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/commandbar/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.commandbar.com/
+  apps:
+  - CommandBar
+- partner_name: Commerce Layer
+  app: Commerce Layer
+  partner: commerce-layer
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/commerce-layer/
+  category: E-commerce
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://commercelayer.io/
+  apps:
+  - Commerce Layer Ecommerce Template
+- partner_name: commercetools
+  app: commercetools
+  partner: commercetools
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/commercetools/
+  category: E-commerce
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://commercetools.com/
+  apps:
+  - commercetools Setup Guide
+- partner_name: Contentful
+  app: Contentful
+  partner: contentful
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/contentful/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.contentful.com/
+  apps:
+  - Contentful Templates
+  - Netlify App for Contentful
+  - Contentful Integration
+- partner_name: Contentsquare
+  app: Contentsquare
+  partner: contentsquare
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/contentsquare/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://contentsquare.com
+- partner_name: Contentstack
+  app: Contentstack
+  partner: contentstack
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/contentstack/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.contentstack.com/
+  apps:
+  - Contentstack Automation Hub Connector for Netlify
+- partner_name: Convex
+  app: Convex
+  partner: convex
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/convex/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.convex.dev/
+  apps:
+  - Convex Setup Guide
+- partner_name: Couchbase
+  app: Couchbase
+  partner: couchbase
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/couchbase/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.couchbase.com/
+  apps:
+  - Couchbase Setup Guide
+- partner_name: Crownpeak
+  app: Crownpeak
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/crownpeak/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.crownpeak.com/
+  apps:
+  - Crownpeak PWA Template
+- partner_name: Cypress
+  app: Cypress
+  partner: cypressio
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/cypress/
+  category: Testing & QA
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.cypress.io/
+  apps:
+  - Cypress
+- partner_name: Datadog
+  app: Datadog
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/datadog/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://www.datadoghq.com/
+  partner_candidate: datadog
+  apps:
+  - Datadog Log Drains
+- partner_name: DataStax
+  app: DataStax
+  partner: datastax
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/datastax/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.datastax.com/
+  apps:
+  - DataStax Setup Guide
+- partner_name: DatoCMS
+  app: DatoCMS
+  partner: datocms
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/datocms/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.datocms.com/
+  apps:
+  - Automatic environment backups plugin for DatoCMS Netlify API
+  - Netlify Forms Plugin for DatoCMS Netlify API
+  - Netlify Identity Plugin for DatoCMS Netlify API
+  - Netlify App for DatoCMS
+  - DatoCMS Setup Guide for Netlify Create
+- partner_name: DebugBear
+  app: DebugBear
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/debugbear/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.debugbear.com/
+  apps:
+  - DebugBear web performance
+- partner_name: Decap
+  app: Decap
+  partner: decap
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/decap/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://decapcms.org
+  apps:
+  - Decap Starter Templates
+- partner_name: Descope
+  app: Descope
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: unknown
+  relationship: platform-app
+  direction: unknown
+  evidence: https://www.netlify.com/integrations/descope/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  apps:
+  - Descope Starter
+- partner_name: Directus
+  app: Directus
+  partner: directus
+  partner_match: domain+verified
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/directus/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: directus.io 301 -> directus.com
+  partner_url: https://directus.io/
+  apps:
+  - Directus Set Up Guide
+- partner_name: Drupal
+  app: Drupal
+  partner: drupal
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/drupal/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.drupal.org/
+- partner_name: Elastic Path
+  app: Elastic Path
+  partner: elastic-path
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/elastic-path/
+  category: E-commerce
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.elasticpath.com/
+  apps:
+  - Elastic Path Setup Guide
+- partner_name: Fauna
+  app: Fauna
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/fauna/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://fauna.com?utm_source=netlify.com&utm_medium=netlify.com&utm_campaign=netlify_integrations
+  apps:
+  - Fauna Add-on
+- partner_name: Fireproof
+  app: Fireproof
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/fireproof/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://fireproof.storage/service-and-support/
+  apps:
+  - Firepoof Extension for Netlify
+- partner_name: Formspree
+  app: Formspree
+  partner: formspree
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/formspree/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://formspree.io/
+  apps:
+  - Formspree Setup Guide
+  - Formspree
+- partner_name: Ghost Inspector
+  app: Ghost Inspector
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/ghost-inspector/
+  category: Testing & QA
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://ghostinspector.com/
+  apps:
+  - Ghost Inspector
+- partner_name: GitHub
+  app: GitHub
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/github/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  apps:
+  - GitHub Connect with Git
+  - GitHub Collaborative Deploy Preview
+  - GitHub Webhooks
+- partner_name: GitLab
+  app: GitLab
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/gitlab/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://about.gitlab.com/
+  partner_candidate: gitlab
+  apps:
+  - GitLab Webhooks
+  - GitLab Collaborative Deploy Preview
+- partner_name: Hashicorp Terraform
+  app: Hashicorp Terraform
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/hashicorp-terraform/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  apps:
+  - Netlify Terraform provider Setup Guide
+- partner_name: HUMAN Security
+  app: HUMAN Security
+  partner: human-security
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/human-security/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.humansecurity.com/contact-us
+  apps:
+  - Site Protection Netlify Edge Function Enforcer
+- partner_name: Hygraph
+  app: Hygraph
+  partner: hygraph
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/hygraph/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://hygraph.com
+  apps:
+  - Hygraph Netlify App
+- partner_name: Inngest
+  app: Inngest
+  partner: inngest
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/inngest/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.inngest.com/
+  apps:
+  - Inngest
+- partner_name: Jamsocket
+  app: Jamsocket
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/jamsocket/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://jamsocket.com
+  apps:
+  - Jamsocket Extension for Netlify
+  - Jamsocket and Supabase Starter Kit
+- partner_name: kickstartDS
+  app: kickstartDS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: unknown
+  relationship: platform-app
+  direction: unknown
+  evidence: https://www.netlify.com/integrations/kickstartds/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  apps:
+  - kickstartDS Starter for 11ty
+  - kickstartDS CMS Starter for Storyblok
+  - kickstartDS CMS Starter for Static CMS
+- partner_name: Kontent.ai
+  app: Kontent.ai
+  partner: kontent-ai
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/kontent-ai/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://tracker.kontent.ai/l/849473/2021-09-27/4rsts
+  apps:
+  - Kontent.ai Setup Guide
+- partner_name: LambdaTest
+  app: LambdaTest
+  partner: lambdatest
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/lambdatest/
+  category: Testing & QA
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.lambdatest.com/
+  apps:
+  - LambdaTest SDK Integration
+- partner_name: Lighthouse
+  app: Lighthouse
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/lighthouse/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  apps:
+  - Lighthouse
+- partner_name: Logflare
+  app: Logflare
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/logflare/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://logflare.app/
+  apps:
+  - Logflare Log Drains
+- partner_name: Loom
+  app: Loom
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/loom/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://www.loom.com/
+  partner_candidate: loom
+  apps:
+  - Loom Collaborative Deploy Preview
+- partner_name: Magnolia
+  app: Magnolia
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/magnolia/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.magnolia-cms.com/
+  apps:
+  - Magnolia Setup Guide
+- partner_name: Microsoft Azure DevOps
+  app: Microsoft Azure DevOps
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/microsoft-azure-devops/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://azure.microsoft.com/en-us/
+  partner_candidate: microsoft-azure-devops
+  apps:
+  - Microsoft Azure DevOps Webhooks
+  - Microsoft Azure DevOps Connect with Git
+- partner_name: MongoDB
+  app: MongoDB
+  partner: mongodb
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/mongodb/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.mongodb.com/
+  apps:
+  - Developing a Web Application with Netlify and MongoDB
+  - RAG based chatbot using Langchain and MongoDB Atlas
+- partner_name: Moralis
+  app: Moralis
+  partner: moralis
+  partner_match: domain+verified
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/moralis/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: moralis.io 301 -> developers.moralis.com; repo moralis
+  partner_url: https://moralis.io/
+  apps:
+  - Moralis Starter
+- partner_name: Nacelle
+  app: Nacelle
+  partner: nacelle
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/nacelle/
+  category: E-commerce
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://nacelle.com/
+  apps:
+  - Nacelle Setup Guide
+- partner_name: New Relic
+  app: New Relic
+  partner: new-relic
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/new-relic/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://newrelic.com/
+  apps:
+  - New Relic Log Drains
+  - New Relic
+- partner_name: Nile
+  app: Nile
+  partner: thenile
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/nile/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.thenile.dev/contact-us
+  apps:
+  - Nile Extension for Netlify
+- partner_name: Nimbella
+  app: Nimbella
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/nimbella/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://nimbella.com/platform
+  apps:
+  - Nimbella
+- partner_name: NuxtLabs
+  app: NuxtLabs
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/nuxtlabs/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://nuxtlabs.com/
+  apps:
+  - NuxtLabs Setup Guide
+- partner_name: OnlineOrNot
+  app: OnlineOrNot
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/onlineornot/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://onlineornot.com/
+  apps:
+  - PerfBeacon
+- partner_name: OpenAI
+  app: OpenAI
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/openai/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  apps:
+  - Netlify ChatGPT Plugin
+- partner_name: Optimizely
+  app: Optimizely
+  partner: optimizely
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/optimizely/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.optimizely.com/
+  apps:
+  - Create a demo site using CMS (SaaS) and Netlify
+- partner_name: PageWatch
+  app: PageWatch
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/pagewatch/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://pagewatch.dev/
+  apps:
+  - PageWatch Audit
+- partner_name: Paligo
+  app: Paligo
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/paligo/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://paligo.net/
+  apps:
+  - Paligo Setup Guide
+- partner_name: PlanetScale
+  app: PlanetScale
+  partner: planetscale
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/planetscale/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://planetscale.com/
+  apps:
+  - PlanetScale Setup Guide
+- partner_name: PolyScale
+  app: PolyScale
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/polyscale/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.polyscale.ai/
+  apps:
+  - PolyScale Setup Guide
+- partner_name: Prerender.io
+  app: Prerender.io
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/prerender-io/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://prerender.io/partners/netlify/?utm_source=website&utm_medium=referral&utm_campaign=netlify-team
+- partner_name: Prisma
+  app: Prisma
+  partner: prisma
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/prisma/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: extension
+  partner_url: https://www.prisma.io/
+  apps:
+  - Prisma Postgres
+- partner_name: Prismic
+  app: Prismic
+  partner: prismic
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/prismic/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://prismic.io/
+  apps:
+  - Prismic Setup Guide
+- partner_name: QA Wolf
+  app: QA Wolf
+  partner: qa-wolf
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/qa-wolf/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.qawolf.com/
+  apps:
+  - QA Wolf
+- partner_name: React Bricks
+  app: React Bricks
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/react-bricks/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://reactbricks.com/
+  apps:
+  - React Bricks - Deploy on Netlify
+- partner_name: Redis
+  app: Redis
+  partner: redis
+  partner_match: domain+verified
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/redis/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: redis.com 301 -> redis.io
+  partner_url: https://redis.com/
+  apps:
+  - Redis Setup Guide
+- partner_name: RedwoodJS
+  app: RedwoodJS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: unknown
+  relationship: platform-app
+  direction: unknown
+  evidence: https://www.netlify.com/integrations/redwoodjs/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+- partner_name: Remix
+  app: Remix
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/remix/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://remix.run/
+  apps:
+  - Remix K-pop Stack
+  - Remix Admin Template
+- partner_name: Rocket
+  app: Rocket
+  partner: rocket
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/rocket/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.rocket.new/
+- partner_name: Ending Support of Netlify Graph - Features - Netlify Support Forums
+  app: Ending Support of Netlify Graph - Features - Netlify Support Forums
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: unknown
+  relationship: platform-app
+  direction: unknown
+  evidence: https://www.netlify.com/integrations/salesforce/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+- partner_name: Sanity
+  app: Sanity
+  partner: sanity
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/sanity/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.sanity.io/
+  apps:
+  - Sanity Setup Guide for Netlify Create
+  - Sanity Studio Dashboard Widget for Netlify
+- partner_name: Sentry
+  app: Sentry
+  partner: sentry-system
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/sentry/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://sentry.io/welcome/
+  apps:
+  - Sentry
+- partner_name: Shopify
+  app: Shopify
+  partner: shopify
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/shopify/
+  category: E-commerce
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.shopify.com/
+- partner_name: Simple Analytics
+  app: Simple Analytics
+  partner: simpleanalytics
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/simple-analytics/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://docs.simpleanalytics.com/support
+  apps:
+  - Simple Analytics extension
+- partner_name: Sitecore
+  app: Sitecore
+  partner: sitecore
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/sitecore/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.sitecore.com/
+  apps:
+  - Deploy the Next.js JSS app to Netlify
+- partner_name: Slack
+  app: Slack
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/slack/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://slack.com/
+  apps:
+  - Slack Webhooks
+- partner_name: Snaplet
+  app: Snaplet
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/snaplet/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.snaplet.dev/
+  apps:
+  - Snaplet
+- partner_name: Snyk
+  app: Snyk
+  partner: snyk
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/snyk/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://snyk.io/
+  apps:
+  - Snyk Security
+- partner_name: SpeedCurve
+  app: SpeedCurve
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/speedcurve/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.speedcurve.com/
+  apps:
+  - Speedcurve
+- partner_name: Spryker
+  app: Spryker
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/spryker/
+  category: E-commerce
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://spryker.com
+  apps:
+  - Spryker Setup Guide
+- partner_name: Squid Cloud
+  app: Squid Cloud
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/squidcloud/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://squid.cloud
+  apps:
+  - Squid Cloud for Netlify Setup Guide
+  - Squid Cloud Netlify Integration
+- partner_name: Stackbit
+  app: Stackbit
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/stackbit/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.stackbit.com/
+  apps:
+  - Stackbit Setup Guide
+- partner_name: Stately
+  app: Stately
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/stately/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://stately.cloud/blog/deploying-a-nextjs-app-using-statelydb-on-netlify/
+  apps:
+  - StatelyDB + Netlify Starter Template
+- partner_name: StepZen
+  app: StepZen
+  partner: stepzen
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/stepzen/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://stepzen.com/
+  apps:
+  - StepZen
+- partner_name: Storyblok
+  app: Storyblok
+  partner: storyblok
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/storyblok/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.storyblok.com/
+  apps:
+  - Netlify Builds App for Storyblok
+  - Storyblok Setup Guide
+- partner_name: Strapi
+  app: Strapi
+  partner: strapi
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/strapi/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://support.strapi.io/support/home
+  apps:
+  - Strapi
+  - Strapi Plugin for Netlify Deployments Setup Guide
+- partner_name: Stytch
+  app: Stytch
+  partner: stytch
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/stytch/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://stytch.com/
+  apps:
+  - Stytch Starter
+- partner_name: Sumo Logic
+  app: Sumo Logic
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/sumo-logic/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://www.sumologic.com/
+  partner_candidate: sumo-logic
+  apps:
+  - Sumo Logic Log Drains
+- partner_name: Supabase
+  app: Supabase
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://www.netlify.com/integrations/supabase/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: every action on the listing is Netlify's own (docs.netlify.com / netlify-templates)
+  partner_url: https://supabase.io/
+  apps:
+  - Supabase Setup Guide
+- partner_name: Svix
+  app: Svix
+  partner: svix
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/svix/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.svix.com/
+  apps:
+  - Svix Setup Guide
+- partner_name: TakeShape
+  app: TakeShape
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/takeshape/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  partner_url: https://www.takeshape.io/
+  apps:
+  - TakeShape
+- partner_name: TiDB Cloud
+  app: TiDB Cloud
+  partner: pingcap
+  partner_match: domain+verified
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/tidb-cloud/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  match_note: TiDB Cloud is PingCAP's product; website pingcap.com
+  partner_url: https://www.pingcap.com/tidb-cloud/
+  apps:
+  - TiDB Cloud Setup Guide
+- partner_name: Tigris
+  app: Tigris
+  partner: tigris-data
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/tigris/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.tigrisdata.com/jamstack
+  apps:
+  - Tigris Starter
+- partner_name: Turso
+  app: Turso
+  partner: turso
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/turso/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://turso.tech
+  apps:
+  - Turso Setup Guide
+- partner_name: Uniform
+  app: Uniform
+  partner: uniform
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/uniform/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://uniform.dev/
+  apps:
+  - Uniform Setup Guide
+- partner_name: Very Good Security
+  app: Very Good Security
+  partner: vgs
+  partner_match: domain+verified
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/very-good-security/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: build-plugin
+  match_note: repo vgs is named Very Good Security
+  partner_url: https://www.verygoodsecurity.com
+  apps:
+  - Very Good Security
+- partner_name: VShift
+  app: VShift
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/vshift/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.vshift.com/
+- partner_name: VTEX
+  app: VTEX
+  partner: vtex
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/vtex/
+  category: E-commerce
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://vtex.com/
+  apps:
+  - 'How to Build: Future-proof ecommerce websites'
+- partner_name: Windsurf
+  app: Windsurf
+  partner: windsurf
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/windsurf/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://windsurf.com/
+- partner_name: Wix
+  app: Wix
+  partner: wix
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/wix/
+  category: CMS
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://www.wix.com/developers/headless/templates?filter=cms#templates
+  apps:
+  - Wix Content Manager Starter
+  - Wix Pricing Plans Starter
+  - Wix Events Starter
+  - Wix Bookings Starter
+  - Wix Ecommerce Starter
+- partner_name: Wordpress
+  app: Wordpress
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/wordpress/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://wordpress.com/
+- partner_name: Xata
+  app: Xata
+  partner: xata
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/xata/
+  category: Database
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://xata.io/
+  apps:
+  - Xata Setup Guide
+- partner_name: Zapier
+  app: Zapier
+  partner: zapier
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://www.netlify.com/integrations/zapier/
+  category: Search
+  detected_by: sweep-jamstack-hosting-integrations.py
+  detected: '2026-10-22'
+  partner_tier: listing
+  partner_url: https://zapier.com/
+  apps:
+  - Zapier Netlify API
