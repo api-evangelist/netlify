@@ -46,6 +46,8 @@ checked:
 - https://www.netlify.com/integrations/
 - https://www.netlify.com/llms.txt
 - raycast/integrations/raycast-integration-edges.yml
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
 source:
 - new-relic/integrations/new-relic-integration-edges.yml
 edges:
@@ -2819,3 +2821,44 @@ edges:
   detected: '2026-10-22'
   detected_by: mirror-platform-listings.py
   category: Raycast Store extension (first-party)
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: netlify.com
+    matched_domain: netlify.com
+    matched_by: domain
+    apis_listed: 1
+    version_count: 1
+    first_added: '2016-09-30'
+    last_updated: '2023-03-06'
+    origin_publisher_hosted: false
+    origin_hosts:
+    - raw.githubusercontent.com
+    categories:
+    - cloud
+    own_openapi_files: 41
+    listings:
+    - key: netlify.com
+      title: Netlify's API documentation
+      preferred: 2.15.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/netlify.com/2.15.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/netlify/open-api/master/swagger.yml
+      openapi_version: '2.0'
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
