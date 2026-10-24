@@ -258,6 +258,12 @@ artifacts:
   graphql/netlify-schema.graphql:
     method: unknown
     evidence: no authorship recorded
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
+  integrations/netlify-integration-edges.yml:
+    method: searched
+    evidence: declared in the artifact
   json-schema/netlify-accesstoken-schema.json:
     method: unknown
     evidence: no authorship recorded
@@ -471,127 +477,7 @@ artifacts:
   json-structure/netlify-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T125852.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T133943.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T143147.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T154045.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-26T215308.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T094438.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T103455.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T123021.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T132314.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T140727.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T213958.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T230545.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T203505.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T220315.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-31T223420.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T063623.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T210448.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T222808.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T224043.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T161828.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T174231.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T062714.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T212454.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T224856.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T055819.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T144739.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T195450.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T211839.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T011047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T224210.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T200636.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T213054.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T214843.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T232836.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T204815.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T222408.yml:
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-12T062655.yml:
@@ -675,6 +561,21 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/netlify-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -689,8 +590,8 @@ artifacts:
     evidence: declared in the artifact
   openapi/_original/netlify-openapi-2.57.0-swagger.json:
     method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+    evidence: the same operations as https://open-api.netlify.com/openapi.json (sha256 f7476850adc4, fetched
+      2026-10-04)
   openapi/_original/netlify-openapi-original.yml:
     method: harvested
     evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
@@ -818,111 +719,234 @@ artifacts:
   openapi/netlify-x-internal-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  overlays/netlify-access-token-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/netlify-accesstoken-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-account-membership-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-accountmembership-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-accounttype-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-accounttype-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-agentrunner-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/netlify-agentrunnerhook-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/netlify-agentrunnersession-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/netlify-ai-gateway-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/netlify-asset-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-asset-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-assetpublicsignature-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-assetpublicsignature-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-audit-log-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-auditlog-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-build-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-build-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-buildhook-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-buildhook-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-buildlogmsg-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-buildlogmsg-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-database-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/netlify-deploy-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-deploy-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-deployedbranch-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-deployedbranch-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-deploykey-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-deploykey-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-dev-server-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-devserver-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-devserverhook-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-devserverhook-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-dnszone-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-dnszone-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-edgefunction-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/netlify-environment-variables-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-environmentvariables-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-file-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-file-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-form-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-form-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-function-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-function-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-hook-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-hook-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-hooktype-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-hooktype-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-member-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-member-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-metadata-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-metadata-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-payment-method-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-paymentmethod-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-purge-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-purge-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-service-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/netlify-serviceinstance-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-serviceinstance-overlay.yaml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/netlify-services-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-site-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-site-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-snicertificate-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-snicertificate-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-snippet-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-snippet-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-split-test-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-splittest-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-submission-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-submission-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-ticket-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-ticket-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-user-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-user-overlay.yaml:
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/netlify-x-internal-api-phrasing-overlay.yaml:
     method: generated
     evidence: declared in the artifact
   overlays/netlify-x-internal-overlay.yaml:
-    method: generated
-    evidence: declared in the artifact
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
   packages/netlify-packages.yml:
     method: searched
     evidence: declared in the artifact
