@@ -1,0 +1,188 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://www.netlify.com/pricing/
+sources:
+- https://www.netlify.com/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T120612
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+  managed_tier: Personal
+published: true
+note: Credit-based tiered plans plus metered credit rates; Enterprise is custom.
+plan_count: 11
+currency: USD
+plans:
+- name: Free
+  price_text: $0 forever
+  price: 0
+  currency: USD
+  period: month
+  unit: team
+  included_quota: 300 credit limit / month
+- name: Personal
+  price_text: $9 /month
+  price: 9
+  currency: USD
+  period: month
+  unit: 1 member
+  included_quota: 1,000 credits / month
+  overage: $5 / 500 additional credits
+- name: Pro
+  price_text: $20 /month
+  price: 20
+  currency: USD
+  period: month
+  unit: unlimited members
+  included_quota: 'Choose a Pro tier: 3,000 credits/month 5,000 credits/month 10,000 credits/month 15,000
+    credits/month 20,000 credits/month'
+  overage: $10 / 1,500 additional credits
+- name: Enterprise
+  price_text: Custom
+  period: none
+  included_quota: Custom
+  overage: Custom
+- name: Production deploys
+  price_text: 15 credits each
+  price: 15
+  period: per-use
+  unit: production deploy
+- name: Compute
+  price_text: 10 credits per GB-hour
+  price: 10
+  period: per-use
+  unit: GB-hour
+- name: Bandwidth
+  price_text: 20 credits per GB
+  price: 20
+  period: per-use
+  unit: GB
+- name: Web requests
+  price_text: 2 credits per 10k requests
+  price: 2
+  period: per-use
+  unit: 10k requests
+- name: AI inference
+  price_text: Varies based on AI model
+  period: per-use
+  unit: AI model usage
+- name: Extra concurrent build
+  price_text: $40 each
+  price: 40
+  currency: USD
+  period: month
+  unit: concurrent build
+- name: Extra Preview Server
+  price_text: $15 each
+  price: 15
+  currency: USD
+  period: month
+  unit: preview server
+rate_limit_statements:
+- 300 credit limit / month
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - free
+  - hybrid
+  - metered
+  - subscription
+  units:
+  - data
+  - request
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Personal
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Enterprise
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Production deploys
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Compute
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Bandwidth
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Web requests
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - request
+    periods:
+    - other
+  - name: AI inference
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Extra concurrent build
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Extra Preview Server
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
