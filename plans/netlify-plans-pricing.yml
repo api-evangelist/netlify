@@ -88,16 +88,18 @@ plans:
 rate_limit_statements:
 - 300 credit limit / month
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - free
   - hybrid
   - metered
+  - seat
   - subscription
   units:
   - data
   - request
+  - seat
   plans:
   - name: Free
     access: other
@@ -109,18 +111,18 @@ x-canonical:
     - month
   - name: Personal
     access: other
-    model: hybrid
+    model: seat
     model_how: derived
     units:
-    - other
+    - seat
     periods:
     - month
   - name: Pro
     access: other
-    model: hybrid
+    model: seat
     model_how: derived
     units:
-    - other
+    - seat
     periods:
     - month
   - name: Enterprise
