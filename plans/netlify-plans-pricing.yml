@@ -88,7 +88,7 @@ plans:
 rate_limit_statements:
 - 300 credit limit / month
 x-canonical:
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - free
